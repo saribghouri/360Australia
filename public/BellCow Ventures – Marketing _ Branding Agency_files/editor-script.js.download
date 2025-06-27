@@ -1,0 +1,464 @@
+(function ($) {
+    "use strict";
+
+    function header($scope, $) {
+        var headerAnimation = gsap.timeline({ yoyo: false, reversed: true });
+        headerAnimation.pause();
+
+        headerAnimation.from($('.overlay-menu'), { autoAlpha: 0 });
+        headerAnimation.from($('.overlay-menu .left-area'), { y: '100vh' }, 0.1);
+        headerAnimation.from($('.overlay-menu .right-area'), { y: '-100vh' }, 0.1);
+        headerAnimation.from($('.overlay-menu .right-area ul'), { autoAlpha: 0, stagger: 0.1 }, 0.5);
+        headerAnimation.from($('.overlay-menu nav li:not(.overlay-menu nav ul li ul li)'), { stagger: 0.1, y: 30, autoAlpha: 0, ease: "Expo.easeInOut" }, 0.5);
+        headerAnimation.from($('.overlay-menu nav li:not(.overlay-menu nav ul li ul li)'), { 'clearProps': 'all', delay: 1.3, ease: "Expo.easeInOut" }, 0.5);
+
+        $('header .burger-menu, .overlay-menu .close').on('click', function () {
+            headerAnimation.reversed() ? headerAnimation.play() : headerAnimation.reverse();
+            $('.overlay-menu').toggleClass('active');
+        });
+
+        $('.overlay-menu .menu-item-has-children').each(function () {
+            $(this).find('> a').attr('href', 'javascript:void(0);');
+            $(this).children('ul').append('<li><a class="back" href="javascript:void(0);">back <i class="ri-corner-down-left-line"></i></a></li>');
+        });
+
+        $('.overlay-menu .menu-item-has-children > a').each(function () {
+            var overlay_animation = gsap.timeline({ yoyo: false, reversed: true });
+
+            overlay_animation.pause();
+            overlay_animation.to($(this).closest('ul').children('li').children('a'), { stagger: 0.1, autoAlpha: 0, y: -50, 'pointer-events': 'none', ease: Power3.easeOut });
+            overlay_animation.to($(this).next('ul'), { 'z-index': '10', 'pointer-events': 'all' }),
+                overlay_animation.from($(this).next('ul').children('li').children('a'), { stagger: 0.1, autoAlpha: 0, y: 30, ease: Power3.easeOut });
+
+            this.animation = overlay_animation;
+
+            $(".overlay-menu .back, .overlay-menu .close").on('click', function () {
+                overlay_animation.reverse();
+            });
+        });
+
+        $(".overlay-menu .menu-item-has-children > a").on('click', function () {
+            this.animation.reversed() ? this.animation.play() : this.animation.reverse();
+        });
+
+        if ($('#fixed').length) {
+            scrollbar.addListener(({ offset }) => {
+                fixed.style.top = offset.y + ($(window).height() - 90) + 'px';
+            });
+        }
+    }
+
+    function xboActive($scope, $) {
+        if ($(".xbo").length) {
+            $('.xbo').appear();
+            $(document.body).on('appear', '.xbo', function (e) {
+                var odo = $(".xbo");
+                odo.each(function () {
+                    var countNumber = $(this).attr("data-count");
+                    $(this).html(countNumber);
+                });
+                window.xboOptions = {
+                    format: 'd',
+                };
+            });
+        }
+    }
+    function xboActive2($scope, $) {
+        if ($(".xbo_trigger").length) {
+            var odo = $(".xbo_trigger");
+            odo.each(function () {
+                var countNumber = $(this).attr("data-count");
+                var odometerInstance = new Odometer({
+                    el: this,
+                    value: 0,
+                    format: 'd',
+                });
+                odometerInstance.render();
+                odometerInstance.update(countNumber);
+            });
+
+            $('.xbo_trigger').appear();
+            $(document.body).on('appear', '.xboh', function (e) {
+                // This event handler can be empty or used for additional functionality if needed
+            });
+        }
+    }
+
+    function marqueeActive($scope, $) {
+        $('.marquee-left').marquee({
+            speed: 50,
+            gap: 0,
+            delayBeforeStart: 0,
+            direction: 'left',
+            duplicated: true,
+            pauseOnHover: false,
+            startVisible: true,
+        });
+        $('.marquee-right').marquee({
+            speed: 50,
+            gap: 0,
+            delayBeforeStart: 0,
+            direction: 'right',
+            duplicated: true,
+            pauseOnHover: false,
+            startVisible: true,
+        });
+    }
+
+    function teamActive($scope, $) {
+        var slider = new Swiper(".team-slider", {
+            loop: true,
+            spaceBetween: 125,
+            speed: 400,
+            slidesPerView: 5,
+            autoplay: {
+                enabled: true,
+                delay: 6000
+            },
+            breakpoints: {
+                '1600': {
+                    slidesPerView: 5,
+                },
+                '1200': {
+                    slidesPerView: 4,
+                    spaceBetween: 50,
+                },
+                '992': {
+                    slidesPerView: 4,
+                    spaceBetween: 40,
+                },
+                '768': {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                '576': {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                '0': {
+                    slidesPerView: 1,
+                },
+            },
+        });
+    }
+
+    // gallery slider
+    function gallerySliderActive($scope, $) {
+        var slider = new Swiper('.service-gallery-slider', {
+            spaceBetween: 30,
+            slidesPerView: 5,
+            roundLengths: true,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                enabled: true,
+                delay: 6000
+            },
+            speed: 400,
+            breakpoints: {
+                '1600': {
+                    slidesPerView: 5,
+                },
+                '1200': {
+                    slidesPerView: 4,
+                },
+                '992': {
+                    slidesPerView: 3,
+                },
+                '768': {
+                    slidesPerView: 2,
+                },
+                '576': {
+                    slidesPerView: 2,
+                },
+                '0': {
+                    slidesPerView: 1,
+                },
+            },
+        });
+    }
+    //brand slider
+    function brandSliderActive($scope, $) {
+        var slider = new Swiper('.brand-slider', {
+            slidesPerView: 6,
+            roundLengths: true,
+            loop: true,
+            loopAdditionalSlides: 30,
+            autoplay: {
+                enabled: true,
+                delay: 6000
+            },
+            speed: 400,
+            breakpoints: {
+                '1600': {
+                    slidesPerView: 6,
+                },
+                '1200': {
+                    slidesPerView: 6,
+                },
+                '992': {
+                    slidesPerView: 5,
+                },
+                '768': {
+                    slidesPerView: 4,
+                },
+                '576': {
+                    slidesPerView: 3,
+                },
+                '0': {
+                    slidesPerView: 2,
+                },
+            },
+        });
+    }
+    //service slider
+    function serviceSliderActive($scope, $) {
+        var slider = new Swiper('.service-slider', {
+            spaceBetween: 0,
+            slidesPerView: 4,
+            roundLengths: true,
+            loop: true,
+            autoplay: {
+                enabled: true,
+                delay: 6000
+            },
+            speed: 400,
+            breakpoints: {
+                '1600': {
+                    slidesPerView: 4,
+                },
+                '1200': {
+                    slidesPerView: 3,
+                },
+                '992': {
+                    slidesPerView: 3,
+                },
+                '768': {
+                    slidesPerView: 2,
+                },
+                '576': {
+                    slidesPerView: 2,
+                },
+                '0': {
+                    slidesPerView: 1,
+                },
+            },
+        });
+    }
+    // award slider
+    function awardSliderActive($scope, $) {
+        var slider = new Swiper('.award-slider', {
+            spaceBetween: 30,
+            slidesPerView: 4,
+            roundLengths: true,
+            loop: true,
+            navigation: {
+                nextEl: '.xb-swiper-arrow-next',
+                prevEl: '.xb-swiper-arrow-prev',
+            },
+            autoplay: {
+                enabled: true,
+                delay: 4000
+            },
+            speed: 400,
+            breakpoints: {
+                '1600': {
+                    slidesPerView: 4,
+                },
+                '1200': {
+                    slidesPerView: 4,
+                },
+                '992': {
+                    slidesPerView: 3,
+                },
+                '768': {
+                    slidesPerView: 2,
+                },
+                '576': {
+                    slidesPerView: 2,
+                },
+                '0': {
+                    slidesPerView: 1,
+                },
+            },
+        });
+    }
+
+    function scrollTriggerActive($scope, $) {
+        gsap.registerPlugin(ScrollTrigger);
+        $('.xb_trigger').each(function () {
+            gsap.to(this, {
+                scrollTrigger: {
+                    trigger: this,
+                },
+                onComplete: function () {
+                    this.targets().forEach(function (target) {
+                        target.classList.add('triggered');
+                    });
+                }
+            });
+        });
+    }
+
+    //team slider
+    function teamSliderActive($scope, $) {
+        var slider = new Swiper(".team-slider-two", {
+            loop: true,
+            spaceBetween: 30,
+            speed: 400,
+            slidesPerView: 2,
+            direction: "vertical",
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            autoplay: {
+                enabled: true,
+                delay: 6000
+            },
+            breakpoints: {
+                '1600': {
+                    slidesPerView: 2,
+                },
+                '768': {
+                    slidesPerView: 2,
+                },
+                '576': {
+                    slidesPerView: 3,
+                },
+                '0': {
+                    slidesPerView: 2,
+                },
+            },
+        });
+    }
+
+    // element parallax
+    function elementParallax($scope, $) {
+        $('.xb-element-parallax').each(function () {
+            var $this = $(this);
+            var dampingFactor = 0.1;
+
+            function handleMouseMove(e) {
+                var offset = $this.offset();
+                var mouseX = e.pageX - offset.left;
+                var mouseY = e.pageY - offset.top;
+                var translateX = (mouseX - $this.width() / 2) * dampingFactor;
+                var translateY = (mouseY - $this.height() / 2) * dampingFactor;
+
+                var translateTransform = 'translate(' + translateX + 'px, ' + translateY + 'px)';
+                $this.css({
+                    'transform': translateTransform,
+                    'transition': 'transform 0.1s ease-out'  // Adjust the duration and easing as needed
+                });
+            }
+
+            function resetTransform() {
+                $this.css({
+                    'transform': 'none',
+                    'transition': 'transform 0.1s ease-out'  // Adjust the duration and easing as needed
+                });
+            }
+
+            if ($this.closest('.xb-parent-element-parallax').length) {
+                var pare2 = $this.closest('.xb-parent-element-parallax');
+                pare2.mousemove(function (e) {
+                    handleMouseMove(e);
+                });
+                pare2.mouseleave(resetTransform);
+            } else {
+                $this.mousemove(handleMouseMove);
+                $this.mouseleave(resetTransform);
+            }
+        });
+    }
+
+    // portfolio slider
+    function portfolioSlider($scope, $) {
+        var slider = new Swiper('.portfolio-slider', {
+            spaceBetween: 30,
+            slidesPerView: 2,
+            roundLengths: true,
+            loop: true,
+            autoplay: {
+                enabled: true,
+                delay: 4000
+            },
+            speed: 400,
+            breakpoints: {
+                '1600': {
+                    slidesPerView: 2,
+                },
+                '1200': {
+                    slidesPerView: 2,
+                },
+                '992': {
+                    slidesPerView: 2,
+                },
+                '768': {
+                    slidesPerView: 2,
+                },
+                '576': {
+                    slidesPerView: 2,
+                },
+                '0': {
+                    slidesPerView: 1,
+                },
+            },
+        });
+    }
+
+    // testimonial slider
+    function testimonialSlider($scope, $) {
+        var slider = new Swiper('.testimonial-slider', {
+            spaceBetween: 0,
+            slidesPerView: 1,
+            roundLengths: true,
+            loop: true,
+            centeredSlides: true,
+            effect: 'fade',
+            loopAdditionalSlides: 30,
+            autoplay: {
+                enabled: true,
+                delay: 6000
+            },
+            navigation: {
+                nextEl: '.xb-swiper-arrow-next',
+                prevEl: '.xb-swiper-arrow-prev',
+            },
+            speed: 400,
+        });
+    }
+
+    $(window).on('elementor/frontend/init', function () {
+        if (elementorFrontend.isEditMode()) {
+            elementorFrontend.hooks.addAction('frontend/element_ready/ovix-header-1.default', header)
+            elementorFrontend.hooks.addAction('frontend/element_ready/ovix-header-2.default', header)
+            elementorFrontend.hooks.addAction('frontend/element_ready/ovix-header-3.default', header)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-counter.default', xboActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-marquee.default', marqueeActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-team.default', teamActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-gallery-slider.default', gallerySliderActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-marquee-v2.default', marqueeActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-brand.default', brandSliderActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-about-img.default', xboActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-funfact.default', xboActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-service-v3.default', serviceSliderActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-award-v2.default', awardSliderActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-team-img.default', xboActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-marquee-v3.default', marqueeActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-hero-two.default', xboActive2)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-sec-title.default', scrollTriggerActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-counter-v2.default', xboActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-team-v3.default', teamSliderActive)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-button.default', elementParallax)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-funfact-img.default', elementParallax)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-portfolio-v2.default', portfolioSlider)
+            elementorFrontend.hooks.addAction('frontend/element_ready/int-testimonial-v2.default', testimonialSlider)
+        }
+    });
+
+})(jQuery);

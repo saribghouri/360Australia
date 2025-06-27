@@ -239,7 +239,7 @@ const Header = () => {
             PORTFOLIO
           </Link>
           <Link
-            href="/contact"
+            href="/contactsection"
             className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium px-6 py-2"
             onClick={() => setIsOpen(false)}
           >

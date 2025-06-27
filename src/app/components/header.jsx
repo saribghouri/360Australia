@@ -174,14 +174,14 @@ const Header = () => {
         <div className="flex flex-col py-4 space-y-2">
           <Link
             href="/"
-            className="text-yellow-500 hover:text-white transition-colors duration-300 font-medium px-6 py-2"
+            className="text-[#10d4c4] hover:text-white transition-colors duration-300 font-medium px-6 py-2"
             onClick={() => setIsOpen(false)}
           >
             HOME
           </Link>
           <Link
             href="/about-us"
-            className="text-white hover:text-yellow-500 transition-colors duration-300 font-medium px-6 py-2"
+            className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium px-6 py-2"
             onClick={() => setIsOpen(false)}
           >
             ABOUT US
@@ -191,7 +191,7 @@ const Header = () => {
           <div className="px-6">
             <button
               onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-              className="text-white hover:text-yellow-500 transition-colors duration-300 font-medium flex items-center justify-between w-full py-2"
+              className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium flex items-center justify-between w-full py-2"
             >
               <span>SERVICES</span>
               <ChevronDown
@@ -233,14 +233,14 @@ const Header = () => {
 
           <Link
             href="/portfolio"
-            className="text-white hover:text-yellow-500 transition-colors duration-300 font-medium px-6 py-2"
+            className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium px-6 py-2"
             onClick={() => setIsOpen(false)}
           >
             PORTFOLIO
           </Link>
           <Link
             href="/contact"
-            className="text-white hover:text-yellow-500 transition-colors duration-300 font-medium px-6 py-2"
+            className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium px-6 py-2"
             onClick={() => setIsOpen(false)}
           >
             CONTACT

@@ -1,14 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import {
-  DesktopOutlined,
-  SoundOutlined,
-  GiftOutlined,
-  CalendarOutlined,
-  ShareAltOutlined,
-  BulbOutlined,
-} from "@ant-design/icons"
+import { Monitor, Volume2, Gift, Calendar, Share2, Lightbulb } from "lucide-react"
 
 export default function ServicesSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -19,37 +12,37 @@ export default function ServicesSection() {
 
   const services = [
     {
-      icon: <DesktopOutlined className="text-2xl" />,
+      icon: <Monitor className="w-6 h-6 sm:w-7 sm:h-7" />,
       title: "DESIGNING",
       description:
         "We create stunning visual designs that capture your brand's essence. From logos to website layouts, our designs are tailored to engage and inspire.",
     },
     {
-      icon: <SoundOutlined className="text-2xl" />,
+      icon: <Volume2 className="w-6 h-6 sm:w-7 sm:h-7" />,
       title: "CORPORATE COMMUNICATIONS",
       description:
         "Our team specializes in crafting clear, impactful corporate communications. Whether it's internal messaging or public relations, we ensure your voice is heard and understood.",
     },
     {
-      icon: <GiftOutlined className="text-2xl" />,
+      icon: <Gift className="w-6 h-6 sm:w-7 sm:h-7" />,
       title: "GIVEAWAYS",
       description:
         "Boost engagement and attract new customers with our creative giveaway campaigns. We design and execute strategies that create buzz and excitement around your brand.",
     },
     {
-      icon: <CalendarOutlined className="text-2xl" />,
+      icon: <Calendar className="w-6 h-6 sm:w-7 sm:h-7" />,
       title: "EVENT MANAGEMENT",
       description:
         "From concept to execution, we handle all aspects of event planning. Our team ensures that your events are memorable and aligned with your brand identity.",
     },
     {
-      icon: <ShareAltOutlined className="text-2xl" />,
+      icon: <Share2 className="w-6 h-6 sm:w-7 sm:h-7" />,
       title: "SOCIAL MEDIA MARKETING",
       description:
         "We develop dynamic social media strategies that build community and foster engagement. Our content is crafted to resonate with your audience across all platforms.",
     },
     {
-      icon: <BulbOutlined className="text-2xl" />,
+      icon: <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7" />,
       title: "STRATEGIC PLANNING",
       description:
         "Our strategic planning services help you define your goals and create a roadmap to achieve them. We analyze market trends and audience insights to ensure your marketing efforts are effective and targeted.",
@@ -57,43 +50,45 @@ export default function ServicesSection() {
   ]
 
   return (
-    <section className=" bg-black text-white py-16 px-4 relative overflow-hidden">
+    <section className="bg-black text-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-500/5 to-transparent"></div>
       </div>
 
-      {/* Decorative Element */}
-      <div className="absolute top-20 right-20 opacity-80">
+      {/* Decorative Element - Hidden on mobile, visible on larger screens */}
+      <div className="absolute top-10 sm:top-16 md:top-20 right-4 sm:right-10 md:right-20 opacity-60 sm:opacity-80 hidden sm:block">
         <div
           className={`transform transition-all duration-1000 ${isVisible ? "rotate-0 scale-100" : "rotate-45 scale-0"}`}
         >
-          <div className="w-16 h-4 bg-[#10d4c4] rounded-full mb-2 transform rotate-12"></div>
-          <div className="w-12 h-4 bg-[#10d4c4] rounded-full transform rotate-12"></div>
+          <div className="w-8 sm:w-12 md:w-16 h-2 sm:h-3 md:h-4 bg-[#10d4c4] rounded-full mb-1 sm:mb-2 transform rotate-12"></div>
+          <div className="w-6 sm:w-9 md:w-12 h-2 sm:h-3 md:h-4 bg-[#10d4c4] rounded-full transform rotate-12"></div>
         </div>
       </div>
 
       <div className="max-w-[90%] mx-auto">
         {/* Header */}
         <div
-          className={`text-start mb-16 max-w-[80%] transform transition-all duration-800 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+          className={`text-start mb-8 sm:mb-12 md:mb-16 transform transition-all duration-800 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
         >
-          <div className="flex w-full items-center max-w-[80%] justify-start mb-4 text-start">
-            <div className="w-4 h-2 bg-[#10d4c4] rounded-full mr-3"></div>
-            <span className="text-[#10d4c4] text-sm text-start font-medium tracking-wider uppercase">Core Services</span>
+          <div className="flex items-center justify-start mb-3 sm:mb-4">
+            <div className="w-3 sm:w-4 h-1.5 sm:h-2 bg-[#10d4c4] rounded-full mr-2 sm:mr-3"></div>
+            <span className="text-[#10d4c4] text-xs sm:text-sm font-medium tracking-wider uppercase">
+              Core Services
+            </span>
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
             <span className="block">DISCOVER OUR</span>
             <span className="block text-gray-400">CAPABILITIES</span>
           </h1>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[100%] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group relative bg-gray-900/50 backdrop-blur-sm p-8 hover:bg-gray-800/70 transition-all duration-500 transform ${
+              className={`group relative bg-gray-900/50 backdrop-blur-sm p-4 sm:p-6 md:p-8 hover:bg-gray-800/70 transition-all duration-500 transform ${
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
               }`}
               style={{
@@ -105,10 +100,10 @@ export default function ServicesSection() {
 
               {/* Content */}
               <div className="relative z-10">
-                <div className="flex items-start space-x-6">
+                <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4 md:space-x-6">
                   {/* Icon */}
                   <div className="flex-shrink-0">
-                    <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-cyan-500/20 group-hover:scale-110 transition-all duration-300">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-cyan-500/20 group-hover:scale-110 transition-all duration-300">
                       <div className="text-white group-hover:text-[#10d4c4] transition-colors duration-300">
                         {service.icon}
                       </div>
@@ -117,10 +112,10 @@ export default function ServicesSection() {
 
                   {/* Text Content */}
                   <div className="flex-1">
-                    <h3 className="text-[22px] font-bold mb-4 group-hover:text-[#10d4c4] transition-colors duration-300">
+                    <h3 className="text-lg sm:text-xl md:text-[22px] font-bold mb-2 sm:mb-3 md:mb-4 group-hover:text-[#10d4c4] transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-gray-300 text-[20px] leading-relaxed group-hover:text-white transition-colors duration-300">
+                    <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-[20px] leading-relaxed group-hover:text-white transition-colors duration-300">
                       {service.description}
                     </p>
                   </div>
@@ -135,9 +130,9 @@ export default function ServicesSection() {
 
         {/* Bottom Decorative Line */}
         <div
-          className={`mt-16 flex justify-center transform transition-all duration-1000 delay-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+          className={`mt-8 sm:mt-12 md:mt-16 flex justify-center transform transition-all duration-1000 delay-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
         >
-          <div className="w-24 h-0.5 bg-gradient-to-r from-transparent via-[#10d4c4] to-transparent"></div>
+          <div className="w-16 sm:w-20 md:w-24 h-0.5 bg-gradient-to-r from-transparent via-[#10d4c4] to-transparent"></div>
         </div>
       </div>
     </section>

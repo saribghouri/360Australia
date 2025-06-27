@@ -19,25 +19,25 @@ export default function AnimatedMarketingSection() {
   const processSteps = [
     {
       title: "MEETING",
-      description: "Understanding the client's needs and setting objectives.",
+      description: "We begin by thoroughly understanding your needs and establishing clear project objectives.",
       icon: <User className="text-xl" />,
       isHighlight: true,
     },
     {
       title: "EVALUATING",
-      description: "Analyzing the project's scope, challenges, and resources.",
+      description: "Next, we assess the project's scope, identify potential challenges, and determine the necessary resources.",
       icon: <CheckSquare className="text-xl" />,
       isHighlight: false,
     },
     {
       title: "PLANNING",
-      description: "Strategizing and outlining the steps for successful execution.",
+      description: "Then, we meticulously strategize and outline the precise steps for successful execution.",
       icon: <Calendar className="text-xl" />,
       isHighlight: true,
     },
     {
       title: "EXECUTION",
-      description: "Implementing the plan and delivering results.",
+      description: "Finally, we implement the plan efficiently to deliver outstanding results.",
       icon: <Target className="text-xl" />,
       isHighlight: false,
     },
@@ -103,8 +103,9 @@ export default function AnimatedMarketingSection() {
                 style={{ transitionDelay: "0.2s" }}
               >
                 <div className="w-6 sm:w-8 h-1.5 sm:h-2 bg-[#10d4c4] rounded-full animate-pulse"></div>
-                <h1 className="text-[#10d4c4] text-sm sm:text-base lg:text-[22px] font-medium tracking-wider sm:tracking-widest uppercase ml-2 sm:ml-3 leading-tight">
-                  YOUR ONE-STOP SOLUTION FOR ALL YOUR
+                <h1 className="text-[#10d4c4] text-sm sm:text-base lg:text-[22px] font-medium tracking-wider capitalize sm:tracking-widest uppercase ml-2 sm:ml-3 leading-tight">
+                  Stay ahead with 360° expertise in 
+
                 </h1>
               </div>
 
@@ -116,12 +117,13 @@ export default function AnimatedMarketingSection() {
                     }`}
                     style={{ transitionDelay: "0.4s" }}
                   >
-                    <span className="inline-block hover:text-[#10d4c4] transition-colors duration-300">MARKETING,</span>
+                  
+                    <span className="inline-block hover:text-[#10d4c4] transition-colors duration-300">Branding,</span>
                     <br />
-                    <span className="inline-block hover:text-[#10d4c4] transition-colors duration-300">BRANDING &</span>
+                    <span className="inline-block hover:text-[#10d4c4] transition-colors duration-300">Marketing &</span>
                     <br />
                     <span className="inline-block hover:text-[#10d4c4] transition-colors duration-300">
-                      DIGITAL NEEDS
+                      Digital Growth.
                     </span>
                   </h1>
                 </div>
@@ -129,53 +131,73 @@ export default function AnimatedMarketingSection() {
             </div>
 
             {/* Navigation Tabs */}
-            <div
-              className={`flex flex-col sm:flex-row gap-4 sm:gap-8 lg:gap-12 pt-4 sm:pt-8 transition-all duration-1000 ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-              }`}
-              style={{ transitionDelay: "0.8s" }}
-            >
-              <button
-                onClick={() => setActiveTab("hire")}
-                className={`font-medium text-base sm:text-lg tracking-wide pb-2 sm:pb-3 border-b-2 transition-all duration-300 uppercase transform hover:scale-105 text-left sm:text-center ${
-                  activeTab === "hire"
-                    ? "text-white border-[#10d4c4]"
-                    : "text-gray-500 border-transparent hover:text-white hover:border-gray-500"
-                }`}
-              >
-                HIRE US
-              </button>
-              <button
-                onClick={() => setActiveTab("about")}
-                className={`font-medium text-base sm:text-lg tracking-wide pb-2 sm:pb-3 border-b-2 transition-all duration-300 uppercase transform hover:scale-105 text-left sm:text-center ${
-                  activeTab === "about"
-                    ? "text-white border-[#10d4c4]"
-                    : "text-gray-500 border-transparent hover:text-white hover:border-gray-500"
-                }`}
-              >
-                WHAT IS 360 AUSTRALIA?
-              </button>
-            </div>
+          <div className=" ">
+      <div className="max-w-4xl mx-auto">
+        {/* Tab Navigation */}
+        <div
+          className={`flex flex-col sm:flex-row gap-4 sm:gap-8 lg:gap-12 pt-4 sm:pt-8 transition-all duration-1000 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+          }`}
+          style={{ transitionDelay: "0.8s" }}
+        >
+          <button
+            onClick={() => setActiveTab("hire")}
+            className={`font-medium text-base sm:text-lg tracking-wide pb-2 sm:pb-3 border-b-2 transition-all duration-300 uppercase transform hover:scale-105 text-left sm:text-center ${
+              activeTab === "hire"
+                ? "text-white border-[#10d4c4]"
+                : "text-gray-500 border-transparent hover:text-white hover:border-gray-500"
+            }`}
+          >
+            HIRE US
+          </button>
+          <button
+            onClick={() => setActiveTab("about")}
+            className={`font-medium text-base sm:text-lg tracking-wide pb-2 sm:pb-3 border-b-2 transition-all duration-300 uppercase transform hover:scale-105 text-left sm:text-center ${
+              activeTab === "about"
+                ? "text-white border-[#10d4c4]"
+                : "text-gray-500 border-transparent hover:text-white hover:border-gray-500"
+            }`}
+          >
+            Why 360 Australia?
+          </button>
+        </div>
 
-            {/* Description */}
-            <div
-              className={`pt-2 sm:pt-4 transition-all duration-1000 ${
-                isVisible ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"
-              }`}
-              style={{ transitionDelay: "1s" }}
-            >
-              <p className="text-gray-300 text-base sm:text-lg md:text-xl lg:text-[25px] leading-relaxed">
-                Welcome to{" "}
-                <span className="text-white font-semibold hover:text-[#10d4c4] transition-colors duration-300 cursor-pointer">
-                  360 Australia Ventures
-                </span>{" "}
-                - a marketing agency specializing in creating captivating logos, professional corporate communications,
-                dynamic social media content, eye-catching flyers, and comprehensive solutions for all your branding,
-                marketing, and digital needs.
+        {/* Tab Content */}
+        <div
+          className={`mt-8 sm:mt-12 transition-all duration-500 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+          }`}
+          style={{ transitionDelay: "1.2s" }}
+        >
+          {activeTab === "hire" && (
+            <div className="text-gray-300 leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">Hire Us</h2>
+              <p className="text-base sm:text-lg">
+                360 Australia is your creative engine, digital partner, and leading choice for transforming visions into
+                value. We work hand-in-glove with you to fine-tune every aspect of your digital footprint, hitting that
+                perfect sweet spot where your SEO, CRO, social media, and PPC efforts resonate perfectly with your
+                target audience.
               </p>
             </div>
+          )}
 
-            {/* Work Process Section */}
+          {activeTab === "about" && (
+            <div className="text-gray-300 leading-relaxed">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">Why 360 Australia?</h2>
+              <p className="text-base sm:text-lg">
+                At 360 Australia, we develop custom strategies for each client, whether you're a startup or an
+                established business looking for a stronger social presence. We start by deeply understanding your
+                unique requirements, then execute plans that are aligned with your business goals. Our ultimate mission
+                is to craft and execute powerful digital marketing strategies, helping businesses of all sizes break
+                through limitations, boost their potential, and increase turnover while minimizing risk.
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+
+         
             <div className="space-y-4 sm:space-y-6 pt-6 sm:pt-8">
               <div
                 className={`flex items-center gap-2 sm:gap-3 transition-all duration-1000 ${
@@ -185,7 +207,7 @@ export default function AnimatedMarketingSection() {
               >
                 <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-[#10d4c4] rounded-full animate-pulse"></div>
                 <h1 className="text-[#10d4c4] text-base sm:text-lg font-medium tracking-wider sm:tracking-widest uppercase">
-                  4 STEPS
+                  How We Make It Simple?
                 </h1>
               </div>
 
@@ -195,10 +217,11 @@ export default function AnimatedMarketingSection() {
                 }`}
                 style={{ transitionDelay: "1.4s" }}
               >
-                <h2 className="text-white text-xl sm:text-2xl font-bold leading-tight">
-                  OUR SIMPLE
+                <h2 className="text-white text-xl capitalize sm:text-2xl font-bold ">
+                  The Process
+                  
                   <br />
-                  <span className="text-gray-500">WORK PROCESS</span>
+                  <span className="text-gray-500 capitalize">Behind Your Growth</span>
                 </h2>
               </div>
 
@@ -217,7 +240,7 @@ export default function AnimatedMarketingSection() {
                     <div className="flex items-start gap-2 sm:gap-3">
                       <div
                         className={`${
-                          step.isHighlight ? "text-[#000000]" : "text-[#000000]"
+                          step.isHighlight ? "text-[#ffffff]" : "text-[#ffffff]"
                         } mt-1 transition-transform duration-300 text-lg sm:text-xl group-hover:scale-110 flex-shrink-0`}
                       >
                         {step.icon}
@@ -231,7 +254,7 @@ export default function AnimatedMarketingSection() {
                           {step.title}
                         </h3>
                         <p
-                          className={`${step.isHighlight ? "text-white" : "text-white"} text-sm sm:text-base lg:text-[22px] leading-relaxed`}
+                          className={`${step.isHighlight ? "text-white" : "text-white"} text-sm sm:text-base lg:text-[20px] leading-relaxed`}
                         >
                           {step.description}
                         </p>

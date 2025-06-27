@@ -16,24 +16,17 @@ export default function ProjectCTASection() {
       <div className="relative  container mx-auto px-4 py-20 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
-          <div className="text-center lg:text-left">
+          <div className="text-center flex flex-col gap-[70px] justify-between lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
-                <span className="text-white block">DO YOU HAVE ANY</span>
-                <motion.span
-                  className="text-[#10d4c4] block"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  viewport={{ once: true }}
-                >
-                  PROJECT?
-                </motion.span>
+              <h2 className="text-4xl md:text-4xl lg:text-4xl font-bold leading-tight mb-8">
+                <span className="text-white ">360 <span className="text-[#10d4c4]">Australia</span>  blends innovation with modern technology to deliver impactful results on every project.
+                </span>
+
               </h2>
             </motion.div>
 
@@ -48,7 +41,7 @@ export default function ProjectCTASection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                GET IN TOUCH
+                Request A Proposal
                 <motion.div className="group-hover:translate-x-1 transition-transform duration-300">
                   <ArrowRight size={20} />
                 </motion.div>
@@ -73,14 +66,14 @@ export default function ProjectCTASection() {
                   transition={{ duration: 0.3 }}
                 >
                   {/* Laptop screen */}
-                      {/* Simulated code/interface */}
-                      <div className="space-y-2">
-                       
-                        <div className="space-y-2 mt-4">
-                         
-                         
-                          <img src="/ffa3e9b8-8a6c-40a8-b650-d2cc6a2308a7_large.webp" alt="" />
-                    
+                  {/* Simulated code/interface */}
+                  <div className="space-y-2">
+
+                    <div className="space-y-2 mt-4">
+
+
+                      <img src="/ffa3e9b8-8a6c-40a8-b650-d2cc6a2308a7_large.webp" alt="" />
+
                     </div>
                   </div>
                   {/* Laptop base */}

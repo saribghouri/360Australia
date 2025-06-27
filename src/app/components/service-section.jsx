@@ -13,40 +13,29 @@ export default function ServicesSection() {
   const services = [
     {
       icon: <Monitor className="w-6 h-6 sm:w-7 sm:h-7" />,
-      title: "DESIGNING",
+      title: "Website Design & Development",
       description:
-        "We create stunning visual designs that capture your brand's essence. From logos to website layouts, our designs are tailored to engage and inspire.",
+        "At 360 Australia, we build visually stunning, high-performing websites that reflect your brand and connect with your audience. We focus on responsive design and intuitive user experiences, ensuring your online presence is both engaging and effective. Your website serves as the digital backbone of your brand.",
     },
     {
       icon: <Volume2 className="w-6 h-6 sm:w-7 sm:h-7" />,
-      title: "CORPORATE COMMUNICATIONS",
+      title: "Graphics Design Services",
       description:
-        "Our team specializes in crafting clear, impactful corporate communications. Whether it's internal messaging or public relations, we ensure your voice is heard and understood.",
+        "Bring your brand to life with 360 Australia’s creative design expertise. We specialize in creating unique logo designs to complete visual branding and a wide array of marketing materials that perfectly represent your identity and message.",
     },
     {
       icon: <Gift className="w-6 h-6 sm:w-7 sm:h-7" />,
-      title: "GIVEAWAYS",
+      title: "Mobile App Development",
       description:
-        "Boost engagement and attract new customers with our creative giveaway campaigns. We design and execute strategies that create buzz and excitement around your brand.",
+        "Extend your reach with mobile applications from 360 Australia. We develop both high-performance native and versatile hybrid apps, designed to engage your audience and provide seamless functionality across all devices. Turn your ideas into real-world solutions that ensure your users enjoy a smooth mobile experience.",
     },
     {
       icon: <Calendar className="w-6 h-6 sm:w-7 sm:h-7" />,
-      title: "EVENT MANAGEMENT",
+      title: "Digital Marketing",
       description:
-        "From concept to execution, we handle all aspects of event planning. Our team ensures that your events are memorable and aligned with your brand identity.",
+        "Simplify your online presence and reach your target audience with 360 Australia's comprehensive digital marketing strategies. We specialize in SEO, Social Media Marketing, and Google PPC, driving traffic, increasing engagement, and boosting your brand's visibility in the digital landscape.",
     },
-    {
-      icon: <Share2 className="w-6 h-6 sm:w-7 sm:h-7" />,
-      title: "SOCIAL MEDIA MARKETING",
-      description:
-        "We develop dynamic social media strategies that build community and foster engagement. Our content is crafted to resonate with your audience across all platforms.",
-    },
-    {
-      icon: <Lightbulb className="w-6 h-6 sm:w-7 sm:h-7" />,
-      title: "STRATEGIC PLANNING",
-      description:
-        "Our strategic planning services help you define your goals and create a roadmap to achieve them. We analyze market trends and audience insights to ensure your marketing efforts are effective and targeted.",
-    },
+
   ]
 
   return (
@@ -77,9 +66,9 @@ export default function ServicesSection() {
               Core Services
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-            <span className="block">DISCOVER OUR</span>
-            <span className="block text-gray-400">CAPABILITIES</span>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl uppercase lg:text-6xl xl:text-7xl font-bold leading-tight">
+            <span className="block">Get to Know </span>
+            <span className="block text-gray-400">Our Expertise</span>
           </h1>
         </div>
 
@@ -88,9 +77,8 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group relative bg-gray-900/50 backdrop-blur-sm p-4 sm:p-6 md:p-8 hover:bg-gray-800/70 transition-all duration-500 transform ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
-              }`}
+              className={`group relative bg-gray-900/50 backdrop-blur-sm p-4 sm:p-6 md:p-8 hover:bg-gray-800/70 transition-all duration-500 transform ${isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
+                }`}
               style={{
                 transitionDelay: `${index * 150}ms`,
               }}

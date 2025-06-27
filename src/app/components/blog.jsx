@@ -84,21 +84,7 @@ export default function BlogSection() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-            <motion.div
-              className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#10d4c4] rounded-full"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [1, 0.7, 1],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Number.POSITIVE_INFINITY,
-                ease: "easeInOut",
-              }}
-            ></motion.div>
-            <span className="text-[#10d4c4] text-xs sm:text-sm font-medium tracking-wider">BLOG & ARTICLE</span>
-          </div>
+        
           <motion.h2
             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight"
             initial={{ opacity: 0, scale: 0.9 }}
@@ -106,7 +92,7 @@ export default function BlogSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            EXPLORE BLOG &<br />
+            EXPLORE <span className="text-[#10d4c4]">BLOG</span> &<br />
             <span className="text-gray-500">ARTICLE</span>
           </motion.h2>
         </motion.div>

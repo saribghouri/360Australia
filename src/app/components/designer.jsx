@@ -56,7 +56,7 @@ export default function Designer() {
             <div className="space-y-8">
               <div className="flex items-center space-x-2 animate-fade-in opacity-0 translate-y-4 transition-all duration-700">
                 <div className="h-2 w-2 rounded-full bg-[#10d4c4]"></div>
-                <p className="uppercase tracking-wider text-sm">Vast Expertise</p>
+                <p className="uppercase tracking-wider text-sm">Toolbox of Expertise</p>
               </div>
 
               <div className="space-y-2">
@@ -72,8 +72,7 @@ export default function Designer() {
               </div>
 
               <p className="text-gray-300 max-w-lg animate-fade-in opacity-0 translate-y-4 transition-all duration-700">
-                At 360 Austrailia Ventures, we harness the power of latest tools to deliver exceptional results. Our commitment
-                to innovation ensures we go above and beyond.
+                Driven by innovation, 360 Australia utilizes modern tools and softwares to achieve exceptional outcomes for every project
               </p>
 
               {/* Tools Grid */}
@@ -83,8 +82,8 @@ export default function Designer() {
                   { name: "Illustrator", icon: "/Adobe-Illustrator-CC-Old.png" },
                   { name: "InDesign", icon: "/Adobe-Indesign-CC.png" },
                   { name: "Canva", icon: "/canva.png" },
-                  { name: "WordPress", icon: "/Wordpress-Icon.png" },
-                  { name: "Viddyoze", icon: "Viddyoze-01.svg" },
+                  { name: "WordPress", icon: "/wordpress-logo-image-png-701751694773680sodsik7zlf-removebg-preview.png" },
+                  { name: "Viddyoze", icon: "/download__1_-removebg-preview.png" },
                 ].map((tool, index) => (
                   <div
                     key={tool.name}

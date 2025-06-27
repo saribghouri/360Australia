@@ -73,7 +73,7 @@ const Header = () => {
       {/* Logo */}
       <div className="flex items-center">
         <Link href="/" className="flex items-center space-x-2">
-          <img src="/MLEntp.png" alt="360 Austrailia Ventures Logo" className="h-16 w-34" />
+          <img src="/MLEntp.png" alt="360 Austrailia Ventures Logo" className="h-12 w-24 lg:h-[56px] lg:w-[124px]" />
         </Link>
       </div>
 

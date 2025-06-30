@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="bg-[#10d4c4] h-[2px] mb-6 md:mb-[20px]"></div>
       <div className="max-w-9xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 lg:gap-32 mb-8">
-          {/* Company Info */}
+         
           <div className="space-y-4 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start space-x-2">
               <div className="w-8 h-8 bg-[#10d4c4] rounded flex items-center justify-center">
@@ -23,7 +23,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Quick Links */}
+      
           <div className="space-y-4 text-center md:text-left">
             <h4 className="text-lg md:text-xl font-semibold">Quick Links</h4>
             <nav className="flex flex-col md:flex-row gap-3 md:gap-6 lg:gap-12 space-y-2 md:space-y-0">
@@ -41,7 +41,7 @@ export default function Footer() {
               </a>
             </nav>
 
-            {/* Newsletter Subscription */}
+            
             <div className="mt-6 space-y-3">
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-0">
                 <input
@@ -56,7 +56,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Contact Info */}
+         
           <div className="space-y-4 text-center md:text-left">
             <h4 className="text-lg md:text-xl lg:text-[24px] font-semibold">Contact Info</h4>
             <div className="space-y-3">
@@ -84,7 +84,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Section */}
+ 
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
           <p className="text-gray-400 text-sm md:text-base lg:text-lg">
             © 2025 Creative sol tech. All Rights Reserved.

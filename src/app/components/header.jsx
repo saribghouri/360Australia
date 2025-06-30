@@ -15,58 +15,58 @@ const Header = () => {
     router.push("/contactsection")
   }
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsServicesOpen(false)
-      }
-    }
 
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+  //       setIsServicesOpen(false)
+  //     }
+  //   }
 
-  const services = [
-    {
-      title: "Web Development",
-      description: "Custom websites and web applications",
-      href: "/web-developments",
-      icon: "🌐",
-    },
-    {
-      title: "Mobile App Development",
-      description: "iOS and Android applications",
-      href: "/services/mobile-development",
-      icon: "📱",
-    },
-    {
-      title: "UI/UX Design",
-      description: "User interface and experience design",
-      href: "/services/ui-ux-design",
-      icon: "🎨",
-    },
-    {
-      title: "Digital Marketing",
-      description: "SEO, social media, and online marketing",
-      href: "/services/digital-marketing",
-      icon: "📈",
-    },
-    {
-      title: "E-commerce Solutions",
-      description: "Online stores and payment systems",
-      href: "/services/ecommerce",
-      icon: "🛒",
-    },
-    {
-      title: "Cloud Services",
-      description: "Cloud hosting and infrastructure",
-      href: "/services/cloud-services",
-      icon: "☁️",
-    },
-  ]
+  //   document.addEventListener("mousedown", handleClickOutside)
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside)
+  //   }
+  // }, [])
+
+  // const services = [
+  //   {
+  //     title: "Web Development",
+  //     description: "Custom websites and web applications",
+  //     href: "/web-developments",
+  //     icon: "🌐",
+  //   },
+  //   {
+  //     title: "Mobile App Development",
+  //     description: "iOS and Android applications",
+  //     href: "/services/mobile-development",
+  //     icon: "📱",
+  //   },
+  //   {
+  //     title: "UI/UX Design",
+  //     description: "User interface and experience design",
+  //     href: "/services/ui-ux-design",
+  //     icon: "🎨",
+  //   },
+  //   {
+  //     title: "Digital Marketing",
+  //     description: "SEO, social media, and online marketing",
+  //     href: "/services/digital-marketing",
+  //     icon: "📈",
+  //   },
+  //   {
+  //     title: "E-commerce Solutions",
+  //     description: "Online stores and payment systems",
+  //     href: "/services/ecommerce",
+  //     icon: "🛒",
+  //   },
+  //   {
+  //     title: "Cloud Services",
+  //     description: "Cloud hosting and infrastructure",
+  //     href: "/services/cloud-services",
+  //     icon: "☁️",
+  //   },
+  // ]
 
   return (
 <nav className="bg-black py-4 px-6 md:px-12 flex w-full mt-[-140px]  border-b-teal-200 z-50 fixed items-center justify-between">     
@@ -76,7 +76,7 @@ const Header = () => {
         </Link>
       </div>
 
-      {/* Desktop Navigation */}
+
       <div className="hidden md:flex space-x-8 items-center">
         <Link href="/" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
           HOME
@@ -84,9 +84,12 @@ const Header = () => {
         <Link href="/about-us" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
           ABOUT US
         </Link>
+        <Link href="/services" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
+          SERVICES
+        </Link>
 
-        {/* Services Dropdown */}
-        <div className="relative" ref={dropdownRef}>
+      
+        {/* <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setIsServicesOpen(!isServicesOpen)}
             onMouseEnter={() => setIsServicesOpen(true)}
@@ -98,7 +101,7 @@ const Header = () => {
             />
           </button>
 
-          {/* Dropdown Menu */}
+       
           <div
             className={`absolute top-full left-0 mt-2 w-80 bg-gradient-to-br from-gray-900 to-black border border-teal-500/30 rounded-xl shadow-2xl transition-all duration-300 ${
               isServicesOpen
@@ -141,7 +144,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <Link href="/portfolio" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
           PORTFOLIO
@@ -151,7 +154,7 @@ const Header = () => {
         </Link>
       </div>
 
-      {/* Hamburger Icon for Mobile */}
+  
       <div className="md:hidden flex items-center">
         <button onClick={() => setIsOpen(!isOpen)} className="text-teal-500 0 focus:outline-none">
           <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,7 +167,7 @@ const Header = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+
       <div
         className={`absolute top-full left-0 w-full bg-black md:hidden transition-all duration-300 ease-in-out border-t border-teal-500/30 ${
           isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
@@ -185,9 +188,11 @@ const Header = () => {
           >
             ABOUT US
           </Link>
-
-          {/* Mobile Services Dropdown */}
-          <div className="px-6">
+<Link href="/services" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
+          SERVICES
+        </Link>
+         
+          {/* <div className="px-6">
             <button
               onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
               className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium flex items-center justify-between w-full py-2"
@@ -228,7 +233,7 @@ const Header = () => {
                 </Link>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <Link
             href="/portfolio"
@@ -247,7 +252,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Contact Button */}
+    
       <button className="text-white bg-[#16c7b8] px-10 py-2 font-semibold rounded-2xl cursor-pointer hidden md:block" onClick={handleContactClick}>
         Contact Us
       </button>

@@ -110,7 +110,6 @@ export default function TestimonialSection() {
 
   return (
     <section className="relative min-h-screen bg-black overflow-hidden pt-12 sm:pt-16 md:pt-20 lg:pt-24">
-      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5 sm:opacity-10">
         <div
           className="absolute inset-0"
@@ -122,7 +121,6 @@ export default function TestimonialSection() {
       </div>
 
       <div className="max-w-[90%] mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 lg:py-16">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -139,9 +137,7 @@ export default function TestimonialSection() {
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-400">FEEDBACK</h3>
         </motion.div>
 
-        {/* Testimonials Container */}
         <div className="relative max-w-full mx-auto">
-          {/* Navigation Arrows - Hidden on mobile */}
           <button
             onClick={prevSlide}
             className="hidden sm:flex absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-12 lg:h-12 bg-white/10 hover:bg-white/20 rounded-full items-center justify-center transition-all duration-300 backdrop-blur-sm"
@@ -156,7 +152,6 @@ export default function TestimonialSection() {
             <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
           </button>
 
-          {/* Testimonials Grid */}
           <div className="px-2 sm:px-8 md:px-12 lg:px-16">
             <AnimatePresence mode="wait">
               <motion.div
@@ -176,7 +171,6 @@ export default function TestimonialSection() {
                     whileHover={{ y: -5, scale: 1.01 }}
                     className="bg-gray-800/50 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-700/50 hover:border-teal-400/30 transition-all duration-300"
                   >
-                    {/* Profile Section */}
                     <div className="flex flex-col items-center mb-4 sm:mb-6">
                       <motion.div
                         whileHover={{ scale: 1.05 }}
@@ -206,17 +200,14 @@ export default function TestimonialSection() {
                       </p>
                     </div>
 
-                    {/* Company */}
                     <div className="text-center mb-4 sm:mb-6">
                       <h5 className="text-[#10d4c4] font-semibold text-base sm:text-lg">{testimonial.company}</h5>
                     </div>
 
-                    {/* Testimonial Text */}
                     <p className="text-gray-300 text-center leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base min-h-[80px] sm:min-h-[120px] flex items-center">
                       {testimonial.text}
                     </p>
 
-                    {/* Rating */}
                     <div className="flex justify-center mb-3 sm:mb-4 gap-0.5 sm:gap-1">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <motion.div
@@ -230,7 +221,6 @@ export default function TestimonialSection() {
                       ))}
                     </div>
 
-                    {/* Google Logo */}
                     <div className="flex justify-center">
                       <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.2 }}>
                         <GoogleIcon />

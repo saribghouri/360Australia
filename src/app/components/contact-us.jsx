@@ -57,7 +57,7 @@ export default function ContactUs() {
 
   return (
     <section className="min-h-screen bg-black text-white py-8 md:py-16 px-4 relative overflow-hidden">
-      {/* Background Effects */}
+
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-500/5 to-transparent"></div>
         <div className="absolute top-1/4 right-1/4 w-48 md:w-96 h-48 md:h-96 bg-yellow-500/5 rounded-full blur-3xl"></div>
@@ -66,7 +66,7 @@ export default function ContactUs() {
 
       <div className="max-w-[90%] mx-auto relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
-          {/* Left Column - Contact Info */}
+          
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -74,7 +74,7 @@ export default function ContactUs() {
             viewport={{ once: true, amount: 0.3 }}
             className="space-y-6 md:space-y-8 order-2 lg:order-1"
           >
-            {/* Header */}
+      
             <motion.div variants={itemVariants} className="space-y-4 md:space-y-6 text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start gap-3">
                 <motion.div
@@ -104,7 +104,7 @@ export default function ContactUs() {
               </motion.p>
             </motion.div>
 
-            {/* Contact Details */}
+          
             <motion.div variants={itemVariants} className="space-y-4 md:space-y-6">
               <motion.div
                 whileHover={{ x: 10 }}
@@ -148,7 +148,7 @@ export default function ContactUs() {
               </motion.div>
             </motion.div>
 
-            {/* Social Media */}
+         
             <motion.div variants={itemVariants} className="space-y-4 text-center lg:text-left">
               <h3 className="text-lg md:text-xl font-semibold">FOLLOW ME</h3>
               <div className="flex gap-4 justify-center lg:justify-start">
@@ -172,7 +172,7 @@ export default function ContactUs() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Contact Form */}
+         
           <motion.div
             variants={formVariants}
             initial="hidden"
@@ -267,7 +267,7 @@ export default function ContactUs() {
                 ></textarea>
               </motion.div>
 
-              {/* reCAPTCHA Placeholder */}
+           
               <div className="flex items-center justify-center p-3 md:p-4 bg-gray-800 rounded-lg border border-gray-700">
                 <div className="flex items-center gap-3">
                   <div className="w-5 h-5 md:w-6 md:h-6 border-2 border-gray-600 rounded"></div>
@@ -304,7 +304,7 @@ export default function ContactUs() {
         </div>
       </div>
 
-      {/* Floating WhatsApp Button */}
+    
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}

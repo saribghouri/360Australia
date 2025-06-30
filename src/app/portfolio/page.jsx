@@ -34,7 +34,7 @@ export default function Portfolio() {
   const [typedText, setTypedText] = useState("")
   const fullText = "Full Stack Developer & UI/UX Enthusiast"
 
-  // Typing animation effect
+
   useEffect(() => {
     let index = 0
     const timer = setInterval(() => {
@@ -48,7 +48,7 @@ export default function Portfolio() {
     return () => clearInterval(timer)
   }, [])
 
-  // Mouse tracking for parallax effect
+
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({
@@ -60,7 +60,7 @@ export default function Portfolio() {
     return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [])
 
-  // Intersection Observer for scroll animations
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -375,7 +375,7 @@ export default function Portfolio() {
         <Header />
       </div>
 
-      {/* Hero Section - Fixed Layout */}
+
       <section className="relative  flex items-center  justify-between overflow-hidden py-20">
         <div className="floating-shapes">
           <StarFilled className="floating-shape" />
@@ -386,7 +386,7 @@ export default function Portfolio() {
 
         <div className="container mx-auto px-6 relative z-10">
           <Row gutter={[64, 64]} align="middle" justify="center">
-            {/* Left Side - Main Content */}
+
             <Col xs={24} lg={14} xl={13}>
               <div className="hero-main-card">
                 <Title level={1} className="!text-5xl lg:!text-6xl xl:!text-7xl !font-bold !mb-6 !leading-tight">
@@ -410,7 +410,7 @@ export default function Portfolio() {
               </div>
             </Col>
 
-            {/* Right Side - Avatar and Stats */}
+
             <Col xs={24} lg={10} xl={11}>
               <div className="avatar-container">
                 <Avatar
@@ -519,7 +519,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Skills Section */}
+
       <section className="py-20 bg-black">
         <div className="container mx-auto px-6">
           <Title level={2} className="!text-4xl lg:!text-5xl !font-bold !text-center !mb-16">
@@ -552,7 +552,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section */}
       <section className="py-20 bg-gradient-to-r from-gray-900 to-black">
         <div className="container mx-auto px-6">
           <Title level={2} className="!text-4xl lg:!text-5xl !font-bold !text-center !mb-16">
@@ -600,7 +599,6 @@ export default function Portfolio() {
                     }
                   />
 
-                  {/* Fixed Project Action Buttons */}
                   <div className="project-actions">
                     <Button
                       className="project-btn project-btn-outline"
@@ -626,7 +624,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Experience Section */}
+   
       <section className="py-20 bg-black">
         <div className="container mx-auto px-6">
           <Title level={2} className="!text-4xl lg:!text-5xl !font-bold !text-center !mb-16">
@@ -666,7 +664,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Contact Section */}
+  
       <section className="py-20 bg-gradient-to-r from-gray-900 via-black to-gray-900">
         <div className="container mx-auto px-6 text-center">
           <Title level={2} className="!text-4xl lg:!text-5xl !font-bold !mb-8">

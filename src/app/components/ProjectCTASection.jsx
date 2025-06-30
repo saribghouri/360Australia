@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react"
 export default function ProjectCTASection() {
   return (
     <section className="relative min-h-screen bg-black overflow-hidden">
-      {/* Background gradient effects */}
+  
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
@@ -15,7 +15,7 @@ export default function ProjectCTASection() {
 
       <div className="relative  container mx-auto px-4 py-20 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
+       
           <div className="text-center flex flex-col gap-[70px] justify-between lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -49,7 +49,7 @@ export default function ProjectCTASection() {
             </motion.div>
           </div>
 
-          {/* Right content - Workspace */}
+        
           <div className="relative">
             <motion.div
               initial={{ opacity: 0, x: 100, rotateY: -15 }}
@@ -58,15 +58,14 @@ export default function ProjectCTASection() {
               viewport={{ once: true }}
               className="relative"
             >
-              {/* Laptop */}
+            
               <div className="relative">
                 <motion.div
                   className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-t-xl p-1 shadow-2xl"
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {/* Laptop screen */}
-                  {/* Simulated code/interface */}
+                
                   <div className="space-y-2">
 
                     <div className="space-y-2 mt-4">
@@ -76,10 +75,10 @@ export default function ProjectCTASection() {
 
                     </div>
                   </div>
-                  {/* Laptop base */}
+                
                 </motion.div>
 
-                {/* Keyboard reflection */}
+                
                 <motion.div
                   className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-full h-8 bg-gradient-to-b from-white/10 to-transparent rounded-full blur-sm"
                   initial={{ opacity: 0 }}
@@ -89,7 +88,7 @@ export default function ProjectCTASection() {
                 />
               </div>
 
-              {/* Notebook and pencil */}
+            
               <motion.div
                 className="absolute -bottom-16 -right-8 lg:-right-16"
                 initial={{ opacity: 0, y: 50, rotate: -10 }}
@@ -98,7 +97,7 @@ export default function ProjectCTASection() {
                 viewport={{ once: true }}
               >
                 <div className="relative">
-                  {/* Notebook */}
+            
                   <div className="w-24 h-32 bg-gradient-to-br from-gray-400 to-gray-200 rounded-r-lg shadow-lg transform rotate-12">
                     <div className="w-full h-full bg-teal rounded-r-lg p-2">
                       <div className="space-y-1">
@@ -107,11 +106,11 @@ export default function ProjectCTASection() {
                         <div className="h-1 bg-gray-300 rounded w-1/2"></div>
                       </div>
                     </div>
-                    {/* Spiral binding */}
+                
                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-gray-400 rounded-l-lg"></div>
                   </div>
 
-                  {/* Pencil */}
+           
                   <motion.div
                     className="absolute -top-2 -right-2 w-1 h-16 bg-gradient-to-t from-teal-500 to-[#10d4c4] rounded-full transform rotate-45"
                     whileHover={{ rotate: 50 }}
@@ -124,7 +123,7 @@ export default function ProjectCTASection() {
               </motion.div>
             </motion.div>
 
-            {/* Floating elements */}
+          
             <motion.div
               className="absolute top-10 -left-10 w-2 h-2 bg-teal-500  rounded-full"
               animate={{
@@ -155,7 +154,7 @@ export default function ProjectCTASection() {
         </div>
       </div>
 
-      {/* Bottom gradient fade */}
+      
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
     </section>
   )

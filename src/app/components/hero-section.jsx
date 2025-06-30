@@ -130,10 +130,10 @@ export default function AnimatedMarketingSection() {
               </div>
             </div>
 
-            {/* Navigation Tabs */}
+          
           <div className=" ">
       <div className="max-w-4xl mx-auto">
-        {/* Tab Navigation */}
+     
         <div
           className={`flex flex-col sm:flex-row gap-4 sm:gap-8 lg:gap-12 pt-4 sm:pt-8 transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
@@ -162,7 +162,7 @@ export default function AnimatedMarketingSection() {
           </button>
         </div>
 
-        {/* Tab Content */}
+     
         <div
           className={`mt-8 sm:mt-12 transition-all duration-500 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
@@ -225,7 +225,7 @@ export default function AnimatedMarketingSection() {
                 </h2>
               </div>
 
-              {/* Process Steps Grid */}
+          
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 pt-4 mt-6 sm:mt-8 lg:mt-[40px]">
                 {processSteps.map((step, index) => (
                   <div
@@ -266,9 +266,8 @@ export default function AnimatedMarketingSection() {
             </div>
           </div>
 
-          {/* Right Content - 5 columns on desktop */}
           <div className="lg:col-span-5 mt-8 lg:mt-0">
-            {/* Stats Card */}
+       
             <div className="flex flex-col sm:flex-row lg:flex-col w-full justify-between items-center lg:items-end">
               <div
                 className={`flex flex-col relative items-center gap-2 mb-6 sm:mb-0 lg:mb-0 lg:mt-16 lg:mr-[100px] transition-all duration-1000 ${
@@ -276,7 +275,7 @@ export default function AnimatedMarketingSection() {
                 }`}
                 style={{ transitionDelay: "0.6s" }}
               >
-                {/* Placeholder for animated element */}
+            
               </div>
               <div
                 className={`bg-black border w-full sm:w-[60%] lg:w-[60%] border-[#10d4c4] rounded-lg p-4 sm:p-6 flex justify-center transition-all duration-1000 hover:shadow-2xl hover:shadow-[#00d4ff]/20 ${
@@ -305,7 +304,7 @@ export default function AnimatedMarketingSection() {
               </div>
             </div>
 
-            {/* Marketing Journey Image */}
+          
             <div
               className={`relative overflow-hidden rounded-lg mt-8 lg:mt-[100px] transition-all duration-1000 hover:scale-105 ${
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"

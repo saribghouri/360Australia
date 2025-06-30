@@ -40,12 +40,11 @@ export default function ServicesSection() {
 
   return (
     <section className="bg-black text-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-500/5 to-transparent"></div>
       </div>
 
-      {/* Decorative Element - Hidden on mobile, visible on larger screens */}
+      
       <div className="absolute top-10 sm:top-16 md:top-20 right-4 sm:right-10 md:right-20 opacity-60 sm:opacity-80 hidden sm:block">
         <div
           className={`transform transition-all duration-1000 ${isVisible ? "rotate-0 scale-100" : "rotate-45 scale-0"}`}
@@ -56,7 +55,6 @@ export default function ServicesSection() {
       </div>
 
       <div className="max-w-[90%] mx-auto">
-        {/* Header */}
         <div
           className={`text-start mb-8 sm:mb-12 md:mb-16 transform transition-all duration-800 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
         >
@@ -72,7 +70,6 @@ export default function ServicesSection() {
           </h1>
         </div>
 
-        {/* Services Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
           {services.map((service, index) => (
             <div
@@ -83,13 +80,10 @@ export default function ServicesSection() {
                 transitionDelay: `${index * 150}ms`,
               }}
             >
-              {/* Golden Border Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-              {/* Content */}
               <div className="relative z-10">
                 <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4 md:space-x-6">
-                  {/* Icon */}
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-teal-500/20 group-hover:scale-110 transition-all duration-300">
                       <div className="text-white group-hover:text-[#10d4c4] transition-colors duration-300">
@@ -98,7 +92,6 @@ export default function ServicesSection() {
                     </div>
                   </div>
 
-                  {/* Text Content */}
                   <div className="flex-1">
                     <h3 className="text-lg sm:text-xl md:text-[22px] font-bold mb-2 sm:mb-3 md:mb-4 group-hover:text-[#10d4c4] transition-colors duration-300">
                       {service.title}
@@ -110,13 +103,11 @@ export default function ServicesSection() {
                 </div>
               </div>
 
-              {/* Hover Effect Border */}
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#10d4c4] group-hover:w-full transition-all duration-500"></div>
             </div>
           ))}
         </div>
 
-        {/* Bottom Decorative Line */}
         <div
           className={`mt-8 sm:mt-12 md:mt-16 flex justify-center transform transition-all duration-1000 delay-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
         >

@@ -253,7 +253,7 @@ export default function PortfolioSection() {
   return (
     <section className="bg-black text-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 ">
       <div className="max-w-[90%] mx-auto">
-        {/* Header */}
+      
         <div className="mb-8 sm:mb-10 md:mb-12">
           <div className="flex items-center mb-4 sm:mb-6">
             <div className="w-2 h-2 bg-[#10d4c4] rounded-full mr-3"></div>
@@ -263,7 +263,7 @@ export default function PortfolioSection() {
           </div>
 
           <div className="flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-start lg:justify-between">
-            {/* Title */}
+       
             <div
               className={`transform transition-all duration-1000 w-full lg:w-1/2 ${
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
@@ -276,13 +276,13 @@ export default function PortfolioSection() {
               </h2>
             </div>
 
-            {/* Filter Navigation */}
+        
             <div
               className={`transform transition-all duration-1000 delay-300 w-full lg:w-auto ${
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               }`}
             >
-              {/* Mobile Filter Dropdown */}
+           
               <div className="block sm:hidden mb-4">
                 <select
                   value={activeFilter}
@@ -297,7 +297,7 @@ export default function PortfolioSection() {
                 </select>
               </div>
 
-              {/* Desktop Filter Navigation */}
+             
               <nav className="hidden sm:flex flex-wrap gap-3 sm:gap-4 md:gap-6 lg:gap-8 lg:justify-end">
                 {filterItems.map((item, index) => (
                   <button
@@ -320,7 +320,7 @@ export default function PortfolioSection() {
           </div>
         </div>
 
-        {/* Portfolio Grid */}
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {filteredItems.map((item, index) => (
             <div
@@ -340,7 +340,7 @@ export default function PortfolioSection() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
 
-              {/* Overlay */}
+             
               <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute inset-0 flex items-center justify-center p-4">
                   <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
@@ -350,7 +350,7 @@ export default function PortfolioSection() {
                 </div>
               </div>
 
-              {/* Special overlay for Annual Reports */}
+             
               {item.hasOverlay && (
                 <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6">
                   <div className="bg-[#10d4c4] text-black px-3 sm:px-4 py-1.5 sm:py-2 rounded font-medium text-xs sm:text-sm transform transition-all duration-300 group-hover:scale-110">
@@ -359,13 +359,13 @@ export default function PortfolioSection() {
                 </div>
               )}
 
-              {/* Hover border effect */}
+          
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#10d4c4] transition-colors duration-300 rounded-lg"></div>
             </div>
           ))}
         </div>
 
-        {/* Bottom fade effect */}
+   
         <div className="mt-12 sm:mt-16 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
       </div>
 

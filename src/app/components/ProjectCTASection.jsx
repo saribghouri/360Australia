@@ -8,9 +8,9 @@ export default function ProjectCTASection() {
     <section className="relative min-h-screen bg-black overflow-hidden">
       {/* Background gradient effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-cyan-700/5 to-white/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-teal-700/5 to-white/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative  container mx-auto px-4 py-20 lg:py-32">
@@ -100,7 +100,7 @@ export default function ProjectCTASection() {
                 <div className="relative">
                   {/* Notebook */}
                   <div className="w-24 h-32 bg-gradient-to-br from-gray-400 to-gray-200 rounded-r-lg shadow-lg transform rotate-12">
-                    <div className="w-full h-full bg-cyan rounded-r-lg p-2">
+                    <div className="w-full h-full bg-teal rounded-r-lg p-2">
                       <div className="space-y-1">
                         <div className="h-1 bg-gray-300 rounded w-full"></div>
                         <div className="h-1 bg-gray-300 rounded w-3/4"></div>

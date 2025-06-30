@@ -96,23 +96,29 @@ export default function AboutUsSections() {
           >
             {/* Animated Image Section */}
             <div className="relative group">
-              <div className="absolute -top-8 -left-8 w-32 h-32 bg-cyan-500/20 rounded-full blur-xl animate-float"></div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-cyan-400/30 rounded-full blur-lg animate-float-delayed"></div>
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-cyan-500/20">
-                <Image
-                  src="/images/team-meeting.png"
-                  alt="Professional team working on website design"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+              <div className="absolute -top-8 -left-8 w-32 h-32 bg-teal-500/20 rounded-full blur-xl animate-float"></div>
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-teal-400/30 rounded-full blur-lg animate-float-delayed"></div>
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-teal-500/20">
+                 <Image
+        src="/Screenshot 2025-06-30 072023.png"
+        alt="Screenshot 2025-06-30 072023"
+        width={600}
+        height={400}
+        quality={100}
+        priority
+        className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-110"
+        style={{
+          maxWidth: "100%",
+          height: "auto",
+        }}
+      />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             </div>
 
             {/* Animated Content Section */}
             <div className="space-y-8">
-              <h3 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-6 animate-glow">UNLOCKING SUCCESS:</h3>
+              <h3 className="text-3xl md:text-4xl font-bold  mb-6 animate-glow">UNLOCKING SUCCESS:</h3>
 
               <div className="space-y-4">
                 {[
@@ -127,13 +133,13 @@ export default function AboutUsSections() {
                     }`}
                     style={{ transitionDelay: `${(index + 1) * 200}ms` }}
                   >
-                    <CheckCircle className="w-6 h-6 text-cyan-400 mt-1 flex-shrink-0 animate-bounce-subtle" />
+                    <CheckCircle className="w-6 h-6 text-teal-400 mt-1 flex-shrink-0 animate-bounce-subtle" />
                     <p className="text-lg text-gray-300">{text}</p>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-800 transform transition-all duration-500 hover:bg-gray-900/70 hover:border-cyan-500/30 hover:shadow-lg hover:shadow-cyan-500/10">
+              <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-800 transform transition-all duration-500 hover:bg-gray-900/70 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/10">
                 <p className="text-gray-300 leading-relaxed mb-6">
                   A professionally designed website serves as a dynamic tool, propelling your business towards
                   unparalleled success in the digital landscape. Don't miss out on the transformative impact a
@@ -142,7 +148,7 @@ export default function AboutUsSections() {
 
                 <Button
                   size="lg"
-                  className="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30 animate-pulse-button"
+                  className="!bg-teal-500 !hover:bg-teal-600 !text-black font-semibold px-8 py-3 rounded-lg !transition-all !duration-300 !transform !hover:scale-105 !hover:shadow-lg !hover:shadow-teal-500/30 !animate-pulse-button"
                 >
                   START YOUR WEBSITE
                 </Button>
@@ -169,8 +175,8 @@ export default function AboutUsSections() {
                 }`}
                 style={{ transitionDelay: `${(index + 1) * 200 + 600}ms` }}
               >
-                <p className="text-cyan-400 text-sm font-semibold mb-2 tracking-wider">OVER</p>
-                <h4 className="text-4xl md:text-5xl font-bold text-white mb-2 transition-all duration-300 group-hover:text-cyan-400 group-hover:scale-110 animate-counter">
+                <p className="text-teal-400 text-sm font-semibold mb-2 tracking-wider">OVER</p>
+                <h4 className="text-4xl md:text-5xl font-bold text-white mb-2 transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110 animate-counter">
                   {stat.number}
                 </h4>
                 <p className="text-gray-400 font-medium group-hover:text-white transition-colors duration-300">
@@ -193,7 +199,7 @@ export default function AboutUsSections() {
             }`}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
-              ABOUT <span className="text-cyan-400 animate-glow">US</span>
+              ABOUT <span className=" animate-glow">US</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               We are a passionate team of digital innovators, dedicated to transforming your vision into powerful online
@@ -210,7 +216,7 @@ export default function AboutUsSections() {
           >
             {/* Content Section */}
             <div className="space-y-8">
-              <h3 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-6 animate-glow">OUR MISSION:</h3>
+              <h3 className="text-3xl md:text-4xl font-bold  mb-6 animate-glow">OUR MISSION:</h3>
 
               <p className="text-lg text-gray-300 leading-relaxed">
                 Founded with a vision to bridge the gap between creativity and technology, we specialize in crafting
@@ -245,9 +251,9 @@ export default function AboutUsSections() {
                       }`}
                       style={{ transitionDelay: `${(index + 1) * 200}ms` }}
                     >
-                      <IconComponent className="w-8 h-8 text-cyan-400 mt-1 flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12" />
+                      <IconComponent className="w-8 h-8 text-teal-400 mt-1 flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12" />
                       <div>
-                        <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
+                        <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-teal-400 transition-colors duration-300">
                           {item.title}
                         </h4>
                         <p className="text-gray-300 group-hover:text-white transition-colors duration-300">
@@ -262,8 +268,8 @@ export default function AboutUsSections() {
 
             {/* Animated Values Section */}
             <div className="space-y-8">
-              <div className="bg-black/50 p-8 rounded-2xl border border-gray-800 transform transition-all duration-500 hover:bg-black/70 hover:border-cyan-500/30 hover:shadow-lg hover:shadow-cyan-500/10 hover:scale-105">
-                <h3 className="text-2xl font-bold text-cyan-400 mb-6 animate-glow">OUR VALUES</h3>
+              <div className="bg-black/50 p-8 rounded-2xl border border-gray-800 transform transition-all duration-500 hover:bg-black/70 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/10 hover:scale-105">
+                <h3 className="text-2xl font-bold  mb-6 animate-glow">OUR VALUES</h3>
 
                 <div className="space-y-4">
                   {[
@@ -281,8 +287,8 @@ export default function AboutUsSections() {
                         }`}
                         style={{ transitionDelay: `${(index + 1) * 100 + 400}ms` }}
                       >
-                        <IconComponent className="w-5 h-5 text-cyan-400 transition-all duration-300 group-hover:scale-125 group-hover:rotate-12" />
-                        <span className="text-white font-medium group-hover:text-cyan-400 transition-colors duration-300">
+                        <IconComponent className="w-5 h-5 text-teal-400 transition-all duration-300 group-hover:scale-125 group-hover:rotate-12" />
+                        <span className="text-white font-medium group-hover:text-teal-400 transition-colors duration-300">
                           {value.text}
                         </span>
                       </div>
@@ -295,13 +301,13 @@ export default function AboutUsSections() {
                     "We believe that great design is not just about aesthetics—it's about creating meaningful
                     connections between brands and their audiences."
                   </p>
-                  <p className="text-cyan-400 font-semibold mt-3 animate-pulse-subtle">— Our Design Philosophy</p>
+                  <p className="text-teal-400 font-semibold mt-3 animate-pulse-subtle">— Our Design Philosophy</p>
                 </div>
               </div>
 
               <Button
                 size="lg"
-                className="w-full bg-transparent border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/30"
+                className="w-full bg-transparent border-2 !border-teal-400 !text-teal-400 !hover:bg-teal-400 hover:text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-teal-400/30"
               >
                 LEARN MORE ABOUT US
               </Button>
@@ -328,10 +334,10 @@ export default function AboutUsSections() {
                 }`}
                 style={{ transitionDelay: `${(index + 1) * 150 + 600}ms` }}
               >
-                <h4 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2 transition-all duration-300 group-hover:text-white animate-counter">
+                <h4 className="text-3xl md:text-4xl font-bold text-teal-400 mb-2 transition-all duration-300 group-hover:text-white animate-counter">
                   {stat.number}
                 </h4>
-                <p className="text-gray-400 font-medium group-hover:text-cyan-400 transition-colors duration-300">
+                <p className="text-gray-400 font-medium group-hover:text-teal-400 transition-colors duration-300">
                   {stat.label}
                 </p>
               </div>
@@ -391,7 +397,7 @@ export default function AboutUsSections() {
         }
         
         .animate-glow {
-          animation: glow 3s ease-in-out infinite;
+          animation: glow 4s ease-in-out infinite;
         }
         
         .animate-pulse-slow {

@@ -146,7 +146,7 @@ export default function ClientLogosSection() {
     >
       {/* Diagonal Yellow Stripe */}
       <div
-        className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-cyan-900"
+        className="absolute inset-0 bg-gradient-to-r from-teal-500 to-teal-900"
         style={{
           clipPath: "polygon(0 40%, 100% 20%, 100% 80%, 0 100%)",
           transform: "skewY(-2deg)",

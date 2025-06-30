@@ -97,7 +97,7 @@ export default function ModernTablet() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black to-black rounded-[3rem] blur-2xl opacity-20 scale-95 translate-y-8 -z-10"></div>
 
         {/* Subtle Reflection */}
-        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-3/4 h-32 bg-gradient-to-b from-cyan-400 to-transparent opacity-10 blur-xl rounded-[50%] mt-4"></div>
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-3/4 h-32 bg-gradient-to-b from-teal-400 to-transparent opacity-10 blur-xl rounded-[50%] mt-4"></div>
       </div>
     </div>
   )

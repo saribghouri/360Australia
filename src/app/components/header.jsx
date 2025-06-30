@@ -69,8 +69,7 @@ const Header = () => {
   ]
 
   return (
-    <nav className="bg-black py-4 px-6 md:px-12 flex w-full mt-[-140px] border border-b-cyan-200 z-50 fixed items-center justify-between">
-      {/* Logo */}
+<nav className="bg-black py-4 px-6 md:px-12 flex w-full mt-[-140px]  border-b-teal-200 z-50 fixed items-center justify-between">     
       <div className="flex items-center">
         <Link href="/" className="flex items-center space-x-2">
           <img src="/MLEntp.png" alt="360 Austrailia Ventures Logo" className="h-12 w-24 lg:h-[56px] lg:w-[124px]" />
@@ -101,7 +100,7 @@ const Header = () => {
 
           {/* Dropdown Menu */}
           <div
-            className={`absolute top-full left-0 mt-2 w-80 bg-gradient-to-br from-gray-900 to-black border border-cyan-500/30 rounded-xl shadow-2xl transition-all duration-300 ${
+            className={`absolute top-full left-0 mt-2 w-80 bg-gradient-to-br from-gray-900 to-black border border-teal-500/30 rounded-xl shadow-2xl transition-all duration-300 ${
               isServicesOpen
                 ? "opacity-100 visible transform translate-y-0"
                 : "opacity-0 invisible transform -translate-y-2"
@@ -114,7 +113,7 @@ const Header = () => {
                   <Link
                     key={index}
                     href={service.href}
-                    className="group flex items-start space-x-3 p-3 rounded-lg hover:bg-gradient-to-r hover:from-cyan-500/10 hover:to-blue-500/10 transition-all duration-200 border border-transparent hover:border-cyan-500/20"
+                    className="group flex items-start space-x-3 p-3 rounded-lg hover:bg-gradient-to-r hover:from-teal-500/10 hover:to-blue-500/10 transition-all duration-200 border border-transparent hover:border-teal-500/20"
                     onClick={() => setIsServicesOpen(false)}
                   >
                     <span className="text-2xl group-hover:scale-110 transition-transform duration-200">
@@ -167,7 +166,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`absolute top-full left-0 w-full bg-black md:hidden transition-all duration-300 ease-in-out border-t border-cyan-500/30 ${
+        className={`absolute top-full left-0 w-full bg-black md:hidden transition-all duration-300 ease-in-out border-t border-teal-500/30 ${
           isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
         }`}
       >

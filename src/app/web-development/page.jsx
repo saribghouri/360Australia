@@ -46,7 +46,7 @@ export default function HomePage() {
       title: "Frontend Development",
       description: "Modern, responsive websites built with React, Next.js, and cutting-edge technologies",
       tags: ["React", "Next.js", "Tailwind"],
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-blue-500 to-teal-500",
     },
     {
       icon: <BgColorsOutlined className="text-2xl text-purple-400" />,
@@ -81,7 +81,7 @@ export default function HomePage() {
       title: "Maintenance & Support",
       description: "Ongoing support, updates, and maintenance to keep your website running smoothly",
       tags: ["24/7 Support", "Updates", "Security"],
-      gradient: "from-teal-500 to-cyan-500",
+      gradient: "from-teal-500 to-teal-500",
     },
   ]
 

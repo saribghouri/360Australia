@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
+import { motion } from "framer-motion"
 import { User, CheckSquare, Calendar, Target } from "lucide-react"
 import ModernTablet from "./modren-tablet"
 
@@ -20,29 +21,29 @@ export default function AnimatedMarketingSection() {
     {
       title: "MEETING",
       description: "We begin by thoroughly understanding your needs and establishing clear project objectives.",
-      icon: <User className="text-xl" />,
+      icon: <User className="!text-[35px]" />,
       isHighlight: true,
     },
     {
       title: "EVALUATING",
-      description: "Next, we assess the project's scope, identify potential challenges, and determine the necessary resources.",
-      icon: <CheckSquare className="text-xl" />,
+      description:
+        "Next, we assess the project's scope, identify potential challenges, and determine the necessary resources.",
+      icon: <CheckSquare className="!text-[35px]" />,
       isHighlight: false,
     },
     {
       title: "PLANNING",
       description: "Then, we meticulously strategize and outline the precise steps for successful execution.",
-      icon: <Calendar className="text-xl" />,
+      icon: <Calendar className="!text-[35px]" />,
       isHighlight: true,
     },
     {
       title: "EXECUTION",
       description: "Finally, we implement the plan efficiently to deliver outstanding results.",
-      icon: <Target className="text-xl" />,
+      icon: <Target className="!text-[35px]" />,
       isHighlight: false,
     },
   ]
-
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -97,30 +98,28 @@ export default function AnimatedMarketingSection() {
             {/* Header Section */}
             <div className="space-y-4 sm:space-y-6">
               <div
-                className={`flex items-center transition-all duration-1000 ${
-                  isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
-                }`}
+                className={`flex items-center transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-10 opacity-0"
+                  }`}
                 style={{ transitionDelay: "0.2s" }}
               >
                 <div className="w-6 sm:w-8 h-1.5 sm:h-2 bg-[#10d4c4] rounded-full animate-pulse"></div>
                 <h1 className="text-[#10d4c4] text-sm sm:text-base lg:text-[22px] font-medium tracking-wider capitalize sm:tracking-widest uppercase ml-2 sm:ml-3 leading-tight">
-                  Stay ahead with 360° expertise in 
-
+                  Stay ahead with 360° expertise in
                 </h1>
               </div>
 
               <div className="flex items-start gap-4 sm:gap-8">
                 <div className="flex-1">
                   <h1
-                    className={`text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight transition-all duration-1000 ${
-                      isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-                    }`}
+                    className={`text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                      }`}
                     style={{ transitionDelay: "0.4s" }}
                   >
-                  
                     <span className="inline-block hover:text-[#10d4c4] transition-colors duration-300">Branding,</span>
                     <br />
-                    <span className="inline-block hover:text-[#10d4c4] transition-colors duration-300">Marketing &</span>
+                    <span className="inline-block hover:text-[#10d4c4] transition-colors duration-300">
+                      Marketing &
+                    </span>
                     <br />
                     <span className="inline-block hover:text-[#10d4c4] transition-colors duration-300">
                       Digital Growth.
@@ -130,79 +129,70 @@ export default function AnimatedMarketingSection() {
               </div>
             </div>
 
-          
-          <div className=" ">
-      <div className="max-w-4xl mx-auto">
-     
-        <div
-          className={`flex flex-col sm:flex-row gap-4 sm:gap-8 lg:gap-12 pt-4 sm:pt-8 transition-all duration-1000 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-          }`}
-          style={{ transitionDelay: "0.8s" }}
-        >
-          <button
-            onClick={() => setActiveTab("hire")}
-            className={`font-medium text-base sm:text-lg tracking-wide pb-2 sm:pb-3 border-b-2 transition-all duration-300 uppercase transform hover:scale-105 text-left sm:text-center ${
-              activeTab === "hire"
-                ? "text-white border-[#10d4c4]"
-                : "text-gray-500 border-transparent hover:text-white hover:border-gray-500"
-            }`}
-          >
-            HIRE US
-          </button>
-          <button
-            onClick={() => setActiveTab("about")}
-            className={`font-medium text-base sm:text-lg tracking-wide pb-2 sm:pb-3 border-b-2 transition-all duration-300 uppercase transform hover:scale-105 text-left sm:text-center ${
-              activeTab === "about"
-                ? "text-white border-[#10d4c4]"
-                : "text-gray-500 border-transparent hover:text-white hover:border-gray-500"
-            }`}
-          >
-            Why 360 Australia?
-          </button>
-        </div>
+            <div className=" ">
+              <div className="max-w-4xl mx-auto">
+                <div
+                  className={`flex flex-col sm:flex-row gap-4 sm:gap-8 lg:gap-12 pt-4 sm:pt-8 transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+                    }`}
+                  style={{ transitionDelay: "0.8s" }}
+                >
+                  <button
+                    onClick={() => setActiveTab("hire")}
+                    className={`font-medium text-base sm:text-lg tracking-wide pb-2 sm:pb-3 border-b-2 transition-all duration-300 uppercase transform hover:scale-105 text-left sm:text-center ${activeTab === "hire"
+                        ? "text-white border-[#10d4c4]"
+                        : "text-gray-500 border-transparent hover:text-white hover:border-gray-500"
+                      }`}
+                  >
+                    HIRE US
+                  </button>
+                  <button
+                    onClick={() => setActiveTab("about")}
+                    className={`font-medium text-base sm:text-lg tracking-wide pb-2 sm:pb-3 border-b-2 transition-all duration-300 uppercase transform hover:scale-105 text-left sm:text-center ${activeTab === "about"
+                        ? "text-white border-[#10d4c4]"
+                        : "text-gray-500 border-transparent hover:text-white hover:border-gray-500"
+                      }`}
+                  >
+                    Why 360 Australia?
+                  </button>
+                </div>
 
-     
-        <div
-          className={`mt-8 sm:mt-12 transition-all duration-500 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-          }`}
-          style={{ transitionDelay: "1.2s" }}
-        >
-          {activeTab === "hire" && (
-            <div className="text-gray-300 leading-relaxed">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">Hire Us</h2>
-              <p className="text-base sm:text-lg">
-                360 Australia is your creative engine, digital partner, and leading choice for transforming visions into
-                value. We work hand-in-glove with you to fine-tune every aspect of your digital footprint, hitting that
-                perfect sweet spot where your SEO, CRO, social media, and PPC efforts resonate perfectly with your
-                target audience.
-              </p>
+                <div
+                  className={`mt-8 sm:mt-12 transition-all duration-500 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+                    }`}
+                  style={{ transitionDelay: "1.2s" }}
+                >
+                  {activeTab === "hire" && (
+                    <div className="text-gray-300 leading-relaxed">
+                      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">Hire Us</h2>
+                      <p className="text-base sm:text-lg">
+                        360 Australia is your creative engine, digital partner, and leading choice for transforming
+                        visions into value. We work hand-in-glove with you to fine-tune every aspect of your digital
+                        footprint, hitting that perfect sweet spot where your SEO, CRO, Social Media, and PPC efforts
+                        resonate perfectly with your target audience.
+                      </p>
+                    </div>
+                  )}
+                  {activeTab === "about" && (
+                    <div className="text-gray-300 leading-relaxed">
+                      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">Why 360 Australia?</h2>
+                      <p className="text-base sm:text-lg">
+                        At 360 Australia, we develop custom strategies for each client, whether you're a startup or an
+                        established business looking for a stronger social presence. We start by deeply understanding
+                        your unique requirements, then execute plans that are aligned with your business goals. Our
+                        ultimate mission is to craft and execute powerful digital marketing strategies, helping
+                        businesses of all sizes break through limitations, boost their potential, and increase turnover
+                        while minimizing risk.
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
-          )}
 
-          {activeTab === "about" && (
-            <div className="text-gray-300 leading-relaxed">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">Why 360 Australia?</h2>
-              <p className="text-base sm:text-lg">
-                At 360 Australia, we develop custom strategies for each client, whether you're a startup or an
-                established business looking for a stronger social presence. We start by deeply understanding your
-                unique requirements, then execute plans that are aligned with your business goals. Our ultimate mission
-                is to craft and execute powerful digital marketing strategies, helping businesses of all sizes break
-                through limitations, boost their potential, and increase turnover while minimizing risk.
-              </p>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-
-         
             <div className="space-y-4 sm:space-y-6 pt-6 sm:pt-8">
               <div
-                className={`flex items-center gap-2 sm:gap-3 transition-all duration-1000 ${
-                  isVisible ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"
-                }`}
+                className={`flex items-center gap-2 sm:gap-3 transition-all duration-1000 ${isVisible ? "translate-x-0 opacity-100" : "-translate-x-5 opacity-0"
+                  }`}
                 style={{ transitionDelay: "1.2s" }}
               >
                 <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-[#10d4c4] rounded-full animate-pulse"></div>
@@ -210,77 +200,157 @@ export default function AnimatedMarketingSection() {
                   How We Make It Simple?
                 </h1>
               </div>
-
               <div
-                className={`transition-all duration-1000 ${
-                  isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-                }`}
+                className={`transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
+                  }`}
                 style={{ transitionDelay: "1.4s" }}
               >
                 <h2 className="text-white text-xl capitalize sm:text-2xl font-bold ">
                   The Process
-                  
                   <br />
                   <span className="text-gray-500 capitalize">Behind Your Growth</span>
                 </h2>
               </div>
 
-          
+              {/* Enhanced Animated Cards */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 pt-4 mt-6 sm:mt-8 lg:mt-[40px]">
                 {processSteps.map((step, index) => (
-                  <div
+                  <motion.div
                     key={index}
-                    className={`${
-                      step.isHighlight ? "card-gredient" : "card-gredient"
-                    } p-3 sm:p-4 transition-all duration-400 hover:scale-105 hover:shadow-lg cursor-pointer group ${
-                      isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-                    }`}
-                    style={{ transitionDelay: `${0.6 + index * 0.1}s` }}
+                    initial={{
+                      opacity: 0,
+                      y: 50,
+                      scale: 0.9,
+                    }}
+                    animate={{
+                      opacity: isVisible ? 1 : 0,
+                      y: isVisible ? 0 : 50,
+                      scale: isVisible ? 1 : 0.9,
+                    }}
+                    transition={{
+                      duration: 0.6,
+                      delay: 0.6 + index * 0.1,
+                      ease: "easeOut",
+                    }}
+                    whileHover={{
+                      scale: 1.05,
+                      y: -8,
+                      transition: { duration: 0.3, ease: "easeOut" },
+                    }}
+                    className={`
+                      relative overflow-hidden rounded-xl p-3 sm:p-4 cursor-pointer group
+                      ${step.isHighlight
+                        ? "bg-gradient-to-br from-[#10d4c4]/20 via-black to-black"
+                        : "bg-gradient-to-br from-[#10d4c4]/10 via-black to-black"
+                      }
+                      border border-[#10d4c4]/20 backdrop-blur-sm
+                      hover:border-[#10d4c4]/50 transition-all duration-500
+                      hover:shadow-2xl hover:shadow-[#10d4c4]/25
+                    `}
                   >
-                    <div className="flex items-start gap-2 sm:gap-3">
-                      <div
-                        className={`${
-                          step.isHighlight ? "text-[#ffffff]" : "text-[#ffffff]"
-                        } mt-1 transition-transform duration-300 text-lg sm:text-xl group-hover:scale-110 flex-shrink-0`}
+                    {/* Animated background overlay */}
+                    <div
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-[#10d4c4]/10 to-transparent 
+                                   translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out"
+                    />
+
+                    {/* Glow effect */}
+                    <div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500
+                                   bg-gradient-to-r from-[#10d4c4]/5 via-[#10d4c4]/10 to-[#10d4c4]/5 blur-xl"
+                    />
+
+                    <div className="relative z-10 flex items-start gap-2 sm:gap-3">
+                      {/* Animated icon */}
+                      <motion.div
+                        whileHover={{
+                          rotate: [0, -10, 10, -10, 0],
+                          scale: 1.2,
+                          transition: { duration: 0.5 },
+                        }}
+                        className={`
+                          flex-shrink-0 p-2 rounded-lg transition-all duration-300
+                          ${step.isHighlight
+                            ? "bg-[#10d4c4]/10 text-white group-hover:bg-[#10d4c4]/20 group-hover:text-[#10d4c4]"
+                            : "bg-[#10d4c4]/10 text-white group-hover:bg-[#10d4c4]/20 group-hover:text-[#10d4c4]"
+                          }
+                          group-hover:shadow-lg group-hover:shadow-[#10d4c4]/25
+                        `}
                       >
-                        {step.icon}
-                      </div>
+                        <div className="w-8 h-8 flex items-center justify-center">{step.icon}</div>
+                      </motion.div>
+
                       <div className="flex-1 min-w-0">
-                        <h3
-                          className={`${
-                            step.isHighlight ? "text-white" : "text-white"
-                          } text-base sm:text-lg font-bold mb-1 sm:mb-2 tracking-wide group-hover:text-white transition-colors duration-300`}
+                        {/* Animated title */}
+                        <motion.h3
+                          whileHover={{
+                            x: 5,
+                            transition: { duration: 0.2 },
+                          }}
+                          className={`
+                            text-base sm:text-lg font-bold mb-1 sm:mb-2 tracking-wide transition-all duration-300
+                            ${step.isHighlight
+                              ? "text-white group-hover:text-[#10d4c4]"
+                              : "text-white group-hover:text-[#10d4c4]"
+                            }
+                          `}
                         >
                           {step.title}
-                        </h3>
-                        <p
-                          className={`${step.isHighlight ? "text-white" : "text-white"} text-sm sm:text-base lg:text-[20px] leading-relaxed`}
+                        </motion.h3>
+
+                        {/* Animated description */}
+                        <motion.p
+                          whileHover={{
+                            x: 5,
+                            transition: { duration: 0.2, delay: 0.1 },
+                          }}
+                          className={`
+                            text-sm sm:text-base lg:text-[18px] leading-relaxed transition-all duration-300
+                            ${step.isHighlight
+                              ? "text-white/90 group-hover:text-white"
+                              : "text-white/80 group-hover:text-white/95"
+                            }
+                          `}
                         >
                           {step.description}
-                        </p>
+                        </motion.p>
                       </div>
                     </div>
-                  </div>
+
+                    {/* Corner accent */}
+                    <div
+                      className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#10d4c4]/20 to-transparent 
+                                   opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    />
+
+                    {/* Bottom accent line */}
+                    <div
+                      className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#10d4c4] to-transparent 
+                                   w-0 group-hover:w-full transition-all duration-500 ease-out"
+                    />
+
+                    {/* Side glow */}
+                    <div
+                      className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#10d4c4] 
+                                   group-hover:h-1/2 transition-all duration-300 ease-out rounded-full"
+                    />
+                  </motion.div>
                 ))}
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-5 mt-8 lg:mt-0">
-       
             <div className="flex flex-col sm:flex-row lg:flex-col w-full justify-between items-center lg:items-end">
               <div
-                className={`flex flex-col relative items-center gap-2 mb-6 sm:mb-0 lg:mb-0 lg:mt-16 lg:mr-[100px] transition-all duration-1000 ${
-                  isVisible ? "rotate-0 scale-100 opacity-100" : "rotate-45 scale-0 opacity-0"
-                }`}
+                className={`flex flex-col relative items-center gap-2 mb-6 sm:mb-0 lg:mb-0 lg:mt-16 lg:mr-[100px] transition-all duration-1000 ${isVisible ? "rotate-0 scale-100 opacity-100" : "rotate-45 scale-0 opacity-0"
+                  }`}
                 style={{ transitionDelay: "0.6s" }}
-              >
-            
-              </div>
+              ></div>
+
               <div
-                className={`bg-black border w-full sm:w-[60%] lg:w-[60%] border-[#10d4c4] rounded-lg p-4 sm:p-6 flex justify-center transition-all duration-1000 hover:shadow-2xl hover:shadow-[#00d4ff]/20 ${
-                  isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
-                }`}
+                className={`bg-black border w-full sm:w-[60%] lg:w-[60%] border-[#10d4c4] rounded-lg p-4 sm:p-6 flex justify-center transition-all duration-1000 hover:shadow-2xl hover:shadow-[#10d4c4]/20 ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"
+                  }`}
                 style={{ transitionDelay: "1s" }}
               >
                 <div className="space-y-6 sm:space-y-8 w-full">
@@ -304,11 +374,9 @@ export default function AnimatedMarketingSection() {
               </div>
             </div>
 
-          
             <div
-              className={`relative overflow-hidden rounded-lg mt-8 lg:mt-[100px] transition-all duration-1000 hover:scale-105 ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-              }`}
+              className={`relative overflow-hidden rounded-lg mt-8 lg:mt-[100px] transition-all duration-1000 hover:scale-105 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}
               style={{ transitionDelay: "1.2s" }}
             >
               <ModernTablet />
@@ -316,58 +384,6 @@ export default function AnimatedMarketingSection() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes slideInLeft {
-          from {
-            transform: translateX(-100px);
-            opacity: 0;
-          }
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-        
-        @keyframes slideInRight {
-          from {
-            transform: translateX(100px);
-            opacity: 0;
-          }
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-        
-        @keyframes fadeInUp {
-          from {
-            transform: translateY(30px);
-            opacity: 0;
-          }
-          to {
-            transform: translateY(0);
-            opacity: 1;
-          }
-        }
-        
-        @keyframes scaleIn {
-          from {
-            transform: scale(0.8);
-            opacity: 0;
-          }
-          to {
-            transform: scale(1);
-            opacity: 1;
-          }
-        }
-
-        .card-gredient {
-          background: linear-gradient(135deg, rgba(16, 212, 196, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
-          border: 1px solid rgba(16, 212, 196, 0.2);
-          border-radius: 8px;
-        }
-      `}</style>
     </div>
   )
 }

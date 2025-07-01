@@ -7,7 +7,7 @@ export default function ClientLogosSection() {
   const [speed, setSpeed] = useState(1)
   const scrollRef = useRef(null)
 
-  // All logos in one continuous array
+
   const allLogos = [
     { type: "australia-ventures", content: "360 Australia Ventures" },
     { type: "australia-ventures", content: "360 Australia Ventures" },
@@ -26,7 +26,7 @@ export default function ClientLogosSection() {
     { type: "australia-ventures", content: "360 Australia Ventures" },
   ]
 
-  // Duplicate logos for seamless loop
+ 
   const duplicatedLogos = [...allLogos, ...allLogos, ...allLogos]
 
   const renderLogo = (logo, index) => {
@@ -144,7 +144,7 @@ export default function ClientLogosSection() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Diagonal Yellow Stripe */}
+     
       <div
         className="absolute inset-0 bg-gradient-to-r from-teal-500 to-teal-900"
         style={{
@@ -154,7 +154,7 @@ export default function ClientLogosSection() {
         }}
       />
 
-      {/* Infinite Scrolling Container */}
+     
       <div className="relative  h-full -rotate-5 overflow-hidden">
         <div
           ref={scrollRef}
@@ -168,7 +168,7 @@ export default function ClientLogosSection() {
         </div>
       </div>
 
-      {/* Speed Control Buttons */}
+     
       <button
         onClick={decreaseSpeed}
         className="absolute left-4 top-1/ hidden transform -translate-y-1/2  bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors group"
@@ -195,10 +195,10 @@ export default function ClientLogosSection() {
         </div>
       </button>
 
-      {/* Speed Indicator */}
+     
       <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20 bg-black/50 text-white text-xs px-3 py-1 rounded-full"></div>
 
-      {/* Pause Indicator */}
+   
       {isPaused && (
         <div className="absolute top-4 hidden right-4 z-20 bg-red-500/80 text-white text-xs px-3 py-1 rounded-full flex items-center space-x-1">
           <div className="w-2 h-2 bg-white rounded-full"></div>
@@ -206,10 +206,10 @@ export default function ClientLogosSection() {
         </div>
       )}
 
-      {/* WhatsApp Icon */}
+    
     
 
-      {/* CSS Animation Styles */}
+     
       <style jsx>{`
         @keyframes scroll-left {
           0% {

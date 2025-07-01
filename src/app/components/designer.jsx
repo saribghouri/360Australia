@@ -83,7 +83,7 @@ export default function Designer() {
                   { name: "InDesign", icon: "/Adobe-Indesign-CC.png" },
                   { name: "Canva", icon: "/canva.png" },
                   { name: "WordPress", icon: "/wordpress-logo-image-png-701751694773680sodsik7zlf-removebg-preview.png" },
-                  { name: "Viddyoze", icon: "/1_6XgfDCVn81AYX68Xvd2I-g@2x.png" },
+                  { name: "Figma", icon: "/1_6XgfDCVn81AYX68Xvd2I-g@2x.png" },
                 ].map((tool, index) => (
                   <div
                     key={tool.name}

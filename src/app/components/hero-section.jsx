@@ -89,7 +89,7 @@ export default function AnimatedMarketingSection() {
   return (
     <div
       ref={sectionRef}
-      className="bg-gradient-to-r from-[#000000] via-[#000000] to-[#000000] text-white mt-[140px] sm:mt-[80px] lg:mt-[140px] w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-6 sm:py-8 lg:py-12 overflow-hidden"
+      className="bg-gradient-to-r from-[#000000] via-[#000000] to-[#000000]   text-white mt-[140px] sm:mt-[80px] lg:mt-[140px] w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-6 sm:py-8 lg:py-12 overflow-hidden"
     >
       <div className="max-w-[95%] sm:max-w-[90%] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-16">

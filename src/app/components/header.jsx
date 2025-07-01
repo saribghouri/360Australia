@@ -69,10 +69,10 @@ const Header = () => {
   // ]
 
   return (
-<nav className="bg-black py-4 px-6 md:px-12 flex w-full mt-[-140px]  border-b-teal-200 z-50 fixed items-center justify-between">     
+<nav className="bg-black py-4 px-6 md:px-12 flex w-full mt-[-140px] border-bottom z-50 fixed items-center justify-between">     
       <div className="flex items-center">
         <Link href="/" className="flex items-center space-x-2">
-          <img src="/MLEntp.png" alt="360 Austrailia Ventures Logo" className="h-12 w-24 lg:h-[56px] lg:w-[124px]" />
+          <img src="/BxxHdh.png" alt="360 Austrailia Ventures Logo" className="h-19 w-24 lg:h-[76px] lg:w-[144px]" />
         </Link>
       </div>
 

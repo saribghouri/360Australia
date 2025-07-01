@@ -66,7 +66,7 @@ export default function ContactUs() {
 
       <div className="max-w-[90%] mx-auto relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
-          
+
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -74,7 +74,7 @@ export default function ContactUs() {
             viewport={{ once: true, amount: 0.3 }}
             className="space-y-6 md:space-y-8 order-2 lg:order-1"
           >
-      
+
             <motion.div variants={itemVariants} className="space-y-4 md:space-y-6 text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start gap-3">
                 <motion.div
@@ -104,7 +104,7 @@ export default function ContactUs() {
               </motion.p>
             </motion.div>
 
-          
+
             <motion.div variants={itemVariants} className="space-y-4 md:space-y-6">
               <motion.div
                 whileHover={{ x: 10 }}
@@ -114,11 +114,8 @@ export default function ContactUs() {
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 md:w-6 md:h-6 text-[#10d4c4] mt-1 flex-shrink-0" />
                   <p className="text-gray-300 text-sm md:text-base lg:text-lg text-center lg:text-left">
-                    Plot no C-18-F, burj-ul-minal Floor 304
-                    <br />
-                    munawar chowrangi no.4, johor,
-                    <br />
-                    Karachi-75500, Pakistan.
+                    Australia
+
                   </p>
                 </div>
               </motion.div>
@@ -132,7 +129,7 @@ export default function ContactUs() {
                   <Mail className="w-5 h-5 text-[#10d4c4]" />
                 </div>
                 <div className="text-gray-300 text-sm md:text-base lg:text-lg">
-                  <div>360Australia@gmail.com</div>
+                  <div>support@360-australia.com.au</div>
                 </div>
               </motion.div>
 
@@ -141,14 +138,11 @@ export default function ContactUs() {
                 transition={{ type: "spring", stiffness: 300 }}
                 className="flex items-start justify-center lg:justify-start gap-4"
               >
-                <div className="mt-1">
-                  <Phone className="w-5 h-5 text-[#10d4c4]" />
-                </div>
-                <div className="text-gray-300 text-sm md:text-base lg:text-lg">+92 323 3372009</div>
+                
               </motion.div>
             </motion.div>
 
-         
+
             <motion.div variants={itemVariants} className="space-y-4 text-center lg:text-left">
               <h3 className="text-lg md:text-xl font-semibold">FOLLOW ME</h3>
               <div className="flex gap-4 justify-center lg:justify-start">
@@ -172,7 +166,7 @@ export default function ContactUs() {
             </motion.div>
           </motion.div>
 
-         
+
           <motion.div
             variants={formVariants}
             initial="hidden"
@@ -267,7 +261,7 @@ export default function ContactUs() {
                 ></textarea>
               </motion.div>
 
-           
+
               <div className="flex items-center justify-center p-3 md:p-4 bg-gray-800 rounded-lg border border-gray-700">
                 <div className="flex items-center gap-3">
                   <div className="w-5 h-5 md:w-6 md:h-6 border-2 border-gray-600 rounded"></div>
@@ -304,7 +298,7 @@ export default function ContactUs() {
         </div>
       </div>
 
-    
+
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}

@@ -134,3 +134,8 @@ background: linear-gradient(90deg, rgb(10, 170, 143) 0%, rgb(10, 209, 176)  100%
             background: rgba(6, 212, 195, 0.15) !important;
 
 }
+
+.border-bottom{
+  border-bottom: 1px solid #10c3c9 !important ;
+  
+}

@@ -18,13 +18,13 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
-              We are a full-service marketing and advertising agency located in the heart of Karachi. From concept to
+              We are a full-service marketing and advertising agency located in the heart of Australia. From concept to
               execution, we're dedicated to helping your brand stand out and shine.
             </p>
           </div>
 
       
-          <div className="space-y-4 text-center md:text-left">
+          <div className="space-y-4 text-center md:text-left mt-[15px]">
             <h4 className="text-lg md:text-xl font-semibold">Quick Links</h4>
             <nav className="flex flex-col md:flex-row gap-3 md:gap-6 lg:gap-12 space-y-2 md:space-y-0">
               <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg">
@@ -57,29 +57,23 @@ export default function Footer() {
           </div>
 
          
-          <div className="space-y-4 text-center md:text-left">
+          <div className="space-y-4 text-center md:text-left mt-[15px]">
             <h4 className="text-lg md:text-xl lg:text-[24px] font-semibold">Contact Info</h4>
             <div className="space-y-3">
               <div className="flex items-start justify-center md:justify-start space-x-3">
                 <MapPin className="w-5 h-5 md:w-6 md:h-6 text-[#10d4c4] mt-1 flex-shrink-0" />
                 <p className="text-gray-300 text-sm md:text-base lg:text-lg text-left">
-                  Plot no C-18-F, burj-ul-minal Floor 304
-                  <br />
-                  munawar chowrangi no.4, johor,
-                  <br />
-                  Karachi-75500, Pakistan.
+             Australia
+              
                 </p>
               </div>
               <div className="flex items-center justify-center md:justify-start space-x-3">
                 <Mail className="w-5 h-5 md:w-6 md:h-6 text-[#10d4c4] flex-shrink-0" />
                 <div className="text-gray-300 text-sm md:text-base lg:text-lg">
-                  <p>360Australia@gmail.com</p>
+                  <p>support@360-australia.com.au</p>
                 </div>
               </div>
-              <div className="flex items-center justify-center md:justify-start space-x-3">
-                <Phone className="w-5 h-5 md:w-6 md:h-6 text-[#10d4c4] flex-shrink-0" />
-                <p className="text-gray-300 text-sm md:text-base lg:text-lg">+92 323 3372009</p>
-              </div>
+             
             </div>
           </div>
         </div>

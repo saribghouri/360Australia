@@ -300,25 +300,24 @@ export default function Portfolio() {
         }
         
         .project-btn-outline {
-          border: 2px solid rgba(6, 182, 212, 0.4) !important;
+          border: 2px solid rgba(10, 170, 143) !important;
           color: #06b6d4 !important;
         }
         
         .project-btn-outline:hover {
-          background: rgba(6, 182, 212, 0.2) !important;
-          border-color: #06b6d4 !important;
+          background: rgba(10, 170, 143) !important;
+          border-color: #10d4c4 !important;
           color: #06b6d4 !important;
           transform: translateY(-2px);
         }
         
         .project-btn-primary {
-          background: linear-gradient(135deg, #06b6d4, #0891b2) !important;
-          border: none !important;
+background: rgba(10, 170, 143) !important;          border: none !important;
           color: black !important;
         }
         
         .project-btn-primary:hover {
-          background: linear-gradient(135deg, #0891b2, #0e7490) !important;
+          background: linear-gradient(#ffff, #ffff, #ffff) !important;
           transform: translateY(-2px);
           box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4) !important;
         }
@@ -390,7 +389,7 @@ export default function Portfolio() {
             <Col xs={24} lg={14} xl={13}>
               <div className="hero-main-card">
                 <Title level={1} className="!text-5xl lg:!text-6xl xl:!text-7xl !font-bold !mb-6 !leading-tight">
-                  Hi, I'm <span className="text-teal-400 neon-glow">Alex Johnson</span>
+                  Hi, I'm <span className="text-teal-400 ">Alex <span className="text-white">Johnson</span></span>
                 </Title>
                 <Title level={2} className="!text-2xl lg:!text-3xl !text-teal-300 typing-cursor !mb-8">
                   {typedText}
@@ -400,10 +399,10 @@ export default function Portfolio() {
                   web development, I specialize in React, Next.js, and modern web technologies.
                 </Paragraph>
                 <Space size="large" wrap>
-                  <Button type="primary" size="large" icon={<MailOutlined />}>
+                  <Button className="!bg-teal-400 !text-black" size="large" icon={<MailOutlined />}>
                     Get In Touch
                   </Button>
-                  <Button size="large" icon={<GithubOutlined />}>
+                  <Button className="!border-teal-400 !text-black" size="large" icon={<GithubOutlined />}>
                     View Projects
                   </Button>
                 </Space>
@@ -540,8 +539,8 @@ export default function Portfolio() {
                     percent={skill.level}
                     size="small"
                     strokeColor={{
-                      "0%": "#06b6d4",
-                      "100%": "#0891b2",
+                      "0%": "#10d4c4",
+                      "100%": "#10d4c4",
                     }}
                     trailColor="rgba(6, 212, 195, 0.15)"
                   />
@@ -624,7 +623,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-   
+
       <section className="py-20 bg-black">
         <div className="container mx-auto px-6">
           <Title level={2} className="!text-4xl lg:!text-5xl !font-bold !text-center !mb-16">
@@ -664,7 +663,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-  
+
       <section className="py-20 bg-gradient-to-r from-gray-900 via-black to-gray-900">
         <div className="container mx-auto px-6 text-center">
           <Title level={2} className="!text-4xl lg:!text-5xl !font-bold !mb-8">

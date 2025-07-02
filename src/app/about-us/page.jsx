@@ -1,29 +1,7 @@
-// import React from 'react'
-// import Header from '../components/header'
-// import Footer from '../components/footer'
-
-// const Page = () => {
-//     return (
-//         <div>
-//             <div className='mt-[140px]'>
-
-//                 <Header />
-//             </div>
-//             <div className='h-[40vh] items-center flex justify-center'>
-
-//                 <h1 className='text-[40px] text-[#12cfc0]'>COMING SOON</h1>
-//             </div>
-//             <Footer />
-//         </div>
-//     )
-// }
-
-// export default Page
 "use client"
 
 import Image from "next/image"
-
-import { CheckCircle, Users, Target, Award, Lightbulb } from "lucide-react"
+import { CheckCircle, Users, Target, Award, Lightbulb, ArrowRight } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import { Button } from "antd"
 import Header from "../components/header"
@@ -49,7 +27,6 @@ export default function AboutUsSections() {
 
     // Create observers for each animated element
     const keys = ["header1", "content1", "stats1", "header2", "content2", "stats2"]
-
     keys.forEach((key) => {
       if (sectionRefs.current[key]) {
         observers[key] = createObserver(key)
@@ -64,10 +41,10 @@ export default function AboutUsSections() {
 
   return (
     <>
-     <div className='mt-[140px]'>
+      <div className="mt-[140px]">
+        <Header />
+      </div>
 
-                <Header />
-            </div>
       {/* First About Us Section - Website Design */}
       <section className="bg-black text-white py-16 px-4 md:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-[85%] mx-auto">
@@ -99,27 +76,26 @@ export default function AboutUsSections() {
               <div className="absolute -top-8 -left-8 w-32 h-32 bg-teal-500/20 rounded-full blur-xl animate-float"></div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-teal-400/30 rounded-full blur-lg animate-float-delayed"></div>
               <div className="relative overflow-hidden rounded-2xl shadow-2xl transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-teal-500/20">
-                 <Image
-        src="/Screenshot 2025-06-30 072023.png"
-        alt="Screenshot 2025-06-30 072023"
-        width={600}
-        height={400}
-        quality={100}
-        priority
-        className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-110"
-        style={{
-          maxWidth: "100%",
-          height: "auto",
-        }}
-      />
+                <Image
+                  src="/Screenshot 2025-06-30 072023.png"
+                  alt="Screenshot 2025-06-30 072023"
+                  width={600}
+                  height={400}
+                  quality={100}
+                  priority
+                  className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-110"
+                  style={{
+                    maxWidth: "100%",
+                    height: "auto",
+                  }}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
             </div>
 
             {/* Animated Content Section */}
             <div className="space-y-8">
-              <h3 className="text-3xl md:text-4xl font-bold  mb-6 animate-glow">UNLOCKING SUCCESS:</h3>
-
+              <h3 className="text-3xl md:text-4xl font-bold  mb-6 text-teal-400 ">UNLOCKING SUCCESS:</h3>
               <div className="space-y-4">
                 {[
                   "Elevates brand credibility and trust.",
@@ -138,14 +114,12 @@ export default function AboutUsSections() {
                   </div>
                 ))}
               </div>
-
               <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-800 transform transition-all duration-500 hover:bg-gray-900/70 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/10">
                 <p className="text-gray-300 leading-relaxed mb-6">
                   A professionally designed website serves as a dynamic tool, propelling your business towards
                   unparalleled success in the digital landscape. Don't miss out on the transformative impact a
                   well-crafted online presence can bring to your brand.
                 </p>
-
                 <Button
                   size="lg"
                   className="!bg-teal-500 !hover:bg-teal-600 !text-black font-semibold px-8 py-3 rounded-lg !transition-all !duration-300 !transform !hover:scale-105 !hover:shadow-lg !hover:shadow-teal-500/30 !animate-pulse-button"
@@ -199,7 +173,7 @@ export default function AboutUsSections() {
             }`}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
-              ABOUT <span className=" animate-glow">US</span>
+              ABOUT <span className=" text-teal-400">US</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               We are a passionate team of digital innovators, dedicated to transforming your vision into powerful online
@@ -216,14 +190,12 @@ export default function AboutUsSections() {
           >
             {/* Content Section */}
             <div className="space-y-8">
-              <h3 className="text-3xl md:text-4xl font-bold  mb-6 animate-glow">OUR MISSION:</h3>
-
+              <h3 className="text-3xl md:text-4xl font-bold  mb-6 text-teal-400">OUR MISSION:</h3>
               <p className="text-lg text-gray-300 leading-relaxed">
                 Founded with a vision to bridge the gap between creativity and technology, we specialize in crafting
                 bespoke digital solutions that not only look stunning but also deliver exceptional performance and user
                 engagement.
               </p>
-
               <div className="space-y-6">
                 {[
                   {
@@ -269,8 +241,7 @@ export default function AboutUsSections() {
             {/* Animated Values Section */}
             <div className="space-y-8">
               <div className="bg-black/50 p-8 rounded-2xl border border-gray-800 transform transition-all duration-500 hover:bg-black/70 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/10 hover:scale-105">
-                <h3 className="text-2xl font-bold  mb-6 animate-glow">OUR VALUES</h3>
-
+                <h3 className="text-2xl font-bold  mb-6 text-teal-400">OUR VALUES</h3>
                 <div className="space-y-4">
                   {[
                     { icon: Award, text: "Excellence in Every Project" },
@@ -304,17 +275,16 @@ export default function AboutUsSections() {
                   <p className="text-teal-400 font-semibold mt-3 animate-pulse-subtle">— Our Design Philosophy</p>
                 </div>
               </div>
-
               <Button
                 size="lg"
-                className="w-full bg-transparent border-2 !border-teal-400 !text-teal-400 !hover:bg-teal-400 hover:text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-teal-400/30"
+                className="w-full !bg-teal-400 border-2 !border-teal-400 !text-black hover:bg-transparent hover:text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-102 hover:shadow-lg hover:shadow-teal-400/30"
               >
                 LEARN MORE ABOUT US
               </Button>
             </div>
           </div>
 
-          {/* Animated Achievement Stats */}
+          {/* Animated Achievement Stats with Get Proposal Column */}
           <div
             ref={(el) => (sectionRefs.current.stats2 = el)}
             className={`grid md:grid-cols-4 gap-6 pt-12 border-t border-gray-800 transition-all duration-1000 delay-600 ${
@@ -325,7 +295,6 @@ export default function AboutUsSections() {
               { number: "98%", label: "CLIENT SATISFACTION" },
               { number: "24/7", label: "SUPPORT AVAILABLE" },
               { number: "15+", label: "INDUSTRIES SERVED" },
-              { number: "100%", label: "CUSTOM SOLUTIONS" },
             ].map((stat, index) => (
               <div
                 key={index}
@@ -342,10 +311,35 @@ export default function AboutUsSections() {
                 </p>
               </div>
             ))}
+
+            {/* Get a Proposal Column */}
+            <div
+              className={`text-center group cursor-pointer transition-all duration-500 hover:transform hover:scale-110 ${
+                isVisible.stats2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
+              style={{ transitionDelay: `600ms` }}
+            >
+              <div className="bg-teal-500/10 border-2 border-teal-500/30 rounded-2xl p-6 h-full flex flex-col justify-center items-center transition-all duration-300 hover:bg-teal-500/20 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/20">
+                <h4 className="text-2xl font-bold text-teal-400 mb-3 transition-all duration-300 group-hover:text-white">
+                  GET A PROPOSAL
+                </h4>
+                <p className="text-gray-400 font-medium mb-4 group-hover:text-teal-400 transition-colors duration-300 text-sm">
+                  START YOUR PROJECT
+                </p>
+                <Button
+                  size="sm"
+                  className="!bg-teal-500 !hover:bg-teal-600 !text-black font-semibold px-6 py-2 rounded-lg !transition-all !duration-300 !transform !hover:scale-105 !hover:shadow-lg !hover:shadow-teal-500/30 flex items-center gap-2"
+                >
+                  Get Quote <ArrowRight className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-    <Footer />
+
+      <Footer />
+
       <style jsx>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(0deg); }

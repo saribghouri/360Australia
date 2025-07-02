@@ -42,7 +42,7 @@ export default function ModernTablet() {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen">
+    <div className="flex  items-center">
       <div
         className={`relative mt-[100px] transition-all duration-1000 hover:scale-105 ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"

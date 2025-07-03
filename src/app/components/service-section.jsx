@@ -13,25 +13,25 @@ export default function ServicesSection() {
 
   const services = [
     {
-      icon: <Monitor className="w-6 h-6 sm:w-7 sm:h-7" />,
+      icon: <Monitor className="w-6 h-6 sm:w-9 sm:h-9" />,
       title: "Website Design & Development",
       description:
         "At 360 Australia, we build visually stunning, high-performing websites that reflect your brand and connect with your audience. We focus on responsive design and intuitive user experiences, ensuring your online presence is both engaging and effective. Your website serves as the digital backbone of your brand.",
     },
     {
-      icon: <Volume2 className="w-6 h-6 sm:w-7 sm:h-7" />,
+      icon: <img src="/Untitled-3-01.png" className="w-12 h-12 sm:w-12 sm:h-12" />,
       title: "Graphics Design Services",
       description:
         "Bring your brand to life with 360 Australia's creative design expertise. We specialize in creating unique logo designs to complete visual branding and a wide array of marketing materials that perfectly represent your identity and message.",
     },
     {
-      icon: <img src="/icon-03.png" className="w-12 h-12 sm:w-12 sm:h-12" />,
+      icon: <img src="/Untitled-3-03.png" className="w-10 h-16 sm:w-7 sm:h-12" />,
       title: "Mobile App Development",
       description:
         "Extend your reach with mobile applications from 360 Australia. We develop both high-performance native and versatile hybrid apps, designed to engage your audience and provide seamless functionality across all devices. Turn your ideas into real-world solutions that ensure your users enjoy a smooth mobile experience.",
     },
     {
-      icon: <img src="/icon-04.png" className="w-6 h-6 sm:w-7 sm:h-7" />,
+      icon: <img src="/Untitled-3-02.png" className="w-6 h-6 sm:w-10 sm:h-10" />,
       title: "Digital Marketing",
       description:
         "Simplify your online presence and reach your target audience with 360 Australia's comprehensive digital marketing strategies. We specialize in SEO, Social Media Marketing, and Google PPC, driving traffic, increasing engagement, and boosting your brand's visibility in the digital landscape.",

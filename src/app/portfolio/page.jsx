@@ -1,6 +1,6 @@
 "use client"
 
-import { Card, Avatar, Button, Tag, Timeline, Row, Col, Typography, Space, Badge, Progress } from "antd"
+import { Card, Avatar, Button, Tag, Timeline, Row, Col, Typography, Space, Badge, Progress, Form, Input, message } from "antd"
 import {
   GithubOutlined,
   LinkedinOutlined,
@@ -34,7 +34,6 @@ export default function Portfolio() {
   const [typedText, setTypedText] = useState("")
   const fullText = "Full Stack Developer & UI/UX Enthusiast"
 
-
   useEffect(() => {
     let index = 0
     const timer = setInterval(() => {
@@ -48,7 +47,6 @@ export default function Portfolio() {
     return () => clearInterval(timer)
   }, [])
 
-
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({
@@ -59,7 +57,6 @@ export default function Portfolio() {
     window.addEventListener("mousemove", handleMouseMove)
     return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [])
-
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -95,7 +92,7 @@ export default function Portfolio() {
       title: "E-Commerce Platform",
       description:
         "A full-stack e-commerce solution built with Next.js, featuring user authentication, payment processing, and admin dashboard.",
-      image: "/Screenshot 2025-06-30 084459.png",
+      image: "/ecommerce (2).jpg",
       technologies: ["Next.js", "JavaScript", "Stripe", "PostgreSQL"],
       github: "https://github.com",
       live: "https://example.com",
@@ -168,11 +165,16 @@ export default function Portfolio() {
   ]
 
   const stats = [
-    { label: "Years Experience", value: "5+", icon: <CalendarOutlined />, color: "#06b6d4" },
-    { label: "Projects Completed", value: "50+", icon: <ProjectOutlined />, color: "#0891b2" },
-    { label: "Happy Clients", value: "30+", icon: <UserOutlined />, color: "#0e7490" },
-    { label: "Code Commits", value: "2000+", icon: <CodeOutlined />, color: "#155e75" },
+    { label: "Years Experience", value: "5+", icon: <CalendarOutlined />, color: "#17ebbd" },
+    { label: "Projects Completed", value: "50+", icon: <ProjectOutlined />, color: "#17ebbd" },
+    { label: "Happy Clients", value: "30+", icon: <UserOutlined />, color: "#17ebbd" },
+    { label: "Code Commits", value: "2000+", icon: <CodeOutlined />, color: "#17ebbd" },
   ]
+
+  const onFinish = (values) => {
+    message.success("Proposal request submitted successfully!");
+    console.log("Form values:", values);
+  };
 
   return (
     <div className=" ">
@@ -263,7 +265,7 @@ export default function Portfolio() {
         
         .stats-card:hover {
             background: rgba(6, 212, 195, 0.15) !important;
-          border-color: rgba(6, 182, 212, 0.6) !important;
+          border-color: rgba(10, 209, 176) !important;
           transform: translateY(-8px) scale(1.05);
           box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3) !important;
         }
@@ -374,7 +376,6 @@ background: rgba(10, 170, 143) !important;          border: none !important;
         <Header />
       </div>
 
-
       <section className="relative  flex items-center  justify-between overflow-hidden py-20">
         <div className="floating-shapes">
           <StarFilled className="floating-shape" />
@@ -408,7 +409,6 @@ background: rgba(10, 170, 143) !important;          border: none !important;
                 </Space>
               </div>
             </Col>
-
 
             <Col xs={24} lg={10} xl={11}>
               <div className="avatar-container">
@@ -518,7 +518,6 @@ background: rgba(10, 170, 143) !important;          border: none !important;
         </div>
       </section>
 
-
       <section className="py-20 bg-black">
         <div className="container mx-auto px-6">
           <Title level={2} className="!text-4xl lg:!text-5xl !font-bold !text-center !mb-16">
@@ -623,13 +622,12 @@ background: rgba(10, 170, 143) !important;          border: none !important;
         </div>
       </section>
 
-
       <section className="py-20 bg-black">
         <div className="container mx-auto px-6">
           <Title level={2} className="!text-4xl lg:!text-5xl !font-bold !text-center !mb-16">
             Work <span className="text-teal-400">Experience</span>
           </Title>
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-9xl mx-auto">
             <Timeline
               items={experience.map((job, index) => ({
                 color: job.color,
@@ -663,60 +661,7 @@ background: rgba(10, 170, 143) !important;          border: none !important;
         </div>
       </section>
 
-
-      <section className="py-20 bg-gradient-to-r from-gray-900 via-black to-gray-900">
-        <div className="container mx-auto px-6 text-center">
-          <Title level={2} className="!text-4xl lg:!text-5xl !font-bold !mb-8">
-            Let's Work <span className="text-teal-400">Together</span>
-          </Title>
-          <Paragraph className="!text-xl !mb-12 !max-w-2xl !mx-auto !text-gray-300">
-            I'm always interested in new opportunities and exciting projects. Let's discuss how we can bring your ideas
-            to life.
-          </Paragraph>
-
-          <Row gutter={[32, 32]} justify="center" className="mb-12">
-            <Col xs={24} sm={12} lg={8}>
-              <Card className="text-center">
-                <div className="text-4xl text-teal-400 mb-4">
-                  <MailOutlined />
-                </div>
-                <Title level={4}>Email</Title>
-                <Text className="!text-gray-300">alex.johnson@email.com</Text>
-              </Card>
-            </Col>
-            <Col xs={24} sm={12} lg={8}>
-              <Card className="text-center">
-                <div className="text-4xl text-teal-400 mb-4">
-                  <PhoneOutlined />
-                </div>
-                <Title level={4}>Phone</Title>
-                <Text className="!text-gray-300">+1 (555) 123-4567</Text>
-              </Card>
-            </Col>
-            <Col xs={24} sm={12} lg={8}>
-              <Card className="text-center">
-                <div className="text-4xl text-teal-400 mb-4">
-                  <EnvironmentOutlined />
-                </div>
-                <Title level={4}>Location</Title>
-                <Text className="!text-gray-300">San Francisco, CA</Text>
-              </Card>
-            </Col>
-          </Row>
-
-          <Space size="large" wrap>
-            <Button size="large" icon={<GithubOutlined />}>
-              GitHub
-            </Button>
-            <Button size="large" icon={<LinkedinOutlined />}>
-              LinkedIn
-            </Button>
-            <Button type="primary" size="large" icon={<MailOutlined />}>
-              Send Message
-            </Button>
-          </Space>
-        </div>
-      </section>
+     
 
       <Footer />
     </div>

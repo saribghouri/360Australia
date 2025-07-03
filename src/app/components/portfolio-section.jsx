@@ -218,31 +218,31 @@ export default function PortfolioSection() {
     {
       id: 2,
       category: "BRAND IDENTITIES",
-      image: "/barnd_identities.jpg",
+      image: "/a16d8b9ca4f5328a0658a2d25abe4dd2.jpg",
       title: "Brand Identity",
     },
     {
       id: 3,
       category: "EVENTS",
-      image: "/Events.jpg",
+      image: "/0c9ad0533314d49c59637d99ae23112d.jpg",
       title: "Corporate Events",
     },
     {
       id: 4,
       category: "GIVEAWAYS",
-      image: "/giveaways.jpg",
+      image: "/95ffc2029881f1522872f50ff5c29d45.jpg",
       title: "Product Giveaways",
     },
     {
       id: 5,
       category: "MARKETING STRATEGY",
-      image: "/Marketing_Strategy.jpg",
+      image: "/light-bulb-with-drawing-graph.jpg",
       title: "Strategy Planning",
     },
     {
       id: 6,
       category: "SOCIAL MEDIA MARKETING",
-      image: "/SMM.jpg",
+      image: "/hand-holding-smartphone-social-media-concept.jpg",
       title: "Social Media",
     },
   ]

@@ -69,7 +69,7 @@ const Header = () => {
   // ]
 
   return (
-<nav className="bg-black py-4 px-6 md:px-12 flex w-full mt-[-140px] border-bottom z-50 fixed items-center justify-between">     
+    <nav className="bg-black py-4 px-6 md:px-12 flex w-full mt-[-140px] border-bottom z-50 fixed items-center justify-between">
       <div className="flex items-center">
         <Link href="/" className="flex items-center space-x-2">
           <img src="/BxxHdh.png" alt="360 Austrailia Ventures Logo" className="h-19 w-24 lg:h-[76px] lg:w-[144px]" />
@@ -88,7 +88,7 @@ const Header = () => {
           SERVICES
         </Link>
 
-      
+
         {/* <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setIsServicesOpen(!isServicesOpen)}
@@ -154,7 +154,7 @@ const Header = () => {
         </Link>
       </div>
 
-  
+
       <div className="md:hidden flex items-center">
         <button onClick={() => setIsOpen(!isOpen)} className="text-teal-500 0 focus:outline-none">
           <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -169,9 +169,8 @@ const Header = () => {
 
 
       <div
-        className={`absolute top-full left-0 w-full bg-black md:hidden transition-all duration-300 ease-in-out border-t border-teal-500/30 ${
-          isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-        }`}
+        className={`absolute top-full left-0 w-full bg-black md:hidden transition-all duration-300 ease-in-out border-t border-teal-500/30 ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+          }`}
       >
         <div className="flex flex-col py-4 space-y-2">
           <Link
@@ -188,10 +187,10 @@ const Header = () => {
           >
             ABOUT US
           </Link>
-<Link href="/services" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
-          SERVICES
-        </Link>
-         
+          <Link href="/services" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium px-6 py-2">
+            SERVICES
+          </Link>
+
           {/* <div className="px-6">
             <button
               onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
@@ -252,7 +251,7 @@ const Header = () => {
         </div>
       </div>
 
-    
+
       <button className="text-white bg-[#16c7b8] px-10 py-2 font-semibold rounded-2xl cursor-pointer hidden md:block" onClick={handleContactClick}>
         Contact Us
       </button>

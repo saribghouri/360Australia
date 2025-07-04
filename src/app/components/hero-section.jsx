@@ -28,7 +28,7 @@ export default function AnimatedMarketingSection() {
       text: "We begin by thoroughly understanding your needs and establishing clear project objectives.",
     },
     {
-      icon: <CheckSquare  className="!text-[35px]" />,
+      icon: <CheckSquare className="!text-[35px]" />,
       name: "EVALUATING", company: "GrowthCorp", rating: 5, text: "Next, we assess the project's scope, identify potential challenges, and determine the necessary resources."
     },
     {
@@ -347,11 +347,7 @@ export default function AnimatedMarketingSection() {
                     />
 
                     {/* Step number indicator */}
-                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-60 transition-opacity duration-500">
-                      <div className="w-8 h-8 bg-[#10d4c4]/20 rounded-full flex items-center justify-center">
-                        <span className="text-[#10d4c4] text-sm font-bold">{index + 1}</span>
-                      </div>
-                    </div>
+                    
                   </motion.div>
                 ))}
               </div>

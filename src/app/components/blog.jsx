@@ -7,20 +7,20 @@ export default function BlogSection() {
  const blogPosts = [
     {
       id: 1,
-      image: "/td-what-is-graphic-design-illustration-01-500x250.webp",
+      image: "/Screenshot 2025-07-03 114814.png",
       title: "GRAPHIC DESIGN",
       description: "What is Graphic Design? Graphic design is a craft where professionals create visual content",
     },
     {
       id: 2,
-      image: "/9-Top-Marketing-Trends-of-2024-500x250.avif",
+      image: "/digital-marketing-with-icons-business-people.jpg",
       title: "9 TOP MARKETING TRENDS OF 2024",
       description:
         "Discover the marketing landscape of 2024 with insights on AI integration, short-form video popularity,",
     },
     {
       id: 3,
-      image: "/AI_engineering-500x250.avif",
+      image: "/3d-rendering-biorobots-concept.jpg",
       title: "WHAT IS AI?: A HUMAN GUIDE TO ARTIFICIAL INTELLIGENCE",
       description: "Artificial Intelligence (AI) is the hottest buzzword at the moment, and almost every major",
     },

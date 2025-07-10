@@ -86,9 +86,9 @@ export default function AnimatedMarketingSection() {
   }, [])
 
   return (
-    <div className="w-full">
+    <div className="w-full  ">
       {/* Video Hero Section - Full Width */}
-      <section className="relative min-h-screen overflow-hidden bg-black w-full">
+      <section className="relative min-h-screen mt-[130px] overflow-hidden bg-black w-full">
         {/* Video Background */}
         <div className="absolute inset-0 w-full h-full">
           <video autoPlay muted loop playsInline className="w-full h-[90vh] object-cover">

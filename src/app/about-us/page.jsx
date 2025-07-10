@@ -46,9 +46,9 @@ export default function AboutUsSections() {
       </div>
 
       {/* First About Us Section - Website Design */}
-      <section className="bg-black text-white py-16 px-4 md:px-6 lg:px-8 overflow-hidden">
+      {/* <section className="bg-black text-white py-16 px-4 md:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-[85%] mx-auto">
-          {/* Animated Header */}
+         
           <div
             ref={(el) => (sectionRefs.current.header1 = el)}
             className={`text-center mb-12 transition-all duration-1000 ${
@@ -64,14 +64,14 @@ export default function AboutUsSections() {
             </p>
           </div>
 
-          {/* Main Content Grid with Staggered Animation */}
+        
           <div
             ref={(el) => (sectionRefs.current.content1 = el)}
             className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 transition-all duration-1000 delay-300 ${
               isVisible.content1 ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
             }`}
           >
-            {/* Animated Image Section */}
+           
             <div className="relative group">
               <div className="absolute -top-8 -left-8 w-32 h-32 bg-teal-500/20 rounded-full blur-xl animate-float"></div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-teal-400/30 rounded-full blur-lg animate-float-delayed"></div>
@@ -93,7 +93,6 @@ export default function AboutUsSections() {
               </div>
             </div>
 
-            {/* Animated Content Section */}
             <div className="space-y-8">
               <h3 className="text-3xl md:text-4xl font-bold  mb-6 text-teal-400 ">UNLOCKING SUCCESS:</h3>
               <div className="space-y-4">
@@ -130,7 +129,6 @@ export default function AboutUsSections() {
             </div>
           </div>
 
-          {/* Animated Statistics Section */}
           <div
             ref={(el) => (sectionRefs.current.stats1 = el)}
             className={`grid md:grid-cols-3 gap-8 pt-12 border-t border-gray-800 transition-all duration-1000 delay-600 ${
@@ -160,7 +158,7 @@ export default function AboutUsSections() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Second About Us Section - Our Story */}
       <section className="bg-black text-white py-16 px-4 md:px-6 lg:px-8 overflow-hidden">

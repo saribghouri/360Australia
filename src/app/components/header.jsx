@@ -252,7 +252,7 @@ const Header = () => {
       </div>
 
 
-      <button className="text-white bg-[#16c7b8] px-10 py-2 font-semibold rounded-2xl cursor-pointer hidden md:block" onClick={handleContactClick}>
+      <button className="text-white bg-[#13bbad] px-10 py-2 font-semibold rounded-2xl cursor-pointer hidden md:block" onClick={handleContactClick}>
         Contact Us
       </button>
     </nav>

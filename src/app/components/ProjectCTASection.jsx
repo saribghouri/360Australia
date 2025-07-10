@@ -48,19 +48,7 @@ export default function ProjectCTASection() {
           {/* Content Container */}
           <div className="relative z-10 p-8 lg:p-12">
             {/* Premium Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="flex justify-center lg:justify-start mb-8"
-            >
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-500/20 to-white/10 backdrop-blur-sm border border-teal-500/30 rounded-full px-4 py-2">
-                <Sparkles className="w-4 h-4 text-teal-400" />
-                <span className="text-sm font-medium text-white">Premium Solutions</span>
-                <Award className="w-4 h-4 text-teal-400" />
-              </div>
-            </motion.div>
+          
 
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left Content */}
@@ -71,7 +59,7 @@ export default function ProjectCTASection() {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                     <span className="text-white">360 </span>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-teal-200">
                       Australia
@@ -84,26 +72,7 @@ export default function ProjectCTASection() {
                 </motion.div>
 
                 {/* Stats Row */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  viewport={{ once: true }}
-                  className="flex justify-center lg:justify-start gap-8 mb-8"
-                >
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-teal-400">500+</div>
-                    <div className="text-sm text-gray-400">Projects</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-teal-400">98%</div>
-                    <div className="text-sm text-gray-400">Success Rate</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-teal-400">24/7</div>
-                    <div className="text-sm text-gray-400">Support</div>
-                  </div>
-                </motion.div>
+        
 
                 {/* Enhanced CTA Button */}
                 <motion.div
@@ -111,10 +80,10 @@ export default function ProjectCTASection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                   viewport={{ once: true }}
-                  className="space-y-4"
+                  className="space-y-4 "
                 >
                   <motion.button
-                    className="group relative bg-gradient-to-r from-teal-500 to-teal-400 text-black px-10 py-5 rounded-full font-bold text-lg flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl shadow-teal-500/25"
+                    className="group  relative border border-teal-500  bg-white text-black px-10 py-5 rounded-[20px] font-bold text-lg flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl "
                     whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(16, 212, 196, 0.4)" }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -133,9 +102,7 @@ export default function ProjectCTASection() {
                     </motion.div>
                   </motion.button>
 
-                  <p className="text-sm text-gray-400 text-center lg:text-left">
-                    Free consultation • No commitment required
-                  </p>
+               
                 </motion.div>
               </div>
 
@@ -151,13 +118,13 @@ export default function ProjectCTASection() {
                   {/* Enhanced Image Container */}
                   <div className="relative">
                     <motion.div
-                      className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-2 shadow-2xl border border-white/10"
+                      className=" rounded-2xl p-2 shadow-2xl border border-white/10"
                       whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)" }}
                       transition={{ duration: 0.3 }}
                     >
                       <div className="relative overflow-hidden rounded-xl">
                         <img
-                          src="/ffa3e9b8-8a6c-40a8-b650-d2cc6a2308a7_large.webp"
+                          src="/macbook-pro-2K-wallpaper.jpg"
                           alt="360 Australia Project Showcase"
                           className="w-full h-auto"
                         />
@@ -177,35 +144,7 @@ export default function ProjectCTASection() {
                   </div>
 
                   {/* Enhanced Decorative Elements */}
-                  <motion.div
-                    className="absolute -bottom-16 -right-8 lg:-right-16"
-                    initial={{ opacity: 0, y: 50, rotate: -10 }}
-                    whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-                    transition={{ duration: 0.8, delay: 0.7 }}
-                    viewport={{ once: true }}
-                  >
-                    <div className="relative">
-                      <div className="w-28 h-36 bg-gradient-to-br from-gray-300 to-gray-100 rounded-r-xl shadow-xl transform rotate-12 border border-white/20">
-                        <div className="w-full h-full bg-gradient-to-br from-teal-400 to-teal-500 rounded-r-xl p-3">
-                          <div className="space-y-2">
-                            <div className="h-2 bg-white/80 rounded w-full"></div>
-                            <div className="h-2 bg-white/60 rounded w-3/4"></div>
-                            <div className="h-2 bg-white/40 rounded w-1/2"></div>
-                          </div>
-                        </div>
-                        <div className="absolute left-0 top-0 bottom-0 w-2 bg-gray-400 rounded-l-xl"></div>
-                      </div>
-
-                      <motion.div
-                        className="absolute -top-3 -right-3 w-2 h-20 bg-gradient-to-t from-teal-500 to-teal-300 rounded-full transform rotate-45 shadow-lg"
-                        whileHover={{ rotate: 50, scale: 1.1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <div className="absolute top-0 w-2 h-3 bg-pink-300 rounded-full"></div>
-                        <div className="absolute bottom-0 w-2 h-3 bg-gray-800 rounded-full"></div>
-                      </motion.div>
-                    </div>
-                  </motion.div>
+             
                 </motion.div>
 
                 {/* Enhanced Floating Elements */}

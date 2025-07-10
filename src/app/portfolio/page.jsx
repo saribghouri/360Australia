@@ -49,7 +49,7 @@ export default function Portfolio() {
     "/logo 4.webp",
   ]
 
-  // Web Applications data
+
   const webApplications = [
     {
       title: "E-Commerce Platform",
@@ -78,7 +78,7 @@ export default function Portfolio() {
     },
   ]
 
-  // Mobile Applications data
+ 
   const mobileApplications = [
     {
       title: "SERENE ",
@@ -109,7 +109,7 @@ export default function Portfolio() {
     },
   ]
 
-  // Logo Design data
+ 
   const logoDesigns = [
     {
       title: "Tech Startup Branding",
@@ -555,8 +555,8 @@ export default function Portfolio() {
         <Header />
       </div>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+   
+      <section className="bg-black relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute left-20 w-72 h-72 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-teal-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
@@ -657,7 +657,7 @@ export default function Portfolio() {
       </section>
 
       {/* About Me Section */}
-      <section className="py-20 bg-gradient-to-r from-gray-900 to-black">
+      <section className="py-20 bg-gradient-to-r from-gray-950 to-black">
         <div className="container mx-auto px-6">
           <Title level={2} className="!text-4xl lg:!text-5xl !font-bold !text-center !mb-16">
             About <span className="text-teal-400">Me</span>
@@ -766,7 +766,7 @@ export default function Portfolio() {
       </section>
 
       {/* Web Applications Section */}
-      <section className="py-20 bg-gradient-to-r from-gray-900 to-black" id="web-applications" data-animate>
+      <section className="py-20 bg-gradient-to-r from-gray-950 to-black" id="web-applications" data-animate>
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <Title level={2} className="!text-4xl lg:!text-5xl !font-bold !mb-6">
@@ -936,7 +936,7 @@ export default function Portfolio() {
       </section>
 
       {/* Logo Design Section */}
-      <section className="py-20 bg-gradient-to-r from-gray-900 to-black" id="logo-design" data-animate>
+      <section className="py-20 bg-gradient-to-r from-gray-950 to-black" id="logo-design" data-animate>
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <Title level={2} className="!text-4xl lg:!text-5xl !font-bold !mb-6">
@@ -1096,7 +1096,7 @@ export default function Portfolio() {
       </section> */}
 
       {/* Work Experience Section */}
-      <section className="py-20 bg-gradient-to-r from-gray-900 to-black">
+      <section className="py-20 ">
         <div className="container mx-auto px-6">
           <Title level={2} className="!text-4xl lg:!text-5xl !font-bold !text-center !mb-16">
             Work <span className="text-teal-400">Experience</span>

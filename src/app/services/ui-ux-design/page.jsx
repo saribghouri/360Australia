@@ -8,7 +8,7 @@ import {
   SketchOutlined,
 } from "@ant-design/icons"
 
-const { Title, Paragraph } = Typography
+const { Title, p } = Typography
 
 export default function UIUXDesignPage() {
   const services = [
@@ -71,10 +71,10 @@ export default function UIUXDesignPage() {
           <Tag color="#14b8a6" style={{ marginBottom: "16px", fontSize: "14px", padding: "4px 12px" }}>
             UI/UX Design
           </Tag>
-          <Title level={1} style={{ color: "white", fontSize: "48px", marginBottom: "24px", fontWeight: "bold" }}>
+          <h1 level={1} style={{ color: "white", fontSize: "48px", marginBottom: "24px", fontWeight: "bold" }}>
             Design Experiences That Convert
-          </Title>
-          <Paragraph
+          </h1>
+          <p
             style={{
               color: "#d1d5db",
               fontSize: "20px",
@@ -85,7 +85,7 @@ export default function UIUXDesignPage() {
           >
             Create intuitive, beautiful, and user-centered designs that drive engagement and business results. Our
             design team combines creativity with data-driven insights.
-          </Paragraph>
+          </p>
           <Space size="large">
             <Button
               type="primary"
@@ -121,12 +121,12 @@ export default function UIUXDesignPage() {
       <div style={{ backgroundColor: "#000000", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
-            <Title level={2} style={{ color: "white", fontSize: "36px", marginBottom: "16px" }}>
+            <h1 level={2} style={{ color: "white", fontSize: "36px", marginBottom: "16px" }}>
               Complete Design Services
-            </Title>
-            <Paragraph style={{ color: "#d1d5db", fontSize: "20px", maxWidth: "800px", margin: "0 auto" }}>
+            </h1>
+            <p style={{ color: "#d1d5db", fontSize: "20px", maxWidth: "800px", margin: "0 auto" }}>
               From initial research to final implementation, we cover every aspect of the design process.
-            </Paragraph>
+            </p>
           </div>
           <Row gutter={[32, 32]}>
             {services.map((service, index) => (
@@ -140,10 +140,10 @@ export default function UIUXDesignPage() {
                   bodyStyle={{ padding: "32px 24px" }}
                 >
                   <div style={{ marginBottom: "16px" }}>{service.icon}</div>
-                  <Title level={4} style={{ color: "white", marginBottom: "12px" }}>
+                  <h1 level={4} style={{ color: "white", marginBottom: "12px" }}>
                     {service.title}
-                  </Title>
-                  <Paragraph style={{ color: "#d1d5db", margin: 0 }}>{service.description}</Paragraph>
+                  </h1>
+                  <p style={{ color: "#d1d5db", margin: 0 }}>{service.description}</p>
                 </Card>
               </Col>
             ))}
@@ -155,12 +155,12 @@ export default function UIUXDesignPage() {
       <div style={{ backgroundColor: "#000000", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
-            <Title level={2} style={{ color: "white", fontSize: "36px", marginBottom: "16px" }}>
+            <h1 level={2} style={{ color: "white", fontSize: "36px", marginBottom: "16px" }}>
               Our Design Process
-            </Title>
-            <Paragraph style={{ color: "#d1d5db", fontSize: "20px" }}>
+            </h1>
+            <p style={{ color: "#d1d5db", fontSize: "20px" }}>
               A systematic approach that ensures every design decision is purposeful and user-centered.
-            </Paragraph>
+            </p>
           </div>
           <Row gutter={[32, 32]}>
             {designProcess.map((step, index) => (
@@ -183,10 +183,10 @@ export default function UIUXDesignPage() {
                   >
                     {index + 1}
                   </div>
-                  <Title level={4} style={{ color: "white", marginBottom: "8px" }}>
+                  <h1 level={4} style={{ color: "white", marginBottom: "8px" }}>
                     {step.title}
-                  </Title>
-                  <Paragraph style={{ color: "#d1d5db", margin: 0 }}>{step.description}</Paragraph>
+                  </h1>
+                  <p style={{ color: "#d1d5db", margin: 0 }}>{step.description}</p>
                 </div>
               </Col>
             ))}
@@ -199,9 +199,9 @@ export default function UIUXDesignPage() {
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <Row gutter={[48, 48]} align="middle">
             <Col xs={24} lg={12}>
-              <Title level={2} style={{ color: "white", fontSize: "36px", marginBottom: "24px" }}>
+              <h1 level={2} style={{ color: "white", fontSize: "36px", marginBottom: "24px" }}>
                 Why Great Design Matters
-              </Title>
+              </h1>
               <Space direction="vertical" size="large" style={{ width: "100%" }}>
                 {benefits.map((benefit, index) => (
                   <div key={index} style={{ display: "flex", alignItems: "flex-start" }}>
@@ -217,10 +217,10 @@ export default function UIUXDesignPage() {
                       }}
                     />
                     <div>
-                      <Title level={5} style={{ color: "white", marginBottom: "4px" }}>
+                      <h1 level={5} style={{ color: "white", marginBottom: "4px" }}>
                         {benefit.title}
-                      </Title>
-                      <Paragraph style={{ color: "#d1d5db", margin: 0 }}>{benefit.description}</Paragraph>
+                      </h1>
+                      <p style={{ color: "#d1d5db", margin: 0 }}>{benefit.description}</p>
                     </div>
                   </div>
                 ))}
@@ -237,15 +237,15 @@ export default function UIUXDesignPage() {
               >
                 <div style={{ marginBottom: "32px" }}>
                   <div style={{ fontSize: "48px", fontWeight: "bold", color: "#14b8a6", marginBottom: "8px" }}>75%</div>
-                  <Paragraph style={{ color: "#d1d5db", margin: 0 }}>
+                  <p style={{ color: "#d1d5db", margin: 0 }}>
                     of users judge credibility based on design
-                  </Paragraph>
+                  </p>
                 </div>
                 <div>
                   <div style={{ fontSize: "48px", fontWeight: "bold", color: "#14b8a6", marginBottom: "8px" }}>38%</div>
-                  <Paragraph style={{ color: "#d1d5db", margin: 0 }}>
+                  <p style={{ color: "#d1d5db", margin: 0 }}>
                     will stop engaging if content/layout is unattractive
-                  </Paragraph>
+                  </p>
                 </div>
               </Card>
             </Col>
@@ -256,10 +256,10 @@ export default function UIUXDesignPage() {
       {/* CTA Section */}
       <div style={{ backgroundColor: "#000000", padding: "80px 24px", textAlign: "center" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <Title level={2} style={{ color: "white", fontSize: "36px", marginBottom: "16px" }}>
+          <h1 level={2} style={{ color: "white", fontSize: "36px", marginBottom: "16px" }}>
             Ready to Transform Your User Experience?
-          </Title>
-          <Paragraph
+          </h1>
+          <p
             style={{
               color: "#d1d5db",
               fontSize: "20px",
@@ -269,7 +269,7 @@ export default function UIUXDesignPage() {
             }}
           >
             Let's create designs that not only look amazing but also drive real business results.
-          </Paragraph>
+          </p>
           <Space size="large">
             <Button
               type="primary"

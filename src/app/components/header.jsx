@@ -114,7 +114,7 @@ const Header = () => {
                   </Link>
                 ))}
               </div>
-              <div className="mt-4 pt-4 border-t border-gray-700">
+              {/* <div className="mt-4 pt-4 border-t border-gray-700">
                 <Link
                   href="/services"
                   className="block text-center text-[#10d4c4] hover:text-white font-medium text-sm py-2 px-4 rounded-lg border border-[#10d4c4] hover:bg-[#10d4c4] transition-all duration-200"
@@ -122,7 +122,7 @@ const Header = () => {
                 >
                   View All Services
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

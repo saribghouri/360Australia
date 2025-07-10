@@ -82,17 +82,17 @@ export default function Designer() {
                   { name: "Illustrator", icon: "/Adobe-Illustrator-CC-Old.png" },
                   { name: "InDesign", icon: "/Adobe-Indesign-CC.png" },
                   { name: "Canva", icon: "/canva.png" },
-                  { name: "WordPress", icon: "/wordpress-logo-image-png-701751694773680sodsik7zlf-removebg-preview.png" },
+                  { name: "WordPress", icon: "/5968766.png" },
                   { name: "Figma", icon: "/1_6XgfDCVn81AYX68Xvd2I-g@2x.png" },
                 ].map((tool, index) => (
                   <div
                     key={tool.name}
-                    className="tool-card bg-zinc-900 p-6 rounded-lg flex flex-col items-center justify-center space-y-3 opacity-0 translate-y-8 transition-all duration-700 ease-out hover:bg-zinc-800 cursor-pointer"
+                    className="tool-card bg-[#cac8c8] hover:text-[#ffff] p-6 rounded-lg flex flex-col items-center justify-center space-y-3 opacity-0 translate-y-8 transition-all duration-700 ease-out hover:bg-zinc-800 cursor-pointer"
                   >
-                    <div className="relative h-12 w-12">
+                    <div className="relative h-12 w-12 hover:text-[#ffff]">
                       <Image src={tool.icon || "/placeholder.svg"} alt={tool.name} fill className="object-contain" />
                     </div>
-                    <p className="text-center">{tool.name}</p>
+                    <p className="text-center text-black text-[18px] font-semibold ">{tool.name}</p>
                   </div>
                 ))}
               </div>

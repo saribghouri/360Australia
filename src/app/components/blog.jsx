@@ -75,7 +75,7 @@ export default function BlogSection() {
         <div className="absolute bottom-20 sm:bottom-40 left-1/4 w-1 h-1 sm:w-1.5 sm:h-1.5 bg-[#10d4c4] rounded-full"></div>
       </div>
 
-      <div className="max-w-[90%] mx-auto">
+      <div className="max-w-[80%] mx-auto">
         {/* Header */}
         <motion.div
           className="text-center mb-8 sm:mb-12 md:mb-16"
@@ -115,11 +115,11 @@ export default function BlogSection() {
               }}
               className="group cursor-pointer"
             >
-              <div className="bg-gray-900/50 border border-gray-800 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 backdrop-blur-sm hover:bg-gray-900/70 transition-all duration-300">
+              <div className="bg-gray-900/50 border border-gray-800 rounded-lg sm:rounded-xl p-2 sm:p-4 md:p-6 backdrop-blur-sm hover:bg-gray-900/70 transition-all duration-300">
                 <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 items-start">
                   {/* Image */}
                   <motion.div
-                    className="flex-shrink-0 w-full lg:w-80 xl:w-96 h-48 sm:h-56 lg:h-40 xl:h-48 relative overflow-hidden rounded-lg bg-gray-800"
+                    className="flex-shrink-0 w-full lg:w-80 xl:w-96 h-38 sm:h-46 lg:h-30 xl:h-38 relative overflow-hidden rounded-lg bg-gray-800"
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -134,9 +134,9 @@ export default function BlogSection() {
                   </motion.div>
 
                   {/* Content */}
-                  <div className="flex-1 space-y-3 sm:space-y-4">
+                  <div className="flex-1 space-y-3 sm:space-y-2">
                     <motion.h3
-                      className="text-lg sm:text-xl md:text-2xl font-bold text-white group-hover:text-[#10d4c4] transition-colors duration-300 leading-tight"
+                      className="text-lg sm:text-xl md:text-3xl font-bold text-white group-hover:text-[#10d4c4] transition-colors duration-300 leading-tight"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
@@ -145,7 +145,7 @@ export default function BlogSection() {
                       {post.title}
                     </motion.h3>
                     <motion.p
-                      className="text-gray-400 text-sm sm:text-base md:text-lg leading-relaxed group-hover:text-gray-300 transition-colors duration-300"
+                      className="text-gray-400 text-sm sm:text-base md:text-xl leading-relaxed group-hover:text-gray-300 transition-colors duration-300"
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
@@ -155,20 +155,7 @@ export default function BlogSection() {
                     </motion.p>
 
                     {/* Read more indicator */}
-                    <motion.div
-                      className="flex items-center gap-2 text-[#10d4c4] opacity-0 group-hover:opacity-100 transition-all duration-300 pt-2"
-                      initial={{ x: -10 }}
-                      whileHover={{ x: 0 }}
-                    >
-                      <span className="text-xs sm:text-sm font-medium">Read More</span>
-                      <motion.div
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-                        className="text-sm sm:text-base"
-                      >
-                        →
-                      </motion.div>
-                    </motion.div>
+                  
                   </div>
                 </div>
               </div>
@@ -177,21 +164,7 @@ export default function BlogSection() {
         </motion.div>
 
         {/* View All Button - Mobile Friendly */}
-        <motion.div
-          className="flex justify-center mt-8 sm:mt-12 md:mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <motion.button
-            className="bg-[#10d4c4] text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base hover:bg-[#0fc4b4] transition-colors duration-300 transform hover:scale-105"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            View All Articles
-          </motion.button>
-        </motion.div>
+       
 
         {/* Bottom decoration */}
         <motion.div

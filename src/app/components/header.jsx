@@ -16,57 +16,45 @@ const Header = () => {
   }
 
 
-  // useEffect(() => {
-  //   const handleClickOutside = (event) => {
-  //     if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-  //       setIsServicesOpen(false)
-  //     }
-  //   }
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsServicesOpen(false)
+      }
+    }
 
-  //   document.addEventListener("mousedown", handleClickOutside)
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside)
-  //   }
-  // }, [])
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
 
-  // const services = [
-  //   {
-  //     title: "Web Development",
-  //     description: "Custom websites and web applications",
-  //     href: "/web-developments",
-  //     icon: "🌐",
-  //   },
-  //   {
-  //     title: "Mobile App Development",
-  //     description: "iOS and Android applications",
-  //     href: "/services/mobile-development",
-  //     icon: "📱",
-  //   },
-  //   {
-  //     title: "UI/UX Design",
-  //     description: "User interface and experience design",
-  //     href: "/services/ui-ux-design",
-  //     icon: "🎨",
-  //   },
-  //   {
-  //     title: "Digital Marketing",
-  //     description: "SEO, social media, and online marketing",
-  //     href: "/services/digital-marketing",
-  //     icon: "📈",
-  //   },
-  //   {
-  //     title: "E-commerce Solutions",
-  //     description: "Online stores and payment systems",
-  //     href: "/services/ecommerce",
-  //     icon: "🛒",
-  //   },
-  //   {
-  //     title: "Cloud Services",
-  //     description: "Cloud hosting and infrastructure",
-  //     href: "/services/cloud-services",
-  //     icon: "☁️",
-  //   },
-  // ]
+  const services = [
+    {
+      title: "Web Development",
+      href: "/web-developments",
+    },
+    {
+      title: "Mobile App Development",
+      href: "/services/mobile-development",
+    },
+    {
+      title: "UI/UX Design",
+      href: "/services/ui-ux-design",
+    },
+    {
+      title: "Digital Marketing",
+      href: "/services/digital-marketing",
+    },
+    {
+      title: "E-commerce Solutions",
+      href: "/services/ecommerce",
+    },
+    {
+      title: "Cloud Services",
+      href: "/services/cloud-services",
+    },
+  ]
 
   return (
     <nav className="bg-black py-4 px-6 md:px-12 flex w-full mt-[-140px] border-bottom z-50 fixed items-center justify-between">
@@ -84,12 +72,10 @@ const Header = () => {
         <Link href="/about-us" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
           ABOUT US
         </Link>
-        <Link href="/services" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
-          SERVICES
-        </Link>
 
 
-        {/* <div className="relative" ref={dropdownRef}>
+
+        <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setIsServicesOpen(!isServicesOpen)}
             onMouseEnter={() => setIsServicesOpen(true)}
@@ -101,13 +87,12 @@ const Header = () => {
             />
           </button>
 
-       
+
           <div
-            className={`absolute top-full left-0 mt-2 w-80 bg-gradient-to-br from-gray-900 to-black border border-teal-500/30 rounded-xl shadow-2xl transition-all duration-300 ${
-              isServicesOpen
-                ? "opacity-100 visible transform translate-y-0"
-                : "opacity-0 invisible transform -translate-y-2"
-            }`}
+            className={`absolute top-full left-0 mt-6 w-80 bg-gradient-to-br from-gray-900 to-black border border-teal-500/30 rounded-xl shadow-2xl transition-all duration-300 ${isServicesOpen
+              ? "opacity-100 visible transform translate-y-0"
+              : "opacity-0 invisible transform -translate-y-2"
+              }`}
             onMouseLeave={() => setIsServicesOpen(false)}
           >
             <div className="p-4">
@@ -119,16 +104,12 @@ const Header = () => {
                     className="group flex items-start space-x-3 p-3 rounded-lg hover:bg-gradient-to-r hover:from-teal-500/10 hover:to-blue-500/10 transition-all duration-200 border border-transparent hover:border-teal-500/20"
                     onClick={() => setIsServicesOpen(false)}
                   >
-                    <span className="text-2xl group-hover:scale-110 transition-transform duration-200">
-                      {service.icon}
-                    </span>
+
                     <div className="flex-1">
                       <h3 className="text-white font-semibold text-sm group-hover:text-[#10d4c4] transition-colors duration-200">
                         {service.title}
                       </h3>
-                      <p className="text-gray-400 text-xs mt-1 group-hover:text-gray-300 transition-colors duration-200">
-                        {service.description}
-                      </p>
+
                     </div>
                   </Link>
                 ))}
@@ -144,11 +125,9 @@ const Header = () => {
               </div>
             </div>
           </div>
-        </div> */}
+        </div>
 
-        <Link href="/portfolio" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
-          PORTFOLIO
-        </Link>
+
         <Link href="/contact" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
           CONTACT
         </Link>

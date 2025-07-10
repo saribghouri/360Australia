@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react"
 import { Button } from "antd"
 import Header from "../components/header"
 import Footer from "../components/footer"
+import ProjectCTASection from "../components/ProjectCTASection"
 
 export default function AboutUsSections() {
   const [isVisible, setIsVisible] = useState({})
@@ -162,13 +163,12 @@ export default function AboutUsSections() {
 
       {/* Second About Us Section - Our Story */}
       <section className="bg-black text-white py-16 px-4 md:px-6 lg:px-8 overflow-hidden">
-        <div className="max-w-[85%] mx-auto">
+        <div className="max-w-[90%] mx-auto">
           {/* Animated Header */}
           <div
             ref={(el) => (sectionRefs.current.header2 = el)}
-            className={`text-center mb-16 transition-all duration-1000 ${
-              isVisible.header2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
+            className={`text-center mb-16 transition-all duration-1000 ${isVisible.header2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
               ABOUT <span className=" text-teal-400">US</span>
@@ -182,14 +182,13 @@ export default function AboutUsSections() {
           {/* Animated Content Grid */}
           <div
             ref={(el) => (sectionRefs.current.content2 = el)}
-            className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 transition-all duration-1000 delay-300 ${
-              isVisible.content2 ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-            }`}
+            className={`grid lg:grid-cols-2 gap-12 lg:gap-22 items-center mb-16 transition-all duration-1000 delay-300 ${isVisible.content2 ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+              }`}
           >
             {/* Content Section */}
             <div className="space-y-8">
-              <h3 className="text-3xl md:text-4xl font-bold  mb-6 text-teal-400">OUR MISSION:</h3>
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <h3 className="text-3xl md:text-4xl font-bold  mb-8 text-teal-400">OUR MISSION:</h3>
+              <p className="text-xl text-gray-300 leading-relaxed">
                 Founded with a vision to bridge the gap between creativity and technology, we specialize in crafting
                 bespoke digital solutions that not only look stunning but also deliver exceptional performance and user
                 engagement.
@@ -216,17 +215,16 @@ export default function AboutUsSections() {
                   return (
                     <div
                       key={index}
-                      className={`flex items-start gap-4 group transition-all duration-500 hover:transform hover:translate-x-2 ${
-                        isVisible.content2 ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-                      }`}
+                      className={`flex items-start gap-4 group transition-all duration-500 hover:transform hover:translate-x-2 ${isVisible.content2 ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+                        }`}
                       style={{ transitionDelay: `${(index + 1) * 200}ms` }}
                     >
                       <IconComponent className="w-8 h-8 text-teal-400 mt-1 flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12" />
                       <div>
-                        <h4 className="text-xl font-semibold text-white mb-2 group-hover:text-teal-400 transition-colors duration-300">
+                        <h4 className="text-[22px] font-semibold text-white mb-2 group-hover:text-teal-400 transition-colors duration-300">
                           {item.title}
                         </h4>
-                        <p className="text-gray-300 group-hover:text-white transition-colors duration-300">
+                        <p className="text-gray-300 text-[18px] group-hover:text-white transition-colors duration-300">
                           {item.desc}
                         </p>
                       </div>
@@ -238,9 +236,9 @@ export default function AboutUsSections() {
 
             {/* Animated Values Section */}
             <div className="space-y-8">
-              <div className="bg-black/50 p-8 rounded-2xl border border-gray-800 transform transition-all duration-500 hover:bg-black/70 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/10 hover:scale-105">
-                <h3 className="text-2xl font-bold  mb-6 text-teal-400">OUR VALUES</h3>
-                <div className="space-y-4">
+              <div className="    ">
+                <h3 className="text-4xl font-bold  mb-6 text-teal-400">OUR VALUES</h3>
+                <div className="space-y-6">
                   {[
                     { icon: Award, text: "Excellence in Every Project" },
                     { icon: CheckCircle, text: "Client-Centric Approach" },
@@ -251,13 +249,12 @@ export default function AboutUsSections() {
                     return (
                       <div
                         key={index}
-                        className={`flex items-center gap-3 group transition-all duration-300 hover:translate-x-2 ${
-                          isVisible.content2 ? "opacity-100" : "opacity-0"
-                        }`}
+                        className={`flex items-center gap-3 group transition-all duration-300 hover:translate-x-2 ${isVisible.content2 ? "opacity-100" : "opacity-0"
+                          }`}
                         style={{ transitionDelay: `${(index + 1) * 100 + 400}ms` }}
                       >
                         <IconComponent className="w-5 h-5 text-teal-400 transition-all duration-300 group-hover:scale-125 group-hover:rotate-12" />
-                        <span className="text-white font-medium group-hover:text-teal-400 transition-colors duration-300">
+                        <span className="text-white  text-[22px] group-hover:text-teal-400 transition-colors duration-300">
                           {value.text}
                         </span>
                       </div>
@@ -266,28 +263,22 @@ export default function AboutUsSections() {
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-gray-700">
-                  <p className="text-gray-300 text-sm leading-relaxed">
+                  <p className="text-gray-300 text-xl leading-relaxed">
                     "We believe that great design is not just about aesthetics—it's about creating meaningful
                     connections between brands and their audiences."
                   </p>
-                  <p className="text-teal-400 font-semibold mt-3 animate-pulse-subtle">— Our Design Philosophy</p>
+                  <p className="text-teal-400 font-semibold mt-3 text-[24px] animate-pulse-subtle">— Our Design Philosophy</p>
                 </div>
               </div>
-              <Button
-                size="lg"
-                className="w-full !bg-teal-400 border-2 !border-teal-400 !text-black hover:bg-transparent hover:text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-102 hover:shadow-lg hover:shadow-teal-400/30"
-              >
-                LEARN MORE ABOUT US
-              </Button>
+
             </div>
           </div>
 
           {/* Animated Achievement Stats with Get Proposal Column */}
           <div
             ref={(el) => (sectionRefs.current.stats2 = el)}
-            className={`grid md:grid-cols-4 gap-6 pt-12 border-t border-gray-800 transition-all duration-1000 delay-600 ${
-              isVisible.stats2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
+            className={`grid md:grid-cols-3 gap-6 pt-12 border-t border-gray-800 transition-all duration-1000 delay-600 ${isVisible.stats2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              }`}
           >
             {[
               { number: "98%", label: "CLIENT SATISFACTION" },
@@ -296,9 +287,8 @@ export default function AboutUsSections() {
             ].map((stat, index) => (
               <div
                 key={index}
-                className={`text-center group cursor-pointer transition-all duration-500 hover:transform hover:scale-110 ${
-                  isVisible.stats2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
+                className={`text-center group cursor-pointer transition-all duration-500 hover:transform hover:scale-110 ${isVisible.stats2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  }`}
                 style={{ transitionDelay: `${(index + 1) * 150 + 600}ms` }}
               >
                 <h4 className="text-3xl md:text-4xl font-bold text-teal-400 mb-2 transition-all duration-300 group-hover:text-white animate-counter">
@@ -311,31 +301,11 @@ export default function AboutUsSections() {
             ))}
 
             {/* Get a Proposal Column */}
-            <div
-              className={`text-center group cursor-pointer transition-all duration-500 hover:transform hover:scale-110 ${
-                isVisible.stats2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-              style={{ transitionDelay: `600ms` }}
-            >
-              <div className="bg-teal-500/10 border-2 border-teal-500/30 rounded-2xl p-6 h-full flex flex-col justify-center items-center transition-all duration-300 hover:bg-teal-500/20 hover:border-teal-400 hover:shadow-lg hover:shadow-teal-500/20">
-                <h4 className="text-2xl font-bold text-teal-400 mb-3 transition-all duration-300 group-hover:text-white">
-                  GET A PROPOSAL
-                </h4>
-                <p className="text-gray-400 font-medium mb-4 group-hover:text-teal-400 transition-colors duration-300 text-sm">
-                  START YOUR PROJECT
-                </p>
-                <Button
-                  size="sm"
-                  className="!bg-teal-500 !hover:bg-teal-600 !text-black font-semibold px-6 py-2 rounded-lg !transition-all !duration-300 !transform !hover:scale-105 !hover:shadow-lg !hover:shadow-teal-500/30 flex items-center gap-2"
-                >
-                  Get Quote <ArrowRight className="w-4 h-4" />
-                </Button>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
-
+      <ProjectCTASection />
       <Footer />
 
       <style jsx>{`

@@ -64,10 +64,10 @@ export default function AnimatedMarketingSection() {
     return () => observer.disconnect()
   }, [])
 
-  // Counter animation
+
   useEffect(() => {
     setIsVisible(true)
-    // Animate counters
+  
     stats.forEach((stat) => {
       let start = 0
       const end = stat.value
@@ -87,23 +87,23 @@ export default function AnimatedMarketingSection() {
 
   return (
     <div className="w-full  ">
-      {/* Video Hero Section - Full Width */}
+   
       <section className="relative min-h-screen mt-[130px] overflow-hidden bg-black w-full">
-        {/* Video Background */}
+   
         <div className="absolute inset-0 w-full h-full">
           <video autoPlay muted loop playsInline className="w-full h-[90vh] object-cover">
-            <source src="/WhatsApp Video 2025-07-10 at 1.40.26 AM.mp4" type="video/mp4" />
+            <source src="/WhatsApp Video 2025-07-10 at 4.58.26 AM.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          {/* Dark overlay for better text readability */}
+         
           <div className="absolute inset-0 bg-black/80"></div>
         </div>
 
-        {/* Content */}
+     
         <div className="relative z-10 flex flex-col justify-center mt-[80px] px-6 sm:px-8 lg:px-12">
           <div className="max-w-[90%] mx-auto w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-              {/* Left Content */}
+         
               <div className="lg:col-span-7 space-y-6 sm:space-y-8">
                 <div className="space-y-4 sm:space-y-6">
                   <div
@@ -205,7 +205,7 @@ export default function AnimatedMarketingSection() {
                 </div>
               </div>
 
-              {/* Right Stats Card - Fixed positioning */}
+    
               <div className="lg:col-span-5 flex justify-center lg:justify-end">
                 <div className="w-full max-w-md">
                   <StateCard />
@@ -216,10 +216,10 @@ export default function AnimatedMarketingSection() {
         </div>
       </section>
 
-      {/* How We Make It Simple Section */}
+    
       <div className="max-w-[90%] mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
-          {/* Process Section */}
+   
           <div className="lg:col-span-7">
             <section
               ref={sectionRef}
@@ -250,7 +250,7 @@ export default function AnimatedMarketingSection() {
                   </h2>
                 </div>
 
-                {/* Enhanced Animated Cards */}
+             
                 <div className="space-y-4">
                   {testimonials.map((testimonial, index) => (
                     <motion.div
@@ -271,19 +271,19 @@ export default function AnimatedMarketingSection() {
                         hover:shadow-2xl hover:shadow-[#10d4c4]/25
                       `}
                     >
-                      {/* Animated background overlay */}
+                    
                       <div
                         className="absolute inset-0 bg-gradient-to-r from-transparent via-[#10d4c4]/15 to-transparent
                                    translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out"
                       />
-                      {/* Glow effect */}
+                    
                       <div
                         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500
                                    bg-gradient-to-r from-[#10d4c4]/5 via-[#10d4c4]/10 to-[#10d4c4]/5 blur-xl"
                       />
                       <div className="relative z-10">
                         <div className="flex items-start gap-3 sm:gap-4 mb-4">
-                          {/* Animated icon */}
+                    
                           <motion.div
                             whileHover={{
                               rotate: [0, -10, 10, -10, 0],
@@ -298,7 +298,7 @@ export default function AnimatedMarketingSection() {
                             <div className="!text-[35px] flex items-center justify-center">{testimonial.icon}</div>
                           </motion.div>
                           <div className="flex-1 min-w-0">
-                            {/* Animated name/title */}
+                 
                             <motion.h3
                               whileHover={{
                                 x: 3,
@@ -311,7 +311,7 @@ export default function AnimatedMarketingSection() {
                             </motion.h3>
                           </div>
                         </div>
-                        {/* Animated testimonial text */}
+                     
                         <motion.p
                           whileHover={{
                             x: 5,
@@ -323,27 +323,27 @@ export default function AnimatedMarketingSection() {
                           {testimonial.text}
                         </motion.p>
                       </div>
-                      {/* Corner accent */}
+     
                       <div
                         className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#10d4c4]/20 to-transparent
                                    opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       />
-                      {/* Bottom accent line */}
+      
                       <div
                         className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#10d4c4] to-transparent
                                    w-0 group-hover:w-full transition-all duration-500 ease-out"
                       />
-                      {/* Side glow */}
+          
                       <div
                         className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#10d4c4]
                                    group-hover:h-1/3 transition-all duration-300 ease-out rounded-full"
                       />
-                      {/* Top accent line */}
+          
                       <div
                         className="absolute top-0 right-0 w-0 h-1 bg-gradient-to-l from-[#10d4c4] to-transparent
                                    group-hover:w-1/4 transition-all duration-700 ease-out delay-200"
                       />
-                      {/* Floating particles effect */}
+              
                       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div
                           className="absolute top-1/4 right-1/4 w-1 h-1 bg-[#10d4c4] rounded-full
@@ -358,13 +358,13 @@ export default function AnimatedMarketingSection() {
                                      animate-pulse delay-500"
                         />
                       </div>
-                      {/* Quote accent */}
+                  
                       <div className="absolute top-2 left-2 opacity-0 group-hover:opacity-30 transition-opacity duration-500">
                         <svg className="w-6 h-6 text-[#10d4c4]" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
                         </svg>
                       </div>
-                      {/* Radial gradient overlay */}
+                 
                       <div
                         className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
                         style={{
@@ -378,10 +378,10 @@ export default function AnimatedMarketingSection() {
             </section>
           </div>
 
-          {/* Tablet Section */}
+       
           <div className="lg:col-span-5">
             <div
-              className={`relative overflow-hidden rounded-lg mt-8 lg:mt-[100px] transition-all duration-1000 hover:scale-105 ${
+              className={`relative overflow-hidden rounded-lg mt-8 transition-all duration-1000 hover:scale-105 ${
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               }`}
               style={{ transitionDelay: "1.2s" }}

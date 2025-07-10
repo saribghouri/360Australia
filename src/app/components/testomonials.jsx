@@ -21,7 +21,7 @@ const testimonials = [
         name: "Emily R",
         position: "Founder of ",
         company: "GreenLeaf Organics",
-        image: "/photo-1535713875002-d1d0cf377fde.jfif",
+        image: "/depositphotos_371934132-stock-photo-beautiful-african-american-businesswoman-wearing.jpg",
         rating: 5,
         text: "As a growing start-up, we needed a digital agency that could establish our online presence. 360 Australia's team impressed us with their professionalism, innovative strategies, and strong focus on results. They have a deep understanding of the local market, making them a valuable asset to our journey.",
     },
@@ -39,7 +39,7 @@ const testimonials = [
         name: "David L.",
         position: "Owner of ",
         company: "Coastline Auto Repairs",
-        image: "/photo-1535713875002-d1d0cf377fde.jfif",
+        image: "/LinkedIn-studio-headshot-photographer-london-1024x1024.jpg",
         rating: 5,
         text: "If you want a digital agency that delivers, look no further than 360 Australia. They exceeded our expectations, transforming our online presence and driving impressive local customer growth. Their team's sharp insights and responsiveness, combined with their ability to simplify complex digital strategies, truly set them apart as Australia's leading digital agency.",
     },
@@ -192,19 +192,19 @@ export default function TestimonialSection() {
                         </div>
                       </motion.div>
 
-                      <h4 className="text-white text-lg sm:text-xl font-semibold mb-1 text-center">
+                      <h4 className="text-white text-lg sm:text-[25px] font-semibold mb-1 text-center">
                         {testimonial.name}
                       </h4>
-                      <p className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2 text-center">
+                      <p className="text-gray-400 text-lg sm:text-lg mb-1 sm:mb-2 text-center">
                         {testimonial.position}
                       </p>
                     </div>
 
                     <div className="text-center mb-4 sm:mb-6">
-                      <h5 className="text-[#10d4c4] font-semibold text-base sm:text-lg">{testimonial.company}</h5>
+                      <h5 className="text-[#10d4c4] font-semibold text-lg  sm:text-[30px]">{testimonial.company}</h5>
                     </div>
 
-                    <p className="text-gray-300 text-center leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base min-h-[80px] sm:min-h-[120px] flex items-center">
+                    <p className="text-gray-300 text-center leading-relaxed mb-4 sm:mb-6 text-lg sm:text-lg min-h-[80px] sm:min-h-[120px] flex items-center">
                       {testimonial.text}
                     </p>
 

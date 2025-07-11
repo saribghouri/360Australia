@@ -21,9 +21,9 @@ export default function Home() {
 < MarketingSection/>
 <ServicesSection/>
 <PortfolioSection/>
-<Designer/>
+{/* <Designer/> */}
 <TestimonialSection/>
-<BlogSection/>
+{/* <BlogSection/> */}
 <ClientLogosSection/>
 <ProjectCTASection/>
 <Footer/>

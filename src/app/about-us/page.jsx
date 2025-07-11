@@ -1,22 +1,46 @@
 "use client"
 
-import Image from "next/image"
-import { CheckCircle, Users, Target, Award, Lightbulb, ArrowRight } from "lucide-react"
+import { CheckCircle, Users, Target, Award, Lightbulb } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
-import { Button } from "antd"
+import Image from "next/image"
 import Header from "../components/header"
 import Footer from "../components/footer"
 import ProjectCTASection from "../components/ProjectCTASection"
+import { Button } from "antd"
 
 export default function AboutUsSections() {
   const [isVisible, setIsVisible] = useState({})
-  const sectionRefs = useRef({})
+  const [mainSectionVisible, setMainSectionVisible] = useState(false)
 
+  // Create individual refs for each section
+  const headerRef = useRef(null)
+  const contentRef = useRef(null)
+  const mainSectionRef = useRef(null)
+
+  // Main section intersection observer
   useEffect(() => {
-    const observers = {}
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setMainSectionVisible(true)
+        }
+      },
+      { threshold: 0.1 },
+    )
 
-    const createObserver = (key) => {
-      return new IntersectionObserver(
+    if (mainSectionRef.current) {
+      observer.observe(mainSectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
+  // Multiple sections intersection observer
+  useEffect(() => {
+    const observers = []
+
+    const createObserver = (key, element) => {
+      const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
             setIsVisible((prev) => ({ ...prev, [key]: true }))
@@ -24,19 +48,21 @@ export default function AboutUsSections() {
         },
         { threshold: 0.1, rootMargin: "50px" },
       )
+
+      observer.observe(element)
+      observers.push(observer)
     }
 
-    // Create observers for each animated element
-    const keys = ["header1", "content1", "stats1", "header2", "content2", "stats2"]
-    keys.forEach((key) => {
-      if (sectionRefs.current[key]) {
-        observers[key] = createObserver(key)
-        observers[key].observe(sectionRefs.current[key])
-      }
-    })
+    // Observe header and content sections
+    if (headerRef.current) {
+      createObserver("header", headerRef.current)
+    }
+    if (contentRef.current) {
+      createObserver("content", contentRef.current)
+    }
 
     return () => {
-      Object.values(observers).forEach((observer) => observer.disconnect())
+      observers.forEach((observer) => observer.disconnect())
     }
   }, [])
 
@@ -46,132 +72,16 @@ export default function AboutUsSections() {
         <Header />
       </div>
 
-      {/* First About Us Section - Website Design */}
-      {/* <section className="bg-black text-white py-16 px-4 md:px-6 lg:px-8 overflow-hidden">
-        <div className="max-w-[85%] mx-auto">
-         
-          <div
-            ref={(el) => (sectionRefs.current.header1 = el)}
-            className={`text-center mb-12 transition-all duration-1000 ${
-              isVisible.header1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight animate-pulse-slow">
-              WEBSITE DESIGN
-            </h2>
-            <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Investing in a professionally designed website is crucial for businesses seeking online success. It
-              enhances credibility, user experience, and brand visibility driving growth and customer engagement.
-            </p>
-          </div>
-
-        
-          <div
-            ref={(el) => (sectionRefs.current.content1 = el)}
-            className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16 transition-all duration-1000 delay-300 ${
-              isVisible.content1 ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-            }`}
-          >
-           
-            <div className="relative group">
-              <div className="absolute -top-8 -left-8 w-32 h-32 bg-teal-500/20 rounded-full blur-xl animate-float"></div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-teal-400/30 rounded-full blur-lg animate-float-delayed"></div>
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl transform transition-all duration-500 group-hover:scale-105 group-hover:shadow-teal-500/20">
-                <Image
-                  src="/Screenshot 2025-06-30 072023.png"
-                  alt="Screenshot 2025-06-30 072023"
-                  width={600}
-                  height={400}
-                  quality={100}
-                  priority
-                  className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-110"
-                  style={{
-                    maxWidth: "100%",
-                    height: "auto",
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-            </div>
-
-            <div className="space-y-8">
-              <h3 className="text-3xl md:text-4xl font-bold  mb-6 text-teal-400 ">UNLOCKING SUCCESS:</h3>
-              <div className="space-y-4">
-                {[
-                  "Elevates brand credibility and trust.",
-                  "Enhances user experience and navigation.",
-                  "Drives business growth through customer engagement.",
-                ].map((text, index) => (
-                  <div
-                    key={index}
-                    className={`flex items-start gap-4 transition-all duration-500 ${
-                      isVisible.content1 ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-                    }`}
-                    style={{ transitionDelay: `${(index + 1) * 200}ms` }}
-                  >
-                    <CheckCircle className="w-6 h-6 text-teal-400 mt-1 flex-shrink-0 animate-bounce-subtle" />
-                    <p className="text-lg text-gray-300">{text}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-800 transform transition-all duration-500 hover:bg-gray-900/70 hover:border-teal-500/30 hover:shadow-lg hover:shadow-teal-500/10">
-                <p className="text-gray-300 leading-relaxed mb-6">
-                  A professionally designed website serves as a dynamic tool, propelling your business towards
-                  unparalleled success in the digital landscape. Don't miss out on the transformative impact a
-                  well-crafted online presence can bring to your brand.
-                </p>
-                <Button
-                  size="lg"
-                  className="!bg-teal-500 !hover:bg-teal-600 !text-black font-semibold px-8 py-3 rounded-lg !transition-all !duration-300 !transform !hover:scale-105 !hover:shadow-lg !hover:shadow-teal-500/30 !animate-pulse-button"
-                >
-                  START YOUR WEBSITE
-                </Button>
-              </div>
-            </div>
-          </div>
-
-          <div
-            ref={(el) => (sectionRefs.current.stats1 = el)}
-            className={`grid md:grid-cols-3 gap-8 pt-12 border-t border-gray-800 transition-all duration-1000 delay-600 ${
-              isVisible.stats1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            {[
-              { number: "1000+", label: "WEBSITES CREATED" },
-              { number: "750+", label: "COMPANIES HELPED" },
-              { number: "60+", label: "YEARS COMBINED EXPERIENCE" },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className={`text-center group cursor-pointer transition-all duration-500 ${
-                  isVisible.stats1 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                }`}
-                style={{ transitionDelay: `${(index + 1) * 200 + 600}ms` }}
-              >
-                <p className="text-teal-400 text-sm font-semibold mb-2 tracking-wider">OVER</p>
-                <h4 className="text-4xl md:text-5xl font-bold text-white mb-2 transition-all duration-300 group-hover:text-teal-400 group-hover:scale-110 animate-counter">
-                  {stat.number}
-                </h4>
-                <p className="text-gray-400 font-medium group-hover:text-white transition-colors duration-300">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Second About Us Section - Our Story */}
       <section className="bg-black text-white py-16 px-4 md:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-[90%] mx-auto">
-          {/* Animated Header */}
+          {/* Header Section */}
           <div
-            ref={(el) => (sectionRefs.current.header2 = el)}
-            className={`text-center mb-16 transition-all duration-1000 ${isVisible.header2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            ref={headerRef}
+            className={`text-center mb-16 transition-all duration-1000 ${isVisible.header ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
-              ABOUT <span className=" text-teal-400">US</span>
+              ABOUT <span className="text-teal-400">US</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
               We are a passionate team of digital innovators, dedicated to transforming your vision into powerful online
@@ -179,15 +89,15 @@ export default function AboutUsSections() {
             </p>
           </div>
 
-          {/* Animated Content Grid */}
+          {/* Content Section */}
           <div
-            ref={(el) => (sectionRefs.current.content2 = el)}
-            className={`grid lg:grid-cols-2 gap-12 lg:gap-22 items-center mb-16 transition-all duration-1000 delay-300 ${isVisible.content2 ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+            ref={contentRef}
+            className={`grid lg:grid-cols-2 gap-12 lg:gap-22 items-center mb-16 transition-all duration-1000 delay-300 ${isVisible.content ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
               }`}
           >
-            {/* Content Section */}
+            {/* Mission Section */}
             <div className="space-y-8">
-              <h3 className="text-3xl md:text-4xl font-bold  mb-8 text-teal-400">OUR MISSION:</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-8 text-teal-400">OUR MISSION:</h3>
               <p className="text-xl text-gray-300 leading-relaxed">
                 Founded with a vision to bridge the gap between creativity and technology, we specialize in crafting
                 bespoke digital solutions that not only look stunning but also deliver exceptional performance and user
@@ -215,7 +125,7 @@ export default function AboutUsSections() {
                   return (
                     <div
                       key={index}
-                      className={`flex items-start gap-4 group transition-all duration-500 hover:transform hover:translate-x-2 ${isVisible.content2 ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+                      className={`flex items-start gap-4 group transition-all duration-500 hover:transform hover:translate-x-2 ${isVisible.content ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
                         }`}
                       style={{ transitionDelay: `${(index + 1) * 200}ms` }}
                     >
@@ -234,10 +144,10 @@ export default function AboutUsSections() {
               </div>
             </div>
 
-            {/* Animated Values Section */}
+            {/* Values Section */}
             <div className="space-y-8">
-              <div className="    ">
-                <h3 className="text-4xl font-bold  mb-6 text-teal-400">OUR VALUES</h3>
+              <div>
+                <h3 className="text-4xl font-bold mb-6 text-teal-400">OUR VALUES</h3>
                 <div className="space-y-6">
                   {[
                     { icon: Award, text: "Excellence in Every Project" },
@@ -249,62 +159,170 @@ export default function AboutUsSections() {
                     return (
                       <div
                         key={index}
-                        className={`flex items-center gap-3 group transition-all duration-300 hover:translate-x-2 ${isVisible.content2 ? "opacity-100" : "opacity-0"
+                        className={`flex items-center gap-3 group transition-all duration-300 hover:translate-x-2 ${isVisible.content ? "opacity-100" : "opacity-0"
                           }`}
                         style={{ transitionDelay: `${(index + 1) * 100 + 400}ms` }}
                       >
                         <IconComponent className="w-5 h-5 text-teal-400 transition-all duration-300 group-hover:scale-125 group-hover:rotate-12" />
-                        <span className="text-white  text-[22px] group-hover:text-teal-400 transition-colors duration-300">
+                        <span className="text-white text-[22px] group-hover:text-teal-400 transition-colors duration-300">
                           {value.text}
                         </span>
                       </div>
                     )
                   })}
                 </div>
-
                 <div className="mt-8 pt-6 border-t border-gray-700">
                   <p className="text-gray-300 text-xl leading-relaxed">
                     "We believe that great design is not just about aesthetics—it's about creating meaningful
                     connections between brands and their audiences."
                   </p>
-                  <p className="text-teal-400 font-semibold mt-3 text-[24px] animate-pulse-subtle">— Our Design Philosophy</p>
+                  <p className="text-teal-400 font-semibold mt-3 text-[24px] animate-pulse-subtle">
+                    — Our Design Philosophy
+                  </p>
                 </div>
               </div>
-
             </div>
           </div>
 
-          {/* Animated Achievement Stats with Get Proposal Column */}
-          <div
-            ref={(el) => (sectionRefs.current.stats2 = el)}
-            className={`grid md:grid-cols-3 gap-6 pt-12 border-t border-gray-800 transition-all duration-1000 delay-600 ${isVisible.stats2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-          >
-            {[
-              { number: "98%", label: "CLIENT SATISFACTION" },
-              { number: "24/7", label: "SUPPORT AVAILABLE" },
-              { number: "15+", label: "INDUSTRIES SERVED" },
-            ].map((stat, index) => (
-              <div
-                key={index}
-                className={`text-center group cursor-pointer transition-all duration-500 hover:transform hover:scale-110 ${isVisible.stats2 ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-                  }`}
-                style={{ transitionDelay: `${(index + 1) * 150 + 600}ms` }}
-              >
-                <h4 className="text-3xl md:text-4xl font-bold text-teal-400 mb-2 transition-all duration-300 group-hover:text-white animate-counter">
-                  {stat.number}
-                </h4>
-                <p className="text-gray-400 font-medium group-hover:text-teal-400 transition-colors duration-300">
-                  {stat.label}
-                </p>
+          {/* Guarantee Section */}
+
+
+          <section className="bg-transparent text-white py-16 px-6 lg:px-8 relative overflow-hidden">
+            {/* Background geometric pattern */}
+
+
+            <div className="max-w-8xl mx-auto relative z-10">
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                {/* Left Content */}
+                <div className="space-y-6">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-px bg-white"></div>
+                    <span className="text-sm font-medium tracking-wider uppercase">WHAT WE DO FOR YOU?</span>
+                  </div>
+
+                  <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">ABOUT <span className="text-teal-400">US</span></h2>
+
+                  <p className="text-gray-300 text-xl leading-relaxed ">
+                    360 Australia is your trusted digital partner, helping businesses grow, succeed, and stand out online.
+                    For years, we’ve worked with startups, small businesses, and established brands, turning ideas into digital success. We build strong partnerships, craft tailored strategies, and help businesses overcome challenges to reach their goals.
+                    From boosting your social presence to driving more engagement, we cover everything so your products and services reach the right audience.
+                    With a client-first approach and a proven track record of success, we’re here to help your business expand in the digital world.
+                  </p>
+
+                  <Button
+                    href="#contact"
+                    className="inline-block !text-cyan-400 !hover:text-cyan-300 !font-bold text-center !px-[20px] !py-[20px] !text-xl border border-cyan-400 hover:border-cyan-300 transition-colors duration-300 pb-1 cursor-pointer"
+                  >
+                    START YOUR PROJECT NOW
+                  </Button>
+                </div>
+
+                {/* Right Stats */}
+                <div className="bg-transparent min-h-screen flex items-center justify-center p-8">
+                  <div className="relative w-full max-w-2xl h-96">
+                    {/* 990+ Completed Projects - Top Left */}
+                    <div className="absolute top-70 left-20">
+                      <div className="relative w-64 h-64 transform rotate-45 rounded-2xl bg-black border-2 border-teal-400/40 flex items-center justify-center overflow-hidden">
+                        {/* Corner diagonal lines */}
+                        <div className="absolute inset-0">
+                          <div className="absolute top-0 left-0 w-16 h-16">
+                            <div className="absolute top-4 left-4 w-8 h-px bg-teal-600 transform -rotate-45"></div>
+                            <div className="absolute top-4 left-4 w-px h-8 bg-teal-600 transform rotate-45"></div>
+                          </div>
+                          <div className="absolute top-0 right-0 w-16 h-16">
+                            <div className="absolute top-4 right-4 w-8 h-px bg-teal-600 transform rotate-45"></div>
+                            <div className="absolute top-4 right-4 w-px h-8 bg-teal-600 transform -rotate-45"></div>
+                          </div>
+                          <div className="absolute bottom-0 left-0 w-16 h-16">
+                            <div className="absolute bottom-4 left-4 w-8 h-px bg-teal-600 transform rotate-45"></div>
+                            <div className="absolute bottom-4 left-4 w-px h-8 bg-teal-600 transform rotate-45"></div>
+                          </div>
+                          <div className="absolute bottom-0 right-0 w-16 h-16">
+                            <div className="absolute bottom-4 right-4 w-8 h-px bg-teal-600 transform -rotate-45"></div>
+                            <div className="absolute bottom-4 right-4 w-px h-8 bg-teal-600 transform -rotate-45"></div>
+                          </div>
+                        </div>
+
+                        <div className="transform -rotate-45 text-center text-white">
+                          <div className="text-7xl font-bold mb-2">
+                            990<span className="text-5xl">+</span>
+                          </div>
+                          <div className="text-gray-300 text-lg font-medium">Completed Projects</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 170+ Worldwide Clients - Bottom Left */}
+                    <div className="absolute bottom-50 left-0">
+                      <div className="relative w-64 h-64 rounded-2xl transform rotate-45 bg-black border-2 border-teal-400/40 flex items-center justify-center overflow-hidden">
+                        {/* Corner diagonal lines */}
+                        <div className="absolute inset-0">
+                          <div className="absolute top-0 left-0 w-16 h-16">
+                            <div className="absolute top-4 left-4 w-8 h-px bg-teal-600 transform -rotate-45"></div>
+                            <div className="absolute top-4 left-4 w-px h-8 bg-teal-600 transform rotate-45"></div>
+                          </div>
+                          <div className="absolute top-0 right-0 w-16 h-16">
+                            <div className="absolute top-4 right-4 w-8 h-px bg-teal-600 transform rotate-45"></div>
+                            <div className="absolute top-4 right-4 w-px h-8 bg-teal-600 transform -rotate-45"></div>
+                          </div>
+                          <div className="absolute bottom-0 left-0 w-16 h-16">
+                            <div className="absolute bottom-4 left-4 w-8 h-px bg-teal-600 transform rotate-45"></div>
+                            <div className="absolute bottom-4 left-4 w-px h-8 bg-teal-600 transform rotate-45"></div>
+                          </div>
+                          <div className="absolute bottom-0 right-0 w-16 h-16">
+                            <div className="absolute bottom-4 right-4 w-8 h-px bg-teal-600 transform -rotate-45"></div>
+                            <div className="absolute bottom-4 right-4 w-px h-8 bg-teal-600 transform -rotate-45"></div>
+                          </div>
+                        </div>
+
+                        <div className="transform -rotate-45 text-center text-white">
+                          <div className="text-7xl font-bold mb-2">
+                            170<span className="text-5xl">+</span>
+                          </div>
+                          <div className="text-gray-300 text-lg font-medium">Worldwide Clients</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 45+ Team Members - Right Side */}
+                    <div className="absolute top-1/2 right-20 transform -translate-y-1/2">
+                      <div className="relative w-64 h-64 transform rounded-2xl rotate-45 bg-black border-2 border-teal-400/40 flex items-center justify-center overflow-hidden">
+                        {/* Corner diagonal lines */}
+                        <div className="absolute inset-0">
+                          <div className="absolute top-0 left-0 w-16 h-16">
+                            <div className="absolute top-4 left-4 w-8 h-px bg-teal-600 transform -rotate-45"></div>
+                            <div className="absolute top-4 left-4 w-px h-8 bg-teal-600 transform rotate-45"></div>
+                          </div>
+                          <div className="absolute top-0 right-0 w-16 h-16">
+                            <div className="absolute top-4 right-4 w-8 h-px bg-teal-600 transform rotate-45"></div>
+                            <div className="absolute top-4 right-4 w-px h-8 bg-teal-600 transform -rotate-45"></div>
+                          </div>
+                          <div className="absolute bottom-0 left-0 w-16 h-16">
+                            <div className="absolute bottom-4 left-4 w-8 h-px bg-teal-600 transform rotate-45"></div>
+                            <div className="absolute bottom-4 left-4 w-px h-8 bg-teal-600 transform rotate-45"></div>
+                          </div>
+                          <div className="absolute bottom-0 right-0 w-16 h-16">
+                            <div className="absolute bottom-4 right-4 w-8 h-px bg-teal-600 transform -rotate-45"></div>
+                            <div className="absolute bottom-4 right-4 w-px h-8 bg-teal-600 transform -rotate-45"></div>
+                          </div>
+                        </div>
+
+                        <div className="transform -rotate-45 text-center text-white">
+                          <div className="text-7xl font-bold mb-2">
+                            45<span className="text-5xl">+</span>
+                          </div>
+                          <div className="text-gray-300 text-lg font-medium">Team Members</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
-
-            {/* Get a Proposal Column */}
-
-          </div>
+            </div>
+          </section>
         </div>
       </section>
+
       <ProjectCTASection />
       <Footer />
 

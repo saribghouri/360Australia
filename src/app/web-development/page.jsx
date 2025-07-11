@@ -14,8 +14,7 @@ import {
   Divider,
   Avatar,
   Statistic,
-  Menu,
-  Affix,
+
 } from "antd"
 import {
   CodeOutlined,
@@ -123,13 +122,13 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-black">
       <Layout className="bg-black">
-        {/* Header */}
+ 
 
 
         <Content className="bg-black">
-          {/* Hero Section */}
+       
           <div className="relative bg-gradient-to-br from-gray-900 via-black to-gray-900 py-32 px-6 overflow-hidden">
-            {/* Background Effects */}
+       
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent"></div>
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
@@ -172,7 +171,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Services Section */}
+         
           <div id="services" className="py-32 px-6 bg-gradient-to-b from-black to-gray-900">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-20">
@@ -223,7 +222,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Stats Section */}
+     
           <div className="py-24 px-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 relative overflow-hidden">
             <div className="absolute inset-0 bg-black/20"></div>
             <div className="relative max-w-6xl mx-auto">
@@ -267,7 +266,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Portfolio Section */}
+   
           <div id="portfolio" className="py-32 px-6 bg-gradient-to-b from-gray-900 to-black">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-20">
@@ -333,7 +332,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Testimonials */}
+      
           <div className="py-32 px-6 bg-gradient-to-b from-black to-gray-900">
             <div className="max-w-7xl mx-auto">
               <div className="text-center mb-20">
@@ -379,7 +378,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Contact Section */}
+       
           <div id="contact" className="py-32 px-6 bg-gradient-to-b from-gray-900 to-black">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-20">
@@ -489,7 +488,7 @@ export default function HomePage() {
           </div>
         </Content>
 
-        {/* Footer */}
+      
         <Footer className="bg-black border-t border-gray-800 py-16 px-6">
           <div className="max-w-7xl mx-auto">
             <Row gutter={[48, 48]}>

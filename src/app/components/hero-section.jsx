@@ -140,7 +140,7 @@ export default function AnimatedMarketingSection() {
                   </div>
                 </div>
 
-                <div className="mt-8 sm:mt-12">
+                <div className="mt-8 sm:mt-16">
                   <div className="max-w-4xl">
                     <div
                       className={`flex flex-col sm:flex-row gap-4 sm:gap-8 lg:gap-12 pt-4 sm:pt-8 transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
@@ -149,7 +149,7 @@ export default function AnimatedMarketingSection() {
                     >
                       <button
                         onClick={() => setActiveTab("hire")}
-                        className={`font-medium text-base sm:text-xl tracking-wide pb-2 sm:pb-3 border-b-2 transition-all duration-300 uppercase transform hover:scale-105 text-left sm:text-center ${activeTab === "hire"
+                        className={`font-medium text-base sm:text-xl tracking-wide  sm:pb-3 border-b-2 transition-all duration-300 uppercase transform hover:scale-105 text-left sm:text-center ${activeTab === "hire"
                           ? "text-white border-[#10d4c4]"
                           : "text-gray-300 border-transparent hover:text-white hover:border-gray-500"
                           }`}
@@ -173,7 +173,7 @@ export default function AnimatedMarketingSection() {
                     >
                       {activeTab === "hire" && (
                         <div className="text-gray-300 leading-relaxed">
-                          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Hire Us</h2>
+                          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Hire Us</h2>
                           <p className="text-base sm:text-xl">
                             360 Australia is your creative engine, digital partner, and leading choice for transforming
                             visions into value. We work hand-in-glove with you to fine-tune every aspect of your digital

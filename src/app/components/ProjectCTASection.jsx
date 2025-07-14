@@ -1,201 +1,180 @@
 "use client"
-
 import { motion } from "framer-motion"
-import { ArrowRight, Sparkles, Award, Users } from "lucide-react"
+import { ArrowRight, Users } from "lucide-react"
 
 export default function ProjectCTASection() {
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-teal-700/5 to-white/5 rounded-full blur-3xl" />
-      </div>
+    <div className="flex w-full justify-center py-[150px]">
 
-      <div className="relative container mx-auto px-4 py-20 lg:py-32">
-        {/* Main CTA Container with Enhanced Border */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="relative"
-        >
-          {/* Animated Border Frame */}
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-teal-500/20 via-white/10 to-teal-500/20 p-[2px]">
-            <div className="w-full h-full bg-black/80 backdrop-blur-sm rounded-3xl" />
-          </div>
+      <section className="relative max-w-[80%]    bg-black overflow-hidden  flex items-center justify-center">
+        {/* Background Effects */}
+        <div className="absolute inset-0">
+          {/* Existing blur effects */}
+          <div className="absolute top-1/4 left-1/4 w-full h-96 bg-teal-500/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-teal-700/5 to-white/5 rounded-full blur-3xl" />
 
-          {/* Glowing Border Animation */}
+          {/* Sharper Glowing Lines */}
           <motion.div
-            className="absolute inset-0 rounded-3xl"
-            style={{
-              background:
-                "linear-gradient(45deg, transparent, rgba(16, 212, 196, 0.3), transparent, rgba(255, 255, 255, 0.1), transparent)",
-              backgroundSize: "400% 400%",
-            }}
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{
-              duration: 8,
-              repeat: Number.POSITIVE_INFINITY,
-              ease: "linear",
-            }}
+            className="absolute top-10 left-1/4 w-64 h-0.5 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50  "
+            animate={{ x: [-50, 50, -50], opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute top-1/3 right-1/4 w-48 h-0.5 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50   rotate-45"
+            animate={{ y: [-30, 30, -30], opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
           />
 
-          {/* Content Container */}
-          <div className="relative z-10 p-8 lg:p-12">
-            {/* Premium Badge */}
-          
+          <motion.div
+            className="absolute top-1/4 right-1/4 w-48 h-0.5 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50   rotate-45"
+            animate={{ y: [-30, 30, -30], opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
+          />
+          <motion.div
+            className="absolute bottom-20 left-1/3 w-80 h-0.5 bg-purple-400 rounded-full shadow-lg shadow-purple-400/50   -rotate-12"
+            animate={{ x: [0, 100, 0], opacity: [0.4, 0.9, 0.4] }}
+            transition={{ duration: 7, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }}
+          />
+          <motion.div
+            className="absolute bottom-20 left-1/3 w-80 h-0.5 bg-purple-400 rounded-full shadow-lg shadow-purple-400/50   -rotate-12"
+            animate={{ x: [0, 100, 0], opacity: [0.4, 0.9, 0.4] }}
+            transition={{ duration: 7, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }}
+          />
 
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left Content */}
-              <div className="text-center lg:text-left space-y-8">
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  viewport={{ once: true }}
-                >
-                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                    <span className="text-white">360 </span>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-teal-200">
-                      Australia
-                    </span>
-                    <span className="text-white">
-                      {" "}
-                      blends innovation with modern technology to deliver impactful results on every project.
-                    </span>
-                  </h2>
-                </motion.div>
+          <motion.div
+            className="absolute bottom-10 right-10 w-56 h-0.5 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50   -rotate-45"
+            animate={{ x: [0, -60, 0], opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 6.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1.5 }}
+          />
+          {/* Additional lines for more density */}
+          <motion.div
+            className="absolute top-1/4 left-10 w-32 h-0.5 bg-purple-300 rounded-full shadow-lg shadow-purple-300/50  rotate-30"
+            animate={{ y: [0, 20, 0], opacity: [0.3, 0.8, 0.3] }}
+            transition={{ duration: 5.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.8 }}
+          />
 
-                {/* Stats Row */}
-        
+          <motion.div
+            className="absolute top-1/4 left-10 w-32 h-0.5 bg-purple-300 rounded-full shadow-lg shadow-purple-300/50  rotate-30"
+            animate={{ y: [0, 20, 0], opacity: [0.3, 0.8, 0.3] }}
+            transition={{ duration: 5.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.8 }}
+          />
+          <motion.div
+            className="absolute bottom-1/4 right-1/3 w-24 h-0.5 bg-cyan-300 rounded-full shadow-lg shadow-cyan-300/50  -rotate-60"
+            animate={{ x: [0, 30, 0], opacity: [0.4, 0.9, 0.4] }}
+            transition={{ duration: 4.8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2.2 }}
+          />
+          <motion.div
+            className="absolute top-1/2 right-20 w-72 h-0.5 bg-blue-300 rounded-full shadow-lg shadow-blue-300/50  rotate-15"
+            animate={{ x: [0, -40, 0], opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 5.2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.3 }}
+          />
+        </div>
 
-                {/* Enhanced CTA Button */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.5 }}
-                  viewport={{ once: true }}
-                  className="space-y-4 "
-                >
-                  <motion.button
-                    className="group  relative border border-teal-500  bg-white text-black px-10 py-5 rounded-[20px] font-bold text-lg flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl "
-                    whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(16, 212, 196, 0.4)" }}
-                    whileTap={{ scale: 0.95 }}
+        <div className="relative  rounded-2xl  border border-teal-500  z-10 max-w-9xl mx-auto   px-4">
+          {/* Main CTA Container with Enhanced Border */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
+            className="relative rounded-[20px] overflow-hidden"
+          >
+            {/* Animated Border Frame */}
+            <div className="absolute inset-0  p-[2px] rounded-[20px]">
+              {/* This div acts as the outer border */}
+            </div>
+            {/* Glowing Border Animation */}
+            <motion.div
+              className="absolute inset-0 rounded-[20px]"
+
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Number.POSITIVE_INFINITY,
+                ease: "linear",
+              }}
+            />
+            {/* Content Container */}
+            <div className="relative z-10 p-8 lg:p-12 rounded-[20px]">
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                {/* Left Content - Heading and Button */}
+                <div className="text-center lg:text-left space-y-8">
+                  <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    viewport={{ once: true }}
                   >
-                    {/* Button Background Animation */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
-                      initial={{ x: "-100%" }}
-                      whileHover={{ x: "100%" }}
-                      transition={{ duration: 0.6 }}
-                    />
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
 
-                    <Users className="w-5 h-5 relative z-10" />
-                    <span className="relative z-10">Request A Proposal</span>
-                    <motion.div className="group-hover:translate-x-1 transition-transform duration-300 relative z-10">
-                      <ArrowRight size={20} />
-                    </motion.div>
-                  </motion.button>
 
-               
-                </motion.div>
-              </div>
-
-              {/* Right Content - Enhanced */}
-              <div className="relative">
-                <motion.div
-                  initial={{ opacity: 0, x: 100, rotateY: -15 }}
-                  whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-                  transition={{ duration: 1, ease: "easeOut" }}
-                  viewport={{ once: true }}
-                  className="relative"
-                >
-                  {/* Enhanced Image Container */}
-                  <div className="relative">
-                    <motion.div
-                      className=" rounded-2xl p-2 shadow-2xl border border-white/10"
-                      whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)" }}
-                      transition={{ duration: 0.3 }}
+                      <span className="text-white">
+                        {" "}
+                        Let's talk about the  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-teal-200">
+                          services
+                        </span>  you need.                    </span>
+                    </h2>
+                  </motion.div>
+                  {/* Enhanced CTA Button */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                    viewport={{ once: true }}
+                    className="space-y-4 "
+                  >
+                    <motion.button
+                      className="group relative border border-teal-500 bg-white text-black px-10 py-5 rounded-[20px] font-bold text-lg flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl "
+                      whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(16, 212, 196, 0.4)" }}
+                      whileTap={{ scale: 0.95 }}
                     >
-                      <div className="relative overflow-hidden rounded-xl">
-                        <img
-                          src="/macbook-pro-2K-wallpaper.jpg"
-                          alt="360 Australia Project Showcase"
-                          className="w-full h-auto"
-                        />
-                        {/* Image Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                      </div>
-                    </motion.div>
-
-                    {/* Enhanced Shadow */}
-                    <motion.div
-                      className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-full h-12 bg-gradient-to-b from-teal-500/20 to-transparent rounded-full blur-xl"
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      transition={{ duration: 0.8, delay: 0.5 }}
-                      viewport={{ once: true }}
-                    />
-                  </div>
-
-                  {/* Enhanced Decorative Elements */}
-             
-                </motion.div>
-
-                {/* Enhanced Floating Elements */}
-                <motion.div
-                  className="absolute top-10 -left-10 w-3 h-3 bg-teal-400 rounded-full shadow-lg shadow-teal-400/50"
-                  animate={{
-                    y: [0, -15, 0],
-                    opacity: [0.5, 1, 0.5],
-                    scale: [1, 1.2, 1],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "easeInOut",
-                  }}
-                />
-                <motion.div
-                  className="absolute bottom-20 -left-5 w-2 h-2 bg-white rounded-full shadow-lg shadow-white/50"
-                  animate={{
-                    y: [0, -20, 0],
-                    opacity: [0.3, 0.9, 0.3],
-                    scale: [1, 1.3, 1],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "easeInOut",
-                    delay: 1,
-                  }}
-                />
-                <motion.div
-                  className="absolute top-1/2 -right-8 w-1 h-1 bg-teal-300 rounded-full"
-                  animate={{
-                    x: [0, 10, 0],
-                    opacity: [0.4, 1, 0.4],
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    repeat: Number.POSITIVE_INFINITY,
-                    ease: "easeInOut",
-                    delay: 0.5,
-                  }}
-                />
+                      {/* Button Background Animation */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
+                        initial={{ x: "-100%" }}
+                        whileHover={{ x: "100%" }}
+                        transition={{ duration: 0.6 }}
+                      />
+                      <Users className="w-5 h-5 relative z-10" />
+                      <span className="relative z-10">Request A Proposal</span>
+                      <motion.div className="group-hover:translate-x-1 transition-transform duration-300 relative z-10">
+                        <ArrowRight size={20} />
+                      </motion.div>
+                    </motion.button>
+                  </motion.div>
+                </div>
+                {/* Right Content - Laptop Image */}
+                <div className="relative flex justify-center lg:justify-end">
+                  <motion.div
+                    initial={{ opacity: 0, x: 100, rotateY: -15 }}
+                    whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className="relative w-full max-w-xl"
+                  >
+                    {/* Laptop Image Container with Glowing Border */}
+                    <div className="relative p-2 rounded-2xl bg-transparent">
+                      <div className="absolute inset-0  pointer-events-none" />
+                      <img
+                        src="/46e208fa-07e9-4ec1-bf10-553ac2075f0c_large-removebg-preview.png"
+                        alt="360 Australia Project Showcase"
+                        className="w-full h-auto rounded-xl"
+                      />
+                      {/* Image Overlay */}
+                      <div className="absolute inset-0  to-transparent rounded-xl" />
+                    </div>
+                  </motion.div>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Enhanced Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black via-black/80 to-transparent" />
-    </section>
+          </motion.div>
+        </div>
+        {/* Enhanced Bottom Gradient */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black via-black/80 to-transparent" />
+      </section>
+    </div>
   )
 }

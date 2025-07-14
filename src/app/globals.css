@@ -142,3 +142,34 @@ background: linear-gradient(90deg, rgb(10, 170, 143) 0%, rgb(10, 209, 176)  100%
 .form-border{
 border-bottom: 1px solid #10c3c9 !important ;
 }
+
+.qr-code {
+  animation: qrPulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(77, 45, 124, 0.3));
+}
+
+@keyframes qrPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 20px rgba(198, 194, 204, 0.3));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 30px rgba(241, 241, 241, 0.5));
+  }
+}
+
+/* Action Buttons Animation */
+.action-buttons {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 3s forwards;
+}
+
+
+
+@keyframes flipIn {
+  to {
+    transform: rotateY(0deg);
+  }
+}

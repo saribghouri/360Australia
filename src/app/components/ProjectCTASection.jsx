@@ -127,19 +127,19 @@ export default function ProjectCTASection() {
                     className="space-y-4 "
                   >
                     <motion.button
-                      className="group relative border border-teal-500 bg-white text-black px-10 py-5 rounded-[20px] font-bold text-lg flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl "
+                      className="group relative border qr-code border-teal-500 bg-white text-black px-10 py-5 rounded-[20px] font-bold text-lg flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl "
                       whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(16, 212, 196, 0.4)" }}
                       whileTap={{ scale: 0.95 }}
                     >
                       {/* Button Background Animation */}
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
+                        className="absolute inset-0  bg-gradient-to-r from-white/20 to-transparent"
                         initial={{ x: "-100%" }}
                         whileHover={{ x: "100%" }}
                         transition={{ duration: 0.6 }}
                       />
                       <Users className="w-5 h-5 relative z-10" />
-                      <span className="relative z-10">Request A Proposal</span>
+                      <span className="relative z-10 ">Request A Proposal</span>
                       <motion.div className="group-hover:translate-x-1 transition-transform duration-300 relative z-10">
                         <ArrowRight size={20} />
                       </motion.div>

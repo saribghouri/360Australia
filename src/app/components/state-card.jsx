@@ -1,17 +1,42 @@
 "use client"
 import { useState } from "react"
 
-
+// Simplified list of country codes for demonstration
+// In a production application, you might fetch this from an API or use a more comprehensive library.
+const countryCodes = [
+  { code: "US", dial_code: "+1", name: "United States" },
+  { code: "CA", dial_code: "+1", name: "Canada" },
+  { code: "GB", dial_code: "+44", name: "United Kingdom" },
+  { code: "AU", dial_code: "+61", name: "Australia" },
+  { code: "DE", dial_code: "+49", name: "Germany" },
+  { code: "FR", dial_code: "+33", name: "France" },
+  { code: "IN", dial_code: "+91", name: "India" },
+  { code: "JP", dial_code: "+81", name: "Japan" },
+  { code: "BR", dial_code: "+55", name: "Brazil" },
+  { code: "MX", dial_code: "+52", name: "Mexico" },
+  { code: "ZA", dial_code: "+27", name: "South Africa" },
+  { code: "CN", dial_code: "+86", name: "China" },
+  { code: "ES", dial_code: "+34", name: "Spain" },
+  { code: "IT", dial_code: "+39", name: "Italy" },
+  { code: "NL", dial_code: "+31", name: "Netherlands" },
+  { code: "SE", dial_code: "+46", name: "Sweden" },
+  { code: "CH", dial_code: "+41", name: "Switzerland" },
+  { code: "AE", dial_code: "+971", name: "United Arab Emirates" },
+  { code: "SG", dial_code: "+65", name: "Singapore" },
+  { code: "NZ", dial_code: "+64", name: "New Zealand" },
+]
 
 export default function ContactForm() {
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
+  const [countryCode, setCountryCode] = useState("+1") // New state for country code, initialized to +1
   const [email, setEmail] = useState("")
   const [service, setService] = useState("")
   const [isLoading, setIsLoading] = useState(false)
 
   // State to track if a field is "active" (focused or has value)
   const [isNameActive, setIsNameActive] = useState(false)
+  // isPhoneActive now covers both the country code select and the phone input
   const [isPhoneActive, setIsPhoneActive] = useState(false)
   const [isEmailActive, setIsEmailActive] = useState(false)
   const [isServiceActive, setIsServiceActive] = useState(false)
@@ -23,10 +48,12 @@ export default function ContactForm() {
     // Simulate form submission process
     setTimeout(() => {
       setIsLoading(false)
-      console.log("Form submitted with:", { name, phone, email, service })
+      // Combine country code and phone number for submission
+      console.log("Form submitted with:", { name, fullPhoneNumber: countryCode + phone, email, service })
       // Clear the form and reset active states
       setName("")
       setPhone("")
+      setCountryCode("+1") // Reset country code to default
       setEmail("")
       setService("")
       setIsNameActive(false)
@@ -75,32 +102,38 @@ export default function ContactForm() {
                 required
               />
             </div>
-            {/* Phone Input */}
+            {/* Phone Input with Country Code */}
             <div className="relative">
-              <label
-                htmlFor="phone"
-                className={`
-                  absolute left-2 text-white transition-all duration-300 z-20
-                  ${
-                    shouldShowLabel(phone, isPhoneActive)
-                      ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
-                      : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
-                  }
-                `}
-              >
-                Enter Your Phone Number
-              </label>
-              <input
-                id="phone"
-                type="tel" // Use tel for phone numbers
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                onFocus={() => setIsPhoneActive(true)}
-                onBlur={() => setIsPhoneActive(false)}
-                placeholder=""
-                className="w-full px-2 py-4 form-border text-white focus:outline-none transition-all duration-300"
-                required
-              />
+            
+              <div className="flex items-center form-border">
+                {" "}
+                {/* Wrapper for combined input styling */}
+                <select
+                  id="country-code"
+                  value={countryCode}
+                  onChange={(e) => setCountryCode(e.target.value)}
+                  onFocus={() => setIsPhoneActive(true)} // Set active when select is focused
+                  onBlur={() => setIsPhoneActive(false)} // Set inactive when select loses focus
+                  className="bg-transparent text-white py-4 pl-2 pr-1  focus:outline-none rounded-l-md"
+                >
+                  {countryCodes.map((country) => (
+                    <option key={country.code} value={country.dial_code} className="bg-black text-white">
+                      {country.dial_code} ({country.code})
+                    </option>
+                  ))}
+                </select>
+                <input
+                  id="phone"
+                  type="number"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  onFocus={() => setIsPhoneActive(true)}
+                  onBlur={() => setIsPhoneActive(false)}
+                  placeholder=""
+                  className="flex-1 px-2 py-4 bg-transparent text-white focus:outline-none rounded-r-md"
+                  required
+                />
+              </div>
             </div>
             {/* Email Input */}
             <div className="relative">
@@ -150,25 +183,25 @@ export default function ContactForm() {
                 onChange={(e) => setService(e.target.value)}
                 onFocus={() => setIsServiceActive(true)}
                 onBlur={() => setIsServiceActive(false)}
-                className="w-full px-2 py-4 form-border text-white focus:outline-none round transition-all duration-300 appearance-none"
+                className="w-full px-2 py-4 form-border text-white focus:outline-none rounded-md transition-all duration-300 appearance-none"
                 required
               >
-                <option value="" disabled hidden className="bg-black rounded-2xl text-gray-400">
+                <option value="" disabled hidden className="bg-black text-gray-400">
                   Select a Service
                 </option>
-                <option value="web-development" className="bg-black rounded-2xl text-white">
-                  Web Development
+                <option value="web-development" className="bg-black text-white">
+                  Website Development
                 </option>
-                <option value="ui-ux-design" className="bg-black rounded-2xl text-white">
+                <option value="ui-ux-design" className="bg-black text-white">
                   UI/UX Design
                 </option>
-                <option value="software-application" className="bg-black rounded-2xl text-white">
+                <option value="software-application" className="bg-black text-white">
                   Software Application
                 </option>
-                <option value="consulting" className="bg-black  rounded-2xl text-white">
+                <option value="consulting" className="bg-black text-white">
                   Consulting
                 </option>
-                <option value="other" className="bg-black  rounded-2xl text-white">
+                <option value="other" className="bg-black text-white">
                   Other
                 </option>
               </select>

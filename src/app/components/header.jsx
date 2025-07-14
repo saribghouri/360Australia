@@ -1,9 +1,9 @@
 "use client"
-
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState, useRef, useEffect } from "react"
-import { ChevronDown, ChevronRight } from "lucide-react"
+// Import the new icons
+import { ChevronDown, ChevronRight, Briefcase, Laptop, Smartphone, Megaphone, Palette, Film } from "lucide-react"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -12,11 +12,9 @@ const Header = () => {
   const [expandedMobileService, setExpandedMobileService] = useState(null)
   const router = useRouter()
   const dropdownRef = useRef(null)
-
   const handleContactClick = () => {
     router.push("/contactsection")
   }
-
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -28,70 +26,67 @@ const Header = () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [])
-
   const services = [
     {
       title: "Website Development",
       href: "/services/website-development",
       subcategories: [
-        { title: "Custom Website Design", href: "/services/custom-website-design" },
-        { title: "WordPress Development", href: "/services/wordpress-development" },
-        { title: "eCommerce (Shopify/WooCommerce)", href: "/services/ecommerce" },
-        { title: "Web App Development", href: "/services/web-app-development" },
-        { title: "Landing Pages", href: "/services/landing-pages" },
-        { title: "Maintenance & Speed Optimisation", href: "/services/maintenance-optimization" },
+        { title: "Custom Website Design" },
+        { title: "WordPress Development" },
+        { title: "eCommerce (Shopify/WooCommerce)" },
+        { title: "Web App Development" },
+        { title: "Landing Pages" },
+        { title: "Maintenance & Speed Optimisation" },
       ],
     },
     {
       title: "Mobile App Development",
       href: "/services/mobile-app-development",
       subcategories: [
-        { title: "iOS & Android Development", href: "/services/ios-android-development" },
-        { title: "Flutter & React Native Apps", href: "/services/flutter-react-native" },
-        { title: "UI/UX Design for Apps", href: "/services/app-ui-ux-design" },
-        { title: "App Store Deployment", href: "/services/app-store-deployment" },
-        { title: "API & Backend Integration", href: "/services/api-backend-integration" },
+        { title: "iOS & Android Development" },
+        { title: "Flutter & React Native Apps" },
+        { title: "UI/UX Design for Apps" },
+        { title: "App Store Deployment" },
+        { title: "API & Backend Integration" },
       ],
     },
     {
       title: "Digital Marketing",
       href: "/services/digital-marketing",
       subcategories: [
-        { title: "SEO (Local & National)", href: "/services/seo" },
-        { title: "Google Ads (PPC)", href: "/services/google-ads" },
-        { title: "Social Media Marketing", href: "/services/social-media-marketing" },
-        { title: "Email & Content Marketing", href: "/services/email-content-marketing" },
-        { title: "Lead Generation Campaigns", href: "/services/lead-generation" },
+        { title: "SEO (Local & National)" },
+        { title: "Google Ads (PPC)" },
+        { title: "Social Media Marketing" },
+        { title: "Email & Content Marketing" },
+        { title: "Lead Generation Campaigns" },
       ],
     },
     {
       title: "Graphic Design",
       href: "/services/graphic-design",
       subcategories: [
-        { title: "Logo & Branding", href: "/services/logo-branding" },
-        { title: "Brochures & Stationery", href: "/services/brochures-stationery" },
-        { title: "Social Media Creatives", href: "/services/social-media-creatives" },
-        { title: "Infographics", href: "/services/infographics" },
-        { title: "Presentation Design", href: "/services/presentation-design" },
+        { title: "Logo & Branding" },
+        { title: "Brochures & Stationery" },
+        { title: "Social Media Creatives" },
+        { title: "Infographics" },
+        { title: "Presentation Design" },
       ],
     },
     {
       title: "Video & Animation",
       href: "/services/video-animation",
       subcategories: [
-        { title: "Explainer Videos", href: "/services/explainer-videos" },
-        { title: "2D/3D Animation", href: "/services/2d-3d-animation" },
-        { title: "Logo Animation", href: "/services/logo-animation" },
-        { title: "Product & Promo Videos", href: "/services/product-promo-videos" },
-        { title: "Video Editing", href: "/services/video-editing" },
+        { title: "Explainer Videos" },
+        { title: "2D/3D Animation" },
+        { title: "Logo Animation" },
+        { title: "Product & Promo Videos" },
+        { title: "Video Editing" },
       ],
     },
   ]
-
   const toggleMobileService = (index) => {
     setExpandedMobileService(expandedMobileService === index ? null : index)
   }
-
   return (
     <>
       <nav className="bg-black py-4 px-6 md:px-12 flex w-full mt-[-110px] border-bottom z-50 fixed items-center justify-between">
@@ -100,16 +95,17 @@ const Header = () => {
             <img src="/BxxHdh.png" alt="360 Australia Ventures Logo" className="h-19 w-24 lg:h-[76px] lg:w-[144px]" />
           </Link>
         </div>
-
         <div className="hidden md:flex space-x-8 items-center">
-          <Link href="/" className="text-white hover:text-[#10d4c4] font-family transition-colors duration-300 font-medium">
+          <Link
+            href="/"
+            className="text-white hover:text-[#10d4c4] font-family transition-colors duration-300 font-medium"
+          >
             HOME
           </Link>
           <Link href="/about-us" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
             ABOUT US
           </Link>
-
-          <div className="relative" ref={dropdownRef}>
+          <div className="relative " ref={dropdownRef}>
             <button
               onClick={() => setIsServicesOpen(!isServicesOpen)}
               onMouseEnter={() => setIsServicesOpen(true)}
@@ -117,11 +113,10 @@ const Header = () => {
             >
               <span>SERVICES</span>
               <ChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
+                className={`w-4 h-4 transition-transform  duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
               />
             </button>
           </div>
-
           <Link
             href="/portfolio"
             className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium"
@@ -137,9 +132,7 @@ const Header = () => {
           <Link href="/blog" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
             BLOG
           </Link>
-        
         </div>
-
         <div className="md:hidden flex items-center">
           <button onClick={() => setIsOpen(!isOpen)} className="text-teal-500 focus:outline-none">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -151,7 +144,6 @@ const Header = () => {
             </svg>
           </button>
         </div>
-
         <div
           className={`absolute top-full left-0 w-full bg-black md:hidden transition-all duration-300 ease-in-out border-t border-teal-500/30 ${
             isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
@@ -172,7 +164,6 @@ const Header = () => {
             >
               ABOUT US
             </Link>
-
             <div className="px-6">
               <button
                 onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
@@ -188,7 +179,7 @@ const Header = () => {
                   isMobileServicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
-                <div className="pl-4 mt-2 space-y-2">
+                <div className="pl-4 mt-2 space-y-2 border">
                   {services.map((service, index) => (
                     <div key={index}>
                       <button
@@ -209,9 +200,8 @@ const Header = () => {
                       >
                         <div className="pl-4 space-y-1">
                           {service.subcategories.map((sub, subIndex) => (
-                            <Link
+                            <div // Changed from Link to div
                               key={subIndex}
-                              href={sub.href}
                               className="block text-gray-400 hover:text-[#10d4c4] transition-colors duration-200 py-1 text-xs"
                               onClick={() => {
                                 setIsOpen(false)
@@ -220,7 +210,7 @@ const Header = () => {
                               }}
                             >
                               • {sub.title}
-                            </Link>
+                            </div>
                           ))}
                         </div>
                       </div>
@@ -229,7 +219,6 @@ const Header = () => {
                 </div>
               </div>
             </div>
-
             <Link
               href="/portfolio"
               className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium px-6 py-2"
@@ -267,7 +256,6 @@ const Header = () => {
             </Link>
           </div>
         </div>
-
         <button
           className="text-white bg-[#0ea89b] px-10 py-2 font-bold text-[19px] rounded-[10px] cursor-pointer hidden md:block"
           onClick={handleContactClick}
@@ -275,7 +263,6 @@ const Header = () => {
           Contact Us
         </button>
       </nav>
-
       {/* Mega Menu - Full Width */}
       <div
         className={`fixed left-0 w-full bg-gradient-to-br from-gray-900 via-black to-gray-900 border-t border-teal-500/30 shadow-2xl transition-all duration-300 ease-in-out z-40 ${
@@ -296,33 +283,31 @@ const Header = () => {
                   onClick={() => setIsServicesOpen(false)}
                 >
                   <h3 className="text-white font-bold text-lg group-hover:text-[#10d4c4] transition-colors duration-200 flex items-center">
+                    {service.title === "Website Development" && <Laptop className="w-4 h-4 mr-2" />}
+                    {service.title === "Mobile App Development" && <Smartphone className="w-4 h-4 mr-2" />}
+                    {service.title === "Digital Marketing" && <Megaphone className="w-4 h-4 mr-2" />}
+                    {service.title === "Graphic Design" && <Palette className="w-4 h-4 mr-2" />}
+                    {service.title === "Video & Animation" && <Film className="w-4 h-4 mr-2" />}
                     {service.title}
                     <ChevronRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                   </h3>
                 </Link>
-
                 <div className="space-y-2">
                   {service.subcategories.map((sub, subIndex) => (
-                    <Link
+                    <div // Changed from Link to div
                       key={subIndex}
-                      href={sub.href}
                       className="block text-gray-300 hover:text-[#10d4c4] text-sm py-1 transition-colors duration-200 hover:translate-x-1 transform"
-                      onClick={() => setIsServicesOpen(false)}
                     >
                       • {sub.title}
-                    </Link>
+                    </div>
                   ))}
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Bottom CTA Section */}
-        
         </div>
       </div>
     </>
   )
 }
-
 export default Header

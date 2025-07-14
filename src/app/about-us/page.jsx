@@ -68,7 +68,7 @@ export default function AboutUsSections() {
 
   return (
     <>
-      <div className="mt-[140px]">
+      <div className="mt-[100px]">
         <Header />
       </div>
 

@@ -10,8 +10,6 @@ const testimonials = [
     {
         id: 1,
         name: "Mark T.",
-        position: "Marketing Director at ",
-        company: "Apex Solutions Group",
         image: "/360_F_431647519_usrbQ8Z983hTYe8zgA7t1XVc5fEtqcpa.jpg",
         rating: 5,
         text: "Hiring 360 Australia for our digital growth was the best decision. Their comprehensive approach, deep industry understanding, and transparent communication truly set them apart. Our brand visibility and lead generation have never been stronger, and the results demonstrate their impact.",
@@ -19,8 +17,6 @@ const testimonials = [
     {
         id: 2,
         name: "Emily R",
-        position: "Founder of ",
-        company: "GreenLeaf Organics",
         image: "/depositphotos_371934132-stock-photo-beautiful-african-american-businesswoman-wearing.jpg",
         rating: 5,
         text: "As a growing start-up, we needed a digital agency that could establish our online presence. 360 Australia's team impressed us with their professionalism, innovative strategies, and strong focus on results. They have a deep understanding of the local market, making them a valuable asset to our journey.",
@@ -28,8 +24,6 @@ const testimonials = [
     {
         id: 3,
         name: "Sarah Johnson",
-        position: "CEO of TrendSetters Boutique",
-        company: "Tech Solutions Inc",
         image: "/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
         rating: 5,
         text: "Working with 360 Australia has completely transformed our digital presence. Their team truly lives up to their reputation as the leading digital agency in Australia. From the initial strategy session to the execution of our campaigns, we've seen a prominent increase in our online engagement and a direct boost in sales. Highly recommend!",
@@ -37,11 +31,23 @@ const testimonials = [
     {
         id: 4,
         name: "David L.",
-        position: "Owner of ",
-        company: "Coastline Auto Repairs",
         image: "/LinkedIn-studio-headshot-photographer-london-1024x1024.jpg",
         rating: 5,
         text: "If you want a digital agency that delivers, look no further than 360 Australia. They exceeded our expectations, transforming our online presence and driving impressive local customer growth. Their team's sharp insights and responsiveness, combined with their ability to simplify complex digital strategies, truly set them apart as Australia's leading digital agency.",
+    },
+    {
+        id: 5,
+        name: "Noah Henry.",
+        image: "/LinkedIn-studio-headshot-photographer-london-1024x1024.jpg",
+        rating: 5,
+        text: "They helped us launch our e-commerce site from scratch, complete with design, development, and digital marketing. The results? Higher sales and happier customers.",
+    },
+    {
+        id: 6,
+        name: "Luca HUdson",
+        image: "/LinkedIn-studio-headshot-photographer-london-1024x1024.jpg",
+        rating: 5,
+        text: "We wanted a sleek website and a strong social media presence and 360 Australia nailed both. Their designers and marketers worked closely with us from day one. They’re creative thinkers who actually listen to what you need.",
     },
 ]
 const GoogleIcon = () => (
@@ -192,19 +198,15 @@ export default function TestimonialSection() {
                         </div>
                       </motion.div>
 
-                      <h4 className="text-white text-lg sm:text-[25px] font-semibold mb-1 text-center">
+                      <h4 className="text-white text-lg sm:text-[30px] font-semibold mb-1 text-center">
                         {testimonial.name}
                       </h4>
-                      <p className="text-gray-400 text-lg sm:text-lg mb-1 sm:mb-2 text-center">
-                        {testimonial.position}
-                      </p>
+                    
                     </div>
 
-                    <div className="text-center mb-4 sm:mb-6">
-                      <h5 className="text-[#10d4c4] font-semibold text-lg  sm:text-[30px]">{testimonial.company}</h5>
-                    </div>
+                    
 
-                    <p className="text-gray-300 text-center leading-relaxed mb-4 sm:mb-6 text-lg sm:text-lg min-h-[80px] sm:min-h-[120px] flex items-center">
+                    <p className="text-gray-300 text-center leading-relaxed mb-4 sm:mb-6 text-lg sm:text-xl min-h-[80px] sm:min-h-[120px] flex items-center">
                       {testimonial.text}
                     </p>
 

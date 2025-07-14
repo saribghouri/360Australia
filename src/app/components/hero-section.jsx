@@ -102,7 +102,7 @@ export default function AnimatedMarketingSection() {
 
 
         <div className="relative z-10 flex flex-col justify-center mt-[80px] px-6 sm:px-8 lg:px-12">
-          <div className="max-w-[90%] mx-auto w-full">
+          <div className="max-w-[100%] mx-auto w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
 
               <div className="lg:col-span-7 space-y-6 sm:space-y-8">
@@ -113,7 +113,7 @@ export default function AnimatedMarketingSection() {
                     style={{ transitionDelay: "0.2s" }}
                   >
                     <div className="w-6 sm:w-8 h-1.5 sm:h-2 bg-[#10d4c4] rounded-full animate-pulse"></div>
-                    <h1 className="text-[#10d4c4] text-sm sm:text-base lg:text-[22px] font-medium tracking-wider capitalize sm:tracking-widest uppercase ml-2 sm:ml-3 leading-tight">
+                    <h1 className="text-[#10d4c4] text-sm sm:text-base lg:text-[22px] font-bold tracking-wider  sm:tracking-widest uppercase ml-2 sm:ml-3 leading-tight">
                       Stay ahead with 360° expertise in
                     </h1>
                   </div>
@@ -140,64 +140,7 @@ export default function AnimatedMarketingSection() {
                   </div>
                 </div>
 
-                <div className="mt-8 sm:mt-16">
-                  <div className="max-w-4xl">
-                    <div
-                      className={`flex flex-col sm:flex-row gap-4 sm:gap-8 lg:gap-12 pt-4 sm:pt-8 transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-                        }`}
-                      style={{ transitionDelay: "0.8s" }}
-                    >
-                      <button
-                        onClick={() => setActiveTab("hire")}
-                        className={`font-medium text-base sm:text-xl tracking-wide  sm:pb-3 border-b-2 transition-all duration-300 uppercase transform hover:scale-105 text-left sm:text-center ${activeTab === "hire"
-                          ? "text-white border-[#10d4c4]"
-                          : "text-gray-300 border-transparent hover:text-white hover:border-gray-500"
-                          }`}
-                      >
-                        HIRE US
-                      </button>
-                      <button
-                        onClick={() => setActiveTab("about")}
-                        className={`font-medium text-base sm:text-xl tracking-wide pb-2 sm:pb-3 border-b-2 transition-all duration-300 uppercase transform hover:scale-105 text-left sm:text-center ${activeTab === "about"
-                          ? "text-white border-[#10d4c4]"
-                          : "text-gray-300 border-transparent hover:text-white hover:border-gray-500"
-                          }`}
-                      >
-                        Why 360 Australia?
-                      </button>
-                    </div>
-                    <div
-                      className={`mt-8 sm:mt-12 transition-all duration-500 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-                        }`}
-                      style={{ transitionDelay: "1.2s" }}
-                    >
-                      {activeTab === "hire" && (
-                        <div className="text-gray-300 leading-relaxed">
-                          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Hire Us</h2>
-                          <p className="text-base sm:text-xl">
-                            360 Australia is your creative engine, digital partner, and leading choice for transforming
-                            visions into value. We work hand-in-glove with you to fine-tune every aspect of your digital
-                            footprint, hitting that perfect sweet spot where your SEO, CRO, Social Media, and PPC
-                            efforts resonate perfectly with your target audience.
-                          </p>
-                        </div>
-                      )}
-                      {activeTab === "about" && (
-                        <div className="text-gray-300 leading-relaxed">
-                          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6">Why 360 Australia?</h2>
-                          <p className="text-base sm:text-lg">
-                            At 360 Australia, we develop custom strategies for each client, whether you're a startup or
-                            an established business looking for a stronger social presence. We start by deeply
-                            understanding your unique requirements, then execute plans that are aligned with your
-                            business goals. Our ultimate mission is to craft and execute powerful digital marketing
-                            strategies, helping businesses of all sizes break through limitations, boost their
-                            potential, and increase turnover while minimizing risk.
-                          </p>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
+           
               </div>
 
 
@@ -236,114 +179,143 @@ export default function AnimatedMarketingSection() {
 
 
       <div className="space-y-4 max-w-3xl w-full">
-        {testimonials.map((testimonial, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.2 }}
-            whileHover={{
-              scale: 1.02,
-              y: -5,
-              transition: { duration: 0.3, ease: "easeOut" },
-            }}
-            className={`
-              relative overflow-hidden rounded-lg py-3 px-4 sm:px-6 cursor-pointer group
-              ${index % 2 === 0 ? "bg-[#10d4c4]/60 border-[#10d4c4]/20" : "bg-black border-gray-800"} backdrop-blur-sm
-              hover:border-[#10d4c4]/50 transition-all duration-500
-              hover:shadow-2xl hover:shadow-[#10d4c4]/25
-            `}
-          >
-            <div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-[#10d4c4]/15 to-transparent
-                translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out"
-            />
-            <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500
-                bg-gradient-to-r from-[#10d4c4]/5 via-[#10d4c4]/10 to-[#10d4c4]/5 blur-xl"
-            />
-            <div className="relative z-10">
-              <div className="flex items-start gap-3 sm:gap-4 mb-4">
-                <motion.div
-                  whileHover={{
-                    rotate: [0, -10, 10, -10, 0],
-                    scale: 1.15,
-                    transition: { duration: 0.5 },
-                  }}
-                  className={`
-                    flex-shrink-0 text-[#ffffff] p-2 rounded-lg transition-all duration-300
-                    group-hover:bg-[#10d4c4]/10 group-hover:shadow-lg group-hover:shadow-[#10d4c4]/25
-                  `}
-                >
-                  <div className="flex items-center justify-center">{testimonial.icon}</div>
-                </motion.div>
-                <div className="flex-1 min-w-0">
-                  <motion.h3
-                    whileHover={{
-                      x: 3,
-                      transition: { duration: 0.2 },
-                    }}
-                    className="text-[#ffffff] font-bold text-lg sm:text-xl mb-1 transition-all duration-300
-                       group-hover:drop-shadow-sm"
-                  >
-                    {testimonial.name}
-                  </motion.h3>
-                </div>
-              </div>
-              <motion.p
-                whileHover={{
-                  x: 5,
-                  transition: { duration: 0.2, delay: 0.15 },
-                }}
-                className="text-white text-base sm:text-lg lg:text-[20px] leading-relaxed transition-all duration-300
-                  group-hover:text-white/95 group-hover:drop-shadow-sm pl-2"
-              >
-                {testimonial.text}
-              </motion.p>
-            </div>
-            <div
-              className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#10d4c4]/20 to-transparent
-                opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            />
-            <div
-              className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#10d4c4] to-transparent
-                w-0 group-hover:w-full transition-all duration-500 ease-out"
-            />
-            <div
-              className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#10d4c4]
-                group-hover:h-1/3 transition-all duration-300 ease-out rounded-full"
-            />
-            <div
-              className="absolute top-0 right-0 w-0 h-1 bg-gradient-to-l from-[#10d4c4] to-transparent
-                group-hover:w-1/4 transition-all duration-700 ease-out delay-200"
-            />
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <div
-                className="absolute top-1/4 right-1/4 w-1 h-1 bg-[#10d4c4] rounded-full
-                  animate-pulse delay-100"
-              />
-              <div
-                className="absolute top-3/4 left-1/4 w-1 h-1 bg-[#10d4c4] rounded-full
-                  animate-pulse delay-300"
-              />
-              <div
-                className="absolute top-1/2 right-1/3 w-0.5 h-0.5 bg-[#10d4c4] rounded-full
-                  animate-pulse delay-500"
-              />
-            </div>
-            <div className="absolute top-2 left-2 opacity-0 group-hover:opacity-30 transition-opacity duration-500">
-              <Quote className="w-6 h-6 text-[#10d4c4]" />
-            </div>
-            <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
-              style={{
-                background: `radial-gradient(circle at 30% 30%, rgba(16, 212, 196, 0.2) 0%, transparent 70%)`,
+        {testimonials.map((testimonial, index) => {
+          const isGreenCard = index % 2 === 0
+          const hoverColorRgba = isGreenCard ? "rgba(0, 0, 0, 0.2)" : "rgba(16, 212, 196, 0.2)"
+          const hoverColorHex = isGreenCard ? "black" : "#10d4c4"
+
+          return (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+              whileHover={{
+                scale: 1.02,
+                y: -5,
+                transition: { duration: 0.3, ease: "easeOut" },
               }}
-            />
-          </motion.div>
-        ))}
+              className={`
+                relative overflow-hidden rounded-lg py-3 px-4 sm:px-6 cursor-pointer group backdrop-blur-sm transition-all duration-500
+                ${isGreenCard ? "bg-[#10d4c4]/60 border-[#10d4c4]/20" : "bg-black border-gray-800"}
+                ${isGreenCard ? `hover:border-black/50` : `hover:border-[#10d4c4]/50`}
+                ${isGreenCard ? `hover:shadow-2xl hover:shadow-black/25` : `hover:shadow-2xl hover:shadow-[#10d4c4]/25`}
+              `}
+            >
+              <div
+                className={`
+                  absolute inset-0 bg-gradient-to-r from-transparent to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out
+                  ${isGreenCard ? `via-black/15` : `via-[#10d4c4]/15`}
+                `}
+              />
+              <div
+                className={`
+                  absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl
+                  ${
+                    isGreenCard
+                      ? `bg-gradient-to-r from-black/5 via-black/10 to-black/5`
+                      : `bg-gradient-to-r from-[#10d4c4]/5 via-[#10d4c4]/10 to-[#10d4c4]/5`
+                  }
+                `}
+              />
+              <div className="relative z-10">
+                <div className="flex items-start gap-3 sm:gap-4 mb-4">
+                  <motion.div
+                    whileHover={{
+                      rotate: [0, -10, 10, -10, 0],
+                      scale: 1.15,
+                      transition: { duration: 0.5 },
+                    }}
+                    className={`
+                      flex-shrink-0 text-[#ffffff] p-2 rounded-lg transition-all duration-300
+                      ${
+                        isGreenCard
+                          ? `group-hover:bg-black/10 group-hover:shadow-lg group-hover:shadow-black/25`
+                          : `group-hover:bg-[#10d4c4]/10 group-hover:shadow-lg group-hover:shadow-[#10d4c4]/25`
+                      }
+                    `}
+                  >
+                    <div className="flex items-center justify-center">{testimonial.icon}</div>
+                  </motion.div>
+                  <div className="flex-1 min-w-0">
+                    <motion.h3
+                      whileHover={{
+                        x: 3,
+                        transition: { duration: 0.2 },
+                      }}
+                      className="text-[#ffffff] font-bold text-lg sm:text-xl mb-1 transition-all duration-300 group-hover:drop-shadow-sm"
+                    >
+                      {testimonial.name}
+                    </motion.h3>
+                  </div>
+                </div>
+                <motion.p
+                  whileHover={{
+                    x: 5,
+                    transition: { duration: 0.2, delay: 0.15 },
+                  }}
+                  className="text-white text-base sm:text-lg lg:text-[20px] leading-relaxed transition-all duration-300 group-hover:text-white/95 group-hover:drop-shadow-sm pl-2"
+                >
+                  {testimonial.text}
+                </motion.p>
+              </div>
+              <div
+                className={`
+                  absolute top-0 right-0 w-16 h-16 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500
+                  ${isGreenCard ? `bg-gradient-to-bl from-emerald-50` : `bg-gradient-to-bl from-[#10d4c4]/20`}
+                `}
+              />
+              <div
+                className={`
+                  absolute bottom-0 left-0 h-1 to-transparent w-0 group-hover:w-full transition-all duration-500 ease-out
+                  ${isGreenCard ? `bg-gradient-to-r from-white` : `bg-gradient-to-r from-[#10d4c4]`}
+                `}
+              />
+              <div
+                className={`
+                  absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 transition-all duration-300 ease-out rounded-full
+                  ${isGreenCard ? `bg-black group-hover:h-1/3` : `bg-[#10d4c4] group-hover:h-1/3`}
+                `}
+              />
+              <div
+                className={`
+                  absolute top-0 right-0 w-0 h-1 to-transparent group-hover:w-1/4 transition-all duration-700 ease-out delay-200
+                  ${isGreenCard ? `bg-gradient-to-l from-black` : `bg-gradient-to-l from-[#10d4c4]`}
+                `}
+              />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div
+                  className={`
+                    absolute top-1/4 right-1/4 w-1 h-1 rounded-full animate-pulse delay-100
+                    ${isGreenCard ? `bg-black` : `bg-[#10d4c4]`}
+                  `}
+                />
+                <div
+                  className={`
+                    absolute top-3/4 left-1/4 w-1 h-1 rounded-full animate-pulse delay-300
+                    ${isGreenCard ? `bg-black` : `bg-[#10d4c4]`}
+                  `}
+                />
+                <div
+                  className={`
+                    absolute top-1/2 right-1/3 w-0.5 h-0.5 rounded-full animate-pulse delay-500
+                    ${isGreenCard ? `bg-black` : `bg-[#10d4c4]`}
+                  `}
+                />
+              </div>
+             
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
+                style={{
+                  background: `radial-gradient(circle at 30% 30%, ${hoverColorRgba} 0%, transparent 70%)`,
+                }}
+              />
+            </motion.div>
+          )
+        })}
       </div>
-                
+   
+
               </div>
             </section>
           </div>

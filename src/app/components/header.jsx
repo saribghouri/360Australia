@@ -98,38 +98,34 @@ const Header = () => {
         <div className="hidden md:flex space-x-8 items-center">
           <Link
             href="/"
-            className="text-white hover:text-[#10d4c4] font-family transition-colors duration-300 font-medium"
+            className="text-white hover:text-[#10d4c4] font-family text-xl transition-colors duration-300 font-medium"
           >
             HOME
           </Link>
-          <Link href="/about-us" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
+          <Link href="/about-us" className="text-white hover:text-[#10d4c4]  text-xl transition-colors duration-300 font-medium">
             ABOUT US
           </Link>
           <div className="relative " ref={dropdownRef}>
             <button
               onClick={() => setIsServicesOpen(!isServicesOpen)}
               onMouseEnter={() => setIsServicesOpen(true)}
-              className="text-white hover:text-[#10d4c4] transition-colors duration-300  font-medium flex items-center space-x-1"
+              className="text-white hover:text-[#10d4c4] transition-colors duration-300  text-xl font-medium flex items-center space-x-1"
             >
               <span>SERVICES</span>
               <ChevronDown
-                className={`w-4 h-4 transition-transform  duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
+                className={`w-5 h-5 transition-transform  duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
               />
             </button>
           </div>
           <Link
             href="/portfolio"
-            className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium"
+            className="text-white hover:text-[#10d4c4] transition-colors text-xl duration-300 font-medium"
           >
             PORTFOLIO
           </Link>
-          <Link href="/pricing" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
-            PRICING
-          </Link>
-          <Link href="/faqs" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
-            FAQS
-          </Link>
-          <Link href="/blog" className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium">
+         
+          
+          <Link href="/blog" className="text-white hover:text-[#10d4c4] text-xl transition-colors duration-300 font-medium">
             BLOG
           </Link>
         </div>

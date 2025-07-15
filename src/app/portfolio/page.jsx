@@ -307,9 +307,7 @@ export default function Portfolio() {
           border-color: rgba(6, 182, 212, 0.6) !important;
         }
         
-        .ant-card-body {
-          padding: 32px !important;
-        }
+       
         
         .ant-typography {
           color: white !important;

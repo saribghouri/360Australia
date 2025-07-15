@@ -157,7 +157,7 @@ export default function ProjectCTASection() {
                     <div className="relative p-2 rounded-2xl bg-transparent">
                       <div className="absolute inset-0  pointer-events-none" />
                       <img
-                        src="/Imagenes-3012-2025-02-18T132143.068-1200x1200-removebg-preview.png"
+                        src="/GztNrj.png"
                         alt="360 Australia Project Showcase"
                         className="w-full h-auto rounded-xl"
                       />

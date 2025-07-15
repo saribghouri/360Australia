@@ -1,6 +1,4 @@
-
 "use client"
-
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Star } from "lucide-react"
@@ -12,44 +10,45 @@ const testimonials = [
         name: "Mark T.",
         image: "/360_F_431647519_usrbQ8Z983hTYe8zgA7t1XVc5fEtqcpa.jpg",
         rating: 5,
-        text: "Hiring 360 Australia for our digital growth was the best decision. Their comprehensive approach, deep industry understanding, and transparent communication truly set them apart. Our brand visibility and lead generation have never been stronger, and the results demonstrate their impact.",
+        text: "Hiring 360 Australia for our digital growth was the best decision. Their comprehensive approach, deep understanding, and transparent communication truly set them apart and the results shows their impact.",
     },
     {
         id: 2,
         name: "Emily R",
         image: "/depositphotos_371934132-stock-photo-beautiful-african-american-businesswoman-wearing.jpg",
         rating: 5,
-        text: "As a growing start-up, we needed a digital agency that could establish our online presence. 360 Australia's team impressed us with their professionalism, innovative strategies, and strong focus on results. They have a deep understanding of the local market, making them a valuable asset to our journey.",
+        text: "As a growing start-up, we needed a digital agency that could establish our online presence. 360 Australia's team impressed us with their professionalism, innovative strategies, and strong focus on results. ",
     },
     {
         id: 3,
-        name: "Sarah Johnson",
+        name: "Sarah Jack",
         image: "/Perfocal_17-11-2019_TYWFAQ_100_standard-3.jpg",
         rating: 5,
-        text: "Working with 360 Australia has completely transformed our digital presence. Their team truly lives up to their reputation as the leading digital agency in Australia. From the initial strategy session to the execution of our campaigns, we've seen a prominent increase in our online engagement and a direct boost in sales. Highly recommend!",
+        text: "Working with 360 Australia has completely transformed our digital presence. Their team truly lives up to their reputation as the leading digital agency in Australia. We've seen a prominent increase in our online engagement and a direct boost in sales.",
     },
     {
         id: 4,
         name: "David L.",
         image: "/LinkedIn-studio-headshot-photographer-london-1024x1024.jpg",
         rating: 5,
-        text: "If you want a digital agency that delivers, look no further than 360 Australia. They exceeded our expectations, transforming our online presence and driving impressive local customer growth. Their team's sharp insights and responsiveness, combined with their ability to simplify complex digital strategies, truly set them apart as Australia's leading digital agency.",
+        text: "If you want a digital agency that delivers, look no further than 360 Australia. Their team's sharp insights and responsiveness, combined with their ability to simplify complex digital strategies, truly set them apart as Australia's leading digital agency.",
     },
     {
         id: 5,
         name: "Noah Henry.",
-        image: "/LinkedIn-studio-headshot-photographer-london-1024x1024.jpg",
+        image: "/images.jfif",
         rating: 5,
         text: "They helped us launch our e-commerce site from scratch, complete with design, development, and digital marketing. The results? Higher sales and happier customers.",
     },
     {
         id: 6,
         name: "Luca HUdson",
-        image: "/LinkedIn-studio-headshot-photographer-london-1024x1024.jpg",
+        image: "/happy-handsome-caucasian-man-casual-260nw-2378378987.webp",
         rating: 5,
         text: "We wanted a sleek website and a strong social media presence and 360 Australia nailed both. Their designers and marketers worked closely with us from day one. They’re creative thinkers who actually listen to what you need.",
     },
 ]
+
 const GoogleIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="sm:w-6 sm:h-6">
     <path
@@ -74,28 +73,34 @@ const GoogleIcon = () => (
 export default function TestimonialSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
-  const [isMobile, setIsMobile] = useState(false)
+  const [displayedItemsCount, setDisplayedItemsCount] = useState(1) // Default for small screens
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
+    const updateDisplayedItemsCount = () => {
+      if (window.innerWidth >= 1024) {
+        // lg breakpoint
+        setDisplayedItemsCount(3)
+      } else if (window.innerWidth >= 768) {
+        // md breakpoint
+        setDisplayedItemsCount(2)
+      } else {
+        // sm and below
+        setDisplayedItemsCount(1)
+      }
     }
 
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
+    updateDisplayedItemsCount() // Set initial value
+    window.addEventListener("resize", updateDisplayedItemsCount)
+    return () => window.removeEventListener("resize", updateDisplayedItemsCount)
   }, [])
 
-  const itemsPerSlide = isMobile ? 1 : 2
-  const totalSlides = Math.ceil(testimonials.length / itemsPerSlide)
+  const totalSlides = Math.ceil(testimonials.length / displayedItemsCount)
 
   useEffect(() => {
     if (!isAutoPlaying) return
-
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % totalSlides)
     }, 5000)
-
     return () => clearInterval(interval)
   }, [isAutoPlaying, totalSlides])
 
@@ -110,8 +115,8 @@ export default function TestimonialSection() {
   }
 
   const getCurrentTestimonials = () => {
-    const startIndex = currentIndex * itemsPerSlide
-    return testimonials.slice(startIndex, startIndex + itemsPerSlide)
+    const startIndex = currentIndex * displayedItemsCount
+    return testimonials.slice(startIndex, startIndex + displayedItemsCount)
   }
 
   return (
@@ -125,7 +130,6 @@ export default function TestimonialSection() {
           }}
         />
       </div>
-
       <div className="max-w-[90%] mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 lg:py-16">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -142,7 +146,6 @@ export default function TestimonialSection() {
           </h2>
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-400">FEEDBACK</h3>
         </motion.div>
-
         <div className="relative max-w-full mx-auto">
           <button
             onClick={prevSlide}
@@ -150,14 +153,12 @@ export default function TestimonialSection() {
           >
             <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
           </button>
-
           <button
             onClick={nextSlide}
             className="hidden sm:flex absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-12 lg:h-12 bg-white/10 hover:bg-white/20 rounded-full items-center justify-center transition-all duration-300 backdrop-blur-sm"
           >
             <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
           </button>
-
           <div className="px-2 sm:px-8 md:px-12 lg:px-16">
             <AnimatePresence mode="wait">
               <motion.div
@@ -166,7 +167,7 @@ export default function TestimonialSection() {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -100 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className={`grid ${isMobile ? "grid-cols-1" : "md:grid-cols-2"} gap-4 sm:gap-6 md:gap-8 py-4 sm:py-6 md:py-8 px-2 sm:px-4 md:px-6 z-10 overflow-hidden`}
+                className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 py-4 sm:py-6 md:py-8 px-2 sm:px-4 md:px-6 z-10 overflow-hidden`}
               >
                 {getCurrentTestimonials().map((testimonial, index) => (
                   <motion.div
@@ -175,7 +176,7 @@ export default function TestimonialSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
                     whileHover={{ y: -5, scale: 1.01 }}
-                    className="bg-gray-800/50 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-gray-700/50 hover:border-teal-400/30 transition-all duration-300"
+                    className="bg-gray-800/50 backdrop-blur-sm rounded-xl testomnial-shadow   sm:rounded-2xl p-4 sm:p-6 md:p-8 border border-white hover:border-teal-400/30 transition-all duration-300"
                   >
                     <div className="flex flex-col items-center mb-4 sm:mb-6">
                       <motion.div
@@ -197,33 +198,26 @@ export default function TestimonialSection() {
                           <span className="text-white text-xs font-bold">✓</span>
                         </div>
                       </motion.div>
-
                       <h4 className="text-white text-lg sm:text-[30px] font-semibold mb-1 text-center">
                         {testimonial.name}
                       </h4>
-                    
                     </div>
-
-                    
-
                     <p className="text-gray-300 text-center leading-relaxed mb-4 sm:mb-6 text-lg sm:text-xl min-h-[80px] sm:min-h-[120px] flex items-center">
                       {testimonial.text}
                     </p>
-
-                    <div className="flex justify-center mb-3 sm:mb-4 gap-0.5 sm:gap-1">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, scale: 0 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3, delay: i * 0.1 }}
-                        >
-                          <Star className="w-4 h-4 sm:w-5 sm:h-5 text-[#10d4c4] fill-current" />
-                        </motion.div>
-                      ))}
-                    </div>
-
-                    <div className="flex justify-center">
+                    <div className="flex items-center h-full  justify-items-end flex-col gap-4  mt-4">
+                      <div className="flex gap-0.5 sm:gap-1 ">
+                        {[...Array(testimonial.rating)].map((_, i) => (
+                          <motion.div
+                            key={i}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.3, delay: i * 0.1 }}
+                          >
+                            <Star className="w-4 h-4 sm:w-5 sm:h-5 text-[#ebc807] fill-current" />
+                          </motion.div>
+                        ))}
+                      </div>
                       <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.2 }}>
                         <GoogleIcon />
                       </motion.div>
@@ -233,7 +227,6 @@ export default function TestimonialSection() {
               </motion.div>
             </AnimatePresence>
           </div>
-
           {/* Mobile Navigation Buttons */}
           <div className="flex sm:hidden justify-center gap-4 mt-6">
             <button
@@ -249,7 +242,6 @@ export default function TestimonialSection() {
               <ChevronRight className="w-5 h-5 text-white" />
             </button>
           </div>
-
           {/* Dots Indicator */}
           <div className="flex justify-center mt-8 sm:mt-12 gap-1.5 sm:gap-2">
             {Array.from({ length: totalSlides }).map((_, index) => (
@@ -270,4 +262,3 @@ export default function TestimonialSection() {
     </section>
   )
 }
-

@@ -109,15 +109,15 @@ export default function AnimatedSection() {
                 </div>
                 <div className="w-[50%]">
                   <h2 className="text-3xl font-bold text-white mb-4 transition-transform duration-300">
-                    WEB DESIGN AND DEVELOPMENT
+                    Web Design and Developement
                   </h2>
-                  <p className="text-white/90 text-lg leading-relaxed mb-6">
-                    Building a website is not just coding, but it’s a creative process. Our team is full of sharp, imaginative minds who create unique designs for each brand. This not only helps your business stand out but also makes the development process smooth and efficient.
+                  <p className="text-white/90 text-xl leading-relaxed mb-6">
+Building a website is not just coding, but it’s a creative process to boost your digital presence. 
 
                   </p>
                 </div>
                 <div className="w-[50%] flex justify-center">
-                  <img className="w-50 h-55" src="/Untitled-3-01.png" alt="AI Engineering" />
+                  <img className="w-50 h-55" src="/vFHYRi.png" alt="AI Engineering" />
                 </div>
               </div>
             </div>
@@ -126,24 +126,24 @@ export default function AnimatedSection() {
 
 
           <div className="card-wrapper mb-[30px] flex justify-center">
-            <div className="card group w-[min(2000px,90vw)] h-[300px] relative rounded-3xl overflow-hidden border border-teal-400 bg-gradient-to-br from-teal-500 via-teal-500 to-teal-500">
+            <div className="card group w-[min(2000px,90vw)] h-[300px] relative rounded-3xl overflow-hidden border border-teal-400 bg-gradient-to-br from-teal-600 via-teal-600 to-teal-600">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-3xl"></div>
               <div className="relative z-10 p-8 h-full gap-[40px] flex flex-row justify-between">
                 <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#10d4c4]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#10d4c4] to-transparent w-0 group-hover:w-full transition-all duration-500 ease-out" />
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#10d4c4] group-hover:h-1/3 transition-all duration-300 ease-out rounded-full" />
-                <div className="absolute top-0 right-0 w-0 h-1 bg-gradient-to-l from-[#10d4c4] to-transparent group-hover:w-1/4 transition-all duration-700 ease-out delay-200" />
+                <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#ffffff] to-transparent w-0 group-hover:w-full transition-all duration-500 ease-out" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#ffffff] group-hover:h-1/3 transition-all duration-300 ease-out rounded-full" />
+                <div className="absolute top-0 right-0 w-0 h-1 bg-gradient-to-l from-[#ffffff] to-transparent group-hover:w-1/4 transition-all duration-700 ease-out delay-200" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute top-1/4 right-1/4 w-1 h-1 bg-[#10d4c4] rounded-full animate-pulse delay-100" />
-                  <div className="absolute top-3/4 left-1/4 w-1 h-1 bg-[#10d4c4] rounded-full animate-pulse delay-300" />
-                  <div className="absolute top-1/2 right-1/3 w-0.5 h-0.5 bg-[#10d4c4] rounded-full animate-pulse delay-500" />
+                  <div className="absolute top-1/4 right-1/4 w-1 h-1 bg-[#ffffff] rounded-full animate-pulse delay-100" />
+                  <div className="absolute top-3/4 left-1/4 w-1 h-1 bg-[#ffffff] rounded-full animate-pulse delay-300" />
+                  <div className="absolute top-1/2 right-1/3 w-0.5 h-0.5 bg-[#ffffff] rounded-full animate-pulse delay-500" />
                 </div>
                 <div className="w-[50%]">
                   <h2 className="text-3xl font-bold text-white mb-4 transition-transform duration-300">
                     Graphics Design Services
                   </h2>
-                  <p className="text-white/90 text-lg leading-relaxed mb-6">
-                    A strong brand identity helps people quickly recognise your products and services. We take fresh ideas and turn them into unique ones that help your business grow, because it’s never just a logo. It’s your passion, your story, and what you stand for.
+                  <p className="text-white/90 text-xl leading-relaxed mb-6">
+360 Australia takes fresh ideas and turn them into unique ones that help your business grow.
 
                   </p>
                 </div>
@@ -171,11 +171,9 @@ export default function AnimatedSection() {
                   <h2 className="text-3xl font-bold text-white mb-4 transition-transform duration-300">
                     Mobile App Development
                   </h2>
-                  <p className="text-white/90 text-lg leading-relaxed mb-6">
-                    Extend your reach with mobile applications from 360 Australia. We develop both high-performance
-                    native and versatile hybrid apps, designed to engage your audience and provide seamless
-                    functionality across all devices. Turn your ideas into real-world solutions that ensure your users
-                    enjoy a smooth mobile experience.
+                  <p className="text-white/90 text-xl leading-relaxed mb-6">
+                   Tap into growth with an app, we build easy-to-use native and hybrid apps that work smoothly on any device.
+
                   </p>
                 </div>
                 <div className="w-[50%] flex justify-center">
@@ -187,26 +185,54 @@ export default function AnimatedSection() {
           {/* Card 5 */}
 
           <div className="card-wrapper mb-[30px] flex justify-center">
-            <div className="card group w-[min(2000px,90vw)] h-[300px] relative rounded-3xl overflow-hidden border border-teal-400 bg-gradient-to-br from-teal-500 via-teal-500 to-teal-500">
+            <div className="card group w-[min(2000px,90vw)] h-[300px] relative rounded-3xl overflow-hidden border border-teal-400 bg-gradient-to-br from-teal-600 via-teal-600 to-teal-600">
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-3xl"></div>
               <div className="relative z-10 p-8 h-full gap-[40px] flex flex-row justify-between">
                 <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#10d4c4]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#10d4c4] to-transparent w-0 group-hover:w-full transition-all duration-500 ease-out" />
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#10d4c4] group-hover:h-1/3 transition-all duration-300 ease-out rounded-full" />
-                <div className="absolute top-0 right-0 w-0 h-1 bg-gradient-to-l from-[#10d4c4] to-transparent group-hover:w-1/4 transition-all duration-700 ease-out delay-200" />
+                <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#ffffff] to-transparent w-0 group-hover:w-full transition-all duration-500 ease-out" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#ffffff] group-hover:h-1/3 transition-all duration-300 ease-out rounded-full" />
+                <div className="absolute top-0 right-0 w-0 h-1 bg-gradient-to-l from-[#ffffff] to-transparent group-hover:w-1/4 transition-all duration-700 ease-out delay-200" />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute top-1/4 right-1/4 w-1 h-1 bg-[#10d4c4] rounded-full animate-pulse delay-100" />
-                  <div className="absolute top-3/4 left-1/4 w-1 h-1 bg-[#10d4c4] rounded-full animate-pulse delay-300" />
-                  <div className="absolute top-1/2 right-1/3 w-0.5 h-0.5 bg-[#10d4c4] rounded-full animate-pulse delay-500" />
+                  <div className="absolute top-1/4 right-1/4 w-1 h-1 bg-[#ffffff] rounded-full animate-pulse delay-100" />
+                  <div className="absolute top-3/4 left-1/4 w-1 h-1 bg-[#ffffff] rounded-full animate-pulse delay-300" />
+                  <div className="absolute top-1/2 right-1/3 w-0.5 h-0.5 bg-[#ffffff] rounded-full animate-pulse delay-500" />
                 </div>
                 <div className="w-[50%]">
                   <h2 className="text-3xl font-bold text-white mb-4 transition-transform duration-300">
                     Digital Marketing
                   </h2>
-                  <p className="text-white/90 text-lg leading-relaxed mb-6">
-                    Simplify your online presence and reach your target audience with 360 Australia's comprehensive
-                    digital marketing strategies. We specialize in SEO, Social Media Marketing, and Google PPC, driving
-                    traffic, increasing engagement, and boosting your brand's visibility in the digital landscape.
+                  <p className="text-white/90 text-xl leading-relaxed mb-6">
+                    360 Australia helps your brand get noticed, connect with more people, and make sure your business stands out where it counts.
+
+                  </p>
+                </div>
+                <div className="w-[50%] flex justify-center">
+                  <img className="w-50 h-55" src="/icon-04.png" alt="AI Engineering" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="card-wrapper mb-[30px] flex justify-center">
+            <div className="card group w-[min(2000px,90vw)] h-[300px] relative rounded-3xl overflow-hidden border border-teal-400 bg-gradient-to-br from-black via-black to-black">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-3xl"></div>
+              <div className="relative z-10 p-8 h-full gap-[40px] flex flex-row justify-between">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#10d4c4]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#ffffff] to-transparent w-0 group-hover:w-full transition-all duration-500 ease-out" />
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#ffffff] group-hover:h-1/3 transition-all duration-300 ease-out rounded-full" />
+                <div className="absolute top-0 right-0 w-0 h-1 bg-gradient-to-l from-[#ffffff] to-transparent group-hover:w-1/4 transition-all duration-700 ease-out delay-200" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute top-1/4 right-1/4 w-1 h-1 bg-[#ffffff] rounded-full animate-pulse delay-100" />
+                  <div className="absolute top-3/4 left-1/4 w-1 h-1 bg-[#ffffff] rounded-full animate-pulse delay-300" />
+                  <div className="absolute top-1/2 right-1/3 w-0.5 h-0.5 bg-[#ffffff] rounded-full animate-pulse delay-500" />
+                </div>
+                <div className="w-[50%]">
+                  <h2 className="text-3xl font-bold text-white mb-4 transition-transform duration-300">
+                 Videos & Animation
+
+                  </h2>
+                  <p className="text-white/90 text-xl leading-relaxed mb-6">
+                    We’re all about bringing your brand to life with creative videos and animations that speak louder than words.
+
                   </p>
                 </div>
                 <div className="w-[50%] flex justify-center">

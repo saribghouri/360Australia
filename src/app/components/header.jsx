@@ -109,7 +109,7 @@ const Header = () => {
             <button
               onClick={() => setIsServicesOpen(!isServicesOpen)}
               onMouseEnter={() => setIsServicesOpen(true)}
-              className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium flex items-center space-x-1"
+              className="text-white hover:text-[#10d4c4] transition-colors duration-300  font-medium flex items-center space-x-1"
             >
               <span>SERVICES</span>
               <ChevronDown
@@ -186,7 +186,7 @@ const Header = () => {
                         onClick={() => toggleMobileService(index)}
                         className="flex items-center justify-between w-full text-gray-300 hover:text-[#10d4c4] transition-colors duration-200 py-2 text-sm font-medium"
                       >
-                        <span>{service.title}</span>
+                        <span className="">{service.title}</span>
                         <ChevronRight
                           className={`w-3 h-3 transition-transform duration-200 ${
                             expandedMobileService === index ? "rotate-90" : ""

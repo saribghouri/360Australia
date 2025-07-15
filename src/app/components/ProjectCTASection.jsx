@@ -32,12 +32,12 @@ export default function ProjectCTASection() {
             transition={{ duration: 5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1 }}
           />
           <motion.div
-            className="absolute bottom-20 left-1/3 w-80 h-0.5 bg-purple-400 rounded-full shadow-lg shadow-purple-400/50   -rotate-12"
+            className="absolute bottom-20 left-1/3 w-80 h-0.5 bg-yellow-400 rounded-full shadow-lg shadow-purple-400/50   -rotate-12"
             animate={{ x: [0, 100, 0], opacity: [0.4, 0.9, 0.4] }}
             transition={{ duration: 7, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }}
           />
           <motion.div
-            className="absolute bottom-20 left-1/3 w-80 h-0.5 bg-purple-400 rounded-full shadow-lg shadow-purple-400/50   -rotate-12"
+            className="absolute bottom-20 left-1/3 w-80 h-0.5 bg-yellow-400 rounded-full shadow-lg shadow-purple-400/50   -rotate-12"
             animate={{ x: [0, 100, 0], opacity: [0.4, 0.9, 0.4] }}
             transition={{ duration: 7, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 2 }}
           />
@@ -49,13 +49,13 @@ export default function ProjectCTASection() {
           />
           {/* Additional lines for more density */}
           <motion.div
-            className="absolute top-1/4 left-10 w-32 h-0.5 bg-purple-300 rounded-full shadow-lg shadow-purple-300/50  rotate-30"
+            className="absolute top-1/4 left-10 w-32 h-0.5 bg-yellow-300 rounded-full shadow-lg shadow-purple-300/50  rotate-30"
             animate={{ y: [0, 20, 0], opacity: [0.3, 0.8, 0.3] }}
             transition={{ duration: 5.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.8 }}
           />
 
           <motion.div
-            className="absolute top-1/4 left-10 w-32 h-0.5 bg-purple-300 rounded-full shadow-lg shadow-purple-300/50  rotate-30"
+            className="absolute top-1/4 left-10 w-32 h-0.5 bg-yellow-300 rounded-full shadow-lg shadow-purple-300/50  rotate-30"
             animate={{ y: [0, 20, 0], opacity: [0.3, 0.8, 0.3] }}
             transition={{ duration: 5.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.8 }}
           />
@@ -127,7 +127,7 @@ export default function ProjectCTASection() {
                     className="space-y-4 "
                   >
                     <motion.button
-                      className="group relative border qr-code border-teal-500 bg-white text-black px-10 py-5 rounded-[20px] font-bold text-lg flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl "
+                      className="group relative border qr-code border-teal-500 bg-teal-500 text-white px-10 py-5 rounded-[20px] font-bold text-xl flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl "
                       whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(16, 212, 196, 0.4)" }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -138,10 +138,8 @@ export default function ProjectCTASection() {
                         whileHover={{ x: "100%" }}
                         transition={{ duration: 0.6 }}
                       />
-                      <Users className="w-5 h-5 relative z-10" />
                       <span className="relative z-10 ">Request A Proposal</span>
                       <motion.div className="group-hover:translate-x-1 transition-transform duration-300 relative z-10">
-                        <ArrowRight size={20} />
                       </motion.div>
                     </motion.button>
                   </motion.div>

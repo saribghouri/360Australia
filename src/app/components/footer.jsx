@@ -8,12 +8,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-12 lg:gap-22 mb-8">
           <div className="space-y-4 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start ">
-              <div className="w-8 h-8 bg-[#10d4c4] rounded flex items-center justify-center">
-                <div className="w-4 h-4 bg-black rounded-sm transform rotate-45"></div>
-              </div>
+             
               <div>
                 <h3 className="text-xl md:text-2xl lg:text-[30px] font-bold">360 Australia</h3>
-                <p className="text-xs md:text-sm text-gray-300">Ventures</p>
               </div>
             </div>
             <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
@@ -81,20 +78,21 @@ export default function Footer() {
                 </div>
               </div>
             </div>
+            <div className="flex space-x-4 mt-[40px]">
+            <a href="#" className="text-teal-400 hover:text-white transition-colors">
+              <Facebook className="w-8 h-8" />
+            </a>
+            <a href="#" className="text-teal-400 hover:text-white transition-colors">
+              <Linkedin className="w-8 h-8" />
+            </a>
+          </div>
           </div>
         </div>
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
           <p className="text-gray-400 text-sm md:text-base lg:text-lg">
             © {new Date().getFullYear()} Creative sol tech. All Rights Reserved.
           </p>
-          <div className="flex space-x-4">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              <Facebook className="w-5 h-5" />
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">
-              <Linkedin className="w-5 h-5" />
-            </a>
-          </div>
+          
         </div>
       </div>
     </footer>

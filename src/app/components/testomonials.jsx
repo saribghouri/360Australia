@@ -137,14 +137,14 @@ export default function TestimonialSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-8 sm:mb-12 md:mb-16"
         >
-          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
+          {/* <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
             <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#10d4c4] rounded-full"></div>
             <span className="text-[#10d4c4] text-xs sm:text-sm font-medium tracking-wider uppercase">Testimonial</span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-1 sm:mb-2">
+          </div> */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-white mb-1 sm:mb-2">
             HAPPY CLIENT
           </h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-400">FEEDBACK</h3>
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-8xl font-bold text-teal-400">FEEDBACK</h3>
         </motion.div>
         <div className="relative max-w-full mx-auto">
           <button

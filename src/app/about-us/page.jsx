@@ -11,6 +11,7 @@ import { Button } from "antd"
 export default function AboutUsSections() {
   const [isVisible, setIsVisible] = useState({})
   const [mainSectionVisible, setMainSectionVisible] = useState(false)
+  const [activeStep, setActiveStep] = useState("growth")
 
   // Create individual refs for each section
   const headerRef = useRef(null)
@@ -65,6 +66,32 @@ export default function AboutUsSections() {
       observers.forEach((observer) => observer.disconnect())
     }
   }, [])
+  const stepsData = [
+    {
+      id: "growth",
+      title: "Trust",
+      description: "We stand by our clients every step of the way.",
+
+    },
+    {
+      id: "respect",
+      title: "Transparency",
+      description: "We value and respect every individual.",
+
+    },
+    {
+      id: "innovation",
+      title: "Innovation",
+      description: "Driving forward with innovative solutions.",
+
+    },
+    {
+      id: "passion",
+      title: "Passion",
+      description: "Passionate about achieving excellence.",
+
+    },
+  ]
 
   return (
     <>
@@ -72,133 +99,19 @@ export default function AboutUsSections() {
         <Header />
       </div>
 
-      <section className="bg-black text-white py-16 px-4 md:px-6 lg:px-8 overflow-hidden">
+      <section className="bg-black text-white px-4 md:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-[90%] mx-auto">
-          {/* Header Section */}
-          <div
-            ref={headerRef}
-            className={`text-center mb-16 transition-all duration-1000 ${isVisible.header ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-          >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">
-              ABOUT <span className="text-teal-400">US</span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              We are a passionate team of digital innovators, dedicated to transforming your vision into powerful online
-              experiences that drive results and exceed expectations.
-            </p>
-          </div>
-
-          {/* Content Section */}
-          <div
-            ref={contentRef}
-            className={`grid lg:grid-cols-2 gap-12 lg:gap-22 items-center mb-16 transition-all duration-1000 delay-300 ${isVisible.content ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
-              }`}
-          >
-            {/* Mission Section */}
-            <div className="space-y-8">
-              <h3 className="text-3xl md:text-4xl font-bold mb-8 text-teal-400">OUR MISSION:</h3>
-              <p className="text-xl text-gray-300 leading-relaxed">
-                Founded with a vision to bridge the gap between creativity and technology, we specialize in crafting
-                bespoke digital solutions that not only look stunning but also deliver exceptional performance and user
-                engagement.
-              </p>
-              <div className="space-y-6">
-                {[
-                  {
-                    icon: Users,
-                    title: "Expert Team",
-                    desc: "Our diverse team brings together years of experience in design, development, and digital strategy.",
-                  },
-                  {
-                    icon: Target,
-                    title: "Results-Driven",
-                    desc: "We focus on delivering measurable results that align with your business objectives and growth goals.",
-                  },
-                  {
-                    icon: Lightbulb,
-                    title: "Innovation First",
-                    desc: "We stay ahead of industry trends, implementing cutting-edge technologies and design principles.",
-                  },
-                ].map((item, index) => {
-                  const IconComponent = item.icon
-                  return (
-                    <div
-                      key={index}
-                      className={`flex items-start gap-4 group transition-all duration-500 hover:transform hover:translate-x-2 ${isVisible.content ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-                        }`}
-                      style={{ transitionDelay: `${(index + 1) * 200}ms` }}
-                    >
-                      <IconComponent className="w-8 h-8 text-teal-400 mt-1 flex-shrink-0 transition-all duration-300 group-hover:scale-110 group-hover:rotate-12" />
-                      <div>
-                        <h4 className="text-[22px] font-semibold text-white mb-2 group-hover:text-teal-400 transition-colors duration-300">
-                          {item.title}
-                        </h4>
-                        <p className="text-gray-300 text-[18px] group-hover:text-white transition-colors duration-300">
-                          {item.desc}
-                        </p>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* Values Section */}
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-4xl font-bold mb-6 text-teal-400">OUR VALUES</h3>
-                <div className="space-y-6">
-                  {[
-                    { icon: Award, text: "Excellence in Every Project" },
-                    { icon: CheckCircle, text: "Client-Centric Approach" },
-                    { icon: Target, text: "Transparent Communication" },
-                    { icon: Lightbulb, text: "Continuous Innovation" },
-                  ].map((value, index) => {
-                    const IconComponent = value.icon
-                    return (
-                      <div
-                        key={index}
-                        className={`flex items-center gap-3 group transition-all duration-300 hover:translate-x-2 ${isVisible.content ? "opacity-100" : "opacity-0"
-                          }`}
-                        style={{ transitionDelay: `${(index + 1) * 100 + 400}ms` }}
-                      >
-                        <IconComponent className="w-5 h-5 text-teal-400 transition-all duration-300 group-hover:scale-125 group-hover:rotate-12" />
-                        <span className="text-white text-[22px] group-hover:text-teal-400 transition-colors duration-300">
-                          {value.text}
-                        </span>
-                      </div>
-                    )
-                  })}
-                </div>
-                <div className="mt-8 pt-6 border-t border-gray-700">
-                  <p className="text-gray-300 text-xl leading-relaxed">
-                    "We believe that great design is not just about aesthetics—it's about creating meaningful
-                    connections between brands and their audiences."
-                  </p>
-                  <p className="text-teal-400 font-semibold mt-3 text-[24px] animate-pulse-subtle">
-                    — Our Design Philosophy
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Guarantee Section */}
 
 
-          <section className="bg-transparent text-white py-16 px-6 lg:px-8 relative overflow-hidden">
+          <section className="bg-transparent text-white py-16 px-6 lg:px-8 relative ">
             {/* Background geometric pattern */}
 
 
-            <div className="max-w-8xl mx-auto relative z-10">
-              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="max-w-8xl mx-auto relative z-10 mt-[80px]">
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 ">
                 {/* Left Content */}
                 <div className="space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-px bg-white"></div>
-                    <span className="text-sm font-medium tracking-wider uppercase">WHAT WE DO FOR YOU?</span>
-                  </div>
+
 
                   <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">ABOUT <span className="text-teal-400">US</span></h2>
 
@@ -211,14 +124,14 @@ export default function AboutUsSections() {
 
                   <Button
                     href="#contact"
-                    className="inline-block !text-cyan-400 !hover:text-cyan-300 !font-bold text-center !px-[20px] !py-[20px] !text-xl border border-cyan-400 hover:border-cyan-300 transition-colors duration-300 pb-1 cursor-pointer"
+                    className="inline-block !bg-teal-500 !text-white  !hover:text-cyan-300 !font-bold text-center !px-[40px] !py-[20px] !text-xl border border-cyan-400 hover:border-cyan-300 transition-colors duration-300 pb-1 cursor-pointer"
                   >
                     START YOUR PROJECT NOW
                   </Button>
                 </div>
 
                 {/* Right Stats */}
-                <div className="bg-transparent min-h-screen flex items-center justify-center p-8">
+                <div className="bg-transparent min-h-auto flex items-center justify-center p-8">
                   <div className="relative w-full max-w-2xl h-96">
                     {/* 990+ Completed Projects - Top Left */}
                     <div className="absolute top-70 left-20">
@@ -316,6 +229,105 @@ export default function AboutUsSections() {
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section className="bg-transparent mt-[100px] text-white py-13 px-6 lg:px-8 relative overflow-hidden">
+            {/* Background geometric pattern */}
+            <div className="space-y-6">
+
+
+              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">Our   <span className="text-teal-400">commitment</span></h2>
+
+
+
+
+            </div>
+
+            <div className="max-w-9xl mx-auto relative z-10 py-12 md:py-24 lg:py-32">
+              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                {/* Our Vision Section (Left) */}
+                <div
+                  className="relative overflow-hidden rounded-lg bg-cover bg-center bg-no-repeat p-8 border border-teal-400 testomnial-shadows text-white shadow-lg"
+                  style={{ backgroundImage: `url('/navy-blue-futuristic-technology-linkedin-260nw-2358315107.jpg')` }}
+                >
+                  <div className="absolute inset-0 bg-black/70" aria-hidden="true"></div>
+                  <div className="relative z-10  py-[30px] ">
+                    <h2 className="text-4xl font-bold mb-4">Our Vision:</h2>
+                    <p className="text-lg">
+                      Our vision is to become the most trusted name for digital services. We aim to create strategies that turn
+                      ideas into success stories by staying ahead of trends and embracing innovation. We’re here to set new
+                      standards and be remembered for results that truly matter.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Mission Section (Right) */}
+                <div
+                  className="relative overflow-hidden rounded-lg bg-cover bg-center bg-no-repeat p-8  border border-teal-400 testomnial-shadows text-white shadow-lg"
+                  style={{ backgroundImage: `url('/navy-blue-futuristic-technology-linkedin-260nw-2358315107.jpg')` }}
+                >
+                  <div className="absolute inset-0 bg-black/70" aria-hidden="true"></div>
+                  <div className="relative z-10 py-[30px] ">
+                    <h2 className="text-4xl font-bold mb-4">Mission:</h2>
+                    <p className="text-lg">
+                      Our mission is to promote all kinds of businesses to stand out in the digital World. We create smart
+                      solutions to help them grow, build their brand, and connect with customers. We’re all about great service,
+                      unique ideas, smart technology, and a results-oriented plan to get results.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div
+              className="relative overflow-hidden rounded-lg bg-cover bg-center bg-no-repeat p-8 border border-teal-400 testomnial-shadows text-white shadow-lg"
+              style={{ backgroundImage: `url('/navy-blue-futuristic-technology-linkedin-260nw-2358315107.jpg')` }}
+            >
+              <div className="absolute inset-0 bg-black/70" aria-hidden="true"></div>
+              <div className="flex flex-col justify-center items-center py-8 px-4 bg-none relative z-10">
+                <h2 className="text-5xl font-bold text-white mb-16 text-center">Our <span className="text-teal-400">Values</span></h2>
+                <div className="flex w-full max-w-7xl relative">
+                  {stepsData.map((step, index) => (
+                    <div
+                      key={step.id}
+                      className="relative flex-1 flex flex-col items-center cursor-pointer group px-4"
+                      onMouseEnter={() => setActiveStep(step.id)}
+                      onMouseLeave={() => setActiveStep(null)}
+                    >
+                      <h3
+                        className={`text-[30px] font-semibold flex items-start text-white transition-all mb-[20px] duration-300 ease-in-out mt-4 ${activeStep === step.id ? "-translate-y-10 text-blue-800" : ""
+                          }`}
+                      >
+                        {step.title}
+                      </h3>
+                      {/* Stepper line and dot container */}
+                      <div className="relative z-10 flex items-center justify-center w-full">
+                        {/* Line before the dot (except for the first one) */}
+                        {index > 0 && <div className="h-px bg-gray-300 flex-1 -mr-2" />}
+                        {/* Dot and concentric circles */}
+                        <div className="relative w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center shrink-0">
+                          {activeStep === step.id && (
+                            <>
+                              <div className="absolute w-8 h-8 rounded-full border border-yellow-300 opacity-75" />
+                              <div className="absolute w-12 h-12 rounded-full border border-teal-200 opacity-50" />
+                              <div className="absolute w-16 h-16 rounded-full border border-teal-100 opacity-25" />
+                            </>
+                          )}
+                        </div>
+                        {/* Line after the dot (except for the last one) */}
+                        {index < stepsData.length - 1 && <div className="h-px bg-gray-300 flex-1 -ml-2" />}
+                      </div>
+                      {/* Description - positioned below dot, appears on hover */}
+                      <p
+                        className={`text-lg text-white transition-all duration-300 ease-in-out mt-[40px] overflow-hidden ${activeStep === step.id ? "opacity-100 max-h-20 mt-2" : "opacity-0 max-h-0"
+                          }`}
+                      >
+                        {step.description}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

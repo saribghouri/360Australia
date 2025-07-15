@@ -3,7 +3,9 @@
 import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-
+import { motion } from "framer-motion"
+import { Button } from "antd"
+import { ArrowRight } from "lucide-react"
 export default function AnimatedSection() {
   const containerRef = useRef(null)
   const dot1Ref = useRef(null)
@@ -112,13 +114,22 @@ export default function AnimatedSection() {
                     Web Design and Developement
                   </h2>
                   <p className="text-white/90 text-xl leading-relaxed mb-6">
-Building a website is not just coding, but it’s a creative process to boost your digital presence. 
+                    Building a website is not just coding, but it’s a creative process to boost your digital presence.
 
                   </p>
+                  <Button variant="link" className="group relative items-center justify-center gap-1 !px-10  !py-5 h-auto">
+                    <span className="relative ">
+                      <span className="text-[20px] font-medium ">learn more</span>
+                     
+                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full group-focus-visible:w-full"></span>
+                    </span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
+                  </Button>
                 </div>
-                <div className="w-[50%] flex justify-center">
+
+                {/* <div className="w-[50%] flex justify-center">
                   <img className="w-50 h-55" src="/vFHYRi.png" alt="AI Engineering" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -143,13 +154,21 @@ Building a website is not just coding, but it’s a creative process to boost yo
                     Graphics Design Services
                   </h2>
                   <p className="text-white/90 text-xl leading-relaxed mb-6">
-360 Australia takes fresh ideas and turn them into unique ones that help your business grow.
+                    360 Australia takes fresh ideas and turn them into unique ones that help your business grow.
 
                   </p>
+                   <Button variant="link" className="group relative items-center justify-center gap-1 !px-10  !py-5 h-auto">
+                    <span className="relative ">
+                      <span className="text-[20px] font-medium ">learn more</span>
+                     
+                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full group-focus-visible:w-full"></span>
+                    </span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
+                  </Button>
                 </div>
-                <div className="w-[50%] flex justify-center">
+                {/* <div className="w-[50%] flex justify-center">
                   <img className="w-50 h-55" src="/Untitled-3-01.png" alt="AI Engineering" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -172,13 +191,21 @@ Building a website is not just coding, but it’s a creative process to boost yo
                     Mobile App Development
                   </h2>
                   <p className="text-white/90 text-xl leading-relaxed mb-6">
-                   Tap into growth with an app, we build easy-to-use native and hybrid apps that work smoothly on any device.
+                    Tap into growth with an app, we build easy-to-use native and hybrid apps that work smoothly on any device.
 
                   </p>
+                   <Button variant="link" className="group relative items-center justify-center gap-1 !px-10  !py-5 h-auto">
+                    <span className="relative ">
+                      <span className="text-[20px] font-medium ">learn more</span>
+                     
+                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full group-focus-visible:w-full"></span>
+                    </span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
+                  </Button>
                 </div>
-                <div className="w-[50%] flex justify-center">
+                {/* <div className="w-[50%] flex justify-center">
                   <img className="w-50 h-55" src="/icon-03.png" alt="AI Engineering" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -205,10 +232,18 @@ Building a website is not just coding, but it’s a creative process to boost yo
                     360 Australia helps your brand get noticed, connect with more people, and make sure your business stands out where it counts.
 
                   </p>
+                   <Button variant="link" className="group relative items-center justify-center gap-1 !px-10  !py-5 h-auto">
+                    <span className="relative ">
+                      <span className="text-[20px] font-medium ">learn more</span>
+                     
+                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full group-focus-visible:w-full"></span>
+                    </span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
+                  </Button>
                 </div>
-                <div className="w-[50%] flex justify-center">
+                {/* <div className="w-[50%] flex justify-center">
                   <img className="w-50 h-55" src="/icon-04.png" alt="AI Engineering" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -227,17 +262,25 @@ Building a website is not just coding, but it’s a creative process to boost yo
                 </div>
                 <div className="w-[50%]">
                   <h2 className="text-3xl font-bold text-white mb-4 transition-transform duration-300">
-                 Videos & Animation
+                    Videos & Animation
 
                   </h2>
                   <p className="text-white/90 text-xl leading-relaxed mb-6">
                     We’re all about bringing your brand to life with creative videos and animations that speak louder than words.
 
                   </p>
+                   <Button variant="link" className="group relative items-center justify-center gap-1 !px-10  !py-5 h-auto">
+                    <span className="relative ">
+                      <span className="text-[20px] font-medium ">learn more</span>
+                     
+                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full group-focus-visible:w-full"></span>
+                    </span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
+                  </Button>
                 </div>
-                <div className="w-[50%] flex justify-center">
+                {/* <div className="w-[50%] flex justify-center">
                   <img className="w-50 h-55" src="/icon-04.png" alt="AI Engineering" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

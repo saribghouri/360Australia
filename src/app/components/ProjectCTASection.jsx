@@ -6,7 +6,7 @@ export default function ProjectCTASection() {
   return (
     <div className="flex w-full justify-center py-[150px]">
 
-      <section className="relative max-w-[80%]    bg-black overflow-hidden  flex items-center justify-center">
+      <section className="relative max-w-[84%]    bg-black overflow-hidden  flex items-center justify-center">
         {/* Background Effects */}
         <div className="absolute inset-0">
           {/* Existing blur effects */}
@@ -16,7 +16,7 @@ export default function ProjectCTASection() {
 
           {/* Sharper Glowing Lines */}
           <motion.div
-            className="absolute top-10 left-1/4 w-64 h-0.5 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50  "
+            className="absolute top-10 left-1/4 w-64 h-0.5 bg-teal-400 rounded-full shadow-lg shadow-blue-400/50  "
             animate={{ x: [-50, 50, -50], opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
           />
@@ -43,7 +43,7 @@ export default function ProjectCTASection() {
           />
 
           <motion.div
-            className="absolute bottom-10 right-10 w-56 h-0.5 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50   -rotate-45"
+            className="absolute bottom-10 right-10 w-56 h-0.5 bg-teal-500 rounded-full shadow-lg shadow-blue-500/50   -rotate-45"
             animate={{ x: [0, -60, 0], opacity: [0.7, 1, 0.7] }}
             transition={{ duration: 6.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 1.5 }}
           />

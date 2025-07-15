@@ -8,14 +8,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-12 lg:gap-22 mb-8">
           <div className="space-y-4 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start ">
-             
+
               <div>
                 <h3 className="text-xl md:text-2xl lg:text-[30px] font-bold">360 Australia</h3>
               </div>
             </div>
             <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
-              We are a full-service marketing and advertising agency located in the heart of Australia. From concept to
-              execution, we're dedicated to helping your brand stand out and shine.
+              360 Australia is your creative engine, digital partner, and leading choice for transforming visions into value. We work hand-in-glove with you to fine-tune every aspect of your digital footprint, hitting that perfect sweet spot where your SEO, CRO, social media, and PPC efforts resonate perfectly with your target audience.
+
             </p>
           </div>
           <div className="space-y-4 text-center md:text-left ml-[100px]">
@@ -79,20 +79,20 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex space-x-4 mt-[40px]">
-            <a href="#" className="text-teal-400 hover:text-white transition-colors">
-              <Facebook className="w-8 h-8" />
-            </a>
-            <a href="#" className="text-teal-400 hover:text-white transition-colors">
-              <Linkedin className="w-8 h-8" />
-            </a>
-          </div>
+              <a href="#" className="text-teal-400 hover:text-white transition-colors">
+                <Facebook className="w-8 h-8" />
+              </a>
+              <a href="#" className="text-teal-400 hover:text-white transition-colors">
+                <Linkedin className="w-8 h-8" />
+              </a>
+            </div>
           </div>
         </div>
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
           <p className="text-gray-400 text-sm md:text-base lg:text-lg">
             © {new Date().getFullYear()} Creative sol tech. All Rights Reserved.
           </p>
-          
+
         </div>
       </div>
     </footer>

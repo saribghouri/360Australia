@@ -176,6 +176,9 @@ border-bottom: 1px solid #10c3c9 !important ;
 .testomnial-shadow{
 box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;}
 .testomnial-shadows{
-box-shadow: rgba(121, 121, 121, 0.48) 6px 2px 16px 0px, rgba(26, 26, 26, 0.8) -6px -2px 16px 0px;
+box-shadow: rgba(57, 243, 212, 0.48) 5px 0px 16px 0px, rgba(15, 131, 115, 0.8) -6px -2px 16px 0px;
 
+}
+.ant-modal-content{
+  background: none !important;
 }

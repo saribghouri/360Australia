@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react"
 
-import { Code, ShoppingCart, Laptop, LayoutTemplate, Gauge, WorkflowIcon as Wordpress } from "lucide-react"
+import { Palette, BookOpen, Share2, BarChart2, Presentation } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from "next/image"
@@ -12,6 +12,7 @@ import { Button } from "antd"
 import Header from "../../components/header"
 import ProjectCTASection from "../../components/ProjectCTASection"
 import Footer from "../../components/footer"
+import WebDesignPortfolio from "../../components/web-portfolio"
 
 
 gsap.registerPlugin(ScrollTrigger)
@@ -21,49 +22,44 @@ export default function DigitalSolutionsSection() {
   const cardRefs = useRef([])
 
   const services = [
-    {
-      icon: Code,
-      title: "Custom Website Design",
-      description: "We create unique websites that perfectly matches your vision.",
-      borderColor1: "border-white",
-      borderColor2: "border-teal-300",
-    },
-    {
-      icon: Wordpress, // Changed icon
-      title: "WordPress Development",
-      description: "We build easy-to-manage WordPress websites for flexible design and simple content updates.",
-      borderColor1: "border-white",
-      borderColor2: "border-teal-300",
-    },
-    {
-      icon: ShoppingCart, // Changed icon
-      title: "eCommerce (Shopify/WooCommerce)",
-      description: "Get a secure platform to sell your products effortlessly.",
-      borderColor1: "border-white",
-      borderColor2: "border-teal-300",
-    },
-    {
-      icon: Laptop, // Changed icon
-      title: "Web App Development",
-      description: "We build interactive web-based applications for specific business needs.",
-      borderColor1: "border-white",
-      borderColor2: "border-teal-300",
-    },
-    {
-      icon: LayoutTemplate, // Changed icon
-      title: "Landing Pages",
-      description: "We design single-page websites to convert visitors into leads or customers. ",
-      borderColor1: "border-white",
-      borderColor2: "border-teal-300",
-    },
-    {
-      icon: Gauge, // Changed icon
-      title: "Maintenance & Speed Optimisation",
-      description: "We keep your website running smoothly for the best user experience.",
-      borderColor1: "border-white",
-      borderColor2: "border-teal-300",
-    },
-  ]
+  {
+    icon: Palette, 
+    title: "Logo & Branding",
+    description: "We develop strong visual identities that make your brand stand out.",
+    borderColor1: "border-white",
+    borderColor2: "border-teal-300",
+  },
+  {
+    icon: BookOpen,
+    title: "Brochures & Stationery",
+    description:
+      "We create print materials that perfectly align with your brand's image and objectives.",
+    borderColor1: "border-white",
+    borderColor2: "border-teal-300",
+  },
+  {
+    icon: Share2, 
+    title: "Social Media Creatives",
+    description: "We create visuals that boost your online visibility and engage your audience.",
+    borderColor1: "border-white",
+    borderColor2: "border-teal-300",
+  },
+  {
+    icon: BarChart2, // Changed from Laptop to BarChart2 for Infographics
+    title: "Infographics",
+    description: "We simplify complex information through clear, engaging, and easy-to-understand graphics.",
+    borderColor1: "border-white",
+    borderColor2: "border-teal-300",
+  },
+  {
+    icon: Presentation, // Changed from LayoutTemplate to Presentation for Presentation Design
+    title: "Presentation Design",
+    description: "We create presentations that are visually compelling and message-driven. ",
+    borderColor1: "border-white",
+    borderColor2: "border-teal-300",
+  },
+]
+
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -101,81 +97,42 @@ export default function DigitalSolutionsSection() {
       >
         <div className="container px-4 md:px-6 text-start max-w-9xl mx-auto mb-20">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            <span className="text-teal-400">WEB</span> <span className="">DESIGN</span> <br></br>
-            <span></span>AND<span className="text-teal-400"> DEVELOPMENT </span>
+            <span className="">GRAPHICS</span> <br></br>
+          <span className="text-teal-400">  DESIGN </span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
-            Building a website is not just coding, but it’s a creative process. Our team is full of sharp, imaginative
-            minds who create unique designs for each brand. This not only helps your business stand out but also makes
-            the development process smooth and efficient.
+          <p className="text-lg md:text-xl text-white leading-relaxed">
+           A strong brand identity helps people quickly recognise your products and services. We take fresh ideas and turn them into unique ones that help your business grow, because it’s never just a logo. It’s your identity.
+.
           </p>
         </div>
-        <div className="container px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-8xl mx-auto">
+        <div className="container px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 max-w-8xl mx-auto">
           {services.map((service, index) => (
             <div
               key={index}
               ref={(el) => {
                 if (el) cardRefs.current[index] = el
               }}
-              className="bg-[#000000] p-8 rounded-lg h-[400px] shadow-lg flex flex-col items-center text-center testomnial-shadows"
+              className="bg-[#000000] px-8 pt-[40px] rounded-lg h-[400px] shadow-lg flex flex-col items-center text-center testomnial-shadows"
               style={{
                 backgroundRepeat: "no-repeat",
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/360_F_243368800_iYenQw8k85GTsJ39VHFxanBkj3MQxzKW.jpg')`,
               }}
             >
-              <div className={`p-[7px] border rounded-full h-[110px] testomnial-shadows ${service.borderColor1}`}>
-                <div className={`p-[5px] border rounded-full h-[92px] ${service.borderColor2}`}>
+         <div className={`p-[7px] border-3 rounded-full h-[115px] testomnial-shadows ${service.borderColor1}`}>
+                <div className={`p-[5px] border-3 rounded-full h-[94px] ${service.borderColor2}`}>
                   <div className="relative w-20 h-20 flex items-center justify-center rounded-full mb-6 overflow-hidden">
                     <div className="absolute inset-0 rounded-full bg-gradient-radial p- from-white/10 to-transparent" />
                     <service.icon className="w-12 h-12 text-white z-10" />
                   </div>
                 </div>
               </div>
-              <h3 className="text-3xl font-bold mb-3 mt-8">{service.title}</h3>
-              <p className="text-white mb-8 text-base leading-relaxed">{service.description}</p>
+              <h3 className="text-3xl font-bold mb-3 mt-10">{service.title}</h3>
+              <p className="text-white mb-8 text-xl leading-relaxed mt-8">{service.description}</p>
             </div>
           ))}
         </div>
       </section>
-       <section className="w-full py-12 md:py-24 max-w-8xl flex justify-center lg:py-32 bg-black text-white">
-
-      <div className="container    border rounded-3xl  py-12 border-gray-900 testomnial-shadows">
-        <div className="flex flex-col items-center justify-center space-y-4 text-center">
-          <div className="space-y-2">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Web Design Portfolio</h2>
-            <p className="max-w-[900px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Check out some of our most recent Web Design projects in the table below
-            </p>
-          </div>
-        </div>
-        <div className="mx-auto grid max-w-6xl items-start gap-6 py-12 lg:grid-cols-2 lg:gap-12">
-          <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-            <Image
-              src="/Minimalist Website Launch Computer Mockup Instagram Post.png"
-              alt="Web Design Project 1"
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
-            <Image
-              src="/Minimalist Website Launch Computer Mockup Instagram Post.png"
-              alt="Web Design Project 2"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-        <div className="flex justify-center mt-[-70px]">
-          <Link href="#" passHref>
-            <Button className="!rounded-full !px-6 !py-7 !text-xl !bg-black !text-white !hover:bg-gray-200 !hover:border-amber-200  !border-none !transition-colors !flex !items-center !gap-2">
-              View All Projects
-              <ArrowRight className="h-5 w-5" />
-            </Button>
-          </Link>
-        </div>
-      </div>
-    </section>
+   <WebDesignPortfolio/>
     {/* <div className="max-w-8xl py-16  flex justify-center">
 
     <section class="bg-black text-white w-[70%] py-16 border rounded-2xl border-gray-700">

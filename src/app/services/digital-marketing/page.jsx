@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import Header from "../../components/header"
+
 import { Search, Megaphone, Share2, Mail, Target } from "lucide-react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -9,8 +9,10 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { Button } from "antd"
+import Header from "../../components/header"
 import Footer from "../../components/footer"
 import ProjectCTASection from "../../components/ProjectCTASection"
+
 
 gsap.registerPlugin(ScrollTrigger)
 

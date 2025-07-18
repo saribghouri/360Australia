@@ -77,12 +77,7 @@ export default function ContactUs() {
 
             <motion.div variants={itemVariants} className="space-y-4 md:space-y-6 text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start gap-3">
-                <motion.div
-                  animate={{ scale: [1, 1.2, 1] }}
-                  transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-                  className="w-3 h-3 bg-[#10d4c4] rounded-full"
-                ></motion.div>
-                <span className="text-[#10d4c4] font-medium tracking-wider text-sm md:text-base">GET IN TOUCH</span>
+             
               </div>
 
               <motion.h1
@@ -91,9 +86,9 @@ export default function ContactUs() {
               >
                 {"LET'S"} <span className="text-white">CONNECT</span> AND
                 <br />
-                <span className="text-white">CREATE</span> <span className="text-gray-400">SOMETHING</span>
+                <span className="text-white">CREATE</span> <span className="text-teal-400">SOMETHING</span>
                 <br />
-                <span className="text-gray-400">AMAZING!</span>
+                <span className="text-teal-400">AMAZING!</span>
               </motion.h1>
 
               <motion.p
@@ -106,63 +101,16 @@ export default function ContactUs() {
 
 
             <motion.div variants={itemVariants} className="space-y-4 md:space-y-6">
-              <motion.div
-                whileHover={{ x: 10 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="flex items-start justify-center lg:justify-start gap-4"
-              >
-                <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 md:w-6 md:h-6 text-[#10d4c4] mt-1 flex-shrink-0" />
-                  <p className="text-gray-300 text-sm md:text-base lg:text-lg text-center lg:text-left">
-                    Australia
+         
 
-                  </p>
-                </div>
-              </motion.div>
+            
 
-              <motion.div
-                whileHover={{ x: 10 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="flex items-start justify-center lg:justify-start gap-4"
-              >
-                <div className="mt-1">
-                  <Mail className="w-5 h-5 text-[#10d4c4]" />
-                </div>
-                <div className="text-gray-300 text-sm md:text-base lg:text-lg">
-                  <div>support@360-australia.com.au</div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ x: 10 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="flex items-start justify-center lg:justify-start gap-4"
-              >
-                
-              </motion.div>
+        
             </motion.div>
 
 
             <motion.div variants={itemVariants} className="space-y-4 text-center lg:text-left">
-              <h3 className="text-lg md:text-xl font-semibold">FOLLOW ME</h3>
-              <div className="flex gap-4 justify-center lg:justify-start">
-                <motion.a
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#10d4c4] transition-colors duration-300"
-                >
-                  <Facebook className="w-5 h-5" />
-                </motion.a>
-                <motion.a
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#10d4c4] transition-colors duration-300"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </motion.a>
-              </div>
+            
             </motion.div>
           </motion.div>
 

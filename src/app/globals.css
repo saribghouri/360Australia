@@ -182,3 +182,78 @@ box-shadow: rgba(57, 243, 212, 0.48) 5px 0px 16px 0px, rgba(15, 131, 115, 0.8) -
 .ant-modal-content{
   background: none !important;
 }
+.custom-select-dropdown .ant-select-item {
+  color: white;
+}
+
+.custom-select-dropdown .ant-select-item-option:hover {
+  color: white;
+  border:  1px solid #10c3c9  !important
+}
+.ant-select-selector{
+  background-color: transparent !important;
+    color: white !important;
+    border-bottom: #26c2ff ;
+    
+}
+.ant-select-underlined:not(.ant-select-customize-input) .ant-select-selector{
+border: #26c2ff;
+}
+.action{
+box-shadow: rgba(121, 122, 122, 0.48) 5px 0px 12px 0px, rgba(171, 173, 172, 0.8) -6px -2px 16px 0px;
+}
+.action-bg{
+box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;}
+.action-bg-outer{
+box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;}
+
+
+
+/* From Uiverse.io by vinodjangid07 */ 
+.button {
+  width: 110px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  background-color: rgb(161, 255, 20);
+  border-radius: 30px;
+  color: rgb(19, 19, 19);
+  font-weight: 600;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition-duration: .2s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
+  padding-left: 8px;
+  transition-duration: .5s;
+}
+
+.svgIcon {
+  height: 25px;
+  transition-duration: 1.5s;
+}
+
+.bell path {
+  fill: rgb(19, 19, 19);
+}
+
+.button:hover {
+  background-color: rgb(192, 255, 20);
+  transition-duration: .5s;
+}
+
+.button:active {
+  transform: scale(0.97);
+  transition-duration: .2s;
+}
+
+.button:hover .svgIcon {
+  transform: rotate(250deg);
+  transition-duration: 1.5s;
+}
+
+.inner-shadow{
+box-shadow: rgba(20, 245, 245, 0.25) 0px 30px 50px 12px inset, rgba(16, 233, 197, 0.3) 0px 18px 36px 12px inset;
+}

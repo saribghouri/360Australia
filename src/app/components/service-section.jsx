@@ -5,7 +5,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { motion } from "framer-motion"
 import { Button } from "antd"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
 export default function AnimatedSection() {
   const containerRef = useRef(null)
   const dot1Ref = useRef(null)
@@ -91,7 +91,21 @@ export default function AnimatedSection() {
   return (
     <div ref={containerRef} className="min-h-screen mt-[150px] flex flex-col items-center">
       {/* Animated SVG background element */}
+      <div className="mb-8 sm:mb-10 md:mb-12">
+        <div className="flex items-center mb-4 sm:mb-6"></div>
+        <div className="flex flex-row w-full gap-6 sm:gap-8 lg:flex-row lg:items-center lg:justify-center">
+          <div
+            className="transform transition-all duration-1000 w-full text-center "
 
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl text-white lg:text-6xl xl:text-5xl font-bold ">
+              OUR
+              <br />
+              <span className="text-teal-400 lg:text-8xl">SERIVCES</span>
+            </h2>
+          </div>
+        </div>
+      </div>
       <div className="wrapper relative w-full max-w-screen-xl">
         <div className="cards w-full mx-auto">
           <div className="card-wrapper mb-[30px] flex justify-center"></div>
@@ -117,19 +131,26 @@ export default function AnimatedSection() {
                     Building a website is not just coding, but it’s a creative process to boost your digital presence.
 
                   </p>
-                  <Button variant="link" className="group relative items-center justify-center gap-1 !px-10  !py-5 h-auto">
-                    <span className="relative ">
-                      <span className="text-[20px] font-medium ">learn more</span>
-                     
-                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full group-focus-visible:w-full"></span>
-                    </span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
-                  </Button>
+                <button className="flex  items-center justify-between mt-[50px] cursor-pointer action-bg px-6 py-1 rounded-full   bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]">
+
+
+                      <span className="text-gray-800 font-medium cursor-pointer tracking-wide bg-transparent  text-xl  ">LEARN MORE</span>
+
+                      <span className="ml-6 w-9 h-9  mr-[-8px]  rounded-full action  bg-gradient-to-br from-[#0ef5d6] to-[#21abb0] flex items-center justify-center shadow-md">
+                        <svg
+                          className="w-6 h-6 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                    </button>
                 </div>
 
-                {/* <div className="w-[50%] flex justify-center">
-                  <img className="w-50 h-55" src="/vFHYRi.png" alt="AI Engineering" />
-                </div> */}
+          
               </div>
             </div>
           </div>
@@ -144,12 +165,8 @@ export default function AnimatedSection() {
                 <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#ffffff] to-transparent w-0 group-hover:w-full transition-all duration-500 ease-out" />
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#ffffff] group-hover:h-1/3 transition-all duration-300 ease-out rounded-full" />
                 <div className="absolute top-0 right-0 w-0 h-1 bg-gradient-to-l from-[#ffffff] to-transparent group-hover:w-1/4 transition-all duration-700 ease-out delay-200" />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute top-1/4 right-1/4 w-1 h-1 bg-[#ffffff] rounded-full animate-pulse delay-100" />
-                  <div className="absolute top-3/4 left-1/4 w-1 h-1 bg-[#ffffff] rounded-full animate-pulse delay-300" />
-                  <div className="absolute top-1/2 right-1/3 w-0.5 h-0.5 bg-[#ffffff] rounded-full animate-pulse delay-500" />
-                </div>
-                <div className="w-[50%]">
+
+                <div className="w-[50%] cursor-pointer">
                   <h2 className="text-3xl font-bold text-white mb-4 transition-transform duration-300">
                     Graphics Design Services
                   </h2>
@@ -157,14 +174,26 @@ export default function AnimatedSection() {
                     360 Australia takes fresh ideas and turn them into unique ones that help your business grow.
 
                   </p>
-                   <Button variant="link" className="group relative items-center justify-center gap-1 !px-10  !py-5 h-auto">
-                    <span className="relative ">
-                      <span className="text-[20px] font-medium ">learn more</span>
-                     
-                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full group-focus-visible:w-full"></span>
-                    </span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
-                  </Button>
+                  <div className="cursor-pointer">
+
+                    <button className="flex  items-center justify-between mt-[50px] cursor-pointer action-bg px-5 py-1 rounded-full   bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]">
+
+
+                      <span className="text-gray-800 font-medium cursor-pointer tracking-wide bg-transparent  text-xl  ">LEARN MORE</span>
+
+                      <span className="ml-6 w-9 h-9  mr-[-8px]  rounded-full action  bg-gradient-to-br from-[#0ef5d6] to-[#21abb0] flex items-center justify-center shadow-md">
+                        <svg
+                          className="w-6 h-6 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="3"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                    </button>
+                  </div>
                 </div>
                 {/* <div className="w-[50%] flex justify-center">
                   <img className="w-50 h-55" src="/Untitled-3-01.png" alt="AI Engineering" />
@@ -194,14 +223,23 @@ export default function AnimatedSection() {
                     Tap into growth with an app, we build easy-to-use native and hybrid apps that work smoothly on any device.
 
                   </p>
-                   <Button variant="link" className="group relative items-center justify-center gap-1 !px-10  !py-5 h-auto">
-                    <span className="relative ">
-                      <span className="text-[20px] font-medium ">learn more</span>
-                     
-                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full group-focus-visible:w-full"></span>
+                  <button className="flex  items-center justify-between mt-[50px] cursor-pointer action-bg px-5 py-1 rounded-full   bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]">
+
+
+                    <span className="text-gray-800 font-medium cursor-pointer tracking-wide bg-transparent  text-xl  ">LEARN MORE</span>
+
+                    <span className="ml-6 w-9 h-9  mr-[-8px]  rounded-full action  bg-gradient-to-br from-[#0ef5d6] to-[#21abb0] flex items-center justify-center shadow-md">
+                      <svg
+                        className="w-6 h-6 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
                     </span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
-                  </Button>
+                  </button>
                 </div>
                 {/* <div className="w-[50%] flex justify-center">
                   <img className="w-50 h-55" src="/icon-03.png" alt="AI Engineering" />
@@ -232,14 +270,23 @@ export default function AnimatedSection() {
                     360 Australia helps your brand get noticed, connect with more people, and make sure your business stands out where it counts.
 
                   </p>
-                   <Button variant="link" className="group relative items-center justify-center gap-1 !px-10  !py-5 h-auto">
-                    <span className="relative ">
-                      <span className="text-[20px] font-medium ">learn more</span>
-                     
-                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full group-focus-visible:w-full"></span>
+                  <button className="flex  items-center justify-between  mt-[50px] cursor-pointer action-bg px-5 py-1 rounded-full   bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]">
+
+
+                    <span className="text-gray-800 font-medium cursor-pointer tracking-wide bg-transparent  text-xl  ">LEARN MORE</span>
+
+                    <span className="ml-6 w-9 h-9  mr-[-8px]  rounded-full action  bg-gradient-to-br from-[#0ef5d6] to-[#21abb0] flex items-center justify-center shadow-md">
+                      <svg
+                        className="w-6 h-6 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
                     </span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
-                  </Button>
+                  </button>
                 </div>
                 {/* <div className="w-[50%] flex justify-center">
                   <img className="w-50 h-55" src="/icon-04.png" alt="AI Engineering" />
@@ -255,11 +302,7 @@ export default function AnimatedSection() {
                 <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#ffffff] to-transparent w-0 group-hover:w-full transition-all duration-500 ease-out" />
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#ffffff] group-hover:h-1/3 transition-all duration-300 ease-out rounded-full" />
                 <div className="absolute top-0 right-0 w-0 h-1 bg-gradient-to-l from-[#ffffff] to-transparent group-hover:w-1/4 transition-all duration-700 ease-out delay-200" />
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute top-1/4 right-1/4 w-1 h-1 bg-[#ffffff] rounded-full animate-pulse delay-100" />
-                  <div className="absolute top-3/4 left-1/4 w-1 h-1 bg-[#ffffff] rounded-full animate-pulse delay-300" />
-                  <div className="absolute top-1/2 right-1/3 w-0.5 h-0.5 bg-[#ffffff] rounded-full animate-pulse delay-500" />
-                </div>
+
                 <div className="w-[50%]">
                   <h2 className="text-3xl font-bold text-white mb-4 transition-transform duration-300">
                     Videos & Animation
@@ -269,14 +312,23 @@ export default function AnimatedSection() {
                     We’re all about bringing your brand to life with creative videos and animations that speak louder than words.
 
                   </p>
-                   <Button variant="link" className="group relative items-center justify-center gap-1 !px-10  !py-5 h-auto">
-                    <span className="relative ">
-                      <span className="text-[20px] font-medium ">learn more</span>
-                     
-                      <span className="absolute bottom-0 left-0 w-full h-0.5 bg-teal-500 transition-all duration-300 group-hover:w-full group-focus-visible:w-full"></span>
+                  <button className="flex  items-center justify-between  mt-[50px] cursor-pointer action-bg px-5 py-1 rounded-full   bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]">
+
+
+                    <span className="text-gray-800 font-medium cursor-pointer tracking-wide bg-transparent  text-xl  ">LEARN MORE</span>
+
+                    <span className="ml-6 mr-[-8px] w-9 h-9  rounded-full action  bg-gradient-to-br from-[#0ef5d6] to-[#21abb0] flex items-center justify-center shadow-md">
+                      <svg
+                        className="w-6 h-6 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
                     </span>
-                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-focus-visible:translate-x-1" />
-                  </Button>
+                  </button>
                 </div>
                 {/* <div className="w-[50%] flex justify-center">
                   <img className="w-50 h-55" src="/icon-04.png" alt="AI Engineering" />

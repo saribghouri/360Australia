@@ -274,7 +274,7 @@ export default function AnimatedMarketingSection() {
               <div
                 className={`
                   absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 transition-all duration-300 ease-out rounded-full
-                  ${isGreenCard ? `bg-black group-hover:h-1/3` : `bg-[#10d4c4] group-hover:h-1/3`}
+                  ${isGreenCard ? `bg-white group-hover:h-1/3` : `bg-[#10d4c4] group-hover:h-1/3`}
                 `}
               />
               <div
@@ -287,19 +287,19 @@ export default function AnimatedMarketingSection() {
                 <div
                   className={`
                     absolute top-1/4 right-1/4 w-1 h-1 rounded-full animate-pulse delay-100
-                    ${isGreenCard ? `bg-black` : `bg-[#10d4c4]`}
+                    ${isGreenCard ? `bg-white` : `bg-[#10d4c4]`}
                   `}
                 />
                 <div
                   className={`
                     absolute top-3/4 left-1/4 w-1 h-1 rounded-full animate-pulse delay-300
-                    ${isGreenCard ? `bg-black` : `bg-[#10d4c4]`}
+                    ${isGreenCard ? `bg-white` : `bg-[#10d4c4]`}
                   `}
                 />
                 <div
                   className={`
                     absolute top-1/2 right-1/3 w-0.5 h-0.5 rounded-full animate-pulse delay-500
-                    ${isGreenCard ? `bg-black` : `bg-[#10d4c4]`}
+                    ${isGreenCard ? `bg-white` : `bg-[#10d4c4]`}
                   `}
                 />
               </div>

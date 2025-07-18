@@ -13,9 +13,6 @@ export default function ProjectCTASection() {
         {/* Background Effects */}
         <div className="absolute inset-0">
           {/* Existing blur effects */}
-          <div className="absolute top-1/4 left-1/4 w-full h-96 bg-teal-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-teal-700/5 to-white/5 rounded-full blur-3xl" />
           {/* Sharper Glowing Lines */}
           <motion.div
             className="absolute top-10 left-1/4 w-64 h-0.5 bg-teal-400 rounded-full shadow-lg shadow-blue-400/50"
@@ -69,7 +66,7 @@ export default function ProjectCTASection() {
             transition={{ duration: 5.2, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut", delay: 0.3 }}
           />
         </div>
-        <div className="relative rounded-2xl border border-teal-500 z-10 max-w-9xl mx-auto px-4">
+        <div className="relative rounded-2xl inner-shadow border  border-teal-500 z-10 max-w-9xl mx-auto px-4">
           {/* Main CTA Container with Enhanced Border */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -93,7 +90,7 @@ export default function ProjectCTASection() {
               }}
             />
             {/* Content Container */}
-            <div className="relative z-10 p-8 lg:p-12 rounded-[20px]">
+            <div className="relative z-10 px-12  rounded-[20px]">
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left Content - Heading and Button */}
                 <div className="text-center lg:text-left space-y-8">
@@ -135,7 +132,7 @@ export default function ProjectCTASection() {
                         whileHover={{ x: "100%" }}
                         transition={{ duration: 0.6 }}
                       />
-                      <span className="relative z-10 uper">Request A Proposal</span>
+                      <span className="relative z-10 uppercase">Request A Proposal</span>
                       <motion.div className="group-hover:translate-x-1 transition-transform duration-300 relative z-10">
                         <ArrowRight className="h-6 w-6" />
                       </motion.div>
@@ -152,16 +149,13 @@ export default function ProjectCTASection() {
                     className="relative w-full max-w-xl"
                   >
                     {/* Laptop Image Container with Glowing Border */}
-                    <div className="relative p-2 rounded-2xl bg-transparent">
-                      <div className="absolute inset-0  pointer-events-none" />
                       <img
-                        src="/GztNrj.png"
+                        src="/OUTSIDE_GLOW_with_border_copy-removebg-preview.png"
                         alt="360 Australia Project Showcase"
-                        className="w-full h-auto rounded-xl testomnial-shadows "
+                        className="w-full h-auto rounded-xl  "
                       />
                       {/* Image Overlay */}
-                      <div className="absolute inset-0 to-transparent rounded-xl" />
-                    </div>
+                  
                   </motion.div>
                 </div>
               </div>

@@ -1,6 +1,7 @@
 "use client"
+import { ChevronDown } from "lucide-react"
 import { useState } from "react"
-
+import { Flex, Select } from 'antd';
 // Simplified list of country codes for demonstration
 // In a production application, you might fetch this from an API or use a more comprehensive library.
 const countryCodes = [
@@ -81,10 +82,9 @@ export default function ContactForm() {
                 htmlFor="name"
                 className={`
                   absolute left-2 text-white transition-all duration-300 z-20
-                  ${
-                    shouldShowLabel(name, isNameActive)
-                      ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
-                      : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
+                  ${shouldShowLabel(name, isNameActive)
+                    ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
+                    : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
                   }
                 `}
               >
@@ -104,7 +104,7 @@ export default function ContactForm() {
             </div>
             {/* Phone Input with Country Code */}
             <div className="relative">
-            
+
               <div className="flex items-center form-border">
                 {" "}
                 {/* Wrapper for combined input styling */}
@@ -141,10 +141,9 @@ export default function ContactForm() {
                 htmlFor="email"
                 className={`
                   absolute left-2 text-white transition-all duration-300 z-20
-                  ${
-                    shouldShowLabel(email, isEmailActive)
-                      ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
-                      : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
+                  ${shouldShowLabel(email, isEmailActive)
+                    ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
+                    : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
                   }
                 `}
               >
@@ -163,55 +162,76 @@ export default function ContactForm() {
               />
             </div>
             {/* Service Dropdown */}
-            <div className="relative">
-              <label
-                htmlFor="service"
-                className={`
-                  absolute left-2 text-white transition-all duration-300 z-20
-                  ${
-                    shouldShowLabel(service, isServiceActive)
-                      ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
-                      : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
-                  }
-                `}
-              >
-                Select a Service
-              </label>
-              <select
-                id="service"
-                value={service}
-                onChange={(e) => setService(e.target.value)}
-                onFocus={() => setIsServiceActive(true)}
-                onBlur={() => setIsServiceActive(false)}
-                className="w-full px-2 py-4 form-border text-white focus:outline-none rounded-md transition-all duration-300 appearance-none"
-                required
-              >
-                <option value="" disabled hidden className="bg-black text-gray-400">
-                  Select a Service
-                </option>
-                <option value="web-development" className="bg-black text-white">
-                  Website Development
-                </option>
-                <option value="ui-ux-design" className="bg-black text-white">
-                  UI/UX Design
-                </option>
-                <option value="software-application" className="bg-black text-white">
-                  Software Application
-                </option>
-                <option value="consulting" className="bg-black text-white">
-                  Consulting
-                </option>
-                <option value="other" className="bg-black text-white">
-                  Other
-                </option>
-              </select>
-              {/* Custom dropdown arrow */}
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white">
-                <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                </svg>
-              </div>
-            </div>
+        <div className="relative w-full max-w-lg">
+      <label htmlFor="service" className="sr-only">
+        Select Service
+      </label>
+      {/* <select
+        id="service"
+        value={service}
+        onChange={(e) => setService(e.target.value)}
+        onFocus={() => setIsServiceActive(true)}
+        onBlur={() => setIsServiceActive(false)}
+        className="w-full px-2 py-2 pr-8
+                   bg-transparent text-white form-border
+                   focus:outline-none  focus:border-transparent
+                   appearance-none cursor-pointer"
+        required
+      >
+   
+        <div>
+          
+        </div>
+        <option value="Web Development" className="text-black bg-white">
+          Web Development
+        </option>
+        <option value="Mobile App Development" className="text-black bg-white">
+          Mobile App Development
+        </option>
+        <option value="UI/UX Design" className="text-black bg-white">
+          UI/UX Design
+        </option>
+        <option value="Digital Marketing" className="text-black bg-white">
+          Digital Marketing
+        </option>
+        <option value="Cloud Solutions" className="text-black bg-white">
+          Cloud Solutions
+        </option>
+        <option value="Data Analytics" className="text-black bg-white">
+          Data Analytics
+        </option>
+      </select> */}
+       <Flex gap={8}>
+      <Select
+        placeholder="Underlined"
+        variant="underlined"
+        style={{
+          flex: 1,
+          backgroundColor: 'transparent',
+          borderBottom: '1px solid #1becdb',
+          color: 'white',
+        }}
+        dropdownStyle={{
+          backgroundColor: 'black',
+        }}
+        popupMatchSelectWidth={false}
+        dropdownRender={(menu) => (
+          <div style={{ backgroundColor: 'black' }}>{menu}</div>
+        )}
+        options={[
+          { value: 'website developement', label: 'website developement' },
+          { value: 'mobile app developement', label: 'mobile app developement' },
+          { value: 'digital marketing', label: 'digital marketing' },
+          { value: 'graphic design', label: 'graphic design' },
+          { value: 'video animation', label: 'video animation' },
+        ]}
+        dropdownClassName="custom-select-dropdown bg-transparent"
+      />
+    </Flex>
+      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+        <ChevronDown className="h-4 w-4" />
+      </div>
+    </div>
             <div className="flex justify-center">
               <button
                 type="submit"

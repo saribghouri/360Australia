@@ -1273,7 +1273,7 @@ export default function PortfolioPage() {
   const renderImageGallery = (category, ref) => {
     const filteredImages = allImages.filter((image) => image.category === category)
     return (
-      <section className="mb-12 w-full mt-[100px]" ref={ref}>
+      <section className="mb-12 w-full mt-[90px]" ref={ref}>
         <h2 className="text-3xl font-bold text-white tracking-tighter text-center mb-18 md:text-4xl">
           {categoryDisplayNames[category]} {/* Use the mapping here */}
         </h2>
@@ -1303,7 +1303,7 @@ export default function PortfolioPage() {
 
   return (
     <>
-      <div className="mt-[110px]">
+      <div className="mt-[100px]">
         <Header />
       </div>
       <div className="flex flex-col justify-center items-center w-full min-h-screen">

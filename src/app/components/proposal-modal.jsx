@@ -45,7 +45,7 @@ export function RequestProposalModal({ isOpen, onClose }) {
         >
             {/* Header */}
             <div className="text-center mb-6">
-                <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-teal-200 mb-2">
+                <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-black mb-2">
                     Request a Proposal
                 </h2>
             </div>
@@ -155,7 +155,7 @@ export function RequestProposalModal({ isOpen, onClose }) {
                         id="projectDetails"
                         value={formData.projectDetails}
                         onChange={handleChange}
-                        className="bg-white w-full border border-teal-700 text-white placeholder:text-gray-400 text-[16px] focus:border-teal-500 focus:ring-teal-500 rounded-lg p-3 min-h-[120px]"
+                        className="bg-white w-full border border-teal-700 text-black placeholder:text-gray-400 text-[16px] focus:border-teal-500 focus:ring-teal-500 rounded-lg p-3 min-h-[120px]"
                         placeholder="Describe your project, goals, and any specific requirements..."
                         required
                     />
@@ -172,7 +172,7 @@ export function RequestProposalModal({ isOpen, onClose }) {
                         whileHover={{ x: "100%" }}
                         transition={{ duration: 0.6 }}
                     />
-                    <span className="relative z-10">Submit Proposal Request</span>
+                    <span className="relative z-10 text-[22px]">Submit Proposal Request</span>
                     <ArrowRight className="h-5 w-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
                 </motion.button>
             </form>

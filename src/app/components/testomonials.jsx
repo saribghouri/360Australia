@@ -36,7 +36,7 @@ const testimonials = [
     {
         id: 5,
         name: "Noah Henry.",
-        image: "/images.jfif",
+        image: "/pixomatic_1572877223091.png",
         rating: 5,
         text: "They helped us launch our e-commerce site from scratch, complete with design, development, and digital marketing. The results? Higher sales and happier customers.",
     },

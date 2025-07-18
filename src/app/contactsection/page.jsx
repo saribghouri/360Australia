@@ -7,7 +7,7 @@ import Footer from '../components/footer';
 const Page = () => {
   return (
     <div>
-      <div className='mt-[140px]'>
+      <div className='mt-[110px]'>
 
       <Header/>
       </div>

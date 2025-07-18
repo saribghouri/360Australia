@@ -1,11 +1,12 @@
-import { Facebook, Linkedin, MapPin, Mail } from "lucide-react"
+import { Button } from "antd"
+import { Facebook, Linkedin, MapPin, Mail, Whatsapp, Instagram, MessageCircle } from "lucide-react"
 
-export default function Footer() {
+export default function Footer({ size = 24, className, ...props }) {
   return (
     <footer className="bg-black text-white py-8 md:py-12 relative">
       <div className="bg-[#10d4c4] h-[2px] mb-6 md:mb-[20px]"></div>
       <div className="max-w-8xl mx-auto px-4 md:px-8 lg:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-12 lg:gap-22 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3 md:gap-12 lg:gap-22 mb-8">
           <div className="space-y-4 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start ">
 
@@ -14,13 +15,16 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
-              360 Australia is your creative engine, digital partner, and leading choice for transforming visions into value. We work hand-in-glove with you to fine-tune every aspect of your digital footprint, hitting that perfect sweet spot where your SEO, CRO, social media, and PPC efforts resonate perfectly with your target audience.
+              360 Australia is your trusted digital partner, helping businesses grow, succeed, and stand out online.
+              <button className=" rounded-[10px]  cursor-pointer ml-[9px] py-[1px] border-1 border-b-blue-50 px-[10px] text-[15px] ">
+                Read More
+              </button>
 
             </p>
           </div>
           <div className="space-y-4 text-center md:text-left ml-[100px]">
             <h4 className="text-lg md:text-xl font-semibold">Quick Links</h4>
-            <nav className="flex flex-row gap-3">
+            <nav className="flex flex-col gap-3">
               <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg">
                 Home
               </a>
@@ -34,20 +38,10 @@ export default function Footer() {
                 Contact
               </a>
             </nav>
-            <div className="mt-20 space-y-3">
-              <div className="flex flex-col sm:flex-row sm:gap-0">
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="flex-1 px-4 py-2 bg-transparent border-b border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:border-[#10d4c4] text-sm md:text-base"
-                />
-                <button className="sm:ml-4 px-6 md:px-10 py-2 cursor-pointer bg-[#10d4c4] text-sm md:text-base lg:text-lg text-white font-medium rounded hover:bg-[#0eb8aa] transition-colors mt-4 sm:mt-0">
-                  Subscribe
-                </button>
-              </div>
-            </div>
+
           </div>
-          <div className="space-y-4 text-center md:text-left ml-[120px]">
+    
+          <div className="space-y-4 text-center md:text-left ">
             <h4 className="text-lg md:text-xl lg:text-[24px]  font-semibold">Legal</h4>
             <div className="space-y-3">
               <div className="flex items-start justify-center md:justify-start">
@@ -78,17 +72,37 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-            <div className="flex space-x-4 mt-[40px]">
+            <div className="flex space-x-4 mt-[40px] item-center">
               <a href="#" className="text-teal-400 hover:text-white transition-colors">
                 <Facebook className="w-8 h-8" />
+              </a>
+                 <a
+                href="#"
+                className="group text-teal-400 flex items-center mt-[-4px] hover:text-white transition-colors"
+                aria-label="WhatsApp link" // Added for accessibility
+              >
+                <img
+                  className="w-10 h-10 transition group-hover:brightness-0 group-hover:invert"
+                  src="/lCrxIY-removebg-preview.png" // Replace with your actual /whatsapp.png
+                  alt="WhatsApp icon"
+                  width={40}
+                  height={40}
+                />
               </a>
               <a href="#" className="text-teal-400 hover:text-white transition-colors">
                 <Linkedin className="w-8 h-8" />
               </a>
+              <a href="#" className="text-teal-400 hover:text-white transition-colors">
+                <Instagram className="w-8 h-8" />
+              </a>
+           
             </div>
           </div>
+          <div>
+            <img src="/NDIS-Logo-on-pink-removebg-preview.png" alt="" />
+          </div>
         </div>
-        <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left space-y-4 md:space-y-0">
+        <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-center items-center text-center md:text-left space-y-4 md:space-y-0">
           <p className="text-gray-400 text-sm md:text-base lg:text-lg">
             © {new Date().getFullYear()} Creative sol tech. All Rights Reserved.
           </p>

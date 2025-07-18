@@ -1,6 +1,6 @@
 "use client"
 
-import { CheckCircle, Users, Target, Award, Lightbulb } from "lucide-react"
+import { CheckCircle, Users, Target, Award, Lightbulb, Link } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Header from "../components/header"
@@ -123,10 +123,13 @@ export default function AboutUsSections() {
                   </p>
 
                   <Button
+                    asChild
                     href="#contact"
-                    className="inline-block !bg-teal-500 !text-white  !hover:text-cyan-300 !font-bold text-center !px-[40px] !py-[20px] !text-xl border border-cyan-400 hover:border-cyan-300 transition-colors duration-300 pb-1 cursor-pointer"
+                    className="inline-block !bg-teal-500 !text-white action-bg !hover:text-cyan-300 !font-bold text-center !px-[40px] !py-[20px] !text-xl border !border-teal-800 !hover:border-white transition-all duration-300 pb-1 cursor-pointer
+                   rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2"
                   >
                     START YOUR PROJECT NOW
+                    <Link href="#contact">START YOUR PROJECT NOW</Link>
                   </Button>
                 </div>
 
@@ -321,7 +324,7 @@ export default function AboutUsSections() {
                       </div>
                       {/* Description - positioned below dot, appears on hover */}
                       <p
-                        className={`text-lg text-white transition-all duration-300 ease-in-out mt-[40px] overflow-hidden ${activeStep === step.id ? "opacity-100 max-h-20 mt-2" : "opacity-0 max-h-0"
+                        className={`text-lg text-white transition-all text-center duration-300 ease-in-out mt-[40px] overflow-hidden ${activeStep === step.id ? "opacity-100 max-h-20 mt-2" : "opacity-0 max-h-0"
                           }`}
                       >
                         {step.description}

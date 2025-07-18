@@ -123,11 +123,10 @@ const Header = () => {
           >
             PORTFOLIO
           </Link>
-         
-          
-          <Link href="/blog" className="text-white hover:text-[#10d4c4] text-xl transition-colors duration-300 font-medium">
-            BLOG
-          </Link>
+
+
+          <Link href="/contactsection" className="text-white hover:text-[#10d4c4] text-xl transition-colors duration-300 font-medium " onClick={handleContactClick}>
+            CONTACT US          </Link>
         </div>
         <div className="md:hidden flex items-center">
           <button onClick={() => setIsOpen(!isOpen)} className="text-teal-500 focus:outline-none">
@@ -141,9 +140,8 @@ const Header = () => {
           </button>
         </div>
         <div
-          className={`absolute top-full left-0 w-full bg-black md:hidden transition-all duration-300 ease-in-out border-t border-teal-500/30 ${
-            isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-          }`}
+          className={`absolute top-full left-0 w-full bg-black md:hidden transition-all duration-300 ease-in-out border-t border-teal-500/30 ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
+            }`}
         >
           <div className="flex flex-col py-4 space-y-2 max-h-96 overflow-y-auto">
             <Link
@@ -171,9 +169,8 @@ const Header = () => {
                 />
               </button>
               <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  isMobileServicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                }`}
+                className={`overflow-hidden transition-all duration-300 ${isMobileServicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  }`}
               >
                 <div className="pl-4 mt-2 space-y-2 border">
                   {services.map((service, index) => (
@@ -184,15 +181,13 @@ const Header = () => {
                       >
                         <span className="">{service.title}</span>
                         <ChevronRight
-                          className={`w-3 h-3 transition-transform duration-200 ${
-                            expandedMobileService === index ? "rotate-90" : ""
-                          }`}
+                          className={`w-3 h-3 transition-transform duration-200 ${expandedMobileService === index ? "rotate-90" : ""
+                            }`}
                         />
                       </button>
                       <div
-                        className={`overflow-hidden transition-all duration-300 ${
-                          expandedMobileService === index ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
-                        }`}
+                        className={`overflow-hidden transition-all duration-300 ${expandedMobileService === index ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+                          }`}
                       >
                         <div className="pl-4 space-y-1">
                           {service.subcategories.map((sub, subIndex) => (
@@ -222,55 +217,37 @@ const Header = () => {
             >
               PORTFOLIO
             </Link>
-            <Link
-              href="/pricing"
-              className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium px-6 py-2"
-              onClick={() => setIsOpen(false)}
-            >
-              PRICING
-            </Link>
-            <Link
-              href="/faqs"
-              className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium px-6 py-2"
-              onClick={() => setIsOpen(false)}
-            >
-              FAQS
-            </Link>
+
+
             <Link
               href="/blog"
               className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium px-6 py-2"
-              onClick={() => setIsOpen(false)}
+              onClick={handleContactClick}
             >
-              BLOG
+              CONTACT US
             </Link>
-            <Link
-              href="/contactsection"
-              className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium px-6 py-2"
-              onClick={() => setIsOpen(false)}
-            >
-              CONTACT
-            </Link>
+
           </div>
         </div>
         <button
           className="text-white bg-[#0ea89b] px-10 py-2 font-bold text-[19px] rounded-[10px] cursor-pointer hidden md:block"
           onClick={handleContactClick}
         >
-          Contact Us
+          Book A Consultation
         </button>
       </nav>
       {/* Mega Menu - Full Width */}
       <div
-        className={`fixed left-0 w-full bg-gradient-to-br from-gray-900 via-black to-gray-900 border-t border-teal-500/30 shadow-2xl transition-all duration-300 ease-in-out z-40 ${
-          isServicesOpen
-            ? "opacity-100 visible transform translate-y-0"
-            : "opacity-0 invisible transform -translate-y-4"
-        }`}
+        className={`fixed left-0 w-full bg-gradient-to-br from-gray-900 via-black to-gray-900 border-t border-teal-500/30 shadow-2xl transition-all duration-300 ease-in-out z-40 ${isServicesOpen
+          ? "opacity-100 visible transform translate-y-0"
+          : "opacity-0 invisible transform -translate-y-4"
+          }`}
         onMouseEnter={() => setIsServicesOpen(true)}
         onMouseLeave={() => setIsServicesOpen(false)}
       >
         <div className="container mx-auto px-6 md:px-12 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {" "}
             {services.map((service, index) => (
               <div key={index} className="group">
                 <Link
@@ -290,12 +267,14 @@ const Header = () => {
                 </Link>
                 <div className="space-y-2">
                   {service.subcategories.map((sub, subIndex) => (
-                    <div // Changed from Link to div
+                    <Link // Changed from div to Link for subcategories
                       key={subIndex}
+                      href={`${service.href}#${(sub.title)}`} // Dynamically generate href with hash
                       className="block text-gray-300 hover:text-[#10d4c4] text-sm py-1 transition-colors duration-200 hover:translate-x-1 transform"
+                      onClick={() => setIsServicesOpen(false)}
                     >
                       • {sub.title}
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>

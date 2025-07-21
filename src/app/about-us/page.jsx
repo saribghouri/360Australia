@@ -241,7 +241,7 @@ export default function AboutUsSections() {
             <div className="space-y-6">
 
 
-              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">Our   <span className="text-teal-400">commitment</span></h2>
+              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight uppercase">Our   <span className="text-teal-400">commitment</span></h2>
 
 
 
@@ -324,7 +324,7 @@ export default function AboutUsSections() {
                       </div>
                       {/* Description - positioned below dot, appears on hover */}
                       <p
-                        className={`text-lg text-white transition-all text-center duration-300 ease-in-out mt-[40px] overflow-hidden ${activeStep === step.id ? "opacity-100 max-h-20 mt-2" : "opacity-0 max-h-0"
+                        className={`text-lg text-white transition-all  text-center duration-300 ease-in-out mt-[30px] overflow-hidden ${activeStep === step.id ? "opacity-100 max-h-20 mt-2" : "opacity-0 max-h-0"
                           }`}
                       >
                         {step.description}

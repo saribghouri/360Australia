@@ -170,10 +170,10 @@ export default function AnimatedMarketingSection() {
                     }`}
                   style={{ transitionDelay: "1.4s" }}
                 >
-                  <h2 className="text-white text-xl capitalize sm:text-3xl uppercase font-bold">
+                  <h2 className="text-white text-xl  sm:text-3xl uppercase font-bold">
                     The Process Behind
                     <br />
-                    <span className="text-teal-500 sm:text-6xl capitalize"> Your Growth</span>
+                    <span className="text-teal-500 sm:text-6xl uppercase"> Your Growth</span>
                   </h2>
                 </div>
 

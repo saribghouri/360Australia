@@ -62,7 +62,7 @@ const Header = () => {
       ],
     },
     {
-      title: "Graphics-Design",
+      title: "Graphic Design",
       href: "/services/graphics-designing",
       subcategories: [
         { title: "Logo & Branding" },

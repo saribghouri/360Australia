@@ -91,8 +91,9 @@ const Header = () => {
     <>
       <nav className="bg-black py-4 px-6 md:px-12 flex w-full mt-[-110px] border-bottom z-50 fixed items-center justify-between">
         <div className="flex items-center">
-          <Link href="/" className="flex items-center space-x-2">
-            <img src="/BxxHdh.png" alt="360 Australia Ventures Logo" className="h-19 w-24 lg:h-[76px] lg:w-[144px]" />
+          <Link href="/" className="flex items-center ">
+            <img src="/IMG-20250710-WA0015-removebg-preview.png" alt="360 Australia Ventures Logo" className="h-24 w-20 lg:h-[86px] lg:w-[124px]" />
+            <h1 className="text-white text-2xl font-bold mt-[25px]">AUSTRALIA</h1>
           </Link>
         </div>
         <div className="hidden md:flex space-x-8 items-center">

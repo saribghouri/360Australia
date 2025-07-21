@@ -288,3 +288,14 @@ box-shadow: rgba(20, 245, 245, 0.25) 0px 20px 50px 12px inset, rgba(16, 233, 197
 .react-tel-input .flag-dropdown:hover {
   background-color: transparent !important;
 }
+.custom-select .ant-select-selection-placeholder {
+  color: rgb(128, 127, 127) !important;
+  font-size: 18px;
+}
+.custom-selects .ant-select-selection-placeholder {
+  color: #616a7a !important;
+  font-size: 18px;
+}
+.ant-select-arrow{
+  color:  white !important;
+}

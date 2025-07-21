@@ -7,28 +7,25 @@ import 'react-phone-input-2/lib/style.css'
 import 'antd/dist/reset.css';
 // Simplified list of country codes for demonstration
 // In a production application, you might fetch this from an API or use a more comprehensive library.
-const countryCodes = [
-  { code: "US", dial_code: "+1", name: "United States" },
-  { code: "CA", dial_code: "+1", name: "Canada" },
-  { code: "GB", dial_code: "+44", name: "United Kingdom" },
-  { code: "AU", dial_code: "+61", name: "Australia" },
-  { code: "DE", dial_code: "+49", name: "Germany" },
-  { code: "FR", dial_code: "+33", name: "France" },
-  { code: "IN", dial_code: "+91", name: "India" },
-  { code: "JP", dial_code: "+81", name: "Japan" },
-  { code: "BR", dial_code: "+55", name: "Brazil" },
-  { code: "MX", dial_code: "+52", name: "Mexico" },
-  { code: "ZA", dial_code: "+27", name: "South Africa" },
-  { code: "CN", dial_code: "+86", name: "China" },
-  { code: "ES", dial_code: "+34", name: "Spain" },
-  { code: "IT", dial_code: "+39", name: "Italy" },
-  { code: "NL", dial_code: "+31", name: "Netherlands" },
-  { code: "SE", dial_code: "+46", name: "Sweden" },
-  { code: "CH", dial_code: "+41", name: "Switzerland" },
-  { code: "AE", dial_code: "+971", name: "United Arab Emirates" },
-  { code: "SG", dial_code: "+65", name: "Singapore" },
-  { code: "NZ", dial_code: "+64", name: "New Zealand" },
-]
+const customStyles = {
+  control: (provided) => ({
+    ...provided,
+    backgroundColor: 'transparent',
+    borderBottom: '1px solid #1becdb',
+    border: 'none',
+    borderRadius: 0,
+    boxShadow: 'none',
+    color: 'white',
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    color: 'white',
+  }),
+  menu: (provided) => ({
+    ...provided,
+    backgroundColor: 'black',
+  }),
+};
 
 export default function ContactForm() {
   const [name, setName] = useState("")
@@ -124,7 +121,7 @@ export default function ContactForm() {
               </div>
             </div>
             {/* Email Input */}
-            <div className="relative">
+            <div className="relative mb-[35px]">
               <label
                 htmlFor="email"
                 className={`
@@ -150,54 +147,22 @@ export default function ContactForm() {
               />
             </div>
             {/* Service Dropdown */}
-            <div className="relative w-full max-w-lg">
-              <label htmlFor="service" className="sr-only">
+            <div className="relative w-full max-w-lg mt-[10px]">
+              <label htmlFor="service" className="sr-only ">
                 Select Service
               </label>
-              {/* <select
-        id="service"
-        value={service}
-        onChange={(e) => setService(e.target.value)}
-        onFocus={() => setIsServiceActive(true)}
-        onBlur={() => setIsServiceActive(false)}
-        className="w-full px-2 py-2 pr-8
-                   bg-transparent text-white form-border
-                   focus:outline-none  focus:border-transparent
-                   appearance-none cursor-pointer"
-        required
-      >
-   
-        <div>
-          
-        </div>
-        <option value="Web Development" className="text-black bg-white">
-          Web Development
-        </option>
-        <option value="Mobile App Development" className="text-black bg-white">
-          Mobile App Development
-        </option>
-        <option value="UI/UX Design" className="text-black bg-white">
-          UI/UX Design
-        </option>
-        <option value="Digital Marketing" className="text-black bg-white">
-          Digital Marketing
-        </option>
-        <option value="Cloud Solutions" className="text-black bg-white">
-          Cloud Solutions
-        </option>
-        <option value="Data Analytics" className="text-black bg-white">
-          Data Analytics
-        </option>
-      </select> */}
+
               <Flex gap={8}>
-                <Select
-                  placeholder="Underlined"
+                <Select className="custom-select "
+                  styles={customStyles}
+
+                  placeholder="Select Service"
                   variant="underlined"
                   style={{
                     flex: 1,
                     backgroundColor: 'transparent',
                     borderBottom: '1px solid #1becdb',
-                    color: 'white',
+                    color: '#fff',
                   }}
                   dropdownStyle={{
                     backgroundColor: 'black',
@@ -211,7 +176,7 @@ export default function ContactForm() {
                     { value: 'mobile app developement', label: 'mobile app developement' },
                     { value: 'digital marketing', label: 'digital marketing' },
                     { value: 'graphic design', label: 'graphic design' },
-                    { value: 'video animation', label: 'video animation' },
+                    { value: 'video animation', label: 'video & animation' },
                   ]}
                   dropdownClassName="custom-select-dropdown bg-transparent"
                 />
@@ -224,7 +189,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-[70%] py-2 bg-teal-600 cursor-pointer backdrop-blur-sm border border-cyan-500/30 rounded-2xl text-white font-semibold text-[22px] tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-[70%] py-2 bg-teal-600 cursor-pointer backdrop-blur-sm border border-cyan-500/30 rounded-2xl !text-white font-semibold text-[22px] tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? (
                   <div className="flex items-center justify-center space-x-2">

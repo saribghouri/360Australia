@@ -103,8 +103,8 @@ export default function DigitalSolutionsSection() {
       >
         <div className="container px-4 md:px-6 text-start max-w-9xl mx-auto mb-20">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            <span className="text-teal-400">WEB</span> <span className="">DESIGN</span> <br></br>
-            <span></span>AND<span className="text-teal-400"> DEVELOPMENT </span>
+            <span className="text-white">WEB DESIGN</span>  <br></br> 
+            <span className="text-teal-400 mt-[10px]">AND</span><span className="text-teal-400"> DEVELOPMENT </span>
           </h1>
           <p className="text-lg md:text-xl text-white leading-relaxed">
             Building a website is not just coding, but it’s a creative process. Our team is full of sharp, imaginative

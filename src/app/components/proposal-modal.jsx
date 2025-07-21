@@ -136,13 +136,12 @@ export function RequestProposalModal({ isOpen, onClose }) {
                             <div className="text-black hover:bg-teal-700 hover:text-white px-3  py-2 rounded-md">{option.label}</div>
                         )}
                     >
-                        <Option value="Web Development">Web Development</Option>
+                        <Option value="Website Development">Website Development</Option>
                         <Option value="Mobile App Development">Mobile App Development</Option>
-                        <Option value="UI/UX Design">UI/UX Design</Option>
+                        <Option value="Graphic Design">Graphic Design</Option>
                         <Option value="Digital Marketing">Digital Marketing</Option>
-                        <Option value="Cloud Solutions">Cloud Solutions</Option>
-                        <Option value="Data Analytics">Data Analytics</Option>
-                        <Option value="Other">Other</Option>
+                        <Option value="Video & Animation">Video & Animation</Option>
+                 
                     </Select>
                 </div>
                 <div>
@@ -153,7 +152,7 @@ export function RequestProposalModal({ isOpen, onClose }) {
                         id="projectDetails"
                         value={formData.projectDetails}
                         onChange={handleChange}
-                        className="bg-white w-full border border-teal-700 text-black placeholder:text-gray-400 text-[16px] focus:border-teal-500 focus:ring-teal-500 rounded-lg p-3 min-h-[120px]"
+                        className="bg-white w-full border border-teal-700 !text-black placeholder:text-gray-400 text-[16px] focus:border-teal-500 focus:ring-teal-500 rounded-lg p-3 min-h-[120px]"
                         placeholder="Describe your project, goals, and any specific requirements..."
                         required
                     />

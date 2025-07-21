@@ -7,6 +7,34 @@ import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/lib/style.css"
 import "antd/dist/reset.css"
 import { Select } from "antd"
+const customStyles = {
+  control: (provided) => ({
+    ...provided,
+    backgroundColor: 'transparent',
+    borderBottom: '1px solid #1becdb',
+    border: 'none',
+    borderRadius: 0,
+    boxShadow: 'none',
+    color: 'white',
+        selector: {
+                        
+                          backgroundColor: "#1f2937", // bg-gray-900
+                          border: "none", // Removed border
+                          color: "#ffffff", // text-white
+                          borderRadius: "0.5rem", // rounded-lg
+                          padding: "0.75rem", // p-3
+                          height: "40px ", // Adjust height
+                        },
+  }),
+  placeholder: (provided) => ({
+    ...provided,
+    color: 'white',
+  }),
+  menu: (provided) => ({
+    ...provided,
+    backgroundColor: 'black',
+  }),
+};
 
 export default function ContactUs() {
   const { Option } = Select // Destructure Option from Select
@@ -102,7 +130,7 @@ export default function ContactUs() {
               </motion.h1>
               <motion.p
                 variants={itemVariants}
-                className="text-white text-base md:text-lg leading-relaxed max-w-md mx-auto lg:mx-0"
+                className="text-white text-base md:text-xl leading-relaxed max-w-md mx-auto lg:mx-0"
               >
                 Reach out for collaborations, inquiries, or just to say hello.
               </motion.p>
@@ -168,32 +196,16 @@ export default function ContactUs() {
                       Service Interested In
                     </label>
                     <Select
+                   
+                  styles={customStyles}
                       id="service"
                       value={formData.service || undefined}
                       onChange={handleSelectChange}
                       placeholder="Select a service"
-                      className="w-full !placeholder:text-[18px] border-bottom-contact "
+                      className="w-full !placeholder:text-[18px] border-bottom-contact  custom-selects"
                       size="large"
                       required
-                      styles={{
-                        selector: {
-                          backgroundColor: "#1f2937", // bg-gray-900
-                          border: "none", // Removed border
-                          color: "#ffffff", // text-white
-                          borderRadius: "0.5rem", // rounded-lg
-                          padding: "0.75rem", // p-3
-                          height: "40px ", // Adjust height
-                        },
-                        input: {
-                          color: "#ffffff", // text-white
-                        },
-                        placeholder: {
-                          color: "#ffffff", // Changed placeholder color to white
-                        },
-                        clear: {
-                          color: "#ffffff", // text-white for clear icon
-                        },
-                      }}
+                  
                       dropdownStyle={{
                         backgroundColor: "#ffff",
                         border: "none", // Removed border from dropdown
@@ -205,13 +217,11 @@ export default function ContactUs() {
                         </div>
                       )}
                     >
-                      <Option value="Web Development">Web Development</Option>
-                      <Option value="Mobile App Development">Mobile App Development</Option>
-                      <Option value="UI/UX Design">UI/UX Design</Option>
-                      <Option value="Digital Marketing">Digital Marketing</Option>
-                      <Option value="Cloud Solutions">Cloud Solutions</Option>
-                      <Option value="Data Analytics">Data Analytics</Option>
-                      <Option value="Other">Other</Option>
+                      <Option value="Website Development">Website Development</Option>
+                        <Option value="Mobile App Development">Mobile App Development</Option>
+                        <Option value="Graphic Design">Graphic Design</Option>
+                        <Option value="Digital Marketing">Digital Marketing</Option>
+                        <Option value="Video & Animation">Video & Animation</Option>
                     </Select>
                   </div>
                 </motion.div>

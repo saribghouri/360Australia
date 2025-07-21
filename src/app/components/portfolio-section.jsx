@@ -18,18 +18,12 @@ export default function PortfolioSection() {
   }, [])
 
   const portfolioItems = [
-    { id: 1, category: "WEB APPLICATION", image: "/ecommerce (2).PNG", title: "WEB APPLICATION", hasOverlay: true },
-    { id: 2, category: "MOBILE APPLICATION", image: "/app2.jpg", title: "MOBILE APPLICATION", hasOverlay: true },
-    { id: 3, category: "LOGO DESIGN", image: "/logo 5.jpg", title: "LOGO DESIGN", hasOverlay: true },
-    { id: 4, category: "SHOPIFY", image: "/shopify 10.jpg", title: "SHOPIFY", hasOverlay: true },
-    { id: 5, category: "ECOMMERCE", image: "/ecommerce.PNG", title: "ECOMMERCE", hasOverlay: true },
-    {
-      id: 6,
-      category: "SOCIAL MEDIA MARKETING",
-      image: "/hand-holding-smartphone-social-media-concept.jpg",
-      title: "Social Media",
-      hasOverlay: true,
-    },
+    { id: 1, category: "WEB APPLICATION", image: "/1 organic food copy.jpg", title: "WEB APPLICATION", hasOverlay: true },
+    { id: 2, category: "MOBILE APPLICATION", image: "/2 Lewis Nathenlel copy.jpg", title: "MOBILE APPLICATION", hasOverlay: true },
+    { id: 3, category: "GRAHPIC DESIGN", image: "/3 tea copy.jpg", title: "GRAHPIC DESIGN", hasOverlay: true },
+    { id: 4, category: "DIGITAL MARKETING", image: "/5 fenty beauty.jpg", title: "DIGITAL MARKETING", hasOverlay: true },
+    { id: 5, category: "VIDEO & ANIMATION", image: "/4 blaster sound copy.jpg", title: "VIDEO & ANIMATION", hasOverlay: true },
+
   ]
 
   // Duplicate items to create a seamless looping effect.

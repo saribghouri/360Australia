@@ -126,7 +126,7 @@ export default function DigitalSolutionsSection() {
                   </div>
                 </div>
               </div>
-              <h3 className="text-3xl font-bold mb-3 mt-10">{service.title}</h3>
+              <h3 className="text-3xl font-bold mb-3 mt-8">{service.title}</h3>
               <p className="text-white mb-8 text-xl leading-relaxed mt-8">{service.description}</p>
             </div>
           ))}

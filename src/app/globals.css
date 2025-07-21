@@ -265,7 +265,7 @@ box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;}
 }
 
 .inner-shadow{
-box-shadow: rgba(20, 245, 245, 0.25) 0px 30px 50px 12px inset, rgba(16, 233, 197, 0.3) 0px 18px 36px 12px inset;
+box-shadow: rgba(20, 245, 245, 0.25) 0px 20px 50px 12px inset, rgba(16, 233, 197, 0.3) 8px 0px 40px 14px inset;
 }
 .react-tel-input .form-control {
   background-color: transparent !important;

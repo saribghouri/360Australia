@@ -124,7 +124,7 @@ export default function AnimatedSection() {
                   <div className="absolute top-1/2 right-1/3 w-0.5 h-0.5 bg-[#10d4c4] rounded-full animate-pulse delay-500" />
                 </div>
                 <div className="w-[50%]">
-                  <h2 className="text-3xl font-bold text-white mb-4 transition-transform duration-300">
+                  <h2 className="text-3xl font-bold uppercase text-white mb-4 transition-transform duration-300">
                     Web Design and Developement
                   </h2>
                   <p className="text-white/90 text-xl leading-relaxed mb-6">
@@ -167,7 +167,7 @@ export default function AnimatedSection() {
                 <div className="absolute top-0 right-0 w-0 h-1 bg-gradient-to-l from-[#ffffff] to-transparent group-hover:w-1/4 transition-all duration-700 ease-out delay-200" />
 
                 <div className="w-[50%] cursor-pointer">
-                  <h2 className="text-3xl font-bold text-white mb-4 transition-transform duration-300">
+                  <h2 className="text-3xl font-bold uppercase text-white mb-4 transition-transform duration-300">
                     Graphics Design Services
                   </h2>
                   <p className="text-white/90 text-xl leading-relaxed mb-6">
@@ -216,7 +216,7 @@ export default function AnimatedSection() {
                   <div className="absolute top-1/2 right-1/3 w-0.5 h-0.5 bg-[#10d4c4] rounded-full animate-pulse delay-500" />
                 </div>
                 <div className="w-[50%]">
-                  <h2 className="text-3xl font-bold text-white mb-4 transition-transform duration-300">
+                  <h2 className="text-3xl font-bold uppercase text-white mb-4 transition-transform duration-300">
                     Mobile App Development
                   </h2>
                   <p className="text-white/90 text-xl leading-relaxed mb-6">
@@ -263,7 +263,7 @@ export default function AnimatedSection() {
                   <div className="absolute top-1/2 right-1/3 w-0.5 h-0.5 bg-[#ffffff] rounded-full animate-pulse delay-500" />
                 </div>
                 <div className="w-[50%]">
-                  <h2 className="text-3xl font-bold text-white mb-4 transition-transform duration-300">
+                  <h2 className="text-3xl font-bold uppercase text-white mb-4 transition-transform duration-300">
                     Digital Marketing
                   </h2>
                   <p className="text-white/90 text-xl leading-relaxed mb-6">
@@ -304,7 +304,7 @@ export default function AnimatedSection() {
                 <div className="absolute top-0 right-0 w-0 h-1 bg-gradient-to-l from-[#ffffff] to-transparent group-hover:w-1/4 transition-all duration-700 ease-out delay-200" />
 
                 <div className="w-[50%]">
-                  <h2 className="text-3xl font-bold text-white mb-4 transition-transform duration-300">
+                  <h2 className="text-3xl font-bold uppercase text-white mb-4 transition-transform duration-300">
                     Videos & Animation
 
                   </h2>

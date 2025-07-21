@@ -132,9 +132,9 @@ export default function ProjectCTASection() {
                         whileHover={{ x: "100%" }}
                         transition={{ duration: 0.6 }}
                       />
-                      <span className="relative z-10 uppercase">Request A Proposal</span>
+                      <span className="relative z-10 text-white text-lg uppercase">Request A Proposal</span>
                       <motion.div className="group-hover:translate-x-1 transition-transform duration-300 relative z-10">
-                        <ArrowRight className="h-6 w-6" />
+                        <ArrowRight className="h-6 w-6 text-white" />
                       </motion.div>
                     </motion.button>
                   </motion.div>

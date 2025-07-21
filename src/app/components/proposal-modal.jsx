@@ -105,10 +105,9 @@ export function RequestProposalModal({ isOpen, onClose }) {
                         value={formData.service || undefined} // Use undefined to show placeholder when no value is selected
                         onChange={handleSelectChange}
                         placeholder="Select a service"
-                        className="w-full !placeholder:text-[18px]"
-                        size="large" // Matches the size of Ant Design Input components
+                        className="w-full !placeholder:text-[18px] border-2 rounded-[6px]"
+                        size="large" 
                         required
-                        // Custom styling for Ant Design Select to match the dark inputs
                         styles={{
                             selector: {
                                 backgroundColor: "#1f2937", // bg-gray-900
@@ -129,11 +128,10 @@ export function RequestProposalModal({ isOpen, onClose }) {
                             },
                         }}
                         dropdownStyle={{
-                            backgroundColor: "#ffff", // bg-gray-900 for dropdown menu
-                            borderColor: "#14b8a6", // border-teal-700
+                            backgroundColor: "#ffff", 
+                            borderColor: "#14b8a6",
                             borderRadius: "0.5rem",
                         }}
-                        // Custom render for dropdown items to apply text-white and hover styles
                         optionRender={(option) => (
                             <div className="text-black hover:bg-teal-700 hover:text-white px-3  py-2 rounded-md">{option.label}</div>
                         )}

@@ -1,16 +1,24 @@
 "use client"
-
 import { useState } from "react"
+
 import { motion } from "framer-motion"
 import { MapPin, Mail, Phone, Facebook, Linkedin } from "lucide-react"
+import PhoneInput from "react-phone-input-2"
+import "react-phone-input-2/lib/style.css"
+import "antd/dist/reset.css"
+import { Select } from "antd"
 
 export default function ContactUs() {
+  const { Option } = Select // Destructure Option from Select
+
+  const [phone, setPhone] = useState("")
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phoneNumber: "",
-    subject: "",
+    subject: "", // Added subject to formData as it was in the original code's intent
     message: "",
+    service: "", // Added service to formData
   })
 
   const handleInputChange = (e) => {
@@ -21,9 +29,21 @@ export default function ContactUs() {
     }))
   }
 
+  const handleSelectChange = (value) => {
+    setFormData((prev) => ({
+      ...prev,
+      service: value,
+    }))
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
+    // Update phoneNumber in formData from the PhoneInput state
+    setFormData((prev) => ({
+      ...prev,
+      phoneNumber: phone,
+    }))
+    console.log("Form submitted:", { ...formData, phoneNumber: phone }) // Log updated formData
   }
 
   const containerVariants = {
@@ -36,7 +56,6 @@ export default function ContactUs() {
       },
     },
   }
-
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -45,7 +64,6 @@ export default function ContactUs() {
       transition: { duration: 0.5 },
     },
   }
-
   const formVariants = {
     hidden: { opacity: 0, x: 50 },
     visible: {
@@ -54,19 +72,15 @@ export default function ContactUs() {
       transition: { duration: 0.6, delay: 0.2 },
     },
   }
-
   return (
     <section className="min-h-screen bg-black text-white py-8 md:py-16 px-4 relative overflow-hidden">
-
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-500/5 to-transparent"></div>
         <div className="absolute top-1/4 right-1/4 w-48 md:w-96 h-48 md:h-96 bg-yellow-500/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 left-1/4 w-32 md:w-64 h-32 md:h-64 bg-yellow-500/5 rounded-full blur-2xl"></div>
       </div>
-
       <div className="max-w-[90%] mx-auto relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
-
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -74,12 +88,8 @@ export default function ContactUs() {
             viewport={{ once: true, amount: 0.3 }}
             className="space-y-6 md:space-y-8 order-2 lg:order-1"
           >
-
             <motion.div variants={itemVariants} className="space-y-4 md:space-y-6 text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start gap-3">
-             
-              </div>
-
+              <div className="flex items-center justify-center lg:justify-start gap-3"></div>
               <motion.h1
                 variants={itemVariants}
                 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight"
@@ -90,31 +100,16 @@ export default function ContactUs() {
                 <br />
                 <span className="text-teal-400">AMAZING!</span>
               </motion.h1>
-
               <motion.p
                 variants={itemVariants}
-                className="text-gray-400 text-base md:text-lg leading-relaxed max-w-md mx-auto lg:mx-0"
+                className="text-white text-base md:text-lg leading-relaxed max-w-md mx-auto lg:mx-0"
               >
                 Reach out for collaborations, inquiries, or just to say hello.
               </motion.p>
             </motion.div>
-
-
-            <motion.div variants={itemVariants} className="space-y-4 md:space-y-6">
-         
-
-            
-
-        
-            </motion.div>
-
-
-            <motion.div variants={itemVariants} className="space-y-4 text-center lg:text-left">
-            
-            </motion.div>
+           
+           
           </motion.div>
-
-
           <motion.div
             variants={formVariants}
             initial="hidden"
@@ -134,11 +129,10 @@ export default function ContactUs() {
                     value={formData.fullName}
                     onChange={handleInputChange}
                     placeholder="John Smith"
-                    className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-[#10d4c4] focus:border-transparent transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 focus:border-transparent border-b border-gray-700 bg-transparent outline-none transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base"
                     required
                   />
                 </motion.div>
-
                 <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
                   <label className="block text-sm font-medium mb-2">
                     Email Address <span className="text-[#10d4c4]">*</span>
@@ -149,51 +143,79 @@ export default function ContactUs() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="youremail@domain.com"
-                    className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-[#10d4c4] focus:border-transparent transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border-b border-gray-700 bg-transparent outline-none transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base"
                     required
                   />
                 </motion.div>
               </div>
-
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-3">
                     Phone Number <span className="text-[#10d4c4]">*</span>
                   </label>
-                  <div className="flex">
-                    <select className="px-2 md:px-3 py-2 md:py-3 bg-gray-800 border border-gray-700 rounded-l-lg text-white border-r-0 focus:ring-2 focus:ring-[#10d4c4] focus:border-transparent text-sm md:text-base">
-                      <option>🇵🇰 +92</option>
-                      <option>🇺🇸 +1</option>
-                      <option>🇬🇧 +44</option>
-                    </select>
-                    <input
-                      type="tel"
-                      name="phoneNumber"
-                      value={formData.phoneNumber}
-                      onChange={handleInputChange}
-                      placeholder="204-123-4567"
-                      className="flex-1 px-3 md:px-4 py-2 md:py-3 bg-gray-800 border border-gray-700 rounded-r-lg focus:ring-2 focus:ring-[#10d4c4] focus:border-transparent transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base"
-                      required
-                    />
-                  </div>
-                </motion.div>
-
-                <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
-                  <label className="block text-sm font-medium mb-2">
-                    Subject <span className="text-[#10d4c4]">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    placeholder="What services are you looking for?"
-                    className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-[#10d4c4] focus:border-transparent transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base"
-                    required
+                  <PhoneInput className=" border-bottom-contact text-black"
+                    country={"au"}
+                    value={phone}
+                    onChange={setPhone}
+                    containerClass="w-full"
+                    inputClass="w-full"
+                    buttonClass=""
                   />
                 </motion.div>
+                <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
+                  <div>
+                    <label htmlFor="service" className="block text-sm font-medium mb-2">
+                      Service Interested In
+                    </label>
+                    <Select
+                      id="service"
+                      value={formData.service || undefined}
+                      onChange={handleSelectChange}
+                      placeholder="Select a service"
+                      className="w-full !placeholder:text-[18px] border-bottom-contact "
+                      size="large"
+                      required
+                      styles={{
+                        selector: {
+                          backgroundColor: "#1f2937", // bg-gray-900
+                          border: "none", // Removed border
+                          color: "#ffffff", // text-white
+                          borderRadius: "0.5rem", // rounded-lg
+                          padding: "0.75rem", // p-3
+                          height: "40px ", // Adjust height
+                        },
+                        input: {
+                          color: "#ffffff", // text-white
+                        },
+                        placeholder: {
+                          color: "#ffffff", // Changed placeholder color to white
+                        },
+                        clear: {
+                          color: "#ffffff", // text-white for clear icon
+                        },
+                      }}
+                      dropdownStyle={{
+                        backgroundColor: "#ffff",
+                        border: "none", // Removed border from dropdown
+                        borderRadius: "0.5rem",
+                      }}
+                      optionRender={(option) => (
+                        <div className="text-black hover:bg-teal-700 hover:text-white px-3 py-2 rounded-md">
+                          {option.label}
+                        </div>
+                      )}
+                    >
+                      <Option value="Web Development">Web Development</Option>
+                      <Option value="Mobile App Development">Mobile App Development</Option>
+                      <Option value="UI/UX Design">UI/UX Design</Option>
+                      <Option value="Digital Marketing">Digital Marketing</Option>
+                      <Option value="Cloud Solutions">Cloud Solutions</Option>
+                      <Option value="Data Analytics">Data Analytics</Option>
+                      <Option value="Other">Other</Option>
+                    </Select>
+                  </div>
+                </motion.div>
               </div>
-
               <motion.div whileHover={{ scale: 1.01 }} transition={{ type: "spring", stiffness: 300 }}>
                 <label className="block text-sm font-medium mb-2">
                   Message <span className="text-[#10d4c4]">*</span>
@@ -204,13 +226,11 @@ export default function ContactUs() {
                   onChange={handleInputChange}
                   placeholder="Write message"
                   rows={4}
-                  className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-[#10d4c4] focus:border-transparent transition-all duration-300 text-white placeholder-gray-500 resize-none text-sm md:text-base"
+                  className="w-full px-3 md:px-4 py-2 md:py-3  border border-gray-700 rounded-lg focus:ring-2 focus:ring-[#10d4c4] focus:border-transparent transition-all duration-300 text-white placeholder-gray-500 resize-none text-sm md:text-base"
                   required
                 ></textarea>
               </motion.div>
-
-
-              <div className="flex items-center justify-center p-3 md:p-4 bg-gray-800 rounded-lg border border-gray-700">
+              <div className="flex items-center justify-center p-3 md:p-4  rounded-lg border border-gray-700">
                 <div className="flex items-center gap-3">
                   <div className="w-5 h-5 md:w-6 md:h-6 border-2 border-gray-600 rounded"></div>
                   <span className="text-xs md:text-sm text-gray-400">{"I'm not a robot"}</span>
@@ -226,7 +246,6 @@ export default function ContactUs() {
                   </div>
                 </div>
               </div>
-
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: "0 5px 10px #939494" }}
                 whileTap={{ scale: 0.95 }}
@@ -245,8 +264,6 @@ export default function ContactUs() {
           </motion.div>
         </div>
       </div>
-
-
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}

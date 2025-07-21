@@ -125,7 +125,7 @@ export default function AboutUsSections() {
                   <Button
                     asChild
                     href="#contact"
-                    className="inline-block !bg-teal-500 !text-white action-bg !hover:text-cyan-300 !font-bold text-center !px-[40px] !py-[20px] !text-xl border !border-teal-800 !hover:border-white transition-all duration-300 pb-1 cursor-pointer
+                    className="inline-block !bg-teal-500 !text-white project-action   !hover:text-cyan-300 !font-bold text-center !px-[40px] !py-[30px] !text-[24px]  !border-none !hover:border-white transition-all duration-300 pb-1 cursor-pointer
                    rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2"
                   >
                     START YOUR PROJECT NOW

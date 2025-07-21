@@ -62,7 +62,7 @@ const Header = () => {
       ],
     },
     {
-      title: "graphics-design",
+      title: "Graphics-Design",
       href: "/services/graphics-designing",
       subcategories: [
         { title: "Logo & Branding" },
@@ -102,18 +102,18 @@ const Header = () => {
           >
             HOME
           </Link>
-          <Link href="/about-us" className="text-white hover:text-[#10d4c4]  text-xl transition-colors duration-300 font-medium">
+          <Link href="/about-us" className="text-white hover:text-[#10d4c4]  !text-xl transition-colors duration-300 font-medium">
             ABOUT US
           </Link>
           <div className="relative " ref={dropdownRef}>
             <button
               onClick={() => setIsServicesOpen(!isServicesOpen)}
               onMouseEnter={() => setIsServicesOpen(true)}
-              className="text-white hover:text-[#10d4c4] transition-colors duration-300  text-xl font-medium flex items-center space-x-1"
+              className="!text-white hover:text-[#10d4c4] cursor-pointer  flex !text-xl transition-colors duration-300 font-medium"
             >
-              <span>SERVICES</span>
+              <span className="hover:text-[#10d4c4]">SERVICES</span>
               <ChevronDown
-                className={`w-5 h-5 transition-transform  duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
+                className={`w-6 h-6 transition-transform mt-[2px] ml-[4px]  duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
               />
             </button>
           </div>
@@ -230,7 +230,7 @@ const Header = () => {
           </div>
         </div>
         <button
-          className="text-white bg-[#0ea89b] px-10 py-2 font-bold text-[19px] rounded-[10px] cursor-pointer hidden md:block"
+          className="!text-white bg-[#0ea89b] px-10 py-2 font-bold text-[19px] rounded-[10px] cursor-pointer hidden md:block"
           onClick={handleContactClick}
         >
           Book A Consultation

@@ -58,7 +58,7 @@
 //       technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
 //       features: ["Payment Gateway", "Admin Panel", "Real-time Analytics", "Mobile Responsive"],
 //       image: "/ecommerce.PNG",
-     
+
 //     },
 //     {
 //       title: "DENIM JACKETS",
@@ -78,7 +78,7 @@
 //     },
 //   ]
 
- 
+
 //   const mobileApplications = [
 //     {
 //       title: "SERENE ",
@@ -109,7 +109,7 @@
 //     },
 //   ]
 
- 
+
 //   const logoDesigns = [
 //     {
 //       title: "Tech Startup Branding",
@@ -300,24 +300,24 @@
 //           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 //           box-shadow: 0 8px 32px rgba(6, 182, 212, 0.1) !important;
 //         }
-        
+
 //         .ant-card:hover {
 //           transform: translateY(-8px);
 //           box-shadow: 0 25px 50px rgba(6, 182, 212, 0.25) !important;
 //           border-color: rgba(6, 182, 212, 0.6) !important;
 //         }
-        
-       
-        
+
+
+
 //         .ant-typography {
 //           color: white !important;
 //         }
-        
+
 //         .ant-typography h1, .ant-typography h2, .ant-typography h3, .ant-typography h4 {
 //           color: white !important;
 //           margin-bottom: 16px !important;
 //         }
-        
+
 //         .ant-btn-primary {
 //           background: linear-gradient(135deg, #06b6d4, #0891b2) !important;
 //           border: none !important;
@@ -329,13 +329,13 @@
 //           box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4) !important;
 //           font-size: 16px !important;
 //         }
-        
+
 //         .ant-btn-primary:hover {
 //           background: linear-gradient(135deg, #0891b2, #0e7490) !important;
 //           transform: translateY(-3px);
 //           box-shadow: 0 12px 35px rgba(6, 212, 195, 0.15) !important;
 //         }
-        
+
 //         .ant-btn-default {
 //           border: 2px solid rgba(6, 212, 195, 0.15) !important;
 //           color: #06b6d4 !important;
@@ -345,14 +345,14 @@
 //           border-radius: 16px !important;
 //           font-size: 16px !important;
 //         }
-        
+
 //         .ant-btn-default:hover {
 //           border-color: #06b6d4 !important;
 //           color: #06b6d4 !important;
 //           transform: translateY(-3px);
 //           box-shadow: 0 12px 35px rgba(6, 212, 195, 0.15) !important;
 //         }
-        
+
 //         .hero-main-card {
 //           backdrop-filter: blur(30px);
 //           border: 2px solid rgba(6, 212, 195, 0.15) !important;
@@ -360,7 +360,7 @@
 //           box-shadow: 0 20px 60px rgba(6, 182, 212, 0.2) !important;
 //           padding: 48px !important;
 //         }
-        
+
 //         .stats-card {
 //           border: 2px solid rgba(6, 182, 212, 0.25) !important;
 //           border-radius: 20px !important;
@@ -373,14 +373,14 @@
 //           justify-content: center !important;
 //           align-items: center !important;
 //         }
-        
+
 //         .stats-card:hover {
 //           background: rgba(6, 212, 195, 0.15) !important;
 //           border-color: rgba(10, 209, 176) !important;
 //           transform: translateY(-8px) scale(1.05);
 //           box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3) !important;
 //         }
-        
+
 //         .avatar-container {
 //           display: flex;
 //           flex-direction: column;
@@ -388,7 +388,7 @@
 //           gap: 32px;
 //           margin-bottom: 90px;
 //         }
-        
+
 //         .stats-grid {
 //           display: grid;
 //           grid-template-columns: 1fr 1fr;
@@ -396,14 +396,14 @@
 //           width: 100%;
 //           max-width: 400px;
 //         }
-        
+
 //         .project-actions {
 //           display: flex;
 //           gap: 16px;
 //           justify-content: center;
 //           margin-top: 24px;
 //         }
-        
+
 //         .project-btn {
 //           flex: 1;
 //           height: 48px !important;
@@ -411,52 +411,52 @@
 //           font-weight: 600 !important;
 //           font-size: 15px !important;
 //         }
-        
+
 //         .project-btn-outline {
 //           border: 2px solid rgba(10, 170, 143) !important;
 //           color: #06b6d4 !important;
 //         }
-        
+
 //         .project-btn-outline:hover {
 //           background: rgba(10, 170, 143) !important;
 //           border-color: #10d4c4 !important;
 //           color: #06b6d4 !important;
 //           transform: translateY(-2px);
 //         }
-        
+
 //         .project-btn-primary {
 //           background: rgba(10, 170, 143) !important;
 //           border: none !important;
 //           color: black !important;
 //         }
-        
+
 //         .project-btn-primary:hover {
 //           background: linear-gradient(#ffff, #ffff, #ffff) !important;
 //           transform: translateY(-2px);
 //           box-shadow: 0 8px 25px rgba(6, 182, 212, 0.4) !important;
 //         }
-        
+
 //         .neon-glow {
 //           text-shadow: 0 0 10px #06b6d4, 0 0 20px #06b6d4, 0 0 30px #06b6d4;
 //           animation: neon-pulse 2s ease-in-out infinite alternate;
 //         }
-        
+
 //         @keyframes neon-pulse {
 //           from { text-shadow: 0 0 10px #06b6d4, 0 0 20px #06b6d4, 0 0 30px #06b6d4; }
 //           to { text-shadow: 0 0 5px #06b6d4, 0 0 10px #06b6d4, 0 0 15px #06b6d4; }
 //         }
-        
+
 //         .typing-cursor::after {
 //           content: '|';
 //           animation: blink 1s infinite;
 //           color: #06b6d4;
 //         }
-        
+
 //         @keyframes blink {
 //           0%, 50% { opacity: 1; }
 //           51%, 100% { opacity: 0; }
 //         }
-        
+
 //         .floating-shapes {
 //           position: absolute;
 //           width: 100%;
@@ -464,7 +464,7 @@
 //           overflow: hidden;
 //           pointer-events: none;
 //         }
-        
+
 //         .floating-shape {
 //           position: absolute;
 //           opacity: 0.1;
@@ -472,12 +472,12 @@
 //           color: #06b6d4;
 //           font-size: 2rem;
 //         }
-        
+
 //         .floating-shape:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
 //         .floating-shape:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; }
 //         .floating-shape:nth-child(3) { top: 80%; left: 20%; animation-delay: 4s; }
 //         .floating-shape:nth-child(4) { top: 30%; left: 70%; animation-delay: 6s; }
-        
+
 //         @keyframes float {
 //           0%, 100% { transform: translateY(0px) rotate(0deg); }
 //           50% { transform: translateY(-20px) rotate(180deg); }
@@ -553,7 +553,7 @@
 //         <Header />
 //       </div>
 
-   
+
 //       <section className="bg-black relative overflow-hidden">
 //         <div className="absolute inset-0">
 //           <div className="absolute left-20 w-72 h-72 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -819,7 +819,7 @@
 //                       </ul>
 //                     </div>
 
-                   
+
 //                   </div>
 //                 </Col>
 //                 <Col xs={24} lg={12}>
@@ -872,7 +872,7 @@
 //                     </Title>
 //                     <Paragraph className="!text-gray-300 !leading-relaxed !text-lg !mb-8">{app.description}</Paragraph>
 
-                 
+
 
 //                     <div className="mb-6">
 //                       <Title level={4} className="!text-teal-400 !mb-4">
@@ -1145,11 +1145,13 @@ import { useState, useEffect, useRef } from "react"
 import { X } from "lucide-react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { Card, Tag, Timeline, Row, Col, Typography, Space, Badge, Progress, message } from "antd"
 
 import Header from "../components/header"
 import ProjectCTASection from "../components/ProjectCTASection"
 import Footer from "../components/footer"
 import { Button } from "antd"
+const { Title, Paragraph, Text } = Typography
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -1160,13 +1162,26 @@ export default function PortfolioPage() {
   const websiteSectionRef = useRef(null)
   const mobileSectionRef = useRef(null)
   const graphicsSectionRef = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
+
+  const images = [
+    "/original-97d1f67fe7381f327d8cccbdf86ad0da.webp",
+    "/logo 6.webp",
+    "/Minimalist Website Launch Computer Mockup Instagram Post.png",
+    "/shopify 8.webp",
+    "/app4.jpg",
+    "/logo 4.webp",
+  ]
   const allImages = [
-    { src: "/Minimalist Website Launch Computer Mockup Instagram Post.png", category: "website", alt: "Website Development Project 1" },
-    { src: "/Minimalist Website Launch Computer Mockup Instagram Post.png", category: "website", alt: "Website Development Project 2" },
+    { src: "/1 organic food copy.jpg", category: "website", alt: "Website Development Project 1" },
+    { src: "/2 Lewis Nathenlel copy.jpg", category: "website", alt: "Website Development Project 2" },
+    { src: "/3 tea copy.jpg", category: "website", alt: "Website Development Project 3" },
+    { src: "/4 blaster sound copy.jpg", category: "website", alt: "Website Development Project 3" },
+    { src: "/5 fenty beauty.jpg", category: "website", alt: "Website Development Project 3" },
     { src: "/Minimalist Website Launch Computer Mockup Instagram Post.png", category: "mobile", alt: "Mobile App Development Project 1" },
     { src: "/Minimalist Website Launch Computer Mockup Instagram Post.png", category: "mobile", alt: "Mobile App Development Project 1" },
-    { src: "/Minimalist Website Launch Computer Mockup Instagram Post.png", category: "website", alt: "Website Development Project 3" },
     { src: "/Minimalist Website Launch Computer Mockup Instagram Post.png", category: "mobile", alt: "Mobile App Development Project 2" },
     { src: "/Minimalist Website Launch Computer Mockup Instagram Post.png", category: "mobile", alt: "Mobile App Development Project 3" },
     { src: "/Minimalist Website Launch Computer Mockup Instagram Post.png", category: "graphics", alt: "Graphics Design Project 1" },
@@ -1182,7 +1197,13 @@ export default function PortfolioPage() {
     mobile: "Mobile App Development",
     graphics: "Graphics Design",
   }
-
+  useEffect(() => {
+    setIsVisible(true)
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length)
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [images.length])
   useEffect(() => {
     // Animation for Heading
     gsap.fromTo(
@@ -1273,6 +1294,7 @@ export default function PortfolioPage() {
   const renderImageGallery = (category, ref) => {
     const filteredImages = allImages.filter((image) => image.category === category)
     return (
+
       <section className="mb-12 w-full mt-[90px]" ref={ref}>
         <h2 className="text-3xl font-bold text-white tracking-tighter text-center mb-18 md:text-4xl">
           {categoryDisplayNames[category]} {/* Use the mapping here */}
@@ -1305,17 +1327,110 @@ export default function PortfolioPage() {
     <>
       <div className="mt-[100px]">
         <Header />
+        <section className="bg-black relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute left-20 w-72 h-72 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-20 right-20 w-96 h-96 bg-teal-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-teal-300/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+          </div>
+          <div className="container mx-auto px-6 py-20 relative z-10 mt-[-70px]">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="space-y-8">
+                <div
+                  className={`transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+                >
+                  <h1 className="text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
+                    <span className="inline-block delay-100 text-white">Welcome</span>
+                    <span className="inline-block mx-4"></span>
+                    <span className="inline-block delay-800 text-gradient bg-gradient-to-r from-teal-400 to-teal-300 bg-clip-text text-transparent">
+                      to
+                    </span>
+                    <br />
+                    <span className="inline-block delay-1000 text-gradient bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent">
+                      our
+                    </span>
+                    <span className="inline-block mx-4"></span>
+                    <span className="inline-block delay-1300 text-gradient bg-gradient-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent">
+                      Portfolio
+                    </span>
+                  </h1>
+                </div>
+                <div
+                  className={`transform transition-all duration-1000 delay-500 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+                >
+                  <p className="text-xl lg:text-2xl text-gray-100 leading-relaxed max-w-lg">
+                    Discover amazing projects, creative designs, and innovative solutions crafted with passion and
+                    expertise.
+                  </p>
+                </div>
+                <div
+                  className={`transform transition-all duration-1000 delay-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+                >
+               
+                </div>
+              </div>
+              <div className="relative h-[600px] lg:h-[700px]">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {images.map((src, index) => {
+                    const angle = index * 60 - currentImageIndex * 60
+                    const radius = 200
+                    const x = Math.cos((angle * Math.PI) / 180) * radius
+                    const y = Math.sin((angle * Math.PI) / 180) * radius
+                    const scale = index === currentImageIndex ? 1.2 : 0.8
+                    const opacity = Math.abs(index - currentImageIndex) <= 1 ? 1 : 0.3
+                    return (
+                      <div
+                        key={index}
+                        className="absolute transition-all duration-1000 ease-in-out"
+                        style={{
+                          transform: `translate(${x}px, ${y}px) scale(${scale})`,
+                          opacity: opacity,
+                          zIndex: index === currentImageIndex ? 10 : 1,
+                        }}
+                      >
+                        <div className="relative group">
+                          <Image
+                            src={src || "/placeholder.svg"}
+                            alt={`Portfolio ${index + 1}`}
+                            width={200}
+                            height={150}
+                            className="rounded-2xl shadow-2xl border-4 border-white/20 group-hover:border-teal-400/50 transition-all duration-300"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-teal-900/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+                <div className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-r from-teal-400 to-teal-300 rounded-full opacity-20 animate-ping"></div>
+                <div className="absolute bottom-20 left-10 w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-400 rounded-full opacity-30 animate-pulse"></div>
+                <div className="absolute top-1/2 right-0 w-12 h-12 bg-gradient-to-r from-teal-300 to-teal-400 rounded-full opacity-25 animate-bounce"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-teal-500/20 to-teal-400/20 rounded-full blur-2xl animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+          <div className="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-20 fill-gray-900/50">
+              <path
+                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                opacity=".25"
+              ></path>
+              <path
+                d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                opacity=".5"
+              ></path>
+              <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+            </svg>
+          </div>
+        </section>
+
       </div>
       <div className="flex flex-col justify-center items-center w-full min-h-screen">
         <main className="flex-1 max-w-[100%] flex justify-center  md:py-20 ">
           <div className="max-w-[80%] flex justify-center flex-col items-center px-4 md:px-6">
-            <section className="mb-12 mt-0 w-full text-start">
-              <h1 ref={headingRef} className="text-4xl text-white font-bold tracking-tighter sm:text-5xl md:text-6xl">
-              Our <span className="text-teal-500">Portfolio</span>
-              </h1>
-            </section>
 
-        
+
+
 
             {renderImageGallery("website", websiteSectionRef)}
             {renderImageGallery("mobile", mobileSectionRef)}

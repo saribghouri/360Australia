@@ -22,7 +22,7 @@ export default function DigitalSolutionsSection() {
   const sectionRef = useRef(null)
   const cardRefs = useRef([])
 
-   const services = [
+  const services = [
     {
       icon: Code,
       title: "iOS & Android Development",
@@ -97,14 +97,14 @@ export default function DigitalSolutionsSection() {
       >
         <div className="container px-4 md:px-6 text-start max-w-9xl mx-auto mb-20">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            <span className="">MOBILE  </span> <br></br>
+            <span className="">MOBILE APP  </span> <br></br>
             <h1 className="mt-[10px]">
 
-            <span></span>APP<span className="text-teal-400 mt-[10px]"> DEVELOPMENT </span>
+              <span className="text-teal-400 mt-[10px]"> DEVELOPMENT </span>
             </h1>
           </h1>
           <p className="text-lg md:text-xl text-white leading-relaxed">
-           Tap into growth with an app. At 360 Australia, we build easy-to-use native and hybrid apps that work smoothly on any device. Whether it’s booking, browsing, or buying, we turn your ideas into smart, real-world solutions that your customers will love.
+            Tap into growth with an app. At 360 Australia, we build easy-to-use native and hybrid apps that work smoothly on any device. Whether it’s booking, browsing, or buying, we turn your ideas into smart, real-world solutions that your customers will love.
 
           </p>
         </div>
@@ -121,7 +121,7 @@ export default function DigitalSolutionsSection() {
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/360_F_243368800_iYenQw8k85GTsJ39VHFxanBkj3MQxzKW.jpg')`,
               }}
             >
-             <div className={`p-[7px] border-3 rounded-full h-[115px] testomnial-shadows ${service.borderColor1}`}>
+              <div className={`p-[7px] border-3 rounded-full h-[115px] testomnial-shadows ${service.borderColor1}`}>
                 <div className={`p-[5px] border-3 rounded-full h-[94px] ${service.borderColor2}`}>
                   <div className="relative w-20 h-20 flex items-center justify-center rounded-full mb-6 overflow-hidden">
                     <div className="absolute inset-0 rounded-full bg-gradient-radial p- from-white/10 to-transparent" />
@@ -135,52 +135,10 @@ export default function DigitalSolutionsSection() {
           ))}
         </div>
       </section>
-    <WebDesignPortfolio/>
-    {/* <div className="max-w-8xl py-16  flex justify-center">
+      <WebDesignPortfolio />
 
-    <section class="bg-black text-white w-[70%] py-16 border rounded-2xl border-gray-700">
-  <div class="max-w-5xl mx-auto text-center">
-
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">Web Design Portfolio</h2>
-    <p class="text-gray-400 mb-10">
-      Check out some of our most recent Web Design projects in the table below
-    </p>
-
- 
-    <div class="flex flex-col md:flex-row justify-center gap-6 mb-10">
-      <img
-        src="/Minimalist Website Launch Computer Mockup Instagram Post.png"
-        alt="Portfolio Image 1"
-        class="rounded-xl shadow-lg w-full md:w-1/2 object-cover"
-      />
-      <img
-        src="/Minimalist Website Launch Computer Mockup Instagram Post.png"
-        alt="Portfolio Image 2"
-        class="rounded-xl shadow-lg w-full md:w-1/2 object-cover"
-      />
-    </div>
-
-  
-    <a
-      href="#"
-      class="inline-flex items-center gap-2 text-white border border-white hover:bg-white hover:text-black transition px-6 py-3 rounded-full"
-    >
-      View All Projects
-      <svg
-        class="w-4 h-4"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        viewBox="0 0 24 24"
-      >
-        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-      </svg>
-    </a>
-  </div>
-</section>
-    </div> */}
-    <ProjectCTASection/>
-    <Footer/>
+      <ProjectCTASection />
+      <Footer />
     </>
   )
 }

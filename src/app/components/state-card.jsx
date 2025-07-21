@@ -2,6 +2,9 @@
 import { ChevronDown } from "lucide-react"
 import { useState } from "react"
 import { Flex, Select } from 'antd';
+import PhoneInput from "react-phone-input-2"
+import 'react-phone-input-2/lib/style.css'
+import 'antd/dist/reset.css';
 // Simplified list of country codes for demonstration
 // In a production application, you might fetch this from an API or use a more comprehensive library.
 const countryCodes = [
@@ -108,31 +111,16 @@ export default function ContactForm() {
               <div className="flex items-center form-border">
                 {" "}
                 {/* Wrapper for combined input styling */}
-                <select
-                  id="country-code"
-                  value={countryCode}
-                  onChange={(e) => setCountryCode(e.target.value)}
-                  onFocus={() => setIsPhoneActive(true)} // Set active when select is focused
-                  onBlur={() => setIsPhoneActive(false)} // Set inactive when select loses focus
-                  className="bg-transparent text-white py-4 pl-2 pr-1  focus:outline-none rounded-l-md"
-                >
-                  {countryCodes.map((country) => (
-                    <option key={country.code} value={country.dial_code} className="bg-black text-white">
-                      {country.dial_code} ({country.code})
-                    </option>
-                  ))}
-                </select>
-                <input
-                  id="phone"
-                  type="number"
+
+                <PhoneInput
+                  country={"au"}
                   value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  onFocus={() => setIsPhoneActive(true)}
-                  onBlur={() => setIsPhoneActive(false)}
-                  placeholder=""
-                  className="flex-1 px-2 py-4 bg-transparent text-white focus:outline-none rounded-r-md"
-                  required
+                  onChange={setPhone}
+                  containerClass="w-full"
+                  inputClass="w-full"
+                  buttonClass=""
                 />
+
               </div>
             </div>
             {/* Email Input */}
@@ -162,11 +150,11 @@ export default function ContactForm() {
               />
             </div>
             {/* Service Dropdown */}
-        <div className="relative w-full max-w-lg">
-      <label htmlFor="service" className="sr-only">
-        Select Service
-      </label>
-      {/* <select
+            <div className="relative w-full max-w-lg">
+              <label htmlFor="service" className="sr-only">
+                Select Service
+              </label>
+              {/* <select
         id="service"
         value={service}
         onChange={(e) => setService(e.target.value)}
@@ -201,37 +189,37 @@ export default function ContactForm() {
           Data Analytics
         </option>
       </select> */}
-       <Flex gap={8}>
-      <Select
-        placeholder="Underlined"
-        variant="underlined"
-        style={{
-          flex: 1,
-          backgroundColor: 'transparent',
-          borderBottom: '1px solid #1becdb',
-          color: 'white',
-        }}
-        dropdownStyle={{
-          backgroundColor: 'black',
-        }}
-        popupMatchSelectWidth={false}
-        dropdownRender={(menu) => (
-          <div style={{ backgroundColor: 'black' }}>{menu}</div>
-        )}
-        options={[
-          { value: 'website developement', label: 'website developement' },
-          { value: 'mobile app developement', label: 'mobile app developement' },
-          { value: 'digital marketing', label: 'digital marketing' },
-          { value: 'graphic design', label: 'graphic design' },
-          { value: 'video animation', label: 'video animation' },
-        ]}
-        dropdownClassName="custom-select-dropdown bg-transparent"
-      />
-    </Flex>
-      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
-        <ChevronDown className="h-4 w-4" />
-      </div>
-    </div>
+              <Flex gap={8}>
+                <Select
+                  placeholder="Underlined"
+                  variant="underlined"
+                  style={{
+                    flex: 1,
+                    backgroundColor: 'transparent',
+                    borderBottom: '1px solid #1becdb',
+                    color: 'white',
+                  }}
+                  dropdownStyle={{
+                    backgroundColor: 'black',
+                  }}
+                  popupMatchSelectWidth={false}
+                  dropdownRender={(menu) => (
+                    <div style={{ backgroundColor: 'black' }}>{menu}</div>
+                  )}
+                  options={[
+                    { value: 'website developement', label: 'website developement' },
+                    { value: 'mobile app developement', label: 'mobile app developement' },
+                    { value: 'digital marketing', label: 'digital marketing' },
+                    { value: 'graphic design', label: 'graphic design' },
+                    { value: 'video animation', label: 'video animation' },
+                  ]}
+                  dropdownClassName="custom-select-dropdown bg-transparent"
+                />
+              </Flex>
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+                <ChevronDown className="h-4 w-4" />
+              </div>
+            </div>
             <div className="flex justify-center">
               <button
                 type="submit"

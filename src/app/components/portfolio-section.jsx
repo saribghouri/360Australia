@@ -207,6 +207,9 @@ export default function PortfolioSection() {
             <ChevronRight className="w-8 h-8" />
           </button>
         </div>
+        <button onClick={() => router.push('/portfolio')}className="bg-teal-500 text-black px-[20px] py-[10px] cursor-pointer rounded-[7px]">
+          View More
+        </button>
         <div className="flex justify-center mt-8 gap-2">
           {portfolioItems.map((_, index) => (
             <span

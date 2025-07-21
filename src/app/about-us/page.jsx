@@ -257,7 +257,7 @@ export default function AboutUsSections() {
                 >
                   <div className="absolute inset-0 bg-black/70" aria-hidden="true"></div>
                   <div className="relative z-10  py-[30px] ">
-                    <h2 className="text-4xl font-bold mb-4">Our Vision:</h2>
+                    <h2 className="text-4xl font-bold mb-4">Our   <span className="text-teal-400"> Vision:</span> </h2>
                     <p className="text-lg">
                       Our vision is to become the most trusted name for digital services. We aim to create strategies that turn
                       ideas into success stories by staying ahead of trends and embracing innovation. We’re here to set new
@@ -273,7 +273,7 @@ export default function AboutUsSections() {
                 >
                   <div className="absolute inset-0 bg-black/70" aria-hidden="true"></div>
                   <div className="relative z-10 py-[30px] ">
-                    <h2 className="text-4xl font-bold mb-4">Mission:</h2>
+                    <h2 className="text-4xl font-bold mb-4"> Our <span className="text-teal-400"> Mission:</span></h2>
                     <p className="text-lg">
                       Our mission is to promote all kinds of businesses to stand out in the digital World. We create smart
                       solutions to help them grow, build their brand, and connect with customers. We’re all about great service,

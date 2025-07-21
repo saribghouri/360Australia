@@ -155,12 +155,11 @@ export default function WebDesignPortfolio() {
           <div className="flex justify-center mt-12 relative z-10">
             <Link href="#" passHref ref={buttonRef} asChild>
               <motion.button
-                className="group relative border qr-code border-teal-500 bg-black text-white px-6 py-4 rounded-[30px] font-bold text-xl flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl "
-                whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(16, 212, 196, 0.4)" }}
+                className="group relative border cursor-pointer qr-code border-teal-500 bg-black text-white px-6 py-4 rounded-[30px] font-bold text-xl flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl "
                 whileTap={{ scale: 0.95 }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
+                  className="absolute inset-0"
                   initial={{ x: "-100%" }}
                   whileHover={{ x: "100%" }}
                   transition={{ duration: 0.6 }}

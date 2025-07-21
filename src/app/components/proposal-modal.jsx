@@ -45,7 +45,7 @@ export function RequestProposalModal({ isOpen, onClose }) {
         >
             {/* Header */}
             <div className="text-center mb-6">
-                <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-black mb-2">
+                <h2 className="text-4xl !font-bold text-transparent uppercase bg-clip-text bg-gradient-to-r from-black to-black mb-2">
                     Request a Proposal
                 </h2>
             </div>
@@ -160,17 +160,16 @@ export function RequestProposalModal({ isOpen, onClose }) {
                 </div>
                 <motion.button
                     type="submit"
-                    className="group relative border border-teal-500 bg-teal-500 text-white px-8 py-4 rounded-lg font-bold text-lg flex items-center justify-center gap-2 w-full overflow-hidden shadow-xl"
-                    whileHover={{ scale: 1.02, boxShadow: "0 15px 30px -8px rgba(16, 212, 196, 0.4)" }}
+                    className="group relative border cursor-pointer border-teal-500 bg-teal-500 text-white px-8 py-4 rounded-lg font-bold text-lg flex items-center justify-center gap-2 w-full overflow-hidden shadow-xl"
                     whileTap={{ scale: 0.98 }}
                 >
                     <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
+                        className="absolute inset-0 "
                         initial={{ x: "-100%" }}
                         whileHover={{ x: "100%" }}
                         transition={{ duration: 0.6 }}
                     />
-                    <span className="relative z-10 text-[22px]">Submit Proposal Request</span>
+                    <span className="relative z-10 text-[24px] ">Submit Proposal Request</span>
                     <ArrowRight className="h-5 w-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
                 </motion.button>
             </form>

@@ -36,7 +36,7 @@ const Header = () => {
         { title: "eCommerce (Shopify/WooCommerce)" },
         { title: "Web App Development" },
         { title: "Landing Pages" },
-        { title: "Maintenance & Speed Optimisation" },
+       
       ],
     },
     {

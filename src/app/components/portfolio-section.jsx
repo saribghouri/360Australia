@@ -1,9 +1,7 @@
 "use client"
-
 import { useState, useEffect, useRef, useCallback } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 export default function PortfolioSection() {
@@ -17,12 +15,13 @@ export default function PortfolioSection() {
     setIsVisible(true)
   }, [])
 
+
   const portfolioItems = [
-    { id: 1, category: "WEB APPLICATION", image: "/1 organic food copy.jpg", title: "WEB APPLICATION", hasOverlay: true },
-    { id: 2, category: "MOBILE APPLICATION", image: "/2 Lewis Nathenlel copy.jpg", title: "MOBILE APPLICATION", hasOverlay: true },
-    { id: 3, category: "GRAHPIC DESIGN", image: "/3 tea copy.jpg", title: "GRAHPIC DESIGN", hasOverlay: true },
-    { id: 4, category: "DIGITAL MARKETING", image: "/5 fenty beauty.jpg", title: "DIGITAL MARKETING", hasOverlay: true },
-    { id: 5, category: "VIDEO & ANIMATION", image: "/4 blaster sound copy.jpg", title: "VIDEO & ANIMATION", hasOverlay: true },
+    { id: 1, image: "/1 organic food copy.jpg", hasOverlay: true },
+    { id: 2, image: "/2 Lewis Nathenlel copy.jpg", hasOverlay: true },
+    { id: 3, image: "/3 tea copy.jpg", hasOverlay: true },
+    { id: 4, image: "/5 fenty beauty.jpg", hasOverlay: true },
+    { id: 5, image: "/4 blaster sound copy.jpg", hasOverlay: true },
 
   ]
 
@@ -47,12 +46,10 @@ export default function PortfolioSection() {
       const carousel = carouselRef.current
       const originalContentWidth = carousel.scrollWidth / 2
       const normalizedScrollLeft = carousel.scrollLeft % originalContentWidth
-
       // Estimate average item width including gap for dot calculation
       // This assumes items are roughly equally spaced.
       const itemFullWidthAverage = originalContentWidth / portfolioItems.length
       const newIndex = Math.floor(normalizedScrollLeft / itemFullWidthAverage)
-
       if (newIndex !== currentDotIndex) {
         setCurrentDotIndex(newIndex)
       }
@@ -91,7 +88,6 @@ export default function PortfolioSection() {
   }, [autoScroll, handleScroll])
 
   const scrollAmount = 300 // Pixels to scroll per click
-
   const scrollLeft = () => {
     if (carouselRef.current) {
       const carousel = carouselRef.current
@@ -117,7 +113,9 @@ export default function PortfolioSection() {
   }
 
   const handleViewMore = (item) => {
-    router.push(`/portfolio?category=${encodeURIComponent(item.category)}&id=${item.id}`)
+    // Assuming a category might be derived or passed, for now, it's undefined.
+    // If category is not needed, simplify the push path.
+    router.push(`/portfolio?category=${encodeURIComponent(item.category || "all")}&id=${item.id}`)
   }
 
   return (
@@ -168,14 +166,6 @@ export default function PortfolioSection() {
                   className="object-cover duration-500 group-hover:scale-110"
                   sizes="(max-width: 640px) 356px, 388px"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-90 transition-opacity duration-300">
-                  <div className="absolute inset-0 flex items-center justify-center p-4">
-                    <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                      <h3 className="text-lg sm:text-xl font-semibold mb-2">{item.title}</h3>
-                      <p className="text-xs sm:text-sm text-gray-300">{item.category}</p>
-                    </div>
-                  </div>
-                </div>
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#10d4c4] transition-colors duration-300 rounded-lg"></div>
               </div>
             ))}
@@ -184,7 +174,7 @@ export default function PortfolioSection() {
           <button
             variant="ghost"
             size="icon"
-            className="absolute -left-20 top-1/2 -translate-y-1/2 bg-teal-500 cursor-pointer text-center  justify-center flex items-center hover:bg-teal-500 text-white rounded-full w-10 h-10 z-10"
+            className="absolute -left-20 top-1/2 -translate-y-1/2 hidden lg:flex bg-teal-500 cursor-pointer text-center justify-center items-center hover:bg-teal-500 text-white rounded-full w-10 h-10 z-10"
             onClick={scrollLeft}
             aria-label="Scroll left"
           >
@@ -194,22 +184,24 @@ export default function PortfolioSection() {
           <button
             variant="ghost"
             size="icon"
-            className="absolute -right-20 top-1/2 -translate-y-1/2 cursor-pointer bg-teal-500 text-center justify-center flex items-center hover:bg-teal-500 text-white rounded-full w-10 h-10 z-10"
+            className="absolute -right-20 top-1/2 -translate-y-1/2 cursor-pointer bg-teal-500 text-center justify-center hidden lg:flex items-center hover:bg-teal-500 text-white rounded-full w-10 h-10 z-10"
             onClick={scrollRight}
             aria-label="Scroll right"
           >
             <ChevronRight className="w-8 h-8" />
           </button>
         </div>
-        <button onClick={() => router.push('/portfolio')}className="bg-teal-500 text-black px-[20px] py-[10px] cursor-pointer rounded-[7px]">
+        <button
+          onClick={() => router.push("/portfolio")}
+          className="bg-teal-500 text-black px-[20px] py-[10px] cursor-pointer rounded-[7px]"
+        >
           View More
         </button>
         <div className="flex justify-center mt-8 gap-2">
           {portfolioItems.map((_, index) => (
             <span
-            
               key={index}
-              className={`block w-3 h-3 rounded-full transition-colors duration-300  ${
+              className={`block w-3 h-3 rounded-full transition-colors duration-300 ${
                 index === currentDotIndex ? "bg-teal-400" : "bg-gray-600"
               }`}
             />

@@ -1,20 +1,21 @@
 "use client"
+
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useState, useRef, useEffect } from "react"
-// Import the new icons
-import { ChevronDown, ChevronRight, Briefcase, Laptop, Smartphone, Megaphone, Palette, Film } from "lucide-react"
+import { ChevronDown, ChevronRight, Laptop, Smartphone, Megaphone, Palette, Film } from "lucide-react"
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [isServicesOpen, setIsServicesOpen] = useState(false)
-  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
-  const [expandedMobileService, setExpandedMobileService] = useState(null)
+  const [isServicesOpen, setIsServicesOpen] = useState(false) // For desktop mega menu
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false) // For mobile services dropdown
   const router = useRouter()
   const dropdownRef = useRef(null)
+
   const handleContactClick = () => {
     router.push("/contactsection")
   }
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -26,6 +27,7 @@ const Header = () => {
       document.removeEventListener("mousedown", handleClickOutside)
     }
   }, [])
+
   const services = [
     {
       title: "Website Development",
@@ -36,7 +38,6 @@ const Header = () => {
         { title: "eCommerce (Shopify/WooCommerce)" },
         { title: "Web App Development" },
         { title: "Landing Pages" },
-       
       ],
     },
     {
@@ -84,15 +85,17 @@ const Header = () => {
       ],
     },
   ]
-  const toggleMobileService = (index) => {
-    setExpandedMobileService(expandedMobileService === index ? null : index)
-  }
+
   return (
     <>
       <nav className="bg-black py-4 px-6 md:px-12 flex w-full mt-[-110px] border-bottom z-50 fixed items-center justify-between">
         <div className="flex items-center">
           <Link href="/" className="flex items-center ">
-            <img src="/IMG-20250710-WA0015-removebg-preview.png" alt="360 Australia Ventures Logo" className="h-24 w-20 lg:h-[86px] lg:w-[124px]" />
+            <img
+              src="/IMG-20250710-WA0015-removebg-preview.png"
+              alt="360 Australia Ventures Logo"
+              className="h-24 w-20 lg:h-[86px] lg:w-[124px]"
+            />
             <h1 className="text-white text-2xl font-bold mt-[25px]">AUSTRALIA</h1>
           </Link>
         </div>
@@ -103,18 +106,21 @@ const Header = () => {
           >
             HOME
           </Link>
-          <Link href="/about-us" className="text-white hover:text-[#10d4c4]  !text-xl transition-colors duration-300 font-medium">
+          <Link
+            href="/about-us"
+            className="text-white hover:text-[#10d4c4] !text-xl transition-colors duration-300 font-medium"
+          >
             ABOUT US
           </Link>
           <div className="relative " ref={dropdownRef}>
             <button
               onClick={() => setIsServicesOpen(!isServicesOpen)}
               onMouseEnter={() => setIsServicesOpen(true)}
-              className="!text-white hover:text-[#10d4c4] cursor-pointer  flex !text-xl transition-colors duration-300 font-medium"
+              className="!text-white hover:text-[#10d4c4] cursor-pointer flex !text-xl transition-colors duration-300 font-medium"
             >
               <span className="hover:text-[#10d4c4]">SERVICES</span>
               <ChevronDown
-                className={`w-6 h-6 transition-transform mt-[2px] ml-[4px]  duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
+                className={`w-6 h-6 transition-transform mt-[2px] ml-[4px] duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
               />
             </button>
           </div>
@@ -124,13 +130,16 @@ const Header = () => {
           >
             PORTFOLIO
           </Link>
-
-
-          <Link href="/contactsection" className="text-white hover:text-[#10d4c4] text-xl transition-colors duration-300 font-medium " onClick={handleContactClick}>
-            CONTACT US          </Link>
+          <Link
+            href="/contactsection"
+            className="text-white hover:text-[#10d4c4] text-xl transition-colors duration-300 font-medium "
+            onClick={handleContactClick}
+          >
+            CONTACT US
+          </Link>
         </div>
         <div className="md:hidden flex items-center">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-teal-500 focus:outline-none">
+          <button onClick={() => setIsOpen(!isOpen)} className="!text-teal-500 focus:outline-none">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -141,10 +150,11 @@ const Header = () => {
           </button>
         </div>
         <div
-          className={`absolute top-full left-0 w-full bg-black md:hidden transition-all duration-300 ease-in-out border-t border-teal-500/30 ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-            }`}
+          className={`absolute top-full left-0 w-full bg-black md:hidden transition-all duration-300 ease-in-out border-t border-teal-500/30 ${
+            isOpen ? "max-h-screen opacity-100 overflow-y-auto" : "max-h-0 opacity-0 overflow-hidden"
+          }`}
         >
-          <div className="flex flex-col py-4 space-y-2 max-h-96 overflow-y-auto">
+          <div className="flex flex-col py-4 space-y-2">
             <Link
               href="/"
               className="text-[#10d4c4] hover:text-white transition-colors duration-300 font-medium px-6 py-2"
@@ -162,7 +172,7 @@ const Header = () => {
             <div className="px-6">
               <button
                 onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium flex items-center justify-between w-full py-2"
+                className="!text-white !hover:text-[#10d4c4] transition-colors duration-300 font-medium flex items-center justify-between w-full py-2"
               >
                 <span>SERVICES</span>
                 <ChevronDown
@@ -170,41 +180,47 @@ const Header = () => {
                 />
               </button>
               <div
-                className={`overflow-hidden transition-all duration-300 ${isMobileServicesOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                  }`}
+                className={`transition-all duration-300 ${
+                  isMobileServicesOpen
+                    ? "max-h-[70vh] opacity-100 overflow-y-auto"
+                    : "max-h-0 opacity-0 overflow-hidden"
+                }`}
               >
-                <div className="pl-4 mt-2 space-y-2 border">
+                {/* Mobile "Mega Menu" content */}
+                <div className="grid grid-cols-1 gap-4 py-4 pl-4 border border-teal-500/20">
                   {services.map((service, index) => (
-                    <div key={index}>
-                      <button
-                        onClick={() => toggleMobileService(index)}
-                        className="flex items-center justify-between w-full text-gray-300 hover:text-[#10d4c4] transition-colors duration-200 py-2 text-sm font-medium"
+                    <div key={index} className="group">
+                      <Link
+                        href={service.href}
+                        className="block mb-2 pb-2 border-b border-teal-500/20"
+                        onClick={() => {
+                          setIsOpen(false) // Close main mobile menu
+                          setIsMobileServicesOpen(false) // Close services dropdown
+                        }}
                       >
-                        <span className="">{service.title}</span>
-                        <ChevronRight
-                          className={`w-3 h-3 transition-transform duration-200 ${expandedMobileService === index ? "rotate-90" : ""
-                            }`}
-                        />
-                      </button>
-                      <div
-                        className={`overflow-hidden transition-all duration-300 ${expandedMobileService === index ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
-                          }`}
-                      >
-                        <div className="pl-4 space-y-1">
-                          {service.subcategories.map((sub, subIndex) => (
-                            <div // Changed from Link to div
-                              key={subIndex}
-                              className="block text-gray-400 hover:text-[#10d4c4] transition-colors duration-200 py-1 text-xs"
-                              onClick={() => {
-                                setIsOpen(false)
-                                setIsMobileServicesOpen(false)
-                                setExpandedMobileService(null)
-                              }}
-                            >
-                              • {sub.title}
-                            </div>
-                          ))}
-                        </div>
+                        <h3 className="text-white font-bold text-base group-hover:text-[#10d4c4] transition-colors duration-200 flex items-center">
+                          {service.title === "Website Development" && <Laptop className="w-4 h-4 mr-2" />}
+                          {service.title === "Mobile App Development" && <Smartphone className="w-4 h-4 mr-2" />}
+                          {service.title === "Digital Marketing" && <Megaphone className="w-4 h-4 mr-2" />}
+                          {service.title === "Graphic Design" && <Palette className="w-4 h-4 mr-2" />}
+                          {service.title === "Video & Animation" && <Film className="w-4 h-4 mr-2" />}
+                          {service.title}
+                        </h3>
+                      </Link>
+                      <div className="space-y-1 pl-4">
+                        {service.subcategories.map((sub, subIndex) => (
+                          <Link
+                            key={subIndex}
+                            href={`${service.href}#${sub.title.replace(/\s+/g, "-").toLowerCase()}`}
+                            className="block text-gray-300 hover:text-[#10d4c4] text-sm py-1 transition-colors duration-200"
+                            onClick={() => {
+                              setIsOpen(false)
+                              setIsMobileServicesOpen(false)
+                            }}
+                          >
+                            • {sub.title}
+                          </Link>
+                        ))}
                       </div>
                     </div>
                   ))}
@@ -218,16 +234,13 @@ const Header = () => {
             >
               PORTFOLIO
             </Link>
-
-
             <Link
-              href="/blog"
+              href="/contactsection"
               className="text-white hover:text-[#10d4c4] transition-colors duration-300 font-medium px-6 py-2"
               onClick={handleContactClick}
             >
               CONTACT US
             </Link>
-
           </div>
         </div>
         <button
@@ -237,12 +250,13 @@ const Header = () => {
           Book A Consultation
         </button>
       </nav>
-      {/* Mega Menu - Full Width */}
+      {/* Mega Menu - Full Width (Desktop Only) */}
       <div
-        className={`fixed left-0 w-full bg-gradient-to-br from-gray-900 via-black to-gray-900 border-t border-teal-500/30 shadow-2xl transition-all duration-300 ease-in-out z-40 ${isServicesOpen
-          ? "opacity-100 visible transform translate-y-0"
-          : "opacity-0 invisible transform -translate-y-4"
-          }`}
+        className={`hidden md:block fixed left-0 w-full bg-gradient-to-br from-gray-900 via-black to-gray-900 border-t border-teal-500/30 shadow-2xl transition-all duration-300 ease-in-out z-40 ${
+          isServicesOpen
+            ? "opacity-100 visible transform translate-y-0"
+            : "opacity-0 invisible transform -translate-y-4"
+        }`}
         onMouseEnter={() => setIsServicesOpen(true)}
         onMouseLeave={() => setIsServicesOpen(false)}
       >
@@ -268,9 +282,9 @@ const Header = () => {
                 </Link>
                 <div className="space-y-2">
                   {service.subcategories.map((sub, subIndex) => (
-                    <Link // Changed from div to Link for subcategories
+                    <Link
                       key={subIndex}
-                      href={`${service.href}#${(sub.title)}`} // Dynamically generate href with hash
+                      href={`${service.href}#${sub.title.replace(/\s+/g, "-").toLowerCase()}`}
                       className="block text-gray-300 hover:text-[#10d4c4] text-sm py-1 transition-colors duration-200 hover:translate-x-1 transform"
                       onClick={() => setIsServicesOpen(false)}
                     >
@@ -286,4 +300,5 @@ const Header = () => {
     </>
   )
 }
+
 export default Header

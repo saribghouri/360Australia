@@ -64,7 +64,7 @@ export default function ContactForm() {
     }, 2000)
   }
 
-  // Helper function to determine if a field should show its label in the "active" state
+  
   const shouldShowLabel = (value, isActive) => value.length > 0 || isActive
 
   return (
@@ -98,7 +98,7 @@ export default function ContactForm() {
                 onFocus={() => setIsNameActive(true)}
                 onBlur={() => setIsNameActive(false)}
                 placeholder=""
-                className="w-full px-2 py-4 form-border text-white focus:outline-none transition-all duration-300"
+                className="w-full px-2 py-4 form-border !text-white focus:outline-none transition-all duration-300"
                 required
               />
             </div>
@@ -142,7 +142,7 @@ export default function ContactForm() {
                 onFocus={() => setIsEmailActive(true)}
                 onBlur={() => setIsEmailActive(false)}
                 placeholder=""
-                className="w-full px-2 py-4 form-border text-white focus:outline-none transition-all duration-300"
+                className="w-full px-2 py-4 form-border !text-white focus:outline-none transition-all duration-300"
                 required
               />
             </div>
@@ -172,11 +172,11 @@ export default function ContactForm() {
                     <div style={{ backgroundColor: 'black' }}>{menu}</div>
                   )}
                   options={[
-                    { value: 'website developement', label: 'website developement' },
-                    { value: 'mobile app developement', label: 'mobile app developement' },
-                    { value: 'digital marketing', label: 'digital marketing' },
-                    { value: 'graphic design', label: 'graphic design' },
-                    { value: 'video animation', label: 'video & animation' },
+                    { value: 'Website Developement', label: 'website developement'},
+                    { value: 'Mobile App Developement', label: 'mobile app developement'},
+                    { value: 'Digital Marketing', label: 'digital marketing'},
+                    { value: 'Graphic Design', label: 'Graphic Design'},
+                    { value: 'Video Animation', label: 'video & animation'},
                   ]}
                   dropdownClassName="custom-select-dropdown bg-transparent"
                 />

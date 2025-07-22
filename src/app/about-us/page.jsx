@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
-import { Button } from "antd"
+import { Button } from "antd" // Assuming Ant Design Button is used as provided
 import Header from "../components/header"
 import Footer from "../components/footer"
 import ProjectCTASection from "../components/ProjectCTASection"
@@ -9,6 +9,7 @@ export default function AboutUsSections() {
   const [isVisible, setIsVisible] = useState({})
   const [mainSectionVisible, setMainSectionVisible] = useState(false)
   const [activeStep, setActiveStep] = useState("growth")
+
   // Create individual refs for each section
   const headerRef = useRef(null)
   const contentRef = useRef(null)
@@ -85,7 +86,7 @@ export default function AboutUsSections() {
       <div className="mt-[100px]">
         <Header />
       </div>
-      <section className="bg-black text-white px-4 md:px-6 lg:px-8 overflow-hidden">
+      <section className="bg-black text-white  md:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-[90%] mx-auto">
           <section className="bg-transparent text-white py-16 px-6 lg:px-8 relative ">
             {/* Background geometric pattern */}
@@ -108,16 +109,16 @@ export default function AboutUsSections() {
                   <Button
                     asChild
                     href="#contact"
-                    className="inline-block !bg-teal-500 !text-white project-action !hover:text-cyan-300 !font-bold text-center !px-[40px] !py-[30px] !text-[24px] !border-none !hover:border-white transition-all duration-300 pb-1 cursor-pointer rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2"
+                    className="inline-block !bg-teal-500 !text-white project-action !hover:text-cyan-300 !font-bold text-center !px-[20px] !py-[15px] !text-[18px] sm:!px-[40px] sm:!py-[30px] sm:!text-[24px] !border-none !hover:border-white transition-all duration-300 pb-1 cursor-pointer rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2"
                   >
                     START YOUR PROJECT NOW
                   </Button>
                 </div>
                 {/* Right Stats */}
                 <div className="bg-transparent min-h-auto flex items-center justify-center p-8">
-                  <div className="relative w-full max-w-2xl h-[600px] lg:h-[400px] mx-auto flex flex-col items-center justify-center gap-8 lg:block">
+                  <div className="relative w-full max-w-2xl h-auto lg:h-[400px] mx-auto flex flex-col items-center justify-center gap-8 lg:block">
                     {/* 170+ Worldwide Clients */}
-                    <div className="relative w-64 h-64 transform rotate-45 rounded-2xl bg-black border-2 border-teal-400/40 flex items-center justify-center overflow-hidden mx-auto lg:absolute lg:top-[70px] lg:left-[20px]">
+                    <div className="relative w-48 h-48 sm:w-64 sm:h-64 transform rotate-45 rounded-2xl bg-black border-2 border-teal-400/40 flex items-center justify-center overflow-hidden mx-auto lg:absolute lg:top-[70px] lg:left-[20px]">
                       {/* Corner diagonal lines */}
                       <div className="absolute inset-0">
                         <div className="absolute top-0 left-0 w-16 h-16">
@@ -145,7 +146,7 @@ export default function AboutUsSections() {
                       </div>
                     </div>
                     {/* 45+ Team Members */}
-                    <div className="relative w-64 h-64 transform rounded-2xl rotate-45 bg-black border-2 border-teal-400/40 flex items-center justify-center overflow-hidden mx-auto lg:absolute lg:top-1/2 lg:right-[20px] lg:-translate-y-1/2">
+                    <div className="relative w-48 h-48 sm:w-64 sm:h-64 transform rounded-2xl rotate-45 bg-black border-2 border-teal-400/40 flex items-center justify-center overflow-hidden mx-auto lg:absolute lg:top-1/2 lg:right-[20px] lg:-translate-y-1/2">
                       {/* Corner diagonal lines */}
                       <div className="absolute inset-0">
                         <div className="absolute top-0 left-0 w-16 h-16">
@@ -173,7 +174,7 @@ export default function AboutUsSections() {
                       </div>
                     </div>
                     {/* 990+ Completed Projects */}
-                    <div className="relative w-64 h-64 transform rotate-45 rounded-2xl bg-black border-2 border-teal-400/40 flex items-center justify-center overflow-hidden mx-auto lg:absolute lg:bottom-[-150px] lg:left-1/2 lg:-translate-x-1/2">
+                    <div className="relative w-48 h-48 sm:w-64 sm:h-64 transform rotate-45 rounded-2xl bg-black border-2 border-teal-400/40 flex items-center justify-center overflow-hidden mx-auto lg:absolute lg:bottom-[-150px] lg:left-1/2 lg:-translate-x-1/2">
                       {/* Corner diagonal lines */}
                       <div className="absolute inset-0">
                         <div className="absolute top-0 left-0 w-16 h-16">
@@ -307,8 +308,8 @@ export default function AboutUsSections() {
             </div>
           </section>
         </div>
-             <ProjectCTASection />
-      <Footer />
+        <ProjectCTASection />
+        <Footer />
       </section>
       <style jsx>{`
         @keyframes float {

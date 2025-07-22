@@ -1,65 +1,75 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react";
 
-import { Code, ShoppingCart, Laptop, LayoutTemplate, Gauge, WorkflowIcon as Wordpress } from "lucide-react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { Button } from "antd"
-import Header from "../../components/header"
-import ProjectCTASection from "../../components/ProjectCTASection"
-import Footer from "../../components/footer"
+import {
+  Code,
+  ShoppingCart,
+  Laptop,
+  LayoutTemplate,
+  Gauge,
+  WorkflowIcon as Wordpress,
+} from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Button } from "antd";
+import Header from "../../components/header";
+import ProjectCTASection from "../../components/ProjectCTASection";
+import Footer from "../../components/footer";
 
-import WebDesignPortfolio from "../../components/web-portfolio"
+import WebDesignPortfolio from "../../components/web-portfolio";
 
-
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default function DigitalSolutionsSection() {
-  const sectionRef = useRef(null)
-  const cardRefs = useRef([])
+  const sectionRef = useRef(null);
+  const cardRefs = useRef([]);
 
   const services = [
     {
       icon: Code,
       title: "Explainer Videos",
-      description: "We create animated explainer videos that simplify complex ideas or products.",
+      description:
+        "We create animated explainer videos that simplify complex ideas or products.",
       borderColor1: "border-white",
       borderColor2: "border-teal-300",
     },
     {
-      icon: Wordpress, 
+      icon: Wordpress,
       title: "2D/3D Animation",
-      description: "360 Australia brings concepts to life through smooth and engaging 2D or 3D animation.",
+      description:
+        "360 Australia brings concepts to life through smooth and engaging 2D or 3D animation.",
       borderColor1: "border-white",
       borderColor2: "border-teal-300",
     },
     {
-      icon: ShoppingCart, 
+      icon: ShoppingCart,
       title: "Logo Animation",
-      description: "Your brand identity gets a visual boost with clean, creative logo animations.",
+      description:
+        "Your brand identity gets a visual boost with clean, creative logo animations.",
       borderColor1: "border-white",
       borderColor2: "border-teal-300",
     },
     {
-      icon: Laptop, 
+      icon: Laptop,
       title: "Product & Promo Videos",
-      description: "Engaging visuals that highlight your products and help drive customer interest and sales.",
+      description:
+        "Engaging visuals that highlight your products and help drive customer interest and sales.",
       borderColor1: "border-white",
       borderColor2: "border-teal-300",
     },
     {
       icon: LayoutTemplate,
       title: "Video Editing",
-      description: "Turning raw footage into smooth, professional videos that leave a strong impression. ",
+      description:
+        "Turning raw footage into smooth, professional videos that leave a strong impression. ",
       borderColor1: "border-white",
       borderColor2: "border-teal-300",
     },
-  
-  ]
+  ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -77,17 +87,17 @@ export default function DigitalSolutionsSection() {
             start: "top 75%",
             toggleActions: "play none none none",
           },
-        },
-      )
-    }, sectionRef)
-    return () => ctx.revert()
-  }, [])
+        }
+      );
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
-      <div className="mt-[110px]">
+      {/* <div className="mt-[110px]">
         <Header />
-      </div>
+      </div> */}
       <section
         ref={sectionRef}
         className="w-full py-12 md:py-24 lg:py-32 bg-[#000] text-white"
@@ -97,12 +107,14 @@ export default function DigitalSolutionsSection() {
       >
         <div className="container px-4 md:px-6 text-start max-w-9xl mx-auto mb-20">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            <span className="">Videos &  </span> <br></br>
-          <span className="text-teal-400"> Animation </span>
+            <span className="">Videos & </span> <br></br>
+            <span className="text-teal-400"> Animation </span>
           </h1>
           <p className="text-lg md:text-xl text-white leading-relaxed">
-            We’re all about bringing your brand to life with creative videos and animations that speak louder than words. Whether it’s a punchy promo, a simple explainer, or something to build awareness, we’ll make sure your message hits the mark and gets noticed.
-
+            We’re all about bringing your brand to life with creative videos and
+            animations that speak louder than words. Whether it’s a punchy
+            promo, a simple explainer, or something to build awareness, we’ll
+            make sure your message hits the mark and gets noticed.
           </p>
         </div>
         <div className="container px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 max-w-8xl mx-auto">
@@ -110,7 +122,7 @@ export default function DigitalSolutionsSection() {
             <div
               key={index}
               ref={(el) => {
-                if (el) cardRefs.current[index] = el
+                if (el) cardRefs.current[index] = el;
               }}
               className="bg-[#000000] px-8 pt-[40px] rounded-lg h-[400px] shadow-lg flex flex-col items-center text-center testomnial-shadows"
               style={{
@@ -118,21 +130,29 @@ export default function DigitalSolutionsSection() {
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/360_F_243368800_iYenQw8k85GTsJ39VHFxanBkj3MQxzKW.jpg')`,
               }}
             >
-              <div className={`p-[7px] border-3 rounded-full h-[115px] testomnial-shadows ${service.borderColor1}`}>
-                <div className={`p-[5px] border-3 rounded-full h-[94px] ${service.borderColor2}`}>
+              <div
+                className={`p-[7px] border-3 rounded-full h-[115px] testomnial-shadows ${service.borderColor1}`}
+              >
+                <div
+                  className={`p-[5px] border-3 rounded-full h-[94px] ${service.borderColor2}`}
+                >
                   <div className="relative w-20 h-20 flex items-center justify-center rounded-full mb-6 overflow-hidden">
                     <div className="absolute inset-0 rounded-full bg-gradient-radial p- from-white/10 to-transparent" />
                     <service.icon className="w-12 h-12 text-white z-10" />
                   </div>
                 </div>
               </div>
-              <h3 className="text-3xl font-bold mb-3 mt-8">{service.title}</h3>
-              <p className="text-white mb-8 text-xl leading-relaxed mt-8">{service.description}</p>
+              <h3 className="text-3xl font-bold !mb-3 !mt-8">
+                {service.title}
+              </h3>
+              <p className="text-white mb-8 text-xl leading-relaxed mt-8">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
       </section>
-   {/* <WebDesignPortfolio/> */}
+      {/* <WebDesignPortfolio/> */}
       {/* <div className="max-w-8xl py-16  flex justify-center">
 
     <section class="bg-black text-white w-[70%] py-16 border rounded-2xl border-gray-700">
@@ -179,5 +199,5 @@ export default function DigitalSolutionsSection() {
       <ProjectCTASection />
       <Footer />
     </>
-  )
+  );
 }

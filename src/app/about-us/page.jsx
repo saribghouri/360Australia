@@ -1,62 +1,62 @@
-"use client"
-import { useEffect, useRef, useState } from "react"
-import { Button } from "antd" // Assuming Ant Design Button is used as provided
-import Header from "../components/header"
-import Footer from "../components/footer"
-import ProjectCTASection from "../components/ProjectCTASection"
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { Button } from "antd"; // Assuming Ant Design Button is used as provided
+import Header from "../components/header";
+import Footer from "../components/footer";
+import ProjectCTASection from "../components/ProjectCTASection";
 
 export default function AboutUsSections() {
-  const [isVisible, setIsVisible] = useState({})
-  const [mainSectionVisible, setMainSectionVisible] = useState(false)
-  const [activeStep, setActiveStep] = useState("growth")
+  const [isVisible, setIsVisible] = useState({});
+  const [mainSectionVisible, setMainSectionVisible] = useState(false);
+  const [activeStep, setActiveStep] = useState("growth");
 
   // Create individual refs for each section
-  const headerRef = useRef(null)
-  const contentRef = useRef(null)
-  const mainSectionRef = useRef(null)
+  const headerRef = useRef(null);
+  const contentRef = useRef(null);
+  const mainSectionRef = useRef(null);
 
   // Main section intersection observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setMainSectionVisible(true)
+          setMainSectionVisible(true);
         }
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
     if (mainSectionRef.current) {
-      observer.observe(mainSectionRef.current)
+      observer.observe(mainSectionRef.current);
     }
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   // Multiple sections intersection observer
   useEffect(() => {
-    const observers = []
+    const observers = [];
     const createObserver = (key, element) => {
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
-            setIsVisible((prev) => ({ ...prev, [key]: true }))
+            setIsVisible((prev) => ({ ...prev, [key]: true }));
           }
         },
-        { threshold: 0.1, rootMargin: "50px" },
-      )
-      observer.observe(element)
-      observers.push(observer)
-    }
+        { threshold: 0.1, rootMargin: "50px" }
+      );
+      observer.observe(element);
+      observers.push(observer);
+    };
     // Observe header and content sections
     if (headerRef.current) {
-      createObserver("header", headerRef.current)
+      createObserver("header", headerRef.current);
     }
     if (contentRef.current) {
-      createObserver("content", contentRef.current)
+      createObserver("content", contentRef.current);
     }
     return () => {
-      observers.forEach((observer) => observer.disconnect())
-    }
-  }, [])
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, []);
 
   const stepsData = [
     {
@@ -79,18 +79,15 @@ export default function AboutUsSections() {
       title: "Passion",
       description: "Passionate about achieving excellence.",
     },
-  ]
+  ];
 
   return (
     <>
-      <div className="mt-[100px]">
-        <Header />
-      </div>
       <section className="bg-black text-white  md:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-[90%] mx-auto">
           <section className="bg-transparent text-white py-16 px-6 lg:px-8 relative ">
             {/* Background geometric pattern */}
-            <div className="max-w-8xl first-section mx-auto relative z-10 mt-[80px]">
+            <div className="max-w-8xl first-section mx-auto relative z-10 mt-[110px]">
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 ">
                 {/* Left Content */}
                 <div className="space-y-6">
@@ -98,16 +95,20 @@ export default function AboutUsSections() {
                     ABOUT <span className="text-teal-400">US</span>
                   </h2>
                   <p className="text-gray-300 text-xl leading-relaxed ">
-                    360 Australia is your trusted digital partner, helping businesses grow, succeed, and stand out
-                    online. For years, we’ve worked with startups, small businesses, and established brands, turning
-                    ideas into digital success. We build strong partnerships, craft tailored strategies, and help
-                    businesses overcome challenges to reach their goals. From boosting your social presence to driving
-                    more engagement, we cover everything so your products and services reach the right audience. With a
-                    client-first approach and a proven track record of success, we’re here to help your business expand
-                    in the digital world.
+                    360 Australia is your trusted digital partner, helping
+                    businesses grow, succeed, and stand out online. For years,
+                    we’ve worked with startups, small businesses, and
+                    established brands, turning ideas into digital success. We
+                    build strong partnerships, craft tailored strategies, and
+                    help businesses overcome challenges to reach their goals.
+                    From boosting your social presence to driving more
+                    engagement, we cover everything so your products and
+                    services reach the right audience. With a client-first
+                    approach and a proven track record of success, we’re here to
+                    help your business expand in the digital world.
                   </p>
                   <Button
-                    asChild
+                    // asChild
                     href="#contact"
                     className="inline-block !bg-teal-500 !text-white project-action !hover:text-cyan-300 !font-bold text-center !px-[20px] !py-[15px] !text-[18px] sm:!px-[40px] sm:!py-[30px] sm:!text-[24px] !border-none !hover:border-white transition-all duration-300 pb-1 cursor-pointer rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2"
                   >
@@ -142,7 +143,9 @@ export default function AboutUsSections() {
                         <div className="text-7xl font-bold mb-2">
                           170<span className="text-5xl">+</span>
                         </div>
-                        <div className="text-gray-300 text-lg font-medium">Worldwide Clients</div>
+                        <div className="text-gray-300 text-lg font-medium">
+                          Worldwide Clients
+                        </div>
                       </div>
                     </div>
                     {/* 45+ Team Members */}
@@ -170,7 +173,9 @@ export default function AboutUsSections() {
                         <div className="text-7xl font-bold mb-2">
                           45<span className="text-5xl">+</span>
                         </div>
-                        <div className="text-gray-300 text-lg font-medium">Team Members</div>
+                        <div className="text-gray-300 text-lg font-medium">
+                          Team Members
+                        </div>
                       </div>
                     </div>
                     {/* 990+ Completed Projects */}
@@ -198,7 +203,9 @@ export default function AboutUsSections() {
                         <div className="text-7xl font-bold mb-2">
                           990<span className="text-5xl">+</span>
                         </div>
-                        <div className="text-gray-300 text-lg font-medium">Completed Projects</div>
+                        <div className="text-gray-300 text-lg font-medium">
+                          Completed Projects
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -218,35 +225,50 @@ export default function AboutUsSections() {
                 {/* Our Vision Section (Left) */}
                 <div
                   className="relative overflow-hidden rounded-lg bg-cover bg-center bg-no-repeat p-8 border border-teal-400 testomnial-shadows text-white shadow-lg"
-                  style={{ backgroundImage: `url('/navy-blue-futuristic-technology-linkedin-260nw-2358315107.png')` }}
+                  style={{
+                    backgroundImage: `url('/navy-blue-futuristic-technology-linkedin-260nw-2358315107.png')`,
+                  }}
                 >
-                  <div className="absolute inset-0 bg-black/70" aria-hidden="true"></div>
+                  <div
+                    className="absolute inset-0 bg-black/70"
+                    aria-hidden="true"
+                  ></div>
                   <div className="relative z-10 py-[30px] ">
                     <h2 className="text-4xl font-bold mb-4">
                       Our <span className="text-teal-400"> Vision:</span>{" "}
                     </h2>
                     <p className="text-lg">
-                      Our vision is to become the most trusted name for digital services. We aim to create strategies
-                      that turn ideas into success stories by staying ahead of trends and embracing innovation. We’re
-                      here to set new standards and be remembered for results that truly matter.
+                      Our vision is to become the most trusted name for digital
+                      services. We aim to create strategies that turn ideas into
+                      success stories by staying ahead of trends and embracing
+                      innovation. We’re here to set new standards and be
+                      remembered for results that truly matter.
                     </p>
                   </div>
                 </div>
                 {/* Mission Section (Right) */}
                 <div
                   className="relative overflow-hidden rounded-lg bg-cover bg-center bg-no-repeat p-8 border border-teal-400 testomnial-shadows text-white shadow-lg"
-                  style={{ backgroundImage: `url('/navy-blue-futuristic-technology-linkedin-260nw-2358315107.png')` }}
+                  style={{
+                    backgroundImage: `url('/navy-blue-futuristic-technology-linkedin-260nw-2358315107.png')`,
+                  }}
                 >
-                  <div className="absolute inset-0 bg-black/70" aria-hidden="true"></div>
+                  <div
+                    className="absolute inset-0 bg-black/70"
+                    aria-hidden="true"
+                  ></div>
                   <div className="relative z-10 py-[30px] ">
                     <h2 className="text-4xl font-bold mb-4">
                       {" "}
                       Our <span className="text-teal-400"> Mission:</span>
                     </h2>
                     <p className="text-lg">
-                      Our mission is to promote all kinds of businesses to stand out in the digital World. We create
-                      smart solutions to help them grow, build their brand, and connect with customers. We’re all about
-                      great service, unique ideas, smart technology, and a results-oriented plan to get results.
+                      Our mission is to promote all kinds of businesses to stand
+                      out in the digital World. We create smart solutions to
+                      help them grow, build their brand, and connect with
+                      customers. We’re all about great service, unique ideas,
+                      smart technology, and a results-oriented plan to get
+                      results.
                     </p>
                   </div>
                 </div>
@@ -254,9 +276,14 @@ export default function AboutUsSections() {
             </div>
             <div
               className="relative overflow-hidden rounded-lg bg-cover bg-center bg-no-repeat p-8 border border-teal-400 testomnial-shadows text-white shadow-lg hidden md:block" // Added hidden md:block here
-              style={{ backgroundImage: `url('/navy-blue-futuristic-technology-linkedin-260nw-2358315107.png')` }}
+              style={{
+                backgroundImage: `url('/navy-blue-futuristic-technology-linkedin-260nw-2358315107.png')`,
+              }}
             >
-              <div className="absolute inset-0 bg-black/70" aria-hidden="true"></div>
+              <div
+                className="absolute inset-0 bg-black/70"
+                aria-hidden="true"
+              ></div>
               <div className="flex flex-col justify-center items-center py-8 px-4 bg-none relative z-10">
                 <h2 className="text-5xl font-bold text-white mb-16 text-center">
                   Our <span className="text-teal-400">Values</span>
@@ -271,7 +298,9 @@ export default function AboutUsSections() {
                     >
                       <h3
                         className={`text-[30px] font-semibold flex items-start text-white transition-all mb-[20px] duration-300 ease-in-out mt-4 ${
-                          activeStep === step.id ? "-translate-y-10 text-blue-800" : ""
+                          activeStep === step.id
+                            ? "-translate-y-10 text-blue-800"
+                            : ""
                         }`}
                       >
                         {step.title}
@@ -279,7 +308,9 @@ export default function AboutUsSections() {
                       {/* Stepper line and dot container */}
                       <div className="relative z-10 flex items-center justify-center w-full">
                         {/* Line before the dot (except for the first one) */}
-                        {index > 0 && <div className="h-px bg-gray-300 flex-1 -mr-2" />}
+                        {index > 0 && (
+                          <div className="h-px bg-gray-300 flex-1 -mr-2" />
+                        )}
                         {/* Dot and concentric circles */}
                         <div className="relative w-5 h-5 rounded-full bg-teal-500 flex items-center justify-center shrink-0">
                           {activeStep === step.id && (
@@ -291,12 +322,16 @@ export default function AboutUsSections() {
                           )}
                         </div>
                         {/* Line after the dot (except for the last one) */}
-                        {index < stepsData.length - 1 && <div className="h-px bg-gray-300 flex-1 -ml-2" />}
+                        {index < stepsData.length - 1 && (
+                          <div className="h-px bg-gray-300 flex-1 -ml-2" />
+                        )}
                       </div>
                       {/* Description - positioned below dot, appears on hover */}
                       <p
                         className={`text-lg text-white transition-all text-center duration-300 ease-in-out mt-[30px] overflow-hidden ${
-                          activeStep === step.id ? "opacity-100 max-h-20 mt-2" : "opacity-0 max-h-0"
+                          activeStep === step.id
+                            ? "opacity-100 max-h-20 mt-2"
+                            : "opacity-0 max-h-0"
                         }`}
                       >
                         {step.description}
@@ -333,10 +368,16 @@ export default function AboutUsSections() {
         @keyframes glow {
           0%,
           100% {
-            text-shadow: 0 0 5px #06b6d4, 0 0 10px #06b6d4, 0 0 15px #06b6d4;
+            text-shadow:
+              0 0 5px #06b6d4,
+              0 0 10px #06b6d4,
+              0 0 15px #06b6d4;
           }
           50% {
-            text-shadow: 0 0 10px #06b6d4, 0 0 20px #06b6d4, 0 0 30px #06b6d4;
+            text-shadow:
+              0 0 10px #06b6d4,
+              0 0 20px #06b6d4,
+              0 0 30px #06b6d4;
           }
         }
         @keyframes pulse-slow {
@@ -412,5 +453,5 @@ export default function AboutUsSections() {
         }
       `}</style>
     </>
-  )
+  );
 }

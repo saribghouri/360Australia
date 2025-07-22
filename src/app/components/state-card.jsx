@@ -1,54 +1,81 @@
-"use client"
+"use client";
 
-import { ChevronDown } from "lucide-react"
-import { useState, useEffect } from "react"
-import { Flex, Select } from "antd"
-import PhoneInput from "react-phone-input-2"
-import "react-phone-input-2/lib/style.css"
-import "antd/dist/reset.css"
-import { useActionState } from "react"
-import { sendContactEmail } from "../components/send-email" 
+import { ChevronDown } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Flex, Select } from "antd";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import "antd/dist/reset.css";
+import { useActionState } from "react";
+import { sendEmail } from "../../lib/utils";
 
 export default function ContactForm() {
-  const [state, formAction] = useActionState(sendContactEmail, {
-    success: false,
-    message: "",
-  })
+  const [state, formAction] = useActionState(
+    async (prevState, formData) => {
+      const name = formData.get("name");
+      const fullPhoneNumber = formData.get("fullPhoneNumber");
+      const email = formData.get("email");
+      const service = formData.get("service");
 
-  const [name, setName] = useState("")
-  const [phone, setPhone] = useState("")
-  const [email, setEmail] = useState("")
-  const [service, setService] = useState("")
+      if (!name || !fullPhoneNumber || !email || !service) {
+        return { success: false, message: "All fields are required." };
+      }
+
+      try {
+        await sendEmail({
+          from_name: name,
+          from_email: email,
+          service: service,
+          phone: fullPhoneNumber,
+        });
+        alert("Thank you. I will get back to you as soon as possible.");
+      } catch (err) {
+        console.error(err);
+        alert("Ahh, something went wrong. Please try again.");
+      }
+    },
+    {
+      success: false,
+      message: "",
+    }
+  );
+
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [service, setService] = useState("");
 
   // State to track if a field is "active" (focused or has value)
-  const [isNameActive, setIsNameActive] = useState(false)
-  const [isEmailActive, setIsEmailActive] = useState(false)
-  const [isServiceActive, setIsServiceActive] = useState(false)
+  const [isNameActive, setIsNameActive] = useState(false);
+  const [isEmailActive, setIsEmailActive] = useState(false);
+  const [isServiceActive, setIsServiceActive] = useState(false);
 
   // Reset form fields and active states on successful submission
   useEffect(() => {
     if (state.success) {
-      setName("")
-      setPhone("")
-      setEmail("")
-      setService("")
-      setIsNameActive(false)
-      setIsEmailActive(false)
-      setIsServiceActive(false)
+      setName("");
+      setPhone("");
+      setEmail("");
+      setService("");
+      setIsNameActive(false);
+      setIsEmailActive(false);
+      setIsServiceActive(false);
     }
-  }, [state.success])
+  }, [state.success]);
 
-  const shouldShowLabel = (value, isActive) => value.length > 0 || isActive
+  const shouldShowLabel = (value, isActive) => value.length > 0 || isActive;
 
   return (
-    <div className="flex items-center justify-center p-4 relative overflow-hidden">
+    <div className="flex items-center justify-center p-4 relative overflow-hidden myStateCard">
       {/* Contact Form Card */}
       <div className="relative z-10 w-full max-w-md">
         <div className="bg-black/10 border border-white/60 rounded-2xl p-8 shadow-lg">
           {/* Form Title */}
-          <h1 className="text-3xl text-white font-bold text-center mb-8 tracking-wider">NEED A SERVICE</h1>
+          <h1 className="text-3xl text-white font-bold text-center mb-8 tracking-wider">
+            NEED A SERVICE
+          </h1>
           {/* Contact Form */}
-          <form action={formAction} className="space-y-6">
+          <form action={formAction} className="space-y-6 mt-8">
             {/* Name Input */}
             <div className="relative">
               <label
@@ -79,8 +106,8 @@ export default function ContactForm() {
             </div>
             {/* Phone Input with Country Code */}
             <div className="relative">
-            
-              <PhoneInput className="form-border"
+              <PhoneInput
+                className="form-border"
                 inputProps={{
                   id: "phone-input",
                   name: "fullPhoneNumber", // Name for formData
@@ -88,7 +115,9 @@ export default function ContactForm() {
                 }}
                 country={"au"}
                 value={phone}
-                onChange={(value, country, e, formattedValue) => setPhone(value)}
+                onChange={(value, country, e, formattedValue) =>
+                  setPhone(value)
+                }
                 containerClass="w-full phone-input-container"
                 inputClass="w-full phone-input-field"
                 buttonClass="phone-input-button"
@@ -96,7 +125,7 @@ export default function ContactForm() {
               />
             </div>
             {/* Email Input */}
-            <div className="relative mb-[35px]">
+            <div className="relative mb-6 mt-8">
               <label
                 htmlFor="email"
                 className={`
@@ -138,17 +167,27 @@ export default function ContactForm() {
                     flex: 1,
                     backgroundColor: "transparent",
                     color: "#fff",
-                    height: "56px", 
-                    paddingLeft: "8px", 
+                    height: "56px",
+                    paddingLeft: "8px",
                   }}
-                  dropdownStyle={{
-                    backgroundColor: "white",
+                  styles={{
+                    dropdown: {
+                      backgroundColor: "white",
+                    },
                   }}
                   popupMatchSelectWidth={false}
-                  dropdownRender={(menu) => <div style={{ backgroundColor: "white" }}>{menu}</div>}
+                  popupRender={(menu) => (
+                    <div style={{ backgroundColor: "white" }}>{menu}</div>
+                  )}
                   options={[
-                    { value: "Website Development", label: "Website Development" },
-                    { value: "Mobile App Development", label: "Mobile App Development" },
+                    {
+                      value: "Website Development",
+                      label: "Website Development",
+                    },
+                    {
+                      value: "Mobile App Development",
+                      label: "Mobile App Development",
+                    },
                     { value: "Digital Marketing", label: "Digital Marketing" },
                     { value: "Graphic Design", label: "Graphic Design" },
                     { value: "Video Animation", label: "Video & Animation" },
@@ -159,7 +198,8 @@ export default function ContactForm() {
                   onBlur={() => setIsServiceActive(false)}
                 />
               </Flex>
-              <input type="hidden" name="service" value={service} /> {/* Hidden input to pass service value */}
+              <input type="hidden" name="service" value={service} />{" "}
+              {/* Hidden input to pass service value */}
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
                 <ChevronDown className="h-4 w-4" />
               </div>
@@ -181,11 +221,15 @@ export default function ContactForm() {
               </button>
             </div>
             {state.message && (
-              <p className={`text-center mt-4 ${state.success ? "text-green-400" : "text-red-400"}`}>{state.message}</p>
+              <p
+                className={`text-center mt-4 ${state.success ? "text-green-400" : "text-red-400"}`}
+              >
+                {state.message}
+              </p>
             )}
           </form>
         </div>
       </div>
     </div>
-  )
+  );
 }

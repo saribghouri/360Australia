@@ -36,11 +36,11 @@ export default function PortfolioSection() {
   }, [])
 
   const portfolioItems = [
-    { id: 1, image: "/1-organic-food-copy.png", hasOverlay: true, title: "Organic Food" },
-    { id: 2, image: "/2-lewis-nathenlel-copy.png", hasOverlay: true, title: "Lewis Nathenlel" },
-    { id: 3, image: "/3-tea-copy.png", hasOverlay: true, title: "Tea" },
-    { id: 4, image: "/5-fenty-beauty.png", hasOverlay: true, title: "Fenty Beauty" },
-    { id: 5, image: "/4-blaster-sound-copy.png", hasOverlay: true, title: "Blaster Sound" },
+    { id: 1, image: "/1 organic food copy.jpg", hasOverlay: true, title: "Organic Food" },
+    { id: 2, image: "/2 Lewis Nathenlel copy.jpg", hasOverlay: true, title: "Lewis Nathenlel" },
+    { id: 3, image: "/3 tea copy.jpg", hasOverlay: true, title: "Tea" },
+    { id: 4, image: "/5 fenty beauty.jpg", hasOverlay: true, title: "Fenty Beauty" },
+    { id: 5, image: "/4 blaster sound copy.jpg", hasOverlay: true, title: "Blaster Sound" },
   ]
 
   // Duplicate items to create a seamless looping effect for the carousel.

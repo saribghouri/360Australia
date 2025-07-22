@@ -120,7 +120,7 @@ export default function ProjectCTASection() {
                     className="space-y-4"
                   >
                     <motion.button
-                      className="group relative border qr-code border-teal-500 bg-teal-500 text-white px-10 lg:py-5 rounded-[20px] font-bold text-xl flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl"
+                      className="group relative border qr-code border-teal-500 bg-teal-500 text-white px-10 lg:py-5 rounded-[20px] font-bold text-xl flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl cursor-pointer"
                       whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(16, 212, 196, 0.4)" }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setIsModalOpen(true)} // Open modal on click

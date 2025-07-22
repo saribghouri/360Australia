@@ -1,57 +1,67 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from "react";
 
-import { Code, ShoppingCart, Laptop, LayoutTemplate, Gauge, WorkflowIcon as Wordpress } from "lucide-react"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import { Button } from "antd"
-import Header from "../../components/header"
-import ProjectCTASection from "../../components/ProjectCTASection"
-import Footer from "../../components/footer"
-import WebDesignPortfolio from "../../components/web-portfolio"
+import {
+  Code,
+  ShoppingCart,
+  Laptop,
+  LayoutTemplate,
+  Gauge,
+  WorkflowIcon as Wordpress,
+} from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Button } from "antd";
+import Header from "../../components/header";
+import ProjectCTASection from "../../components/ProjectCTASection";
+import Footer from "../../components/footer";
+import WebDesignPortfolio from "../../components/web-portfolio";
 
-
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default function DigitalSolutionsSection() {
-  const sectionRef = useRef(null)
-  const cardRefs = useRef([])
+  const sectionRef = useRef(null);
+  const cardRefs = useRef([]);
 
   const services = [
     {
       icon: Code,
       title: "Custom Website Design",
-      description: "We create unique websites that perfectly matches your vision.",
+      description:
+        "We create unique websites that perfectly matches your vision.",
       borderColor1: "border-white",
       borderColor2: "border-teal-500",
     },
     {
       icon: Wordpress, // Changed icon
       title: "WordPress Development",
-      description: "We build easy-to-manage WordPress websites for flexible design and simple content updates.",
+      description:
+        "We build easy-to-manage WordPress websites for flexible design and simple content updates.",
       borderColor1: "border-white",
       borderColor2: "border-teal-500",
     },
-   
+
     {
       icon: LayoutTemplate, // Changed icon
       title: "Landing Pages",
-      description: "We design single-page websites to convert visitors into leads or customers. ",
+      description:
+        "We design single-page websites to convert visitors into leads or customers. ",
       borderColor1: "border-white",
       borderColor2: "border-teal-500",
     },
     {
       icon: Laptop, // Changed icon
       title: "Web Application Development",
-      description: "We build interactive web-based applications for specific business needs.",
+      description:
+        "We build interactive web-based applications for specific business needs.",
       borderColor1: "border-white",
       borderColor2: "border-teal-500",
     },
-     {
+    {
       icon: ShoppingCart, // Changed icon
       title: "eCommerce (Shopify/WooCommerce)",
       description: "Get a secure platform to sell your products effortlessly.",
@@ -61,11 +71,12 @@ export default function DigitalSolutionsSection() {
     {
       icon: Gauge, // Changed icon
       title: "Maintenance & Speed Optimisation",
-      description: "We keep your website running smoothly for the best user experience.",
+      description:
+        "We keep your website running smoothly for the best user experience.",
       borderColor1: "border-white",
       borderColor2: "border-teal-500",
     },
-  ]
+  ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -83,17 +94,17 @@ export default function DigitalSolutionsSection() {
             start: "top 75%",
             toggleActions: "play none none none",
           },
-        },
-      )
-    }, sectionRef)
-    return () => ctx.revert()
-  }, [])
+        }
+      );
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
-      <div className="mt-[110px]">
+      {/* <div className="mt-[110px]">
         <Header />
-      </div>
+      </div> */}
       <section
         ref={sectionRef}
         className="w-full py-12 md:py-24 lg:py-32 bg-[#000] text-white"
@@ -103,13 +114,15 @@ export default function DigitalSolutionsSection() {
       >
         <div className="container px-4 md:px-6 text-start max-w-9xl mx-auto mb-20">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            <span className="text-white">WEB DESIGN</span>  <br></br> 
-            <span className="text-teal-400 mt-[10px]">AND</span><span className="text-teal-400"> DEVELOPMENT </span>
+            <span className="text-white">WEB DESIGN</span> <br></br>
+            <span className="text-teal-400 mt-[10px]">AND</span>
+            <span className="text-teal-400"> DEVELOPMENT </span>
           </h1>
           <p className="text-lg md:text-xl text-white leading-relaxed">
-            Building a website is not just coding, but it’s a creative process. Our team is full of sharp, imaginative
-            minds who create unique designs for each brand. This not only helps your business stand out but also makes
-            the development process smooth and efficient.
+            Building a website is not just coding, but it’s a creative process.
+            Our team is full of sharp, imaginative minds who create unique
+            designs for each brand. This not only helps your business stand out
+            but also makes the development process smooth and efficient.
           </p>
         </div>
         <div className="container px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 max-w-8xl mx-auto">
@@ -117,7 +130,7 @@ export default function DigitalSolutionsSection() {
             <div
               key={index}
               ref={(el) => {
-                if (el) cardRefs.current[index] = el
+                if (el) cardRefs.current[index] = el;
               }}
               className="bg-[#000000] px-8 pt-[40px] rounded-lg h-[400px] shadow-lg flex flex-col items-center text-center testomnial-shadows"
               style={{
@@ -125,22 +138,30 @@ export default function DigitalSolutionsSection() {
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/360_F_243368800_iYenQw8k85GTsJ39VHFxanBkj3MQxzKW.jpg')`,
               }}
             >
-              <div className={`p-[7px] border-3 rounded-full h-[115px] testomnial-shadows ${service.borderColor1}`}>
-                <div className={`p-[5px] border-3 rounded-full h-[94px] ${service.borderColor2}`}>
+              <div
+                className={`p-[7px] border-3 rounded-full h-[115px] testomnial-shadows ${service.borderColor1}`}
+              >
+                <div
+                  className={`p-[5px] border-3 rounded-full h-[94px] ${service.borderColor2}`}
+                >
                   <div className="relative w-20 h-20 flex items-center justify-center rounded-full mb-6 overflow-hidden">
                     <div className="absolute inset-0 rounded-full bg-gradient-radial p- from-white/10 to-transparent" />
                     <service.icon className="w-12 h-12 text-white z-10" />
                   </div>
                 </div>
               </div>
-              <h3 className="text-3xl font-bold mb-3 mt-8">{service.title}</h3>
-              <p className="text-white mb-8 text-xl leading-relaxed mt-8">{service.description}</p>
+              <h3 className="text-3xl font-bold !mb-3 !mt-8">
+                {service.title}
+              </h3>
+              <p className="text-white mb-8 text-xl leading-relaxed mt-8">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
       </section>
-     <WebDesignPortfolio/>
-    {/* <div className="max-w-8xl py-16  flex justify-center">
+      <WebDesignPortfolio />
+      {/* <div className="max-w-8xl py-16  flex justify-center">
 
     <section class="bg-black text-white w-[70%] py-16 border rounded-2xl border-gray-700">
   <div class="max-w-5xl mx-auto text-center">
@@ -183,8 +204,8 @@ export default function DigitalSolutionsSection() {
   </div>
 </section>
     </div> */}
-    <ProjectCTASection/>
-    <Footer/>
+      <ProjectCTASection />
+      <Footer />
     </>
-  )
+  );
 }

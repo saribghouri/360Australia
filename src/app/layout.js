@@ -1,7 +1,9 @@
-"use client"
-import { Geist, Geist_Mono } from "next/font/google";
+"use client";
 import "./globals.css";
+import { Geist, Geist_Mono } from "next/font/google";
 import ChatButton from "./components/chatboot";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+import Header from "./components/header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,16 +15,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
-
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
-          <ChatButton/>
+        {/* 2. Pass both your RTL direction and the theme into ConfigProvider */}
+        <AntdRegistry>
+          <Header />
+          {children}
+          <ChatButton />
+        </AntdRegistry>
       </body>
     </html>
   );

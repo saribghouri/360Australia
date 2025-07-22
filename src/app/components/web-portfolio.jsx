@@ -1,19 +1,19 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import ProjectCard from "../components/project-cards" // Corrected import path
-import { usePathname } from "next/navigation" // Import usePathname for dynamic image loading
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import ProjectCard from "../components/project-cards"; // Corrected import path
+import { usePathname } from "next/navigation"; // Import usePathname for dynamic image loading
 
 export default function WebDesignPortfolio() {
-  const sectionRef = useRef(null)
-  const titleRef = useRef(null)
-  const descriptionRef = useRef(null)
-  const buttonRef = useRef(null)
-  const pathname = usePathname() // Get the current pathname
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const buttonRef = useRef(null);
+  const pathname = usePathname(); // Get the current pathname
 
   // Define image and project data mappings based on pathname segments
   // Replace these placeholder URLs with your actual image paths
@@ -31,7 +31,6 @@ export default function WebDesignPortfolio() {
         title: "SaaS Dashboard",
         description: "Intuitive analytics and user management.",
       },
-     
     ],
     "mobile-app-development": [
       {
@@ -46,7 +45,6 @@ export default function WebDesignPortfolio() {
         title: "Recipe Finder App",
         description: "Discover new recipes on the go.",
       },
-     
     ],
     "video-animation": [
       {
@@ -61,7 +59,6 @@ export default function WebDesignPortfolio() {
         title: "Product Demo Animation",
         description: "Showcasing product features.",
       },
-   
     ],
     "digital-marketing": [
       {
@@ -76,7 +73,6 @@ export default function WebDesignPortfolio() {
         title: "Product Demo Animation",
         description: "Showcasing product features.",
       },
-   
     ],
     "website-development": [
       {
@@ -91,39 +87,51 @@ export default function WebDesignPortfolio() {
         title: "Product Demo Animation",
         description: "Showcasing product features.",
       },
-   
     ],
     // Default projects if no specific path matches
-
-  }
+  };
 
   // Determine the current project type from the pathname
-  const pathSegments = pathname.split("/")
-  const lastSegment = pathSegments[pathSegments.length - 1]
-  const projectsToDisplay = projectDataMap[lastSegment ] || projectDataMap["default"]
+  const pathSegments = pathname.split("/");
+  const lastSegment = pathSegments[pathSegments.length - 1];
+  const projectsToDisplay =
+    projectDataMap[lastSegment] || projectDataMap["default"];
 
   useEffect(() => {
     // Initial animation for title, description, and button
     gsap.fromTo(
       [titleRef.current, descriptionRef.current],
       { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", stagger: 0.2, delay: 0.2 },
-    )
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        stagger: 0.2,
+        delay: 0.2,
+      }
+    );
     gsap.fromTo(
       buttonRef.current,
       { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 1 },
-    )
-  }, [])
+      { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 1 }
+    );
+  }, []);
 
   return (
     <>
       <div className="flex flex-col items-center justify-center text-center ">
-        <h2 ref={titleRef} className="text-3xl font-bold text-white tracking-tighter sm:text-5xl lg:text-7xl">
+        <h2
+          ref={titleRef}
+          className="text-3xl font-bold text-white tracking-tighter sm:text-5xl lg:text-7xl"
+        >
           Portfolio
         </h2>
       </div>
-      <section ref={sectionRef} className="w-full py-12 md:py-24 lg:py-32 bg-black text-white flex justify-center">
+      <section
+        ref={sectionRef}
+        className="w-full py-12 md:py-24 lg:py-32 bg-black text-white flex justify-center"
+      >
         <div
           className="container border rounded-3xl py-12 testomnial-shadows px-4 md:px-6 border-gray-900 shadow-testimonial-shadows relative overflow-hidden"
           style={{
@@ -153,7 +161,7 @@ export default function WebDesignPortfolio() {
             ))}
           </div>
           <div className="flex justify-center mt-12 relative z-10">
-            <Link href="#" passHref ref={buttonRef} asChild>
+            <Link href="#" passHref ref={buttonRef}>
               <motion.button
                 className="group relative border cursor-pointer qr-code border-teal-500 bg-black text-white px-6 py-4 rounded-[30px] font-bold text-xl flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl "
                 whileTap={{ scale: 0.95 }}
@@ -173,5 +181,5 @@ export default function WebDesignPortfolio() {
         </div>
       </section>
     </>
-  )
+  );
 }

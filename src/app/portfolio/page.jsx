@@ -1,25 +1,24 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { X, ChevronLeft, ChevronRight } from "lucide-react" // Added ChevronLeft, ChevronRight
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import Image from "next/image"
-import Header from "../components/header"
-import ProjectCTASection from "../components/ProjectCTASection"
-import Footer from "../components/footer"
-import PortfolioSlider from "../components/portfolio-slider"
-import { Button } from "antd"
+import { useState, useEffect } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react"; // Added ChevronLeft, ChevronRight
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import Header from "../components/header";
+import ProjectCTASection from "../components/ProjectCTASection";
+import Footer from "../components/footer";
+import PortfolioSlider from "../components/portfolio-slider";
+import { Button } from "antd";
 
-
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export default function PortfolioPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [currentModalImageIndex, setCurrentModalImageIndex] = useState(0)
-  const [activeModalImages, setActiveModalImages] = useState([]) // Stores images of the current section
-  const [currentImageIndex, setCurrentImageIndexs] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentModalImageIndex, setCurrentModalImageIndex] = useState(0);
+  const [activeModalImages, setActiveModalImages] = useState([]); // Stores images of the current section
+  const [currentImageIndex, setCurrentImageIndexs] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
   // Categorized images
   const websiteImages = [
     "/1 organic food copy.jpg", // dark textured background
@@ -27,21 +26,21 @@ export default function PortfolioPage() {
     "/3 tea copy.jpg", // yellow e-commerce
     "/5 fenty beauty.jpg", // denim jacket e-commerce
     "/4 blaster sound copy.jpg",
-  ]
+  ];
   const mobileAppImages = [
     "/1 organic food copy.jpg", // dark textured background
     "/2 Lewis Nathenlel copy.jpg", // green e-commerce
     "/3 tea copy.jpg", // yellow e-commerce
     "/5 fenty beauty.jpg", // denim jacket e-commerce
     "/4 blaster sound copy.jpg",
-  ]
+  ];
   const graphicsDesignImages = [
     "/baab.jpg", // dark textured background
     "/logo 05.png", // green e-commerce
     "/cocolea.jpg", // yellow e-commerce
     "/taxis plus logo copy.jpg", // denim jacket e-commerce
     "/voyo logo copy.jpg",
-  ]
+  ];
 
   const images = [
     "/baab.jpg", // dark textured background
@@ -49,44 +48,45 @@ export default function PortfolioPage() {
     "/3 tea copy.jpg", // yellow e-commerce
     "/taxis plus logo copy.jpg", // denim jacket e-commerce
     "/4 blaster sound copy.jpg",
-  ]
+  ];
   useEffect(() => {
-    setIsVisible(true)
+    setIsVisible(true);
     const interval = setInterval(() => {
-      setCurrentImageIndexs((prev) => (prev + 1) % images.length)
-    }, 2000)
-    return () => clearInterval(interval)
-  }, [images.length])
+      setCurrentImageIndexs((prev) => (prev + 1) % images.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   useEffect(() => {
     // This effect was for the hero section's circular image animation,
     // which was removed. Keeping it empty or removing it if not needed elsewhere.
-  }, [])
+  }, []);
 
   const handleImageClick = (imageSrc, imageIndex, sectionImages) => {
-    setActiveModalImages(sectionImages)
-    setCurrentModalImageIndex(imageIndex)
-    setIsModalOpen(true)
-  }
+    setActiveModalImages(sectionImages);
+    setCurrentModalImageIndex(imageIndex);
+    setIsModalOpen(true);
+  };
 
   const handleCloseModal = () => {
-    setIsModalOpen(false)
-    setActiveModalImages([])
-    setCurrentModalImageIndex(0)
-  }
+    setIsModalOpen(false);
+    setActiveModalImages([]);
+    setCurrentModalImageIndex(0);
+  };
 
   const navigateModal = (direction) => {
     setCurrentModalImageIndex((prevIndex) => {
-      const newIndex = (prevIndex + direction + activeModalImages.length) % activeModalImages.length
-      return newIndex
-    })
-  }
-
+      const newIndex =
+        (prevIndex + direction + activeModalImages.length) %
+        activeModalImages.length;
+      return newIndex;
+    });
+  };
 
   return (
     <>
-      <div className="mt-[100px]">
-        <Header />
+      <div className="">
+        {/* <Header /> */}
         <section className="bg-black relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute left-20 w-72 h-72 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
@@ -94,13 +94,15 @@ export default function PortfolioPage() {
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-teal-300/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
           </div>
           <div className="container mx-auto px-6 py-20 relative z-10 mt-[-70px]">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="grid lg:grid-cols-2 gap-12 items-center mt-[110px]">
               <div className="space-y-8">
                 <div
                   className={`transform transition-all duration-1000 ${true ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
                 >
                   <h1 className="text-6xl lg:text-4xl xl:text-6xl font-bold   uppercase">
-                    <span className="inline-block delay-100 text-white">Welcome to our</span>
+                    <span className="inline-block delay-100 text-white">
+                      Welcome to our
+                    </span>
                     <span className="inline-block delay-1300 text-gradient text-[130px] bg-gradient-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent">
                       Portfolio
                     </span>
@@ -110,8 +112,8 @@ export default function PortfolioPage() {
                   className={`transform transition-all duration-1000 delay-500 ${true ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
                 >
                   <p className="text-xl lg:text-2xl text-gray-100 leading-relaxed max-w-lg">
-                    Discover amazing projects, creative designs, and innovative solutions crafted with passion and
-                    expertise.
+                    Discover amazing projects, creative designs, and innovative
+                    solutions crafted with passion and expertise.
                   </p>
                 </div>
                 <div
@@ -121,12 +123,13 @@ export default function PortfolioPage() {
               <div className="relative h-[600px] lg:h-[700px]">
                 <div className="absolute inset-0 flex items-center justify-center">
                   {images.map((src, index) => {
-                    const angle = index * 60 - currentImageIndex * 60
-                    const radius = 200
-                    const x = Math.cos((angle * Math.PI) / 180) * radius
-                    const y = Math.sin((angle * Math.PI) / 180) * radius
-                    const scale = index === currentImageIndex ? 1.2 : 0.8
-                    const opacity = Math.abs(index - currentImageIndex) <= 1 ? 1 : 0.3
+                    const angle = index * 60 - currentImageIndex * 60;
+                    const radius = 200;
+                    const x = Math.cos((angle * Math.PI) / 180) * radius;
+                    const y = Math.sin((angle * Math.PI) / 180) * radius;
+                    const scale = index === currentImageIndex ? 1.2 : 0.8;
+                    const opacity =
+                      Math.abs(index - currentImageIndex) <= 1 ? 1 : 0.3;
                     return (
                       <div
                         key={index}
@@ -148,7 +151,7 @@ export default function PortfolioPage() {
                           <div className="absolute inset-0 bg-gradient-to-t from-teal-900/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
                       </div>
-                    )
+                    );
                   })}
                 </div>
                 <div className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-r from-teal-400 to-teal-300 rounded-full opacity-20 animate-ping"></div>
@@ -159,7 +162,11 @@ export default function PortfolioPage() {
             </div>
           </div>
           <div className="absolute bottom-0 left-0 right-0">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-20 fill-gray-900/50">
+            <svg
+              viewBox="0 0 1200 120"
+              preserveAspectRatio="none"
+              className="w-full h-20 fill-gray-900/50"
+            >
               <path
                 d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
                 opacity=".25"
@@ -174,24 +181,39 @@ export default function PortfolioPage() {
         </section>
         {/* Website Development Section */}
         <PortfolioSlider
-                  title={<p className=" uppercase">Website<span className="text-teal-400"> Development</span> </p>}
-
-        
+          title={
+            <p className=" uppercase">
+              Website<span className="text-teal-400"> Development</span>{" "}
+            </p>
+          }
           images={websiteImages}
-          onImageSelect={(src, index) => handleImageClick(src, index, websiteImages)}
+          onImageSelect={(src, index) =>
+            handleImageClick(src, index, websiteImages)
+          }
         />
         {/* Mobile App Development Section */}
         <PortfolioSlider
-          title={<p className=" uppercase">Mobile App<span className="text-teal-400"> Development</span> </p>}
+          title={
+            <p className=" uppercase">
+              Mobile App<span className="text-teal-400"> Development</span>{" "}
+            </p>
+          }
           images={mobileAppImages}
-          onImageSelect={(src, index) => handleImageClick(src, index, mobileAppImages)}
+          onImageSelect={(src, index) =>
+            handleImageClick(src, index, mobileAppImages)
+          }
         />
         {/* Graphics Design Section */}
         <PortfolioSlider
-                  title={<p className=" uppercase">Graphics<span className="text-teal-400"> Design</span> </p>}
-
+          title={
+            <p className=" uppercase">
+              Graphics<span className="text-teal-400"> Design</span>{" "}
+            </p>
+          }
           images={graphicsDesignImages}
-          onImageSelect={(src, index) => handleImageClick(src, index, graphicsDesignImages)}
+          onImageSelect={(src, index) =>
+            handleImageClick(src, index, graphicsDesignImages)
+          }
         />
       </div>
 
@@ -220,7 +242,9 @@ export default function PortfolioPage() {
             </Button>
 
             <Image
-              src={activeModalImages[currentModalImageIndex] || "/placeholder.svg"}
+              src={
+                activeModalImages[currentModalImageIndex] || "/placeholder.svg"
+              }
               alt={`Full screen image ${currentModalImageIndex + 1}`}
               width={1200}
               height={800}
@@ -243,5 +267,5 @@ export default function PortfolioPage() {
       <ProjectCTASection />
       <Footer />
     </>
-  )
+  );
 }

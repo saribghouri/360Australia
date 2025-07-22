@@ -13,12 +13,9 @@ import ClientLogosSection from "./components/client-log0-section";
 
 export default function Home() {
   return (
-    <div >
-
-
-      <Header />
-
-      < MarketingSection />
+    <div>
+      {/* <Header /> */}
+      <MarketingSection />
       <ServicesSection />
       <PortfolioSection />
       {/* <Designer/> */}

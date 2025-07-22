@@ -5,10 +5,10 @@ import Footer from '../components/footer'
 const Page = () => {
   return (
     <div>
-      <div className='mt-[140px]'>
+      {/* <div className='mt-[140px]'>
 
       <Header/>
-      </div>
+      </div> */}
 <div className='h-[40vh] items-center flex justify-center'>
 
     <h1 className='text-[40px] text-[#12cfc0]'>COMING SOON</h1>

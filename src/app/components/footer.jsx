@@ -1,7 +1,9 @@
+"use client"
 import { Facebook, Linkedin, MapPin, Mail, Instagram } from "lucide-react"
 import Image from "next/image" // Import Image component for optimized images
-
+import { useRouter } from "next/navigation"
 export default function Footer({ size = 24, className, ...props }) {
+  const router = useRouter()
   return (
     <footer className="bg-black text-white py-8 md:py-12 relative">
       <div className="bg-[#10d4c4] h-[2px] mb-6 md:mb-[20px]"></div>
@@ -15,15 +17,15 @@ export default function Footer({ size = 24, className, ...props }) {
             </div>
             <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
               360 Australia is your trusted digital partner, helping businesses grow, succeed, and stand out online.
-              <button className=" rounded-[10px] cursor-pointer ml-[9px] py-[1px] border-1 border-b-blue-50 px-[10px] text-[15px] ">
-                Read More
+              <button  className="  rounded-[10px] cursor-pointer  text-teal-500 py-[1px]  text-[15px] ">
+                Read More..
               </button>
             </p>
           </div>
           <div className="space-y-4 text-center md:text-left md:ml-[100px]">
             {" "}
             {/* Changed ml-[100px] to md:ml-[100px] */}
-            <h4 className="text-lg md:text-xl font-semibold">Quick Links</h4>
+            <h4 className="text-lg md:text-xl font-bold">Quick Links</h4>
             <nav className="flex flex-col gap-3">
               <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg">
                 Home

@@ -110,21 +110,21 @@ export function RequestProposalModal({ isOpen, onClose }) {
                         required
                         styles={{
                             selector: {
-                                backgroundColor: "#1f2937", // bg-gray-900
+                                backgroundColor: "#0000", // bg-gray-900
                                 borderColor: "#14b8a6", // border-teal-700
-                                color: "#ffffff", // text-white
+                                color: "#0000", // text-white
                                 borderRadius: "0.5rem", // rounded-lg
                                 padding: "0.75rem", // p-3
                                 height: "40px ", // Adjust height
                             },
                             input: {
-                                color: "#ffffff", // text-white
+                                color: "#0000", // text-white
                             },
                             placeholder: {
                                 color: "#9ca3af", // placeholder:text-gray-500
                             },
                             clear: {
-                                color: "#ffffff", // text-white for clear icon
+                                color: "#0000", // text-white for clear icon
                             },
                         }}
                         dropdownStyle={{

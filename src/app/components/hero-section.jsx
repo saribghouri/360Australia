@@ -120,7 +120,7 @@ export default function AnimatedMarketingSection() {
                   <div className="flex items-start gap-4 sm:gap-8">
                     <div className="flex-1">
                       <h1
-                        className={`text-white text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold  tracking-tight transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                        className={`text-white text-3xl sm:text-4xl uppercase md:text-5xl lg:text-7xl font-bold  tracking-tight transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
                           }`}
                         style={{ transitionDelay: "0.4s" }}
                       >
@@ -173,7 +173,7 @@ export default function AnimatedMarketingSection() {
                   <h2 className="text-white text-xl  sm:text-3xl uppercase font-bold">
                     The Process Behind
                     <br />
-                    <span className="text-teal-500 sm:text-6xl uppercase"> Your Growth</span>
+                    <span className="text-teal-500 text-4xl sm:text-6xl uppercase"> Your Growth</span>
                   </h2>
                 </div>
 

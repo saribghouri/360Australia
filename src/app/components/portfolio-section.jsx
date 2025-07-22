@@ -191,12 +191,7 @@ export default function PortfolioSection() {
             <ChevronRight className="w-8 h-8" />
           </button>
         </div>
-        <button
-          onClick={() => router.push("/portfolio")}
-          className="bg-teal-500 text-black px-[20px] py-[10px] cursor-pointer rounded-[7px]"
-        >
-          View More
-        </button>
+     
         <div className="flex justify-center mt-8 gap-2">
           {portfolioItems.map((_, index) => (
             <span
@@ -206,6 +201,15 @@ export default function PortfolioSection() {
               }`}
             />
           ))}
+        </div>
+           <div className=" w-full flex justify-center mt-[40px]">
+
+        <button
+          onClick={() => router.push("/portfolio")}
+          className="bg-teal-500 text-black px-[28px]  py-[10px] !text-[24px] font-bold cursor-pointer rounded-[7px]"
+        >
+          View More
+        </button>
         </div>
         <div className="mt-12 sm:mt-16 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
       </div>

@@ -20,7 +20,7 @@ export default function WebDesignPortfolio() {
   const projectDataMap = {
     "graphics-designing": [
       {
-        src: "/logo.png",
+        src: "/baab.jpg",
         alt: "Web Design Project 1: E-commerce Redesign",
         title: "E-commerce Redesign",
         description: "Modernizing an online retail experience.",

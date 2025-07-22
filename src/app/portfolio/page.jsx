@@ -18,7 +18,7 @@ export default function PortfolioPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [currentModalImageIndex, setCurrentModalImageIndex] = useState(0)
   const [activeModalImages, setActiveModalImages] = useState([]) // Stores images of the current section
- const [currentImageIndex, setCurrentImageIndexs] = useState(0)
+  const [currentImageIndex, setCurrentImageIndexs] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
   // Categorized images
   const websiteImages = [
@@ -29,28 +29,28 @@ export default function PortfolioPage() {
     "/4 blaster sound copy.jpg",
   ]
   const mobileAppImages = [
-  "/1 organic food copy.jpg", // dark textured background
-    "/2 Lewis Nathenlel copy.jpg", // green e-commerce
-    "/3 tea copy.jpg", // yellow e-commerce
-    "/5 fenty beauty.jpg", // denim jacket e-commerce
-    "/4 blaster sound copy.jpg",
-  ]
-  const graphicsDesignImages = [
-  "/1 organic food copy.jpg", // dark textured background
-    "/2 Lewis Nathenlel copy.jpg", // green e-commerce
-    "/3 tea copy.jpg", // yellow e-commerce
-    "/5 fenty beauty.jpg", // denim jacket e-commerce
-    "/4 blaster sound copy.jpg",
-  ]
-
-    const images = [
     "/1 organic food copy.jpg", // dark textured background
     "/2 Lewis Nathenlel copy.jpg", // green e-commerce
     "/3 tea copy.jpg", // yellow e-commerce
     "/5 fenty beauty.jpg", // denim jacket e-commerce
     "/4 blaster sound copy.jpg",
   ]
-useEffect(() => {
+  const graphicsDesignImages = [
+    "/baab.jpg", // dark textured background
+    "/logo 05.png", // green e-commerce
+    "/cocolea.jpg", // yellow e-commerce
+    "/taxis plus logo copy.jpg", // denim jacket e-commerce
+    "/voyo logo copy.jpg",
+  ]
+
+  const images = [
+    "/baab.jpg", // dark textured background
+    "/2 Lewis Nathenlel copy.jpg", // green e-commerce
+    "/3 tea copy.jpg", // yellow e-commerce
+    "/taxis plus logo copy.jpg", // denim jacket e-commerce
+    "/4 blaster sound copy.jpg",
+  ]
+  useEffect(() => {
     setIsVisible(true)
     const interval = setInterval(() => {
       setCurrentImageIndexs((prev) => (prev + 1) % images.length)
@@ -82,9 +82,6 @@ useEffect(() => {
     })
   }
 
-  const setCurrentImageIndex = (index) => {
-    setCurrentModalImageIndex(index)
-  }
 
   return (
     <>
@@ -102,16 +99,9 @@ useEffect(() => {
                 <div
                   className={`transform transition-all duration-1000 ${true ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
                 >
-                  <h1 className="text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
-                    <span className="inline-block delay-100 text-white">Welcome   to</span>
-                    <span className="inline-block mx-4"></span>
-                
-                    <br />
-                    <span className="inline-block delay-1000 text-gradient bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent">
-                      our
-                    </span>
-                    <span className="inline-block mx-4"></span>
-                    <span className="inline-block delay-1300 text-gradient bg-gradient-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent">
+                  <h1 className="text-6xl lg:text-4xl xl:text-6xl font-bold   uppercase">
+                    <span className="inline-block delay-100 text-white">Welcome to our</span>
+                    <span className="inline-block delay-1300 text-gradient text-[130px] bg-gradient-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent">
                       Portfolio
                     </span>
                   </h1>
@@ -128,44 +118,44 @@ useEffect(() => {
                   className={`transform transition-all duration-1000 delay-1000 ${true ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
                 ></div>
               </div>
-                 <div className="relative h-[600px] lg:h-[700px]">
-              <div className="absolute inset-0 flex items-center justify-center">
-                {images.map((src, index) => {
-                  const angle = index * 60 - currentImageIndex * 60
-                  const radius = 200
-                  const x = Math.cos((angle * Math.PI) / 180) * radius
-                  const y = Math.sin((angle * Math.PI) / 180) * radius
-                  const scale = index === currentImageIndex ? 1.2 : 0.8
-                  const opacity = Math.abs(index - currentImageIndex) <= 1 ? 1 : 0.3
-                  return (
-                    <div
-                      key={index}
-                      className="absolute transition-all duration-1000 ease-in-out"
-                      style={{
-                        transform: `translate(${x}px, ${y}px) scale(${scale})`,
-                        opacity: opacity,
-                        zIndex: index === currentImageIndex ? 10 : 1,
-                      }}
-                    >
-                      <div className="relative group">
-                        <Image
-                          src={src || "/placeholder.svg"}
-                          alt={`Portfolio ${index + 1}`}
-                          width={200}
-                          height={150}
-                          className="rounded-2xl shadow-2xl border-4 border-white/20 group-hover:border-teal-400/50 transition-all duration-300"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-teal-900/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative h-[600px] lg:h-[700px]">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  {images.map((src, index) => {
+                    const angle = index * 60 - currentImageIndex * 60
+                    const radius = 200
+                    const x = Math.cos((angle * Math.PI) / 180) * radius
+                    const y = Math.sin((angle * Math.PI) / 180) * radius
+                    const scale = index === currentImageIndex ? 1.2 : 0.8
+                    const opacity = Math.abs(index - currentImageIndex) <= 1 ? 1 : 0.3
+                    return (
+                      <div
+                        key={index}
+                        className="absolute transition-all duration-1000 ease-in-out"
+                        style={{
+                          transform: `translate(${x}px, ${y}px) scale(${scale})`,
+                          opacity: opacity,
+                          zIndex: index === currentImageIndex ? 10 : 1,
+                        }}
+                      >
+                        <div className="relative group">
+                          <Image
+                            src={src || "/placeholder.svg"}
+                            alt={`Portfolio ${index + 1}`}
+                            width={200}
+                            height={150}
+                            className="rounded-2xl shadow-2xl border-4 border-white/20 group-hover:border-teal-400/50 transition-all duration-300"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-teal-900/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
                       </div>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
+                </div>
+                <div className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-r from-teal-400 to-teal-300 rounded-full opacity-20 animate-ping"></div>
+                <div className="absolute bottom-20 left-10 w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-400 rounded-full opacity-30 animate-pulse"></div>
+                <div className="absolute top-1/2 right-0 w-12 h-12 bg-gradient-to-r from-teal-300 to-teal-400 rounded-full opacity-25 animate-bounce"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-teal-500/20 to-teal-400/20 rounded-full blur-2xl animate-pulse"></div>
               </div>
-              <div className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-r from-teal-400 to-teal-300 rounded-full opacity-20 animate-ping"></div>
-              <div className="absolute bottom-20 left-10 w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-400 rounded-full opacity-30 animate-pulse"></div>
-              <div className="absolute top-1/2 right-0 w-12 h-12 bg-gradient-to-r from-teal-300 to-teal-400 rounded-full opacity-25 animate-bounce"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-teal-500/20 to-teal-400/20 rounded-full blur-2xl animate-pulse"></div>
-            </div>
             </div>
           </div>
           <div className="absolute bottom-0 left-0 right-0">
@@ -184,19 +174,22 @@ useEffect(() => {
         </section>
         {/* Website Development Section */}
         <PortfolioSlider
-          title="Website Development"
+                  title={<p className=" uppercase">Website<span className="text-teal-400"> Development</span> </p>}
+
+        
           images={websiteImages}
           onImageSelect={(src, index) => handleImageClick(src, index, websiteImages)}
         />
         {/* Mobile App Development Section */}
         <PortfolioSlider
-          title="Mobile App Development"
+          title={<p className=" uppercase">Mobile App<span className="text-teal-400"> Development</span> </p>}
           images={mobileAppImages}
           onImageSelect={(src, index) => handleImageClick(src, index, mobileAppImages)}
         />
         {/* Graphics Design Section */}
         <PortfolioSlider
-          title="Graphics Design"
+                  title={<p className=" uppercase">Graphics<span className="text-teal-400"> Design</span> </p>}
+
           images={graphicsDesignImages}
           onImageSelect={(src, index) => handleImageClick(src, index, graphicsDesignImages)}
         />

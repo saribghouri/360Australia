@@ -1,70 +1,43 @@
 "use client"
+
 import { ChevronDown } from "lucide-react"
-import { useState } from "react"
-import { Flex, Select } from 'antd';
+import { useState, useEffect } from "react"
+import { Flex, Select } from "antd"
 import PhoneInput from "react-phone-input-2"
-import 'react-phone-input-2/lib/style.css'
-import 'antd/dist/reset.css';
-// Simplified list of country codes for demonstration
-// In a production application, you might fetch this from an API or use a more comprehensive library.
-const customStyles = {
-  control: (provided) => ({
-    ...provided,
-    backgroundColor: 'transparent',
-    borderBottom: '1px solid #1becdb',
-    border: 'none',
-    borderRadius: 0,
-    boxShadow: 'none',
-    color: 'white',
-  }),
-  placeholder: (provided) => ({
-    ...provided,
-    color: 'white',
-  }),
-  menu: (provided) => ({
-    ...provided,
-    backgroundColor: 'black',
-  }),
-};
+import "react-phone-input-2/lib/style.css"
+import "antd/dist/reset.css"
+import { useActionState } from "react"
+import { sendContactEmail } from "../components/send-email" 
 
 export default function ContactForm() {
+  const [state, formAction] = useActionState(sendContactEmail, {
+    success: false,
+    message: "",
+  })
+
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
-  const [countryCode, setCountryCode] = useState("+1") // New state for country code, initialized to +1
   const [email, setEmail] = useState("")
   const [service, setService] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
 
   // State to track if a field is "active" (focused or has value)
   const [isNameActive, setIsNameActive] = useState(false)
-  // isPhoneActive now covers both the country code select and the phone input
-  const [isPhoneActive, setIsPhoneActive] = useState(false)
   const [isEmailActive, setIsEmailActive] = useState(false)
   const [isServiceActive, setIsServiceActive] = useState(false)
 
-  const handleSubmit = async (e) => {
-    e.preventDefault() // Prevent default form submission behavior [^1]
-    setIsLoading(true)
-
-    // Simulate form submission process
-    setTimeout(() => {
-      setIsLoading(false)
-      // Combine country code and phone number for submission
-      console.log("Form submitted with:", { name, fullPhoneNumber: countryCode + phone, email, service })
-      // Clear the form and reset active states
+  // Reset form fields and active states on successful submission
+  useEffect(() => {
+    if (state.success) {
       setName("")
       setPhone("")
-      setCountryCode("+1") // Reset country code to default
       setEmail("")
       setService("")
       setIsNameActive(false)
-      setIsPhoneActive(false)
       setIsEmailActive(false)
       setIsServiceActive(false)
-    }, 2000)
-  }
+    }
+  }, [state.success])
 
-  
   const shouldShowLabel = (value, isActive) => value.length > 0 || isActive
 
   return (
@@ -75,16 +48,17 @@ export default function ContactForm() {
           {/* Form Title */}
           <h1 className="text-3xl text-white font-bold text-center mb-8 tracking-wider">NEED A SERVICE</h1>
           {/* Contact Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form action={formAction} className="space-y-6">
             {/* Name Input */}
             <div className="relative">
               <label
                 htmlFor="name"
                 className={`
                   absolute left-2 text-white transition-all duration-300 z-20
-                  ${shouldShowLabel(name, isNameActive)
-                    ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
-                    : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
+                  ${
+                    shouldShowLabel(name, isNameActive)
+                      ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
+                      : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
                   }
                 `}
               >
@@ -93,6 +67,7 @@ export default function ContactForm() {
               <input
                 id="name"
                 type="text"
+                name="name" // Add name attribute for formData
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 onFocus={() => setIsNameActive(true)}
@@ -104,21 +79,21 @@ export default function ContactForm() {
             </div>
             {/* Phone Input with Country Code */}
             <div className="relative">
-
-              <div className="flex items-center form-border">
-                {" "}
-                {/* Wrapper for combined input styling */}
-
-                <PhoneInput
-                  country={"au"}
-                  value={phone}
-                  onChange={setPhone}
-                  containerClass="w-full"
-                  inputClass="w-full"
-                  buttonClass=""
-                />
-
-              </div>
+            
+              <PhoneInput className="form-border"
+                inputProps={{
+                  id: "phone-input",
+                  name: "fullPhoneNumber", // Name for formData
+                  required: true,
+                }}
+                country={"au"}
+                value={phone}
+                onChange={(value, country, e, formattedValue) => setPhone(value)}
+                containerClass="w-full phone-input-container"
+                inputClass="w-full phone-input-field"
+                buttonClass="phone-input-button"
+                dropdownClass="phone-input-dropdown"
+              />
             </div>
             {/* Email Input */}
             <div className="relative mb-[35px]">
@@ -126,9 +101,10 @@ export default function ContactForm() {
                 htmlFor="email"
                 className={`
                   absolute left-2 text-white transition-all duration-300 z-20
-                  ${shouldShowLabel(email, isEmailActive)
-                    ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
-                    : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
+                  ${
+                    shouldShowLabel(email, isEmailActive)
+                      ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
+                      : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
                   }
                 `}
               >
@@ -137,6 +113,7 @@ export default function ContactForm() {
               <input
                 id="email"
                 type="email"
+                name="email" // Add name attribute for formData
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 onFocus={() => setIsEmailActive(true)}
@@ -151,36 +128,38 @@ export default function ContactForm() {
               <label htmlFor="service" className="sr-only ">
                 Select Service
               </label>
-
               <Flex gap={8}>
-                <Select className="custom-select "
-                  styles={customStyles}
-
+                <Select
+                  id="service"
+                  className="custom-select form-border"
                   placeholder="Select Service"
-                  variant="underlined"
+                  variant="borderless"
                   style={{
                     flex: 1,
-                    backgroundColor: 'transparent',
-                    borderBottom: '1px solid #1becdb',
-                    color: '#fff',
+                    backgroundColor: "transparent",
+                    color: "#fff",
+                    height: "56px", 
+                    paddingLeft: "8px", 
                   }}
                   dropdownStyle={{
-                    backgroundColor: 'black',
+                    backgroundColor: "white",
                   }}
                   popupMatchSelectWidth={false}
-                  dropdownRender={(menu) => (
-                    <div style={{ backgroundColor: 'black' }}>{menu}</div>
-                  )}
+                  dropdownRender={(menu) => <div style={{ backgroundColor: "white" }}>{menu}</div>}
                   options={[
-                    { value: 'Website Developement', label: 'website developement'},
-                    { value: 'Mobile App Developement', label: 'mobile app developement'},
-                    { value: 'Digital Marketing', label: 'digital marketing'},
-                    { value: 'Graphic Design', label: 'Graphic Design'},
-                    { value: 'Video Animation', label: 'video & animation'},
+                    { value: "Website Development", label: "Website Development" },
+                    { value: "Mobile App Development", label: "Mobile App Development" },
+                    { value: "Digital Marketing", label: "Digital Marketing" },
+                    { value: "Graphic Design", label: "Graphic Design" },
+                    { value: "Video Animation", label: "Video & Animation" },
                   ]}
-                  dropdownClassName="custom-select-dropdown bg-transparent"
+                  value={service || undefined} // Ensure controlled component works with empty string
+                  onChange={(value) => setService(value)}
+                  onFocus={() => setIsServiceActive(true)}
+                  onBlur={() => setIsServiceActive(false)}
                 />
               </Flex>
+              <input type="hidden" name="service" value={service} /> {/* Hidden input to pass service value */}
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
                 <ChevronDown className="h-4 w-4" />
               </div>
@@ -188,10 +167,10 @@ export default function ContactForm() {
             <div className="flex justify-center">
               <button
                 type="submit"
-                disabled={isLoading}
+                disabled={state.pending} // Use state.pending for loading
                 className="w-[70%] py-2 bg-teal-600 cursor-pointer backdrop-blur-sm border border-cyan-500/30 rounded-2xl !text-white font-semibold text-[22px] tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isLoading ? (
+                {state.pending ? (
                   <div className="flex items-center justify-center space-x-2">
                     <div className="w-2 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                     <span>SUBMITTING...</span>
@@ -201,6 +180,9 @@ export default function ContactForm() {
                 )}
               </button>
             </div>
+            {state.message && (
+              <p className={`text-center mt-4 ${state.success ? "text-green-400" : "text-red-400"}`}>{state.message}</p>
+            )}
           </form>
         </div>
       </div>

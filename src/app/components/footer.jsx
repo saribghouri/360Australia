@@ -66,7 +66,7 @@ export default function Footer({ size = 24, className, ...props }) {
                 <p className="text-gray-300 text-sm md:text-base lg:text-lg text-left">Belmore, Sydney, Australia</p>
               </div>
               <div className="flex items-center justify-center md:justify-start space-x-3">
-                <Mail className="w-5 h-5 md:w-6 md:h-6 text-[#10d4c4] flex-shrink-0" />
+                <Mail className="w-5 h-5 md:w-6 md:h-6 text-[#10d4c4] mt-[-20px] flex-shrink-0" />
                 <div className="text-gray-300 text-sm md:text-base lg:text-lg">
                   <p>hello@360-australia.com.au</p>
                 </div>

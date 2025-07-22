@@ -1,8 +1,19 @@
 "use client"
+
 import { useState, useEffect, useRef, useCallback } from "react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+
+// Debounce utility function to limit how often a function can run
+const debounce = (func, delay) => {
+  let timeout
+  return function (...args) {
+    
+    clearTimeout(timeout)
+    timeout = setTimeout(() => func.apply(this, args), delay)
+  }
+}
 
 export default function PortfolioSection() {
   const [isVisible, setIsVisible] = useState(false)
@@ -11,83 +22,108 @@ export default function PortfolioSection() {
   const router = useRouter()
   const [currentDotIndex, setCurrentDotIndex] = useState(0)
 
+  // Ref to hold the latest currentDotIndex value.
+  // This allows the debounced scroll handler to access the most recent state
+  // without being a dependency for its useCallback, thus keeping the handler stable.
+  const currentDotIndexRef = useRef(currentDotIndex)
+  useEffect(() => {
+    currentDotIndexRef.current = currentDotIndex
+  }, [currentDotIndex])
+
+  // Set isVisible to true on component mount for animation
   useEffect(() => {
     setIsVisible(true)
   }, [])
 
-
   const portfolioItems = [
-    { id: 1, image: "/1 organic food copy.jpg", hasOverlay: true },
-    { id: 2, image: "/2 Lewis Nathenlel copy.jpg", hasOverlay: true },
-    { id: 3, image: "/3 tea copy.jpg", hasOverlay: true },
-    { id: 4, image: "/5 fenty beauty.jpg", hasOverlay: true },
-    { id: 5, image: "/4 blaster sound copy.jpg", hasOverlay: true },
-
+    { id: 1, image: "/1-organic-food-copy.png", hasOverlay: true, title: "Organic Food" },
+    { id: 2, image: "/2-lewis-nathenlel-copy.png", hasOverlay: true, title: "Lewis Nathenlel" },
+    { id: 3, image: "/3-tea-copy.png", hasOverlay: true, title: "Tea" },
+    { id: 4, image: "/5-fenty-beauty.png", hasOverlay: true, title: "Fenty Beauty" },
+    { id: 5, image: "/4-blaster-sound-copy.png", hasOverlay: true, title: "Blaster Sound" },
   ]
 
-  // Duplicate items to create a seamless looping effect.
+  // Duplicate items to create a seamless looping effect for the carousel.
   const displayItems = [...portfolioItems, ...portfolioItems]
-  const scrollSpeed = 0.5 // Adjust this value for slower/faster scrolling
 
+  const scrollSpeed = 0.5 // Adjust this value for slower/faster auto-scrolling
+
+  // Callback for auto-scrolling the carousel
   const autoScroll = useCallback(() => {
     if (carouselRef.current) {
       const carousel = carouselRef.current
-      const originalContentWidth = carousel.scrollWidth / 2
+      const originalContentWidth = carousel.scrollWidth / 2 // Half the total width (original items + duplicated items)
       carousel.scrollLeft += scrollSpeed
+      // Reset scroll position to the beginning of the original content when it reaches the end of the first set
       if (carousel.scrollLeft >= originalContentWidth) {
         carousel.scrollLeft = 0
       }
     }
     animationFrameId.current = requestAnimationFrame(autoScroll)
-  }, [scrollSpeed])
+  }, [scrollSpeed]) // `scrollSpeed` is a constant, so `autoScroll` remains stable.
 
-  const handleScroll = useCallback(() => {
-    if (carouselRef.current) {
-      const carousel = carouselRef.current
-      const originalContentWidth = carousel.scrollWidth / 2
-      const normalizedScrollLeft = carousel.scrollLeft % originalContentWidth
-      // Estimate average item width including gap for dot calculation
-      // This assumes items are roughly equally spaced.
-      const itemFullWidthAverage = originalContentWidth / portfolioItems.length
-      const newIndex = Math.floor(normalizedScrollLeft / itemFullWidthAverage)
-      if (newIndex !== currentDotIndex) {
-        setCurrentDotIndex(newIndex)
+  // Debounced scroll handler for updating the dot index based on scroll position
+  const debouncedHandleScroll = useCallback(
+    debounce(() => {
+      if (carouselRef.current) {
+        const carousel = carouselRef.current
+        const originalContentWidth = carousel.scrollWidth / 2
+        // Normalize scrollLeft to be within the bounds of the original content
+        const normalizedScrollLeft = carousel.scrollLeft % originalContentWidth
+        // Estimate average item width to determine which dot should be active
+        const itemFullWidthAverage = originalContentWidth / portfolioItems.length
+        const newIndex = Math.floor(normalizedScrollLeft / itemFullWidthAverage)
+
+        // Only update state if the index actually changed, using the ref for comparison
+        if (newIndex !== currentDotIndexRef.current) {
+          setCurrentDotIndex(newIndex)
+        }
       }
-    }
-  }, [currentDotIndex, portfolioItems.length])
+    }, 100), // Debounce by 100ms to prevent excessive state updates
+    [portfolioItems.length], // Dependencies for debouncedHandleScroll: only stable ones
+  )
 
+  // Effect to manage auto-scrolling and event listeners
   useEffect(() => {
+    // Start auto-scrolling animation
     animationFrameId.current = requestAnimationFrame(autoScroll)
+
     const carouselElement = carouselRef.current
     if (carouselElement) {
+      // Pause auto-scroll on mouse enter
       const handleMouseEnter = () => {
         if (animationFrameId.current) {
           cancelAnimationFrame(animationFrameId.current)
           animationFrameId.current = null
         }
       }
+      // Resume auto-scroll on mouse leave
       const handleMouseLeave = () => {
         if (!animationFrameId.current) {
           animationFrameId.current = requestAnimationFrame(autoScroll)
         }
       }
+
+      // Add event listeners
       carouselElement.addEventListener("mouseenter", handleMouseEnter)
       carouselElement.addEventListener("mouseleave", handleMouseLeave)
-      // Add scroll event listener
-      carouselElement.addEventListener("scroll", handleScroll)
+      carouselElement.addEventListener("scroll", debouncedHandleScroll) // Use the stable debounced handler
+
+      // Cleanup function: cancel animation frame and remove event listeners
       return () => {
         if (animationFrameId.current) {
           cancelAnimationFrame(animationFrameId.current)
         }
         carouselElement.removeEventListener("mouseenter", handleMouseEnter)
         carouselElement.removeEventListener("mouseleave", handleMouseLeave)
-        // Remove scroll event listener
-        carouselElement.removeEventListener("scroll", handleScroll)
+        carouselElement.removeEventListener("scroll", debouncedHandleScroll)
       }
     }
-  }, [autoScroll, handleScroll])
+  }, [autoScroll, debouncedHandleScroll]) // Dependencies: `autoScroll` and `debouncedHandleScroll` are stable callbacks
 
-  const scrollAmount = 300 // Pixels to scroll per click
+  const scrollAmount = 300 // Pixels to scroll per click for manual navigation
+
+  // Function to scroll carousel left
   const scrollLeft = () => {
     if (carouselRef.current) {
       const carousel = carouselRef.current
@@ -100,6 +136,7 @@ export default function PortfolioSection() {
     }
   }
 
+  // Function to scroll carousel right
   const scrollRight = () => {
     if (carouselRef.current) {
       const carousel = carouselRef.current
@@ -112,9 +149,8 @@ export default function PortfolioSection() {
     }
   }
 
+  // Handle navigation to portfolio detail page
   const handleViewMore = (item) => {
-    // Assuming a category might be derived or passed, for now, it's undefined.
-    // If category is not needed, simplify the push path.
     router.push(`/portfolio?category=${encodeURIComponent(item.category || "all")}&id=${item.id}`)
   }
 
@@ -144,19 +180,19 @@ export default function PortfolioSection() {
             ref={carouselRef}
             className="flex gap-4 sm:gap-6 overflow-x-auto py-[30px] scrollbar-hide px-8"
             style={{
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
+              scrollbarWidth: "none", // Hide scrollbar for Firefox
+              msOverflowStyle: "none", // Hide scrollbar for IE/Edge
             }}
           >
             {displayItems.map((item, index) => (
               <div
-                key={`${item.id}-${index}`}
+                key={`${item.id}-${index}`} // Unique key for duplicated items
                 onClick={() => handleViewMore(item)}
                 className={`group relative overflow-hidden rounded-lg bg-gray-900 flex-shrink-0 w-74 h-58 sm:w-82 sm:h-76 transform transition-all duration-700 hover:scale-105 hover:shadow-2xl cursor-pointer ${
                   isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
                 } animate-fade-in-up`}
                 style={{
-                  animationDelay: `${(index % portfolioItems.length) * 200}ms`,
+                  animationDelay: `${(index % portfolioItems.length) * 200}ms`, // Staggered animation delay
                 }}
               >
                 <Image
@@ -164,16 +200,17 @@ export default function PortfolioSection() {
                   alt={item.title}
                   fill
                   className="object-cover duration-500 group-hover:scale-110"
-                  sizes="(max-width: 640px) 356px, 388px"
+                  sizes="(max-width: 640px) 356px, 388px" // Image optimization sizes
                 />
+                {/* Hover border effect */}
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#10d4c4] transition-colors duration-300 rounded-lg"></div>
               </div>
             ))}
           </div>
           {/* Left Arrow Button */}
           <button
-            variant="ghost"
-            size="icon"
+            // `variant="ghost"` and `size="icon"` are likely props from a UI library
+            // and won't directly apply styles to a native button without a component wrapper.
             className="absolute -left-20 top-1/2 -translate-y-1/2 hidden lg:flex bg-teal-500 cursor-pointer text-center justify-center items-center hover:bg-teal-500 text-white rounded-full w-10 h-10 z-10"
             onClick={scrollLeft}
             aria-label="Scroll left"
@@ -182,8 +219,6 @@ export default function PortfolioSection() {
           </button>
           {/* Right Arrow Button */}
           <button
-            variant="ghost"
-            size="icon"
             className="absolute -right-20 top-1/2 -translate-y-1/2 cursor-pointer bg-teal-500 text-center justify-center hidden lg:flex items-center hover:bg-teal-500 text-white rounded-full w-10 h-10 z-10"
             onClick={scrollRight}
             aria-label="Scroll right"
@@ -191,7 +226,7 @@ export default function PortfolioSection() {
             <ChevronRight className="w-8 h-8" />
           </button>
         </div>
-     
+        {/* Dot indicators for carousel position */}
         <div className="flex justify-center mt-8 gap-2">
           {portfolioItems.map((_, index) => (
             <span
@@ -199,18 +234,20 @@ export default function PortfolioSection() {
               className={`block w-3 h-3 rounded-full transition-colors duration-300 ${
                 index === currentDotIndex ? "bg-teal-400" : "bg-gray-600"
               }`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
-           <div className=" w-full flex justify-center mt-[40px]">
-
-        <button
-          onClick={() => router.push("/portfolio")}
-          className="bg-teal-500 text-black px-[28px]  py-[10px] !text-[24px] font-bold cursor-pointer rounded-[7px]"
-        >
-          View More
-        </button>
+        {/* View More button */}
+        <div className=" w-full flex justify-center mt-[40px]">
+          <button
+            onClick={() => router.push("/portfolio")}
+            className="bg-teal-500 text-black px-[28px] py-[10px] !text-[24px] font-bold cursor-pointer rounded-[7px]"
+          >
+            View More
+          </button>
         </div>
+        {/* Decorative divider */}
         <div className="mt-12 sm:mt-16 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
       </div>
     </section>

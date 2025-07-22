@@ -25,7 +25,7 @@ export default function Footer({ size = 24, className, ...props }) {
           <div className="space-y-4 text-center md:text-left md:ml-[100px]">
             {" "}
             {/* Changed ml-[100px] to md:ml-[100px] */}
-            <h4 className="text-lg md:text-xl font-bold">Quick Links</h4>
+            <h4 className="text-lg md:text-xl lg:text-[24px] quick-hd">Quick Links</h4>
             <nav className="flex flex-col gap-3">
               <a href="#" className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg">
                 Home
@@ -41,9 +41,9 @@ export default function Footer({ size = 24, className, ...props }) {
               </a>
             </nav>
           </div>
-          <div className="space-y-4 text-center md:text-left ">
-            <h4 className="text-lg md:text-xl lg:text-[24px] font-semibold">Legal</h4>
-            <div className="space-y-3">
+          <div className=" text-center md:text-left ">
+            <h4 className="text-lg md:text-xl lg:text-[24px] quick-hd">Legal</h4>
+            <div className="">
               <div className="flex items-start justify-center md:justify-start">
                 <p className="text-gray-300 text-sm md:text-base lg:text-lg text-left">Privacy Policy</p>
               </div>

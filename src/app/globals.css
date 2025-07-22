@@ -307,3 +307,6 @@ box-shadow: rgba(20, 245, 245, 0.25) 0px 20px 50px 12px inset, rgba(16, 233, 197
 .ant-select-selection-item{
   color: rgb(180, 180, 180) ;
 }
+.quick-hd{
+  font-weight: 600 !important;
+}

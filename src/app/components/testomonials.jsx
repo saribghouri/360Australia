@@ -166,7 +166,7 @@ export default function TestimonialSection() {
           </h2>
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-8xl font-bold text-teal-400">FEEDBACK</h3>
         </motion.div>
-        <div className="relative max-w-full mx-auto">
+        <div className="relative max-w-full  max-h-screen mx-auto">
           <button
             onClick={prevSlide}
             className="hidden sm:flex absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 lg:w-12 lg:h-12 bg-white/10 hover:bg-white/20 rounded-full items-center justify-center transition-all duration-300 backdrop-blur-sm"
@@ -225,7 +225,7 @@ export default function TestimonialSection() {
                     <p className="text-gray-300 text-center leading-relaxed mb-4 sm:mb-6 text-lg sm:text-xl min-h-[80px] sm:min-h-[120px] flex items-center">
                       {testimonial.text}
                     </p>
-                    <div className="flex items-center h-full justify-items-end flex-col gap-4 mt-4">
+                    <div className="flex items-center  justify-items-end flex-col gap-4 mt-4">
                       <div className="flex gap-0.5 sm:gap-1 ">
                         {[...Array(testimonial.rating)].map((_, i) => (
                           <motion.div

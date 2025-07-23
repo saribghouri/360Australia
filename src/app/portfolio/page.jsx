@@ -219,22 +219,23 @@ export default function PortfolioPage() {
 
       {isModalOpen && activeModalImages.length > 0 && (
        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
-      <div className="relative max-w-screen-lg max-h-screen-lg w-full h-full flex items-center justify-center">
-        {/* Close Button - now fixed to the viewport */}
-        <Button
+            <Button
           variant="ghost"
           size="icon"
-          className="fixed !bottom-104 !left-300 !text-white !border-none !bg-teal-500 hover:bg-white/20 !z-[51]" // Changed to 'fixed' and increased z-index
+          className="  bottom-54   !sm:bottom-104 !sm:left-300 left-50  !text-white !border-none !bg-teal-500 hover:bg-white/20 !z-[51]" // Changed to 'fixed' and increased z-index
           onClick={handleCloseModal}
           aria-label="Close image"
         >
           <X className="h-6 w-6" />
         </Button>
+      <div className="relative max-w-screen-lg max-h-screen-lg  w-full h-full flex items-center justify-center">
+        {/* Close Button - now fixed to the viewport */}
+    
         {/* Previous Button for Modal */}
         <Button
           variant="ghost"
           size="icon"
-          className="absolute right-13 !h-11 z-10 !p-2 !rounded-[30px] !border-none !bg-teal-500 hover:bg-white/40 transition-colors !text-white"
+          className="absolute sm:right-13 right-[-40px] !h-11 z-10 !sm:p-2 !p-2 !rounded-[30px] !border-none !bg-teal-500 hover:bg-white/40 transition-colors !text-white"
           onClick={() => navigateModal(-1)}
           aria-label="Previous image"
         >
@@ -247,13 +248,13 @@ export default function PortfolioPage() {
           alt={`Full screen image ${currentModalImageIndex + 1}`}
           width={1200}
           height={800}
-          className="object-contain max-w-full max-h-full"
+          className="object-contain max-w-full max-h-full !sm:ml-[-40px]"
         />
         {/* Next Button for Modal */}
         <Button
           variant="ghost"
           size="icon"
-          className="absolute left-13 !h-11 z-10 !p-2 !rounded-[30px] !border-none !bg-teal-500 hover:bg-white/40 transition-colors !text-white"
+          className="absolute sm:left-13  left-[-40px] !h-11 z-10 !sm:p-2  !p-2 !rounded-[30px] !border-none !bg-teal-500 hover:bg-white/40 transition-colors !text-white"
           onClick={() => navigateModal(1)}
           aria-label="Next image"
         >

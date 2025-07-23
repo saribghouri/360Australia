@@ -45,12 +45,12 @@ export default function ContactForm() {
   const [email, setEmail] = useState("");
   const [service, setService] = useState("");
 
-  // State to track if a field is "active" (focused or has value)
+
   const [isNameActive, setIsNameActive] = useState(false);
   const [isEmailActive, setIsEmailActive] = useState(false);
   const [isServiceActive, setIsServiceActive] = useState(false);
 
-  // Reset form fields and active states on successful submission
+  
   useEffect(() => {
     if (state.success) {
       setName("");

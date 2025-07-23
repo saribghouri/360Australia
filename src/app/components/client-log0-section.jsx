@@ -7,12 +7,13 @@ export default function ClientLogosSection() {
   const [speed, setSpeed] = useState(1)
   const scrollRef = useRef(null)
   const allLogos = [
-    { type: "image", image: "/logos/cocolea-removebg-preview.png" },
-    { type: "image", image: "/logos/logo_05-removebg-preview.png" },
-    { type: "image", image: "/logos/slams-logo-min-1-removebg-preview.png" },
-    { type: "image", image: "/logos/taxis_plus_logo_copy-removebg-preview.png" },
-    { type: "image", image: "/logos/voyo_logo_copy-removebg-preview.png" },
-    { type: "image", image: "/logos/images/logo-7.png" },
+    { type: "australia-ventures", image: "/logos/cocolea-removebg-preview.png" },
+    { type: "australia-ventures", image: "/logos/logo_05-removebg-preview.png" },
+    { type: "australia-ventures", image: "/logos/slams-logo-min-1-removebg-preview.png" },
+    { type: "australia-ventures", image: "/logos/taxis_plus_logo_copy-removebg-preview.png" },
+    { type: "australia-ventures", image: "/logos/voyo_logo_copy-removebg-preview.png" },
+    { type: "australia-ventures", image: "/logos/images/logo-7.png" },
+
     // You can add more logo types here if needed, following the original structure
   ]
 
@@ -20,15 +21,14 @@ export default function ClientLogosSection() {
   const renderLogo = (logo, index) => {
     const baseClasses = "flex-shrink-0 mx-8 transition-transform hover:scale-105"
     switch (logo.type) {
-      case "image":
+      case "australia-ventures":
         return (
           <div key={index} className={baseClasses}>
             <div className="flex items-center justify-center rounded-lg p-4 ">
-              <Image // Using Next.js Image component
+              <img 
                 src={logo.image || "/placeholder.svg"} // Mapped image source
                 width={logo.image === "/logos/slams-logo-min-1-removebg-preview.png" ? 100 : 220}
                 height={logo.image === "/logos/slams-logo-min-1-removebg-preview.png" ? 40 : 60}
-                className="object-contain"
               />
             </div>
           </div>

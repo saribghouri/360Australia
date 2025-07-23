@@ -1,13 +1,13 @@
-"use client"
+import React from "react"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { useState } from "react"
 import { RequestProposalModal } from "../components/proposal-modal"
 
-export default function ProjectCTASection() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+const ProjectCTASection = React.forwardRef((props, ref) => {
+    const [isModalOpen, setIsModalOpen] = useState(false)
   return (
-    <div className="flex w-full justify-center py-24 lg:py-[150px]">
+  <div  ref={ref} className="flex w-full justify-center py-24 lg:py-[150px]">
       <section className="relative max-w-[84%] bg-black overflow-hidden flex items-center justify-center">
         {/* Background Effects */}
         <div className="absolute inset-0">
@@ -172,4 +172,8 @@ export default function ProjectCTASection() {
       <RequestProposalModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
-}
+})
+
+ProjectCTASection.displayName = "ProjectCTASection"
+
+export default ProjectCTASection

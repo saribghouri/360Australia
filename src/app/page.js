@@ -1,4 +1,5 @@
-import Image from "next/image";
+
+"use client"
 
 import MarketingSection from "./components/hero-section";
 import Header from "./components/header";
@@ -10,20 +11,23 @@ import BlogSection from "./components/blog";
 import ProjectCTASection from "./components/ProjectCTASection";
 import Footer from "./components/footer";
 import ClientLogosSection from "./components/client-log0-section";
+import { useRef } from "react";
 
 export default function Home() {
+    const projectCtaRef = useRef(null)
+
   return (
-    <div>
+   <div>
       {/* <Header /> */}
       <MarketingSection />
-      <ServicesSection />
+      <ServicesSection scrollToRef={projectCtaRef} /> {/* Pass the ref to ServicesSection */}
       <PortfolioSection />
       {/* <Designer/> */}
       <TestimonialSection />
       {/* <BlogSection/> */}
       <ClientLogosSection />
-      <ProjectCTASection />
-      <Footer />
+      <ProjectCTASection ref={projectCtaRef} /> {/* Pass the ref to ProjectCTASection */}
+
     </div>
   );
 }

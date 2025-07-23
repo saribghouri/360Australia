@@ -2,10 +2,7 @@
 
 import Image from "next/image"
 import { useState, useEffect, useRef, useCallback, useMemo } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
 import { gsap } from "gsap"
-import { Button } from "antd"
-
 
 export default function PortfolioSlider({ title, images, onImageSelect, reverseDirection = false }) {
   const numClones = 3 // Number of slides to clone from each end for seamless looping
@@ -37,9 +34,7 @@ export default function PortfolioSlider({ title, images, onImageSelect, reverseD
             (Number.parseInt(window.getComputedStyle(slideItems[0]).marginLeft) || 0) +
             (Number.parseInt(window.getComputedStyle(slideItems[0]).marginRight) || 0)
           : 0
-
         const xValue = reverseDirection ? currentSlide * slideWidth : -currentSlide * slideWidth
-
         gsap.to(sliderRef.current, {
           x: xValue,
           duration: 0.8,
@@ -59,7 +54,6 @@ export default function PortfolioSlider({ title, images, onImageSelect, reverseD
             }
           },
         })
-
         // Scale and opacity animation for visible slides
         slideItems.forEach((item, index) => {
           const isActive = index === currentSlide
@@ -73,11 +67,8 @@ export default function PortfolioSlider({ title, images, onImageSelect, reverseD
         })
       }
     }
-
     animateSlider()
-
     window.addEventListener("resize", animateSlider)
-
     return () => {
       window.removeEventListener("resize", animateSlider)
     }
@@ -97,14 +88,16 @@ export default function PortfolioSlider({ title, images, onImageSelect, reverseD
         <h2 className="text-5xl font-bold text-center mb-16">{title}</h2>
         <div className="relative flex items-center justify-center">
           {/* Previous Button */}
-    
           <div className="overflow-hidden w-full max-w-8xl mx-auto">
             <div ref={sliderRef} className="flex">
               {displayImages.map((src, index) => {
                 const originalImageIndex = (index - numClones + images.length) % images.length
                 return (
                   <div key={index} className="flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4">
-                    <div className="relative group cursor-pointer" onClick={() => onImageSelect(src)}>
+                    <div
+                      className="relative group cursor-pointer"
+                      onClick={() => onImageSelect(src, originalImageIndex)}
+                    >
                       <Image
                         src={src || "/placeholder.svg"}
                         alt={`${title} Project ${originalImageIndex + 1}`}
@@ -122,7 +115,6 @@ export default function PortfolioSlider({ title, images, onImageSelect, reverseD
             </div>
           </div>
           {/* Next Button */}
-      
         </div>
       </div>
     </section>

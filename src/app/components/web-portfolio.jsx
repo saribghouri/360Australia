@@ -6,14 +6,19 @@ import { ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import ProjectCard from "../components/project-cards"; // Corrected import path
-import { usePathname } from "next/navigation"; // Import usePathname for dynamic image loading
+import { usePathname, useRouter } from "next/navigation"; // Import usePathname for dynamic image loading
+import { Button } from "antd";
 
 export default function WebDesignPortfolio() {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
   const descriptionRef = useRef(null);
   const buttonRef = useRef(null);
+  const router = useRouter();
   const pathname = usePathname(); // Get the current pathname
+  const handleContactClick = () => {
+    router.push("/portfolio");
+  };
 
   // Define image and project data mappings based on pathname segments
   // Replace these placeholder URLs with your actual image paths
@@ -34,13 +39,13 @@ export default function WebDesignPortfolio() {
     ],
     "mobile-app-development": [
       {
-        src: "/7.png",
+        src: "/1 copy.jpg",
         alt: "Mobile App Project 1: Fitness Tracker",
         title: "Fitness Tracker App",
         description: "Track your workouts and progress.",
       },
       {
-        src: "/9f3a8e9a-73af-49a5-9285-eb6145c57e1b-cover (2).png",
+        src: "/3 copy (1).jpg",
         alt: "Mobile App Project 2: Recipe Finder",
         title: "Recipe Finder App",
         description: "Discover new recipes on the go.",
@@ -76,13 +81,13 @@ export default function WebDesignPortfolio() {
     ],
     "website-development": [
       {
-        src: "/shopify 6.PNG",
+        src: "/1 organic food copy.jpg",
         alt: "Video Animation Project 1: Explainer Video",
         title: "Explainer Video",
         description: "Simplifying complex concepts.",
       },
       {
-        src: "/Capture.PNG",
+        src: "/2 Lewis Nathenlel copy.jpg",
         alt: "Video Animation Project 2: Product Demo",
         title: "Product Demo Animation",
         description: "Showcasing product features.",
@@ -123,7 +128,7 @@ export default function WebDesignPortfolio() {
       <div className="flex flex-col items-center justify-center text-center ">
         <h2
           ref={titleRef}
-          className="text-3xl font-bold text-white tracking-tighter sm:text-5xl lg:text-7xl"
+          className="text-3xl font-bold uppercase text-white tracking-tighter sm:text-5xl lg:text-7xl"
         >
           Portfolio
         </h2>
@@ -161,23 +166,10 @@ export default function WebDesignPortfolio() {
             ))}
           </div>
           <div className="flex justify-center mt-12 relative z-10">
-            <Link href="#" passHref ref={buttonRef}>
-              <motion.button
-                className="group relative border cursor-pointer qr-code border-teal-500 bg-black text-white px-6 py-4 rounded-[30px] font-bold text-xl flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl "
-                whileTap={{ scale: 0.95 }}
-              >
-                <motion.div
-                  className="absolute inset-0"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.6 }}
-                />
-                View All Projects
-                <ArrowRight className="h-5 w-5" />
-                <motion.div className="group-hover:translate-x-1 transition-transform duration-300 relative z-10"></motion.div>
-              </motion.button>
-            </Link>
+            <Button className="group relative border cursor-pointer qr-code !border-teal-500 !bg-black !text-white !px-6 !py-6 !rounded-[30px] !font-bold !text-xl flex items-center !gap-3 mx-auto !lg:mx-0 overflow-hidden shadow-2xl "
+              onClick={handleContactClick}>   View All Projects</Button>
           </div>
+
         </div>
       </section>
     </>

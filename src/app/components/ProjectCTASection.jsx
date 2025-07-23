@@ -120,7 +120,10 @@ export default function ProjectCTASection() {
                     className="space-y-4"
                   >
                     <motion.button
-                      className="group relative border qr-code border-teal-500 bg-teal-500 text-white px-10 lg:py-5 rounded-[20px] font-bold text-xl flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl cursor-pointer"
+                      className="group relative border border-teal-500 bg-teal-500 text-white
+                   px-6 py-3 lg:px-10 lg:py-5 rounded-[20px] font-bold
+                   flex items-center gap-3 mx-auto lg:mx-0 overflow-hidden
+                   shadow-2xl cursor-pointer"
                       whileHover={{ scale: 1.05, boxShadow: "0 25px 50px -12px rgba(16, 212, 196, 0.4)" }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setIsModalOpen(true)} // Open modal on click
@@ -132,7 +135,9 @@ export default function ProjectCTASection() {
                         whileHover={{ x: "100%" }}
                         transition={{ duration: 0.6 }}
                       />
-                      <span className="relative z-10 text-white text-lg uppercase">Request A Proposal</span>
+                      <span className="relative z-10 text-white text-sm sm:text-base md:text-lg uppercase whitespace-nowrap">
+                        Request A Proposal
+                      </span>
                       <motion.div className="group-hover:translate-x-1 transition-transform duration-300 relative z-10">
                         <ArrowRight className="h-6 w-6 text-white" />
                       </motion.div>

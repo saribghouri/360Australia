@@ -102,9 +102,9 @@ const Header = () => {
             <img
               src="/IMG-20250710-WA0015-removebg-preview.png"
               alt="360 Australia Ventures Logo"
-              className="h-24 w-20 lg:h-[86px] lg:w-[124px]"
+              className="h-20 w-24 lg:h-[86px] lg:w-[124px]"
             />
-            <h1 className="text-white text-2xl font-bold mt-[25px]">
+            <h1 className="text-white text-2xl font-bold !mt-[25px]">
               AUSTRALIA
             </h1>
           </Link>
@@ -284,7 +284,7 @@ const Header = () => {
           </div>
         </div>
         <button
-          className="!text-white bg-[#0ea89b] px-10 py-2 font-bold !text-[20px] rounded-[10px] cursor-pointer hidden md:block"
+          className="!text-white bg-[#0ea89b] px-10 py-3 uppercase font-bold !text-[20px] rounded-[10px] cursor-pointer hidden md:block"
           onClick={handleContactClick}
         >
           Book A Consultation
@@ -307,7 +307,7 @@ const Header = () => {
               <div key={index} className="group">
                 <Link
                   href={service.href}
-                  className="block mb-4 pb-2 border-b border-teal-500/20"
+                  className="block mb-4 pb-2 mt-[110px]  border-b border-teal-500/20"
                   onClick={() => setIsServicesOpen(false)}
                 >
                   <h3 className="text-white font-bold text-lg group-hover:text-[#10d4c4] transition-colors duration-200 flex items-center">

@@ -28,11 +28,11 @@ export default function PortfolioPage() {
     "/4 blaster sound copy.jpg",
   ];
   const mobileAppImages = [
-    "/1 organic food copy.jpg", // dark textured background
-    "/2 Lewis Nathenlel copy.jpg", // green e-commerce
-    "/3 tea copy.jpg", // yellow e-commerce
-    "/5 fenty beauty.jpg", // denim jacket e-commerce
-    "/4 blaster sound copy.jpg",
+    "/1 copy.jpg", // dark textured background
+    "/2 copy.jpg", // green e-commerce
+    "/5 copy.jpg", // denim jacket e-commerce
+    "/3 copy (1).jpg", // yellow e-commerce
+    "/4 copy.jpg",
   ];
   const graphicsDesignImages = [
     "/baab.jpg", // dark textured background
@@ -44,10 +44,11 @@ export default function PortfolioPage() {
 
   const images = [
     "/baab.jpg", // dark textured background
-    "/2 Lewis Nathenlel copy.jpg", // green e-commerce
-    "/3 tea copy.jpg", // yellow e-commerce
     "/taxis plus logo copy.jpg", // denim jacket e-commerce
+    "/3 copy (1).jpg", // green e-commerce
+    "/2 copy.jpg", // yellow e-commerce
     "/4 blaster sound copy.jpg",
+    "/3 tea copy.jpg",
   ];
   useEffect(() => {
     setIsVisible(true);
@@ -58,8 +59,7 @@ export default function PortfolioPage() {
   }, [images.length]);
 
   useEffect(() => {
-    // This effect was for the hero section's circular image animation,
-    // which was removed. Keeping it empty or removing it if not needed elsewhere.
+
   }, []);
 
   const handleImageClick = (imageSrc, imageIndex, sectionImages) => {
@@ -218,54 +218,52 @@ export default function PortfolioPage() {
       </div>
 
       {isModalOpen && activeModalImages.length > 0 && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
-          <div className="relative max-w-screen-lg max-h-screen-lg w-full h-full flex items-center justify-center">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute top-4 right-4 text-white hover:bg-white/20 z-10"
-              onClick={handleCloseModal}
-              aria-label="Close image"
-            >
-              <X className="h-6 w-6" />
-            </Button>
-
-            {/* Previous Button for Modal */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute left-4 z-10 p-2 rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white"
-              onClick={() => navigateModal(-1)}
-              aria-label="Previous image"
-            >
-              <ChevronLeft className="w-8 h-8" />
-            </Button>
-
-            <Image
-              src={
-                activeModalImages[currentModalImageIndex] || "/placeholder.svg"
-              }
-              alt={`Full screen image ${currentModalImageIndex + 1}`}
-              width={1200}
-              height={800}
-              className="object-contain max-w-full max-h-full"
-            />
-
-            {/* Next Button for Modal */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute right-4 z-10 p-2 rounded-full bg-white/20 hover:bg-white/40 transition-colors text-white"
-              onClick={() => navigateModal(1)}
-              aria-label="Next image"
-            >
-              <ChevronRight className="w-8 h-8" />
-            </Button>
-          </div>
-        </div>
+       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
+      <div className="relative max-w-screen-lg max-h-screen-lg w-full h-full flex items-center justify-center">
+        {/* Close Button - now fixed to the viewport */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="fixed !bottom-104 !left-300 !text-white !border-none !bg-teal-500 hover:bg-white/20 !z-[51]" // Changed to 'fixed' and increased z-index
+          onClick={handleCloseModal}
+          aria-label="Close image"
+        >
+          <X className="h-6 w-6" />
+        </Button>
+        {/* Previous Button for Modal */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute right-13 !h-11 z-10 !p-2 !rounded-[30px] !border-none !bg-teal-500 hover:bg-white/40 transition-colors !text-white"
+          onClick={() => navigateModal(-1)}
+          aria-label="Previous image"
+        >
+          <ChevronLeft className="w-8 h-8" />
+        </Button>
+        <Image
+          src={
+            activeModalImages[currentModalImageIndex] || "/placeholder.svg?height=800&width=1200&query=default image"
+          }
+          alt={`Full screen image ${currentModalImageIndex + 1}`}
+          width={1200}
+          height={800}
+          className="object-contain max-w-full max-h-full"
+        />
+        {/* Next Button for Modal */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="absolute left-13 !h-11 z-10 !p-2 !rounded-[30px] !border-none !bg-teal-500 hover:bg-white/40 transition-colors !text-white"
+          onClick={() => navigateModal(1)}
+          aria-label="Next image"
+        >
+          <ChevronRight className="w-8 h-8" />
+        </Button>
+      </div>
+    </div>
       )}
       <ProjectCTASection />
-      <Footer />
+     
     </>
   );
 }

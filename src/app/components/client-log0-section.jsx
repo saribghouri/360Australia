@@ -1,53 +1,38 @@
 "use client"
-
 import { useState, useRef } from "react"
+import Image from "next/image" // Import Image component
 
 export default function ClientLogosSection() {
   const [isPaused, setIsPaused] = useState(false)
   const [speed, setSpeed] = useState(1)
   const scrollRef = useRef(null)
-
-
   const allLogos = [
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
-    { type: "australia-ventures", content: "360 Australia Ventures" },
+    { type: "image", image: "/logos/cocolea-removebg-preview.png" },
+    { type: "image", image: "/logos/logo_05-removebg-preview.png" },
+    { type: "image", image: "/logos/slams-logo-min-1-removebg-preview.png" },
+    { type: "image", image: "/logos/taxis_plus_logo_copy-removebg-preview.png" },
+    { type: "image", image: "/logos/voyo_logo_copy-removebg-preview.png" },
+    { type: "image", image: "/logos/images/logo-7.png" },
+    // You can add more logo types here if needed, following the original structure
   ]
 
- 
   const duplicatedLogos = [...allLogos, ...allLogos, ...allLogos]
-
   const renderLogo = (logo, index) => {
     const baseClasses = "flex-shrink-0 mx-8 transition-transform hover:scale-105"
-
     switch (logo.type) {
-      case "australia-ventures":
+      case "image":
         return (
           <div key={index} className={baseClasses}>
-            <div className="flex items-center justify-center  rounded-lg p-4 ">
-              <img
-                src="/MLEntp.png"
-                alt="360 Australia Ventures Logo"
-                width={120}
-                height={60}
+            <div className="flex items-center justify-center rounded-lg p-4 ">
+              <Image // Using Next.js Image component
+                src={logo.image || "/placeholder.svg"} // Mapped image source
+                width={logo.image === "/logos/slams-logo-min-1-removebg-preview.png" ? 100 : 220}
+                height={logo.image === "/logos/slams-logo-min-1-removebg-preview.png" ? 40 : 60}
                 className="object-contain"
               />
             </div>
           </div>
         )
-
       case "andaaz":
         return (
           <div key={index} className={baseClasses}>
@@ -56,7 +41,6 @@ export default function ClientLogosSection() {
             </div>
           </div>
         )
-
       case "arabic":
         return (
           <div key={index} className={baseClasses}>
@@ -68,7 +52,6 @@ export default function ClientLogosSection() {
             </div>
           </div>
         )
-
       case "trust":
         return (
           <div key={index} className={baseClasses}>
@@ -78,7 +61,6 @@ export default function ClientLogosSection() {
             </div>
           </div>
         )
-
       case "century":
         return (
           <div key={index} className={baseClasses}>
@@ -93,7 +75,6 @@ export default function ClientLogosSection() {
             </div>
           </div>
         )
-
       case "udl":
         return (
           <div key={index} className={baseClasses}>
@@ -105,7 +86,6 @@ export default function ClientLogosSection() {
             </div>
           </div>
         )
-
       case "abbott":
         return (
           <div key={index} className={baseClasses}>
@@ -115,7 +95,6 @@ export default function ClientLogosSection() {
             </div>
           </div>
         )
-
       default:
         return (
           <div key={index} className={baseClasses}>
@@ -129,22 +108,18 @@ export default function ClientLogosSection() {
         )
     }
   }
-
   const increaseSpeed = () => {
     setSpeed((prev) => Math.min(prev + 0.5, 3))
   }
-
   const decreaseSpeed = () => {
     setSpeed((prev) => Math.max(prev - 0.5, 0.5))
   }
-
   return (
     <section
-      className="relative  w-full h-84 bg-transparent overflow-hidden"
+      className="relative w-full h-84 bg-transparent overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-     
       <div
         className="absolute inset-0 bg-gradient-to-r from-teal-500 to-teal-900"
         style={{
@@ -154,8 +129,7 @@ export default function ClientLogosSection() {
         }}
       />
 
-     
-      <div className="relative  h-full -rotate-5 overflow-hidden">
+      <div className="relative h-full -rotate-5 overflow-hidden">
         <div
           ref={scrollRef}
           className="flex items-center h-full"
@@ -168,10 +142,9 @@ export default function ClientLogosSection() {
         </div>
       </div>
 
-     
       <button
         onClick={decreaseSpeed}
-        className="absolute left-4 top-1/ hidden transform -translate-y-1/2  bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors group"
+        className="absolute left-4 top-1/ hidden transform -translate-y-1/2 bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors group"
         title="Decrease Speed"
       >
         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -181,7 +154,6 @@ export default function ClientLogosSection() {
           Slower
         </div>
       </button>
-
       <button
         onClick={increaseSpeed}
         className="absolute right-4 hidden top-1/2 transform -translate-y-1/2 z-20 bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors group"
@@ -190,15 +162,13 @@ export default function ClientLogosSection() {
         <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
-        <div className="absolute -bottom-8  left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
           Faster
         </div>
       </button>
 
-     
       <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20 bg-black/50 text-white text-xs px-3 py-1 rounded-full"></div>
 
-   
       {isPaused && (
         <div className="absolute top-4 hidden right-4 z-20 bg-red-500/80 text-white text-xs px-3 py-1 rounded-full flex items-center space-x-1">
           <div className="w-2 h-2 bg-white rounded-full"></div>
@@ -206,10 +176,6 @@ export default function ClientLogosSection() {
         </div>
       )}
 
-    
-    
-
-     
       <style jsx>{`
         @keyframes scroll-left {
           0% {

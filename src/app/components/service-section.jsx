@@ -180,8 +180,8 @@ export default function AnimatedSection() {
                     process to boost your digital presence.
                   </p>
                   <button className="flex items-center justify-between mt-[50px] cursor-pointer action-bg px-6 py-1 rounded-full bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]">
-                    <span className="text-gray-800 font-medium cursor-pointer tracking-wide bg-transparent text-xl">
-                      LEARN MORE
+                    <span className="text-[#383838] uppercase font-semibold cursor-pointer bg-transparent text-[22px]">
+                     Let's Talk
                     </span>
                     <span className="ml-6 w-9 h-9 mr-[-8px] rounded-full action bg-gradient-to-br from-[#0ef5d6] to-[#21abb0] flex items-center justify-center shadow-md">
                       <Check className="w-6 h-6 text-white" />
@@ -209,8 +209,8 @@ export default function AnimatedSection() {
                   </p>
 
                   <button className="flex items-center  justify-between mt-[50px] cursor-pointer action-bg px-5 py-1 rounded-full bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]">
-                    <span className="text-gray-800 font-medium cursor-pointer tracking-wide bg-transparent text-xl">
-                      LEARN MORE
+                    <span className="text-[#383838] uppercase font-semibold cursor-pointer bg-transparent text-[22px]">
+                     Let's Talk
                     </span>
                     <span className="ml-6 w-9 h-9 mr-[-8px] rounded-full action bg-gradient-to-br from-[#0ef5d6] to-[#21abb0] flex items-center justify-center shadow-md">
                       <Check className="w-6 h-6 text-white" />
@@ -244,8 +244,8 @@ export default function AnimatedSection() {
                     apps that work smoothly on any device.
                   </p>
                   <button className="flex items-center justify-between mt-[50px] !cursor-pointer action-bg px-5 py-1 rounded-full bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]">
-                    <span className="text-gray-800 font-medium cursor-pointer tracking-wide bg-transparent text-xl">
-                      LEARN MORE
+                    <span className="text-[#383838] uppercase font-semibold cursor-pointer bg-transparent text-[22px]">
+                     Let's Talk
                     </span>
                     <span className="ml-6 mr-[-8px] w-9 h-9 rounded-full action bg-gradient-to-br from-[#0ef5d6] to-[#21abb0] flex items-center justify-center shadow-md">
                       <Check className="w-6 h-6 text-white" />
@@ -279,8 +279,8 @@ export default function AnimatedSection() {
                     counts.
                   </p>
                   <button className="flex items-center justify-between mt-[50px] cursor-pointer action-bg px-5 py-1 rounded-full bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]">
-                    <span className="text-gray-800 font-medium cursor-pointer tracking-wide bg-transparent text-xl">
-                      LEARN MORE
+                  <span className="text-[#383838] uppercase font-semibold cursor-pointer bg-transparent text-[22px]">
+                     Let's Talk
                     </span>
                     <span className="ml-6 mr-[-8px] w-9 h-9 rounded-full action bg-gradient-to-br from-[#0ef5d6] to-[#21abb0] flex items-center justify-center shadow-md">
                       <Check className="w-6 h-6 text-white" />
@@ -312,8 +312,8 @@ export default function AnimatedSection() {
                     videos and animations that speak louder than words.
                   </p>
                   <button className="flex items-center justify-between mt-[50px] cursor-pointer action-bg px-5 py-1 rounded-full bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]">
-                    <span className="text-gray-800 font-medium cursor-pointer tracking-wide bg-transparent text-xl">
-                      LEARN MORE
+               <span className="text-[#383838] uppercase font-semibold cursor-pointer bg-transparent text-[22px]">
+                     Let's Talk
                     </span>
                     <span className="ml-6 w-9 h-9 mr-[-8px] rounded-full action bg-gradient-to-br from-[#0ef5d6] to-[#21abb0] flex items-center justify-center shadow-md">
                       <Check className="w-6 h-6 text-white" />

@@ -1,24 +1,25 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
-import { useRef } from "react"
-import { gsap } from "gsap"
+import Image from "next/image";
+import Link from "next/link";
+import { useRef } from "react";
+import { gsap } from "gsap";
 
 export default function ProjectCard({ src, alt, title, description, href }) {
-  const cardRef = useRef(null)
+  const cardRef = useRef(null);
 
   const handleMouseMove = (e) => {
-    if (!cardRef.current) return
+    if (!cardRef.current) return;
 
-    const { clientX, clientY } = e
-    const { left, top, width, height } = cardRef.current.getBoundingClientRect()
+    const { clientX, clientY } = e;
+    const { left, top, width, height } =
+      cardRef.current.getBoundingClientRect();
 
-    const centerX = left + width / 2
-    const centerY = top + height / 2
+    const centerX = left + width / 2;
+    const centerY = top + height / 2;
 
-    const rotateX = (centerY - clientY) / 20 // Adjust divisor for sensitivity
-    const rotateY = (clientX - centerX) / 20 // Adjust divisor for sensitivity
+    const rotateX = (centerY - clientY) / 20; // Adjust divisor for sensitivity
+    const rotateY = (clientX - centerX) / 20; // Adjust divisor for sensitivity
 
     gsap.to(cardRef.current, {
       rotateX: rotateX,
@@ -26,11 +27,11 @@ export default function ProjectCard({ src, alt, title, description, href }) {
       scale: 1.03, // Slight scale on hover
       ease: "power2.out",
       duration: 0.3,
-    })
-  }
+    });
+  };
 
   const handleMouseLeave = () => {
-    if (!cardRef.current) return
+    if (!cardRef.current) return;
 
     gsap.to(cardRef.current, {
       rotateX: 0,
@@ -38,8 +39,8 @@ export default function ProjectCard({ src, alt, title, description, href }) {
       scale: 1,
       ease: "power2.out",
       duration: 0.5,
-    })
-  }
+    });
+  };
 
   return (
     <div
@@ -49,13 +50,14 @@ export default function ProjectCard({ src, alt, title, description, href }) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      
       <Image
         src={src || "/placeholder.svg"}
         alt={alt}
-        width={700}
-        height={500}
-        className="object-cover w-full h-full aspect-video transition-transform duration-300 group-hover:scale-105"
+        width={900}
+        height={600}
+        className="object-contain w-full 
+        !rounded-2xl 
+        1h-[310px] sm:h-[390px] lg:h-[411px] aspect-video transition-transform duration-300 group-hover:scale-105"
         style={{ transform: "translateZ(20px)" }} // Push image slightly forward in 3D space
       />
       <div
@@ -68,5 +70,5 @@ export default function ProjectCard({ src, alt, title, description, href }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

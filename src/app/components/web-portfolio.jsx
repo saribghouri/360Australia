@@ -135,7 +135,7 @@ export default function WebDesignPortfolio() {
       </div>
       <section
         ref={sectionRef}
-        className="w-full py-12 md:py-24 lg:py-32 bg-black text-white flex justify-center"
+        className="w-full py-12 md:py-24 lg:py-32 bg-black text-white flex justify-center px-4 sm:px-8"
       >
         <div
           className="container border rounded-3xl py-12 testomnial-shadows px-4 md:px-6 border-gray-900 shadow-testimonial-shadows relative overflow-hidden"
@@ -166,10 +166,14 @@ export default function WebDesignPortfolio() {
             ))}
           </div>
           <div className="flex justify-center mt-12 relative z-10">
-            <Button className="group relative border cursor-pointer qr-code !border-teal-500 !bg-black !text-white !px-6 !py-6 !rounded-[30px] !font-bold !text-xl flex items-center !gap-3 mx-auto !lg:mx-0 overflow-hidden shadow-2xl "
-              onClick={handleContactClick}>   View All Projects</Button>
+            <Button
+              className="group relative border cursor-pointer qr-code !border-teal-500 !bg-black !text-white !px-6 !py-6 !rounded-[30px] !font-bold !text-xl flex items-center !gap-3 mx-auto !lg:mx-0 overflow-hidden shadow-2xl "
+              onClick={handleContactClick}
+            >
+              {" "}
+              View All Projects
+            </Button>
           </div>
-
         </div>
       </section>
     </>

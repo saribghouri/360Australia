@@ -344,7 +344,19 @@ export default function AnimatedMarketingSection() {
               }`}
               style={{ transitionDelay: "1.2s" }}
             >
-              <ModernTablet />
+              {/* Tablet only visible on large screens */}
+              <div className="hidden md:block">
+                <div
+                  className={`relative overflow-hidden rounded-lg mt-8 transition-all duration-1000 hover:scale-105 ${
+                    isVisible
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-10 opacity-0"
+                  }`}
+                  style={{ transitionDelay: "1.2s" }}
+                >
+                  <ModernTablet />
+                </div>
+              </div>
             </div>
           </div>
         </div>

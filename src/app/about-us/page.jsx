@@ -328,9 +328,9 @@ export default function AboutUsSections() {
                       </div>
                       {/* Description - positioned below dot, appears on hover */}
                       <p
-                        className={`text-lg text-white transition-all text-center duration-300 ease-in-out mt-[30px] overflow-hidden ${
+                        className={`text-lg text-white transition-all text-center duration-300 ease-in-out !mt-[30px] overflow-hidden ${
                           activeStep === step.id
-                            ? "opacity-100 max-h-20 mt-2"
+                            ? "opacity-100 max-h-20 !mt-2"
                             : "opacity-0 max-h-0"
                         }`}
                       >
@@ -344,7 +344,6 @@ export default function AboutUsSections() {
           </section>
         </div>
         <ProjectCTASection />
-        <Footer />
       </section>
       <style jsx>{`
         @keyframes float {

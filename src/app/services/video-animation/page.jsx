@@ -197,7 +197,6 @@ export default function DigitalSolutionsSection() {
 </section>
     </div> */}
       <ProjectCTASection />
-      <Footer />
     </>
   );
 }

@@ -58,9 +58,7 @@ export default function PortfolioPage() {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  useEffect(() => {
-
-  }, []);
+  useEffect(() => {}, []);
 
   const handleImageClick = (imageSrc, imageIndex, sectionImages) => {
     setActiveModalImages(sectionImages);
@@ -87,23 +85,23 @@ export default function PortfolioPage() {
     <>
       <div className="">
         {/* <Header /> */}
-        <section className="bg-black relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute left-20 w-72 h-72 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-20 right-20 w-96 h-96 bg-teal-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-teal-300/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+        <section className="bg-black relative  overflow-hidden">
+          <div className="absolute inset-0 ">
+            <div className="absolute left-4 sm:left-20 w-32 sm:w-72 h-32 sm:h-72 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-10 sm:bottom-20 right-4 sm:right-20 w-40 sm:w-96 h-40 sm:h-96 bg-teal-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 sm:w-80 h-32 sm:h-80 bg-teal-300/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
           </div>
-          <div className="container mx-auto px-6 py-20 relative z-10 mt-[-70px]">
-            <div className="grid lg:grid-cols-2 gap-12 items-center mt-[110px]">
-              <div className="space-y-8">
+          <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-20 relative z-10 mt-0 sm:mt-[-70px]">
+            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mt-8 sm:mt-[110px]">
+              <div className="space-y-6 sm:space-y-8 w-full lg:w-auto">
                 <div
                   className={`transform transition-all duration-1000 ${true ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
                 >
-                  <h1 className="text-6xl lg:text-4xl xl:text-6xl font-bold   uppercase">
+                  <h1 className="text-3xl sm:text-5xl lg:text-6xl mt-[60px] xl:text-6xl font-bold uppercase">
                     <span className="inline-block delay-100 text-white">
                       Welcome to our
                     </span>
-                    <span className="inline-block delay-1300 text-gradient text-[130px] bg-gradient-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent">
+                    <span className="block sm:inline-block delay-1300 text-gradient text-5xl sm:text-[80px] lg:text-[130px] bg-gradient-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent">
                       Portfolio
                     </span>
                   </h1>
@@ -111,7 +109,7 @@ export default function PortfolioPage() {
                 <div
                   className={`transform transition-all duration-1000 delay-500 ${true ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
                 >
-                  <p className="text-xl lg:text-2xl text-gray-100 leading-relaxed max-w-lg">
+                  <p className="text-base sm:text-xl lg:text-2xl text-gray-100 leading-relaxed max-w-full sm:max-w-lg">
                     Discover amazing projects, creative designs, and innovative
                     solutions crafted with passion and expertise.
                   </p>
@@ -120,11 +118,21 @@ export default function PortfolioPage() {
                   className={`transform transition-all duration-1000 delay-1000 ${true ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
                 ></div>
               </div>
-              <div className="relative h-[600px] lg:h-[700px]">
+              <div className="relative h-[300px] sm:h-[400px] lg:h-[600px] xl:h-[700px] w-full lg:w-auto">
                 <div className="absolute inset-0 flex items-center justify-center">
                   {images.map((src, index) => {
+                    // Responsive radius for circular layout
+                    const baseRadius = 100;
+                    const smRadius = 180;
+                    const lgRadius = 200;
+                    const xlRadius = 260;
+                    let radius = baseRadius;
+                    if (typeof window !== "undefined") {
+                      if (window.innerWidth >= 1280) radius = xlRadius;
+                      else if (window.innerWidth >= 1024) radius = lgRadius;
+                      else if (window.innerWidth >= 640) radius = smRadius;
+                    }
                     const angle = index * 60 - currentImageIndex * 60;
-                    const radius = 200;
                     const x = Math.cos((angle * Math.PI) / 180) * radius;
                     const y = Math.sin((angle * Math.PI) / 180) * radius;
                     const scale = index === currentImageIndex ? 1.2 : 0.8;
@@ -144,9 +152,9 @@ export default function PortfolioPage() {
                           <Image
                             src={src || "/placeholder.svg"}
                             alt={`Portfolio ${index + 1}`}
-                            width={200}
-                            height={150}
-                            className="rounded-2xl shadow-2xl border-4 border-white/20 group-hover:border-teal-400/50 transition-all duration-300"
+                            width={120}
+                            height={90}
+                            className="rounded-2xl shadow-2xl border-4 border-white/20 group-hover:border-teal-400/50 transition-all duration-300 w-[120px] sm:w-[140px] lg:w-[200px] h-auto"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-teal-900/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
@@ -154,10 +162,10 @@ export default function PortfolioPage() {
                     );
                   })}
                 </div>
-                <div className="absolute top-10 right-10 w-20 h-20 bg-gradient-to-r from-teal-400 to-teal-300 rounded-full opacity-20 animate-ping"></div>
-                <div className="absolute bottom-20 left-10 w-16 h-16 bg-gradient-to-r from-teal-500 to-teal-400 rounded-full opacity-30 animate-pulse"></div>
-                <div className="absolute top-1/2 right-0 w-12 h-12 bg-gradient-to-r from-teal-300 to-teal-400 rounded-full opacity-25 animate-bounce"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-r from-teal-500/20 to-teal-400/20 rounded-full blur-2xl animate-pulse"></div>
+                <div className="absolute top-4 sm:top-10 right-4 sm:right-10 w-10 sm:w-20 h-10 sm:h-20 bg-gradient-to-r from-teal-400 to-teal-300 rounded-full opacity-20 animate-ping"></div>
+                <div className="absolute bottom-4 sm:bottom-20 left-4 sm:left-10 w-8 sm:w-16 h-8 sm:h-16 bg-gradient-to-r from-teal-500 to-teal-400 rounded-full opacity-30 animate-pulse"></div>
+                <div className="absolute top-1/2 right-0 w-6 sm:w-12 h-6 sm:h-12 bg-gradient-to-r from-teal-300 to-teal-400 rounded-full opacity-25 animate-bounce"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 sm:w-32 h-16 sm:h-32 bg-gradient-to-r from-teal-500/20 to-teal-400/20 rounded-full blur-2xl animate-pulse"></div>
               </div>
             </div>
           </div>
@@ -165,7 +173,7 @@ export default function PortfolioPage() {
             <svg
               viewBox="0 0 1200 120"
               preserveAspectRatio="none"
-              className="w-full h-20 fill-gray-900/50"
+              className="w-full h-10 sm:h-20 fill-gray-900/50"
             >
               <path
                 d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
@@ -202,6 +210,7 @@ export default function PortfolioPage() {
           onImageSelect={(src, index) =>
             handleImageClick(src, index, mobileAppImages)
           }
+          reverseDirection
         />
         {/* Graphics Design Section */}
         <PortfolioSlider
@@ -218,53 +227,53 @@ export default function PortfolioPage() {
       </div>
 
       {isModalOpen && activeModalImages.length > 0 && (
-       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="  bottom-54   !sm:bottom-104 !sm:left-300 left-50  !text-white !border-none !bg-teal-500 hover:bg-white/20 !z-[51]" // Changed to 'fixed' and increased z-index
+            onClick={handleCloseModal}
+            aria-label="Close image"
+          >
+            <X className="h-6 w-6" />
+          </Button>
+          <div className="relative max-w-screen-lg max-h-screen-lg  w-full h-full flex items-center justify-center">
+            {/* Close Button - now fixed to the viewport */}
+
+            {/* Previous Button for Modal */}
             <Button
-          variant="ghost"
-          size="icon"
-          className="  bottom-54   !sm:bottom-104 !sm:left-300 left-50  !text-white !border-none !bg-teal-500 hover:bg-white/20 !z-[51]" // Changed to 'fixed' and increased z-index
-          onClick={handleCloseModal}
-          aria-label="Close image"
-        >
-          <X className="h-6 w-6" />
-        </Button>
-      <div className="relative max-w-screen-lg max-h-screen-lg  w-full h-full flex items-center justify-center">
-        {/* Close Button - now fixed to the viewport */}
-    
-        {/* Previous Button for Modal */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute sm:right-13 right-[-40px] !h-11 z-10 !sm:p-2 !p-2 !rounded-[30px] !border-none !bg-teal-500 hover:bg-white/40 transition-colors !text-white"
-          onClick={() => navigateModal(-1)}
-          aria-label="Previous image"
-        >
-          <ChevronLeft className="w-8 h-8" />
-        </Button>
-        <Image
-          src={
-            activeModalImages[currentModalImageIndex] || "/placeholder.svg?height=800&width=1200&query=default image"
-          }
-          alt={`Full screen image ${currentModalImageIndex + 1}`}
-          width={1200}
-          height={800}
-          className="object-contain max-w-full max-h-full !sm:ml-[-40px]"
-        />
-        {/* Next Button for Modal */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute sm:left-13  left-[-40px] !h-11 z-10 !sm:p-2  !p-2 !rounded-[30px] !border-none !bg-teal-500 hover:bg-white/40 transition-colors !text-white"
-          onClick={() => navigateModal(1)}
-          aria-label="Next image"
-        >
-          <ChevronRight className="w-8 h-8" />
-        </Button>
-      </div>
-    </div>
+              variant="ghost"
+              size="icon"
+              className="absolute sm:right-13 right-[-40px] !h-11 z-10 !sm:p-2 !p-2 !rounded-[30px] !border-none !bg-teal-500 hover:bg-white/40 transition-colors !text-white"
+              onClick={() => navigateModal(-1)}
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-8 h-8" />
+            </Button>
+            <Image
+              src={
+                activeModalImages[currentModalImageIndex] ||
+                "/placeholder.svg?height=800&width=1200&query=default image"
+              }
+              alt={`Full screen image ${currentModalImageIndex + 1}`}
+              width={1200}
+              height={800}
+              className="object-contain max-w-full max-h-full !sm:ml-[-40px]"
+            />
+            {/* Next Button for Modal */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute sm:left-13  left-[-40px] !h-11 z-10 !sm:p-2  !p-2 !rounded-[30px] !border-none !bg-teal-500 hover:bg-white/40 transition-colors !text-white"
+              onClick={() => navigateModal(1)}
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-8 h-8" />
+            </Button>
+          </div>
+        </div>
       )}
       <ProjectCTASection />
-     
     </>
   );
 }

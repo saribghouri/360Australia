@@ -1,24 +1,24 @@
-"use client"
+"use client";
 
-import { Facebook, Linkedin, MapPin, Mail, Instagram } from "lucide-react"
-import Image from "next/image"
-import { useRouter } from "next/navigation"
+import { Facebook, Linkedin, MapPin, Mail, Instagram } from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Footer() {
-  const router = useRouter()
+  const router = useRouter();
 
   const handleContactClick = () => {
-    router.push("/portfolio")
-  }
+    router.push("/about-us");
+  };
 
   return (
     <footer className="bg-black text-white py-8 md:py-12 relative">
       <div className="bg-[#10d4c4] h-[2px] mb-6 md:mb-[20px]"></div>
       <div className="max-w-8xl mx-auto px-4 md:px-8 lg:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 lg:gap-22 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-12 lg:gap-24 mb-4 lg:mb-6 justify-center items-start ml-4 md:ml-8 lg:ml-12">
           {/* Company Info Section */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
-            <div className="flex items-center justify-center md:justify-start">
+          <div className="flex flex-col items-center justify-center text-center lg:text-center space-y-4 lg:space-y-8">
+            <div className="flex items-center justify-center mr-[100px] md:justify-start">
               <Image
                 src="/IMG-20250710-WA0015-removebg-preview.png"
                 alt="360 Australia Ventures Logo"
@@ -28,8 +28,9 @@ export default function Footer() {
               />
               <h1 className="text-white text-2xl font-bold ml-2">AUSTRALIA</h1>
             </div>
-            <p className="text-gray-300 text-sm md:text-base lg:text-lg leading-relaxed max-w-lg">
-              360 Australia is your trusted digital partner, helping businesses grow, succeed, and stand out online.{" "}
+            <p className="text-gray-300 text-sm md:text-base text-start lg:text-lg leading-relaxed max-w-lg">
+              360 Australia is your trusted digital partner, helping businesses
+              grow, succeed, and stand out online.{" "}
               <button
                 onClick={handleContactClick}
                 className="rounded-[10px] cursor-pointer !text-teal-500 py-[1px] text-[15px]"
@@ -40,10 +41,15 @@ export default function Footer() {
           </div>
 
           {/* Quick Links Section */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
-            <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">Quick Links</h4>
+          <div className="flex flex-col items-center justify-center text-center lg:text-center space-y-4 ">
+            <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">
+              Quick Links
+            </h4>
             <nav className="flex flex-col gap-3">
-              <a href="/" className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg">
+              <a
+                href="/"
+                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+              >
                 Home
               </a>
               <a
@@ -69,9 +75,14 @@ export default function Footer() {
 
           {/* Legal Section */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
-            <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">Legal</h4>
+            <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">
+              Legal
+            </h4>
             <nav className="flex flex-col gap-3">
-              <a href="/" className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg">
+              <a
+                href="/"
+                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+              >
                 Privacy Policy
               </a>
               <a
@@ -97,19 +108,29 @@ export default function Footer() {
 
           {/* Contact Info Section */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
-            <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">Contact Info</h4>
+            <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">
+              Contact Info
+            </h4>
             <div className="space-y-3">
               <div className="flex items-start justify-center md:justify-start space-x-3">
                 <MapPin className="w-5 h-5 md:w-6 md:h-6 text-[#10d4c4] mt-1 flex-shrink-0" />
-                <p className="text-gray-300 text-sm md:text-base lg:text-lg text-left">Belmore, Sydney, Australia</p>
+                <p className="text-gray-300 text-sm md:text-base lg:text-lg text-left">
+                  Belmore, Sydney, Australia
+                </p>
               </div>
               <div className="flex items-start justify-center md:justify-start space-x-3">
                 <Mail className="w-5 h-5 md:w-6 md:h-6 text-[#10d4c4] mt-1 flex-shrink-0" />
-                <p className="text-gray-300 text-sm md:text-base lg:text-lg text-left">hello@360-australia.com.au</p>
+                <p className="text-gray-300 text-sm md:text-base lg:text-lg text-left">
+                  hello@360-australia.com.au
+                </p>
               </div>
             </div>
             <div className="flex space-x-4 mt-[40px] justify-center md:justify-start">
-              <a href="#" className="text-teal-400 hover:text-white transition-colors" aria-label="Facebook link">
+              <a
+                href="#"
+                className="text-teal-400 hover:text-white transition-colors"
+                aria-label="Facebook link"
+              >
                 <Facebook className="w-8 h-8" />
               </a>
               <a
@@ -125,10 +146,18 @@ export default function Footer() {
                   height={40}
                 />
               </a>
-              <a href="#" className="text-teal-400 hover:text-white transition-colors" aria-label="LinkedIn link">
+              <a
+                href="#"
+                className="text-teal-400 hover:text-white transition-colors"
+                aria-label="LinkedIn link"
+              >
                 <Linkedin className="w-8 h-8" />
               </a>
-              <a href="#" className="text-teal-400 hover:text-white transition-colors" aria-label="Instagram link">
+              <a
+                href="#"
+                className="text-teal-400 hover:text-white transition-colors"
+                aria-label="Instagram link"
+              >
                 <Instagram className="w-8 h-8" />
               </a>
             </div>
@@ -136,17 +165,23 @@ export default function Footer() {
 
           {/* NDIS Logo Section */}
           <div className="flex justify-center md:justify-start items-center md:items-start">
-            <Image src="/NDIS-Logo-on-pink-removebg-preview.png" alt="NDIS Logo" width={200} height={100} />
+            <Image
+              src="/NDIS-Logo-on-pink-removebg-preview.png"
+              alt="NDIS Logo"
+              width={200}
+              height={100}
+            />
           </div>
         </div>
 
         {/* Copyright Section */}
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-center items-center text-center space-y-4 md:space-y-0">
           <p className="text-gray-100 text-sm md:text-base lg:text-lg">
-            © {new Date().getFullYear()} Creative sol tech. All Rights Reserved.
+            © {new Date().getFullYear()} Creative sol tech. All Rights
+            Reserved.
           </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

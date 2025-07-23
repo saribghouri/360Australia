@@ -150,7 +150,6 @@ export default function DigitalSolutionsSection() {
       <WebDesignPortfolio />
 
       <ProjectCTASection />
-      <Footer />
     </>
   );
 }

@@ -1,8 +1,8 @@
-import React from 'react'
-import ContactUs from '../components/contact-us'
-import Header from '../components/header'
-import AnimatedMarketingSection from '../components/hero-section';
-import Footer from '../components/footer';
+import React from "react";
+import ContactUs from "../components/contact-us";
+import Header from "../components/header";
+import AnimatedMarketingSection from "../components/hero-section";
+import Footer from "../components/footer";
 
 const Page = () => {
   return (
@@ -11,12 +11,11 @@ const Page = () => {
 
       <Header/>
       </div> */}
-{/* [11:57 AM, 7/10/2025] Zeeshan Sir: hello@360-australia.com.au
+      {/* [11:57 AM, 7/10/2025] Zeeshan Sir: hello@360-australia.com.au
 [11:57 AM, 7/10/2025] Zeeshan Sir: Belmore, Sydney, Australia */}
-      <ContactUs/>
-      <Footer/>
+      <ContactUs />
     </div>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

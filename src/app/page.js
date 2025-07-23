@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 
 import MarketingSection from "./components/hero-section";
 import Header from "./components/header";
@@ -14,20 +13,21 @@ import ClientLogosSection from "./components/client-log0-section";
 import { useRef } from "react";
 
 export default function Home() {
-    const projectCtaRef = useRef(null)
+  const projectCtaRef = useRef(null);
 
   return (
-   <div>
+    <div>
       {/* <Header /> */}
       <MarketingSection />
-      <ServicesSection scrollToRef={projectCtaRef} /> {/* Pass the ref to ServicesSection */}
+      <ServicesSection scrollToRef={projectCtaRef} />{" "}
+      {/* Pass the ref to ServicesSection */}
       <PortfolioSection />
       {/* <Designer/> */}
       <TestimonialSection />
       {/* <BlogSection/> */}
       <ClientLogosSection />
-      <ProjectCTASection ref={projectCtaRef} /> {/* Pass the ref to ProjectCTASection */}
-
+      <ProjectCTASection ref={projectCtaRef} />{" "}
+      {/* Pass the ref to ProjectCTASection */}
     </div>
   );
 }

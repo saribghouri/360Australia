@@ -100,7 +100,7 @@ export default function ContactUs() {
     },
   };
   return (
-    <section className="min-h-screen bg-black text-white py-8 md:py-16 px-4 relative overflow-hidden">
+    <section className="min-h-screen bg-black text-white py-8 md:py-16 px-4 relative overflow-hidden myContactUsSection">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-500/5 to-transparent"></div>
         <div className="absolute top-1/4 right-1/4 w-48 md:w-96 h-48 md:h-96 bg-yellow-500/5 rounded-full blur-3xl"></div>
@@ -161,7 +161,7 @@ export default function ContactUs() {
                     value={formData.fullName}
                     onChange={handleInputChange}
                     placeholder="John Smith"
-                    className="w-full px-3 md:px-4 py-2 md:py-3 focus:border-transparent border-b border-gray-700 bg-transparent outline-none transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 focus:border-transparent border-b border-gray-700 bg-transparent outline-none transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base myFormInputFontSize"
                     required
                   />
                 </motion.div>
@@ -178,7 +178,7 @@ export default function ContactUs() {
                     value={formData.email}
                     onChange={handleInputChange}
                     placeholder="youremail@domain.com"
-                    className="w-full px-3 md:px-4 py-2 md:py-3 border-b border-gray-700 bg-transparent outline-none transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base"
+                    className="w-full px-3 md:px-4 py-2 md:py-3 border-b border-gray-700 bg-transparent outline-none transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base myFormInputFontSize"
                     required
                   />
                 </motion.div>
@@ -196,8 +196,8 @@ export default function ContactUs() {
                     country={"au"}
                     value={phone}
                     onChange={setPhone}
-                    containerClass="w-full"
-                    inputClass="w-full"
+                    containerClass="w-full myFormInputFontSize"
+                    inputClass="w-full myFormInputFontSize"
                     buttonClass=""
                   />
                 </motion.div>
@@ -265,7 +265,7 @@ export default function ContactUs() {
                   onChange={handleInputChange}
                   placeholder="Write message"
                   rows={4}
-                  className="w-full px-3 md:px-4 py-2 md:py-3  border border-gray-700 rounded-lg focus:ring-2 focus:ring-[#10d4c4] focus:border-transparent transition-all duration-300 text-white placeholder-gray-500 resize-none text-sm md:text-base"
+                  className="w-full px-3 md:px-4 py-2 md:py-3  border border-gray-700 rounded-lg focus:ring-2 focus:ring-[#10d4c4] focus:border-transparent transition-all duration-300 text-white placeholder-gray-500 resize-none text-sm md:text-base myFormInputFontSize"
                   required
                 ></textarea>
               </motion.div>

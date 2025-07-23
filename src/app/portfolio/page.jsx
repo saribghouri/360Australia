@@ -228,15 +228,15 @@ export default function PortfolioPage() {
 
       {isModalOpen && activeModalImages.length > 0 && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="  bottom-54   !sm:bottom-104 !sm:left-300 left-50  !text-white !border-none !bg-teal-500 hover:bg-white/20 !z-[51]" // Changed to 'fixed' and increased z-index
-            onClick={handleCloseModal}
-            aria-label="Close image"
-          >
-            <X className="h-6 w-6" />
-          </Button>
+          <div className="fixed top-[40px] right-[250px]">
+            <button
+              className="absolute top-6 right-6 bg-teal-500 text-white rounded-full p-2 z-50 hover:bg-white hover:text-black transition-colors"
+              onClick={handleCloseModal}
+              aria-label="Close image"
+            >
+              <X className="w-7 h-7" />
+            </button>
+          </div>
           <div className="relative max-w-screen-lg max-h-screen-lg  w-full h-full flex items-center justify-center">
             {/* Close Button - now fixed to the viewport */}
 

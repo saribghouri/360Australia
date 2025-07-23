@@ -332,7 +332,8 @@ body {
 }
 
 /* override Chrome’s yellow autofill background */
-.myStateCard {
+.myStateCard,
+.myContactUsSection {
   input:-webkit-autofill,
   textarea:-webkit-autofill,
   select:-webkit-autofill {
@@ -346,4 +347,14 @@ body {
     /* optional: prevent a flash of yellow on focus */
     transition: background-color 5000s ease-in-out 0s;
   }
+}
+
+.myFormInputFontSize {
+  font-size: 17px !important;
+  letter-spacing: 1px !important;
+}
+
+
+.myFormInputFontSize:focus {
+  @apply border-b border-gray-700;
 }

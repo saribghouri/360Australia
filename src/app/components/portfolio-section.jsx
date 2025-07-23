@@ -1,158 +1,186 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef, useCallback } from "react"
-import Image from "next/image"
-import { useRouter } from "next/navigation"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useState, useEffect, useRef, useCallback } from "react";
+import { X } from "lucide-react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Debounce utility function to limit how often a function can run
 const debounce = (func, delay) => {
-  let timeout
+  let timeout;
   return function (...args) {
-    
-    clearTimeout(timeout)
-    timeout = setTimeout(() => func.apply(this, args), delay)
-  }
-}
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), delay);
+  };
+};
 
 export default function PortfolioSection() {
-  const [isVisible, setIsVisible] = useState(false)
-  const carouselRef = useRef(null)
-  const animationFrameId = useRef(null)
-  const router = useRouter()
-  const [currentDotIndex, setCurrentDotIndex] = useState(0)
+  const [isVisible, setIsVisible] = useState(false);
+  const carouselRef = useRef(null);
+  const animationFrameId = useRef(null);
+  const router = useRouter();
+  const [currentDotIndex, setCurrentDotIndex] = useState(0);
+  // Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalImage, setModalImage] = useState(null);
 
   // Ref to hold the latest currentDotIndex value.
   // This allows the debounced scroll handler to access the most recent state
   // without being a dependency for its useCallback, thus keeping the handler stable.
-  const currentDotIndexRef = useRef(currentDotIndex)
+  const currentDotIndexRef = useRef(currentDotIndex);
   useEffect(() => {
-    currentDotIndexRef.current = currentDotIndex
-  }, [currentDotIndex])
+    currentDotIndexRef.current = currentDotIndex;
+  }, [currentDotIndex]);
 
   // Set isVisible to true on component mount for animation
   useEffect(() => {
-    setIsVisible(true)
-  }, [])
+    setIsVisible(true);
+  }, []);
 
   const portfolioItems = [
-    { id: 1, image: "/1 organic food copy.jpg", hasOverlay: true, title: "Organic Food" },
+    {
+      id: 1,
+      image: "/1 organic food copy.jpg",
+      hasOverlay: true,
+      title: "Organic Food",
+    },
     { id: 2, image: "/baab.jpg", hasOverlay: true, title: "Lewis Nathenlel" },
     { id: 3, image: "/3 tea copy.jpg", hasOverlay: true, title: "Tea" },
-    { id: 4, image: "/5 fenty beauty.jpg", hasOverlay: true, title: "Fenty Beauty" },
-    { id: 5, image: "/taxis plus logo copy.jpg", hasOverlay: true, title: "Blaster Sound" },
-  ]
+    {
+      id: 4,
+      image: "/5 fenty beauty.jpg",
+      hasOverlay: true,
+      title: "Fenty Beauty",
+    },
+    {
+      id: 5,
+      image: "/taxis plus logo copy.jpg",
+      hasOverlay: true,
+      title: "Blaster Sound",
+    },
+  ];
 
   // Duplicate items to create a seamless looping effect for the carousel.
-  const displayItems = [...portfolioItems, ...portfolioItems]
+  const displayItems = [...portfolioItems, ...portfolioItems];
 
-  const scrollSpeed = 0.5 // Adjust this value for slower/faster auto-scrolling
+  const scrollSpeed = 0.5; // Adjust this value for slower/faster auto-scrolling
 
   // Callback for auto-scrolling the carousel
   const autoScroll = useCallback(() => {
     if (carouselRef.current) {
-      const carousel = carouselRef.current
-      const originalContentWidth = carousel.scrollWidth / 2 // Half the total width (original items + duplicated items)
-      carousel.scrollLeft += scrollSpeed
+      const carousel = carouselRef.current;
+      const originalContentWidth = carousel.scrollWidth / 2; // Half the total width (original items + duplicated items)
+      carousel.scrollLeft += scrollSpeed;
       // Reset scroll position to the beginning of the original content when it reaches the end of the first set
       if (carousel.scrollLeft >= originalContentWidth) {
-        carousel.scrollLeft = 0
+        carousel.scrollLeft = 0;
       }
     }
-    animationFrameId.current = requestAnimationFrame(autoScroll)
-  }, [scrollSpeed]) // `scrollSpeed` is a constant, so `autoScroll` remains stable.
+    animationFrameId.current = requestAnimationFrame(autoScroll);
+  }, [scrollSpeed]); // `scrollSpeed` is a constant, so `autoScroll` remains stable.
 
   // Debounced scroll handler for updating the dot index based on scroll position
   const debouncedHandleScroll = useCallback(
     debounce(() => {
       if (carouselRef.current) {
-        const carousel = carouselRef.current
-        const originalContentWidth = carousel.scrollWidth / 2
+        const carousel = carouselRef.current;
+        const originalContentWidth = carousel.scrollWidth / 2;
         // Normalize scrollLeft to be within the bounds of the original content
-        const normalizedScrollLeft = carousel.scrollLeft % originalContentWidth
+        const normalizedScrollLeft = carousel.scrollLeft % originalContentWidth;
         // Estimate average item width to determine which dot should be active
-        const itemFullWidthAverage = originalContentWidth / portfolioItems.length
-        const newIndex = Math.floor(normalizedScrollLeft / itemFullWidthAverage)
+        const itemFullWidthAverage =
+          originalContentWidth / portfolioItems.length;
+        const newIndex = Math.floor(
+          normalizedScrollLeft / itemFullWidthAverage
+        );
 
         // Only update state if the index actually changed, using the ref for comparison
         if (newIndex !== currentDotIndexRef.current) {
-          setCurrentDotIndex(newIndex)
+          setCurrentDotIndex(newIndex);
         }
       }
     }, 100), // Debounce by 100ms to prevent excessive state updates
-    [portfolioItems.length], // Dependencies for debouncedHandleScroll: only stable ones
-  )
+    [portfolioItems.length] // Dependencies for debouncedHandleScroll: only stable ones
+  );
 
   // Effect to manage auto-scrolling and event listeners
   useEffect(() => {
     // Start auto-scrolling animation
-    animationFrameId.current = requestAnimationFrame(autoScroll)
+    animationFrameId.current = requestAnimationFrame(autoScroll);
 
-    const carouselElement = carouselRef.current
+    const carouselElement = carouselRef.current;
     if (carouselElement) {
       // Pause auto-scroll on mouse enter
       const handleMouseEnter = () => {
         if (animationFrameId.current) {
-          cancelAnimationFrame(animationFrameId.current)
-          animationFrameId.current = null
+          cancelAnimationFrame(animationFrameId.current);
+          animationFrameId.current = null;
         }
-      }
+      };
       // Resume auto-scroll on mouse leave
       const handleMouseLeave = () => {
         if (!animationFrameId.current) {
-          animationFrameId.current = requestAnimationFrame(autoScroll)
+          animationFrameId.current = requestAnimationFrame(autoScroll);
         }
-      }
+      };
 
       // Add event listeners
-      carouselElement.addEventListener("mouseenter", handleMouseEnter)
-      carouselElement.addEventListener("mouseleave", handleMouseLeave)
-      carouselElement.addEventListener("scroll", debouncedHandleScroll) // Use the stable debounced handler
+      carouselElement.addEventListener("mouseenter", handleMouseEnter);
+      carouselElement.addEventListener("mouseleave", handleMouseLeave);
+      carouselElement.addEventListener("scroll", debouncedHandleScroll); // Use the stable debounced handler
 
       // Cleanup function: cancel animation frame and remove event listeners
       return () => {
         if (animationFrameId.current) {
-          cancelAnimationFrame(animationFrameId.current)
+          cancelAnimationFrame(animationFrameId.current);
         }
-        carouselElement.removeEventListener("mouseenter", handleMouseEnter)
-        carouselElement.removeEventListener("mouseleave", handleMouseLeave)
-        carouselElement.removeEventListener("scroll", debouncedHandleScroll)
-      }
+        carouselElement.removeEventListener("mouseenter", handleMouseEnter);
+        carouselElement.removeEventListener("mouseleave", handleMouseLeave);
+        carouselElement.removeEventListener("scroll", debouncedHandleScroll);
+      };
     }
-  }, [autoScroll, debouncedHandleScroll]) // Dependencies: `autoScroll` and `debouncedHandleScroll` are stable callbacks
+  }, [autoScroll, debouncedHandleScroll]); // Dependencies: `autoScroll` and `debouncedHandleScroll` are stable callbacks
 
-  const scrollAmount = 300 // Pixels to scroll per click for manual navigation
+  const scrollAmount = 300; // Pixels to scroll per click for manual navigation
 
   // Function to scroll carousel left
   const scrollLeft = () => {
     if (carouselRef.current) {
-      const carousel = carouselRef.current
-      const originalContentWidth = carousel.scrollWidth / 2
-      carousel.scrollLeft -= scrollAmount
+      const carousel = carouselRef.current;
+      const originalContentWidth = carousel.scrollWidth / 2;
+      carousel.scrollLeft -= scrollAmount;
       // Wrap around if scrolling past the beginning of the first set
       if (carousel.scrollLeft < 0) {
-        carousel.scrollLeft = originalContentWidth + carousel.scrollLeft
+        carousel.scrollLeft = originalContentWidth + carousel.scrollLeft;
       }
     }
-  }
+  };
 
   // Function to scroll carousel right
   const scrollRight = () => {
     if (carouselRef.current) {
-      const carousel = carouselRef.current
-      const originalContentWidth = carousel.scrollWidth / 2
-      carousel.scrollLeft += scrollAmount
+      const carousel = carouselRef.current;
+      const originalContentWidth = carousel.scrollWidth / 2;
+      carousel.scrollLeft += scrollAmount;
       // Wrap around if scrolling past the end of the first set
       if (carousel.scrollLeft >= originalContentWidth) {
-        carousel.scrollLeft = carousel.scrollLeft - originalContentWidth
+        carousel.scrollLeft = carousel.scrollLeft - originalContentWidth;
       }
     }
-  }
+  };
 
-  // Handle navigation to portfolio detail page
-  const handleViewMore = (item) => {
-    router.push(`/portfolio?category=${encodeURIComponent(item.category || "all")}&id=${item.id}`)
-  }
+  // Show modal with image only
+  const handleImageClick = (item) => {
+    setModalImage(item.image);
+    setIsModalOpen(true);
+  };
+
+  // Close modal
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setModalImage(null);
+  };
 
   return (
     <section className="bg-black text-white py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8">
@@ -162,7 +190,9 @@ export default function PortfolioSection() {
           <div className="flex flex-row w-full gap-6 sm:gap-8 lg:flex-row lg:items-center lg:justify-center">
             <div
               className={`transform transition-all duration-1000 w-full text-center ${
-                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                isVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-10 opacity-0"
               }`}
             >
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-5xl font-bold ">
@@ -186,13 +216,15 @@ export default function PortfolioSection() {
           >
             {displayItems.map((item, index) => (
               <div
-                key={`${item.id}-${index}`} // Unique key for duplicated items
-                onClick={() => handleViewMore(item)}
+                key={`${item.id}-${index}`}
+                onClick={() => handleImageClick(item)}
                 className={`group relative overflow-hidden rounded-lg bg-gray-900 flex-shrink-0 w-74 h-58 sm:w-82 sm:h-76 transform transition-all duration-700 hover:scale-105 hover:shadow-2xl cursor-pointer ${
-                  isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
+                  isVisible
+                    ? "translate-y-0 opacity-100"
+                    : "translate-y-20 opacity-0"
                 } animate-fade-in-up`}
                 style={{
-                  animationDelay: `${(index % portfolioItems.length) * 200}ms`, // Staggered animation delay
+                  animationDelay: `${(index % portfolioItems.length) * 200}ms`,
                 }}
               >
                 <Image
@@ -200,12 +232,31 @@ export default function PortfolioSection() {
                   alt={item.title}
                   fill
                   className="object-cover duration-500 group-hover:scale-110"
-                  sizes="(max-width: 640px) 356px, 388px" // Image optimization sizes
+                  sizes="(max-width: 640px) 356px, 388px"
                 />
-                {/* Hover border effect */}
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#10d4c4] transition-colors duration-300 rounded-lg"></div>
               </div>
             ))}
+            {/* Modal for full screen image */}
+            {isModalOpen && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
+                <button
+                  className="absolute top-6 right-6 bg-teal-500 text-white rounded-full p-2 z-50 hover:bg-white hover:text-black transition-colors"
+                  onClick={handleCloseModal}
+                  aria-label="Close image"
+                >
+                  <X className="w-7 h-7" />
+                </button>
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Image
+                    src={modalImage || "/placeholder.svg"}
+                    alt="Full screen image"
+                    fill
+                    className="object-contain max-w-full max-h-full"
+                  />
+                </div>
+              </div>
+            )}
           </div>
           {/* Left Arrow Button */}
           <button
@@ -251,5 +302,5 @@ export default function PortfolioSection() {
         <div className="mt-12 sm:mt-16 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
       </div>
     </section>
-  )
+  );
 }

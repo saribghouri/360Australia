@@ -164,29 +164,19 @@ const ProjectCTASection = React.forwardRef((props, ref) => {
                   </motion.div>
                   {/* Enhanced CTA Button */}
                   <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    viewport={{ once: true }}
-                    className="space-y-4"
+                 className="flex justify-center sm:justify-start"
                   >
                     <motion.button
                       className="group relative border qr-code border-teal-500 bg-teal-500 text-white px-4 py-2 sm:px-8 sm:py-4 lg:px-10 lg:py-5 rounded-[20px] font-bold text-base sm:text-lg lg:text-xl flex items-center gap-2 sm:gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl"
-                      whileHover={{
-                        scale: 1.05,
-                        boxShadow: "0 25px 50px -12px rgba(16, 212, 196, 0.4)",
-                      }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => setIsModalOpen(true)} // Open modal on click
+                 
+               
                     >
                       {/* Button Background Animation */}
                       <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent"
-                        initial={{ x: "-100%" }}
-                        whileHover={{ x: "100%" }}
-                        transition={{ duration: 0.6 }}
+                        className="absolute inset-0 "
+                    
                       />
-                      <span className="relative z-10 text-white text-lg uppercase whitespace-nowrap">
+                      <span className="relative z-10 text-white text-lg sm:text-[24px] uppercase whitespace-nowrap">
                         Request A Proposal
                       </span>
                       <motion.div className="group-hover:translate-x-1 transition-transform duration-300 relative z-10">

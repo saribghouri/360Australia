@@ -170,7 +170,7 @@ export default function ClientLogosSection() {
         }}
       />
 
-      <div className="relative h-full -rotate-5 overflow-hidden">
+      <div className="relative h-full -rotate-14 sm:-rotate-5 overflow-hidden">
         <div
           ref={scrollRef}
           className="flex items-center h-full"

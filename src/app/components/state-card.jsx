@@ -84,10 +84,8 @@ export default function ContactForm() {
 
   return (
     <>
-      <div className="flex items-center justify-center p-4 relative overflow-hidden myStateCard">
         {/* Contact Form Card */}
-        <div className="relative z-10 w-full max-w-md">
-          <div className="bg-black/10 border border-white/60 rounded-2xl p-8 shadow-lg">
+          <div className="bg-black/10 !border-none  cta-form rounded-2xl p-8 shadow-lg">
             {/* Form Title */}
             <h1 className="text-3xl text-white font-bold text-center mb-8 tracking-wider">
               NEED A SERVICE
@@ -229,7 +227,7 @@ export default function ContactForm() {
                 <button
                   type="submit"
                   disabled={state.pending} // Use state.pending for loading
-                  className="w-[70%] py-2 bg-teal-600 cursor-pointer backdrop-blur-sm border border-cyan-500/30 rounded-2xl !text-white font-semibold text-[22px] tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-[70%] py-2 bg-teal-600 cursor-pointer backdrop-blur-sm border border-cyan-500/30 rounded-2xl !text-white font-semibold text-[22px] tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/25 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {state.pending ? (
                     <div className="flex items-center justify-center space-x-2">
@@ -245,13 +243,14 @@ export default function ContactForm() {
                 <p
                   className={`text-center mt-4 ${state.success ? "text-green-400" : "text-red-400"}`}
                 >
+                  <div className=" bg-teal-500 text-white text-[20px] py-[20px] rounded-[6px]">
+
                   {state.message}
+                  </div>
                 </p>
               )}
             </form>
           </div>
-        </div>
-      </div>
     </>
   );
 }

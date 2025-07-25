@@ -144,24 +144,22 @@ export default function WebDesignPortfolio() {
             backgroundRepeat: "repeat",
           }}
         >
-          {/* Subtle background gradient/overlay for uniqueness */}
+       
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-gray-900/30 to-transparent rounded-full filter blur-3xl opacity-50 animate-pulse" />
             <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-gray-900/30 to-transparent rounded-full filter blur-3xl opacity-50 animate-pulse delay-500" />
           </div>
-          {/* Grid for 3D Project Cards */}
+       
           <div
             className="mx-auto grid max-w-6xl items-start gap-8 py-8 lg:grid-cols-2 lg:gap-12 relative z-10"
-            style={{ perspective: "1200px" }} // Apply perspective to the grid container
+            style={{ perspective: "1200px" }}
           >
             {projectsToDisplay.map((project, index) => (
               <ProjectCard
-                key={index} // Using index as key is acceptable here as the list is static per type
+                key={index} 
                 src={project.src}
                 alt={project.alt}
-                title={project.title}
-                description={project.description}
-                href="#" // You might want to make this dynamic based on project data
+                href="#" 
               />
             ))}
           </div>

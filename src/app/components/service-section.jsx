@@ -140,18 +140,10 @@ export default function ServicesSection({ scrollToRef }) {
   return (
     <div
       ref={containerRef}
-      className="min-h-screen mt-[150px] flex flex-col items-center bg-black"
+      className="min-h-screen  flex flex-col items-center bg-black"
     >
       <div className="mb-8 sm:mb-10 md:mb-12 relative">
-        <div className="flex items-center mb-4 sm:mb-6">
-          <svg
-            className="absolute -top-10 left-1/2 -translate-x-1/2 w-20 h-20 pointer-events-none"
-            viewBox="0 0 100 100"
-          >
-            <circle ref={dot1Ref} r="5" fill="#10d4c4" />
-            <circle ref={dot2Ref} r="5" fill="#21abb0" />
-          </svg>
-        </div>
+       
         <div className="flex flex-row w-full gap-6 sm:gap-8 lg:flex-row lg:items-center lg:justify-center">
           <div className="transform transition-all duration-1000 w-full text-center ">
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-white lg:text-6xl xl:text-5xl font-bold ">
@@ -198,6 +190,9 @@ export default function ServicesSection({ scrollToRef }) {
                   </span>
                 </button>
               </div>
+              <div className="text-white flex justify-center">
+            <img src="gif/Web development.gif" alt="" />
+          </div>
             </div>
           </div>
         </div>
@@ -235,6 +230,9 @@ export default function ServicesSection({ scrollToRef }) {
                   </span>
                 </button>
               </div>
+              <div className="text-white flex justify-center">
+            <img src="gif/Graphics.gif" alt="" />
+          </div>
             </div>
           </div>
         </div>
@@ -273,6 +271,9 @@ export default function ServicesSection({ scrollToRef }) {
                   </span>
                 </button>
               </div>
+              <div className="text-white flex justify-center">
+            <img src="gif/Mobile App.gif" alt="" />
+          </div>
             </div>
           </div>
         </div>
@@ -295,7 +296,7 @@ export default function ServicesSection({ scrollToRef }) {
                   Digital Marketing
                 </h2>
                 <p className="text-white/90 text-xl leading-relaxed mb-6">
-                  360 Australia helps your brand get noticed, connect with more
+                  360 Australia helps your brand get noticed
                   people, and make sure your business stands out where it
                   counts.
                 </p>
@@ -311,6 +312,9 @@ export default function ServicesSection({ scrollToRef }) {
                   </span>
                 </button>
               </div>
+              <div className="text-white flex justify-center">
+            <img src="gif/Digital marketing.gif" alt="" />
+          </div>
             </div>
           </div>
         </div>
@@ -332,7 +336,7 @@ export default function ServicesSection({ scrollToRef }) {
                 </h2>
                 <p className="text-white/90 text-xl leading-relaxed mb-6">
                   We’re all about bringing your brand to life with creative
-                  videos and animations that speak louder than words.
+                  videos and animations 
                 </p>
                 <button
                   className="flex items-center justify-between mt-[50px] cursor-pointer action-bg px-3 py-1 sm:px-6 sm:py-1 rounded-full bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]"
@@ -346,6 +350,9 @@ export default function ServicesSection({ scrollToRef }) {
                   </span>
                 </button>
               </div>
+          <div className="text-white flex justify-center">
+            <img src="gif/Video.gif" alt="" />
+          </div>
             </div>
           </div>
         </div>

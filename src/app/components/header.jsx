@@ -1,40 +1,31 @@
-"use client";
-
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState, useRef, useEffect } from "react";
-import {
-  ChevronDown,
-  ChevronRight,
-  Laptop,
-  Smartphone,
-  Megaphone,
-  Palette,
-  Film,
-} from "lucide-react";
+"use client"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useState, useRef, useEffect } from "react"
+import { ChevronDown, ChevronRight, Laptop, Smartphone, Megaphone, Palette, Film } from "lucide-react"
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false); // For desktop mega menu
-  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false); // For mobile services dropdown
-  const router = useRouter();
-  const dropdownRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false)
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
+  const router = useRouter()
+  const dropdownRef = useRef(null)
 
   const handleContactClick = () => {
-    router.push("/contactsection");
-  };
+    router.push("/contactsection")
+  }
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsServicesOpen(false);
+        setIsServicesOpen(false)
       }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
+    }
+    document.addEventListener("mousedown", handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+      document.removeEventListener("mousedown", handleClickOutside)
+    }
+  }, [])
 
   const services = [
     {
@@ -92,7 +83,7 @@ const Header = () => {
         { title: "Video Editing" },
       ],
     },
-  ];
+  ]
 
   return (
     <>
@@ -104,12 +95,10 @@ const Header = () => {
               alt="360 Australia Ventures Logo"
               className="h-20 w-24 lg:h-[86px] lg:w-[124px]"
             />
-            <h1 className="text-white text-2xl font-bold !mt-[25px]">
-              AUSTRALIA
-            </h1>
+            <h1 className="text-white text-2xl font-bold !mt-[27px]">AUSTRALIA</h1>
           </Link>
         </div>
-        <div className="hidden md:flex space-x-8 items-center">
+        <div className="hidden lg:flex space-x-8 items-center">
           <Link
             href="/"
             className="text-white hover:text-[#10d4c4] font-family text-xl transition-colors duration-300 font-medium"
@@ -148,40 +137,20 @@ const Header = () => {
             CONTACT US
           </Link>
         </div>
-        <div className="md:hidden flex items-center">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="!text-teal-500 focus:outline-none"
-          >
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+        <div className="lg:hidden flex items-center">
+          <button onClick={() => setIsOpen(!isOpen)} className="!text-teal-500 focus:outline-none">
+            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                ></path>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
               ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                ></path>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
               )}
             </svg>
           </button>
         </div>
         <div
-          className={`absolute top-full left-0 w-full bg-black md:hidden transition-all duration-300 ease-in-out border-t border-teal-500/30 ${
-            isOpen
-              ? "max-h-screen opacity-100 overflow-y-auto"
-              : "max-h-0 opacity-0 overflow-hidden"
+          className={`absolute top-full left-0 w-full bg-black lg:hidden transition-all duration-300 ease-in-out border-t border-teal-500/30 ${
+            isOpen ? "max-h-screen opacity-100 overflow-y-auto" : "max-h-0 opacity-0 overflow-hidden"
           }`}
         >
           <div className="flex flex-col py-4 space-y-2">
@@ -224,26 +193,16 @@ const Header = () => {
                         href={service.href}
                         className="block mb-2 pb-2 border-b border-teal-500/20"
                         onClick={() => {
-                          setIsOpen(false); // Close main mobile menu
-                          setIsMobileServicesOpen(false); // Close services dropdown
+                          setIsOpen(false) // Close main mobile menu
+                          setIsMobileServicesOpen(false) // Close services dropdown
                         }}
                       >
                         <h3 className="text-white font-bold text-base group-hover:text-[#10d4c4] transition-colors duration-200 flex items-center">
-                          {service.title === "Website Development" && (
-                            <Laptop className="w-4 h-4 mr-2" />
-                          )}
-                          {service.title === "Mobile App Development" && (
-                            <Smartphone className="w-4 h-4 mr-2" />
-                          )}
-                          {service.title === "Digital Marketing" && (
-                            <Megaphone className="w-4 h-4 mr-2" />
-                          )}
-                          {service.title === "Graphic Design" && (
-                            <Palette className="w-4 h-4 mr-2" />
-                          )}
-                          {service.title === "Video & Animation" && (
-                            <Film className="w-4 h-4 mr-2" />
-                          )}
+                          {service.title === "Website Development" && <Laptop className="w-4 h-4 mr-2" />}
+                          {service.title === "Mobile App Development" && <Smartphone className="w-4 h-4 mr-2" />}
+                          {service.title === "Digital Marketing" && <Megaphone className="w-4 h-4 mr-2" />}
+                          {service.title === "Graphic Design" && <Palette className="w-4 h-4 mr-2" />}
+                          {service.title === "Video & Animation" && <Film className="w-4 h-4 mr-2" />}
                           {service.title}
                         </h3>
                       </Link>
@@ -254,8 +213,8 @@ const Header = () => {
                             href={`${service.href}#${sub.title.replace(/\s+/g, "-").toLowerCase()}`}
                             className="block text-gray-300 hover:text-[#10d4c4] text-sm py-1 transition-colors duration-200"
                             onClick={() => {
-                              setIsOpen(false);
-                              setIsMobileServicesOpen(false);
+                              setIsOpen(false)
+                              setIsMobileServicesOpen(false)
                             }}
                           >
                             • {sub.title}
@@ -284,7 +243,7 @@ const Header = () => {
           </div>
         </div>
         <button
-          className="!text-white bg-[#0ea89b] px-10 py-3 uppercase font-bold !text-[20px] rounded-[10px] cursor-pointer hidden md:block"
+          className="!text-white bg-[#0ea89b] px-10 py-3 uppercase font-bold !text-[20px] rounded-[10px] cursor-pointer hidden lg:block"
           onClick={handleContactClick}
         >
           Book A Consultation
@@ -292,7 +251,7 @@ const Header = () => {
       </nav>
       {/* Mega Menu - Full Width (Desktop Only) */}
       <div
-        className={`hidden md:block fixed left-0 w-full bg-gradient-to-br from-gray-900 via-black to-gray-900 border-t border-teal-500/30 shadow-2xl transition-all duration-300 ease-in-out z-40 ${
+        className={`hidden lg:block fixed left-0 w-full bg-gradient-to-br from-gray-900 via-black to-gray-900 border-t border-teal-500/30 shadow-2xl transition-all duration-300 ease-in-out z-40 ${
           isServicesOpen
             ? "opacity-100 visible transform translate-y-0"
             : "opacity-0 invisible transform -translate-y-4"
@@ -307,25 +266,15 @@ const Header = () => {
               <div key={index} className="group">
                 <Link
                   href={service.href}
-                  className="block mb-4 pb-2 mt-[110px]  border-b border-teal-500/20"
+                  className="block mb-4 pb-2 mt-[110px] border-b border-teal-500/20"
                   onClick={() => setIsServicesOpen(false)}
                 >
                   <h3 className="text-white font-bold text-lg group-hover:text-[#10d4c4] transition-colors duration-200 flex items-center">
-                    {service.title === "Website Development" && (
-                      <Laptop className="w-4 h-4 mr-2" />
-                    )}
-                    {service.title === "Mobile App Development" && (
-                      <Smartphone className="w-4 h-4 mr-2" />
-                    )}
-                    {service.title === "Digital Marketing" && (
-                      <Megaphone className="w-4 h-4 mr-2" />
-                    )}
-                    {service.title === "Graphic Design" && (
-                      <Palette className="w-4 h-4 mr-2" />
-                    )}
-                    {service.title === "Video & Animation" && (
-                      <Film className="w-4 h-4 mr-2" />
-                    )}
+                    {service.title === "Website Development" && <Laptop className="w-4 h-4 mr-2" />}
+                    {service.title === "Mobile App Development" && <Smartphone className="w-4 h-4 mr-2" />}
+                    {service.title === "Digital Marketing" && <Megaphone className="w-4 h-4 mr-2" />}
+                    {service.title === "Graphic Design" && <Palette className="w-4 h-4 mr-2" />}
+                    {service.title === "Video & Animation" && <Film className="w-4 h-4 mr-2" />}
                     {service.title}
                     <ChevronRight className="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                   </h3>
@@ -348,7 +297,7 @@ const Header = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

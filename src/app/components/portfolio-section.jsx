@@ -195,10 +195,10 @@ export default function PortfolioSection() {
                   : "translate-y-10 opacity-0"
               }`}
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-5xl font-bold ">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-5xl font-bold ">
                 DISCOVER OUR
                 <br />
-                <span className="text-teal-400 lg:text-8xl">PORTFOLIO</span>
+                <span className="text-teal-400 text-5xl lg:text-8xl">PORTFOLIO</span>
               </h2>
             </div>
           </div>

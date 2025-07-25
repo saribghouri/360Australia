@@ -24,9 +24,9 @@ export default function Footer() {
                 alt="360 Australia Ventures Logo"
                 width={124}
                 height={86}
-                className="h-20 w-24 lg:h-[86px] lg:w-[124px]"
+                className="h-16 w-20 ml-[-40px] lg:ml-[0px] lg:h-[86px] lg:w-[124px] "
               />
-              <h1 className="text-white text-2xl font-bold ml-2">AUSTRALIA</h1>
+              <h1 className="text-white text-2xl font-bold  mt-[27px]">AUSTRALIA</h1>
             </div>
             <p className="text-gray-300 text-sm md:text-base text-start lg:text-lg leading-relaxed max-w-lg">
               360 Australia is your trusted digital partner, helping businesses
@@ -127,7 +127,7 @@ export default function Footer() {
             </div>
             <div className="flex space-x-4 mt-[40px] justify-center md:justify-start">
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61577397939976"
                 className="text-teal-400 hover:text-white transition-colors"
                 aria-label="Facebook link"
               >
@@ -135,11 +135,11 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="group text-teal-400 flex items-center hover:text-white transition-colors"
+                className="group text-teal-400 flex items-center  hover:text-white transition-colors"
                 aria-label="WhatsApp link"
               >
                 <Image
-                  className="w-10 h-10 transition group-hover:brightness-0 group-hover:invert"
+                  className="w-10 h-10 transition group-hover:brightness-0 !mt-[-4px] group-hover:invert"
                   src="/lCrxIY-removebg-preview.png"
                   alt="WhatsApp icon"
                   width={40}
@@ -164,7 +164,7 @@ export default function Footer() {
           </div>
 
           {/* NDIS Logo Section */}
-          <div className="flex justify-center md:justify-start items-center md:items-start">
+          <div className="flex justify-center md:justify-start  items-center md:items-start">
             <Image
               src="/NDIS-Logo-on-pink-removebg-preview.png"
               alt="NDIS Logo"

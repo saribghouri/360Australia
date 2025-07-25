@@ -97,7 +97,7 @@ export default function PortfolioPage() {
                 <div
                   className={`transform transition-all duration-1000 ${true ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
                 >
-                  <h1 className="text-3xl sm:text-5xl lg:text-6xl mt-[60px] xl:text-6xl font-bold uppercase">
+                  <h1 className="text-2xl sm:text-5xl lg:text-6xl mt-[60px] xl:text-6xl font-bold uppercase">
                     <span className="inline-block delay-100 text-white">
                       Welcome to our
                     </span>
@@ -215,8 +215,8 @@ export default function PortfolioPage() {
         {/* Graphics Design Section */}
         <PortfolioSlider
           title={
-            <p className=" uppercase">
-              Graphics<span className="text-teal-400"> Design</span>{" "}
+            <p className=" uppercase text-4xl sm:text-4xl lg:text-5xl  xl:text-5xl  ">
+              Graphics<span className="text-teal-400 uppercase text-6xl sm:text-4xl lg:text-5xl  xl:text-5xl"> Design</span>{" "}
             </p>
           }
           images={graphicsDesignImages}

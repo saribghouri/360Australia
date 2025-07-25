@@ -5,13 +5,14 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { Check } from "lucide-react";
+import { RequestProposalModal } from "./proposal-modal";
 
 export default function ServicesSection({ scrollToRef }) {
   const containerRef = useRef(null);
   const dot1Ref = useRef(null);
   const dot2Ref = useRef(null);
   const [isClient, setIsClient] = useState(false);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -143,7 +144,7 @@ export default function ServicesSection({ scrollToRef }) {
       className="min-h-screen  flex flex-col items-center bg-black"
     >
       <div className="mb-8 sm:mb-10 md:mb-12 relative">
-       
+
         <div className="flex flex-row w-full gap-6 sm:gap-8 lg:flex-row lg:items-center lg:justify-center">
           <div className="transform transition-all duration-1000 w-full text-center ">
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-white lg:text-6xl xl:text-5xl font-bold ">
@@ -180,7 +181,7 @@ export default function ServicesSection({ scrollToRef }) {
                 </p>
                 <button
                   className="flex items-center justify-between mt-[50px] cursor-pointer action-bg px-3 py-1 sm:px-6 sm:py-1 rounded-full bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]"
-                  onClick={handleLetsTalkClick}
+                  onClick={() => setIsModalOpen(true)}
                 >
                   <span className="text-[#383838] uppercase font-semibold cursor-pointer bg-transparent text-[16px] sm:text-[22px]">
                     Let's Talk
@@ -191,8 +192,8 @@ export default function ServicesSection({ scrollToRef }) {
                 </button>
               </div>
               <div className="text-white flex justify-center">
-            <img src="gif/Web development.gif" alt="" />
-          </div>
+                <img src="gif/Web development.gif" alt="" />
+              </div>
             </div>
           </div>
         </div>
@@ -220,7 +221,7 @@ export default function ServicesSection({ scrollToRef }) {
                 </p>
                 <button
                   className="flex items-center justify-between mt-[50px] cursor-pointer action-bg px-3 py-1 sm:px-6 sm:py-1 rounded-full bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]"
-                  onClick={handleLetsTalkClick}
+                  onClick={() => setIsModalOpen(true)}
                 >
                   <span className="text-[#383838] uppercase font-semibold cursor-pointer bg-transparent text-[16px] sm:text-[22px]">
                     Let's Talk
@@ -231,8 +232,8 @@ export default function ServicesSection({ scrollToRef }) {
                 </button>
               </div>
               <div className="text-white flex justify-center">
-            <img src="gif/Graphics.gif" alt="" />
-          </div>
+                <img src="gif/Graphics.gif" alt="" />
+              </div>
             </div>
           </div>
         </div>
@@ -261,7 +262,7 @@ export default function ServicesSection({ scrollToRef }) {
                 </p>
                 <button
                   className="flex items-center justify-between mt-[50px] cursor-pointer action-bg px-3 py-1 sm:px-6 sm:py-1 rounded-full bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]"
-                  onClick={handleLetsTalkClick}
+                  onClick={() => setIsModalOpen(true)}
                 >
                   <span className="text-[#383838] uppercase font-semibold cursor-pointer bg-transparent text-[16px] sm:text-[22px]">
                     Let's Talk
@@ -272,8 +273,8 @@ export default function ServicesSection({ scrollToRef }) {
                 </button>
               </div>
               <div className="text-white flex justify-center">
-            <img src="gif/Mobile App.gif" alt="" />
-          </div>
+                <img src="gif/Mobile App.gif" alt="" />
+              </div>
             </div>
           </div>
         </div>
@@ -302,7 +303,7 @@ export default function ServicesSection({ scrollToRef }) {
                 </p>
                 <button
                   className="flex items-center justify-between mt-[50px] cursor-pointer action-bg px-3 py-1 sm:px-6 sm:py-1 rounded-full bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]"
-                  onClick={handleLetsTalkClick}
+                  onClick={() => setIsModalOpen(true)}
                 >
                   <span className="text-[#383838] uppercase font-semibold cursor-pointer bg-transparent text-[16px] sm:text-[22px]">
                     Let's Talk
@@ -313,8 +314,8 @@ export default function ServicesSection({ scrollToRef }) {
                 </button>
               </div>
               <div className="text-white flex justify-center">
-            <img src="gif/Digital marketing.gif" alt="" />
-          </div>
+                <img src="gif/Digital marketing.gif" alt="" />
+              </div>
             </div>
           </div>
         </div>
@@ -336,11 +337,11 @@ export default function ServicesSection({ scrollToRef }) {
                 </h2>
                 <p className="text-white/90 text-xl leading-relaxed mb-6">
                   We’re all about bringing your brand to life with creative
-                  videos and animations 
+                  videos and animations
                 </p>
                 <button
                   className="flex items-center justify-between mt-[50px] cursor-pointer action-bg px-3 py-1 sm:px-6 sm:py-1 rounded-full bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]"
-                  onClick={handleLetsTalkClick}
+                  onClick={() => setIsModalOpen(true)}
                 >
                   <span className="text-[#383838] uppercase font-semibold cursor-pointer bg-transparent text-[16px] sm:text-[22px]">
                     Let's Talk
@@ -350,13 +351,17 @@ export default function ServicesSection({ scrollToRef }) {
                   </span>
                 </button>
               </div>
-          <div className="text-white flex justify-center">
-            <img src="gif/Video.gif" alt="" />
-          </div>
+              <div className="text-white flex justify-center">
+                <img src="gif/Video.gif" alt="" />
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <RequestProposalModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

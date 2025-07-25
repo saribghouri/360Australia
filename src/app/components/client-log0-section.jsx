@@ -157,20 +157,16 @@ export default function ClientLogosSection() {
   };
   return (
     <section
-      className="relative w-full h-84 bg-transparent overflow-hidden"
+      className="relative w-full h-54 bg-transparent overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div
-        className="absolute inset-0 bg-gradient-to-r from-teal-500 to-teal-900"
-        style={{
-          clipPath: "polygon(0 40%, 100% 20%, 100% 80%, 0 100%)",
-          transform: "skewY(-2deg)",
-          transformOrigin: "top left",
-        }}
+        className="absolute inset-0 logo-section-gradient"
+     
       />
 
-      <div className="relative h-full -rotate-14 sm:-rotate-5 overflow-hidden">
+      <div className="relative h-full  overflow-hidden">
         <div
           ref={scrollRef}
           className="flex items-center h-full"

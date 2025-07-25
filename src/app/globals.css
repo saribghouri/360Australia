@@ -364,3 +364,9 @@ body {
     rgba(148, 147, 147, 0.6) 0px 6px 34px 0px,
     rgba(126, 124, 124, 0.9) 0px 0px 0px 2px;
 }
+.logo-section-gradient{
+  background: #4AC29A;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #BDFFF3, #4AC29A);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #BDFFF3, #4AC29A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}

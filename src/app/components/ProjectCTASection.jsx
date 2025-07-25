@@ -167,7 +167,7 @@ const ProjectCTASection = React.forwardRef((props, ref) => {
                  className="flex justify-center sm:justify-start"
                   >
                     <motion.button
-                      className="group relative border qr-code border-teal-500 bg-teal-500 text-white px-4 py-2 sm:px-8 sm:py-4 lg:px-10 lg:py-5 rounded-[20px] font-bold text-base sm:text-lg lg:text-xl flex items-center gap-2 sm:gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl"
+                      className="group relative border qr-code cursor-pointer border-teal-500 bg-teal-500 text-white px-4 py-2 sm:px-8 sm:py-4 lg:px-10 lg:py-5 rounded-[20px] font-bold text-base sm:text-lg lg:text-xl flex items-center gap-2 sm:gap-3 mx-auto lg:mx-0 overflow-hidden shadow-2xl"
                  
                whileTap={{ scale: 0.95 }}
                       onClick={() => setIsModalOpen(true)}

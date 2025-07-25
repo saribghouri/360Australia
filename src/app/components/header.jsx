@@ -243,7 +243,7 @@ const Header = () => {
           </div>
         </div>
         <button
-          className="!text-white bg-[#0ea89b] px-10 py-3 uppercase font-bold !text-[20px] rounded-[10px] cursor-pointer hidden lg:block"
+          className="!text-white bg-[#11b8aa] px-10 py-3 uppercase font-bold !text-[22px] rounded-[10px] cursor-pointer hidden lg:block"
           onClick={handleContactClick}
         >
           Book A Consultation

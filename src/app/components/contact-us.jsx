@@ -199,7 +199,7 @@ export default function ContactUs() {
                       id="service"
                       value={formData.service || undefined}
                       onChange={handleSelectChange}
-                      placeholder="Select a service"
+                    placeholder={<p className="text-gray-500 text-[17px]  tracking-[-0.4px] !mb-[-1px]" >Select A Service</p>}
                       className="w-full !placeholder:text-[18px] border-bottom-contact custom-selects"
                       size="large"
                       required

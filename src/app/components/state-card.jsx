@@ -170,21 +170,19 @@ export default function ContactForm() {
               </div>
               {/* Service Dropdown */}
               <div className="relative w-full max-w-lg mt-[10px]">
-                <label htmlFor="service" className="sr-only ">
-                  Select Service
-                </label>
+              
                 <Flex gap={8}>
                   <Select
                     id="service"
                     className="custom-select form-border"
-                    placeholder="Select Service"
+                    placeholder={<p className="text-[#838282] font-medium text-[17px]  tracking-[-0.5px] !mb-[-5px]" >Select A Service</p>}
                     variant="borderless"
                     style={{
                       flex: 1,
                       backgroundColor: "transparent",
                       color: "#fff",
                       height: "56px",
-                      paddingLeft: "8px",
+                     
                     }}
                     styles={{
                       dropdown: {

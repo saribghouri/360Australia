@@ -95,7 +95,7 @@ const Header = () => {
               alt="360 Australia Ventures Logo"
               className="h-20 w-24 lg:h-[86px] lg:w-[124px]"
             />
-            <h1 className="text-white text-2xl font-bold !mt-[27px]">AUSTRALIA</h1>
+            <h1 className="text-white text-2xl font-bold !mt-[28px] !mb-[-4px]">AUSTRALIA</h1>
           </Link>
         </div>
         <div className="hidden lg:flex space-x-8 items-center">

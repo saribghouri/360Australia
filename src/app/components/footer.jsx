@@ -26,7 +26,7 @@ export default function Footer() {
                 height={86}
                 className="h-16 w-20 ml-[-40px] lg:ml-[0px] lg:h-[86px] lg:w-[124px] "
               />
-              <h1 className="text-white text-2xl font-bold  mt-[27px]">AUSTRALIA</h1>
+              <h1 className="text-white text-2xl font-bold  !mt-[27px]">AUSTRALIA</h1>
             </div>
             <p className="text-gray-300 text-sm md:text-base text-start lg:text-lg leading-relaxed max-w-lg">
               360 Australia is your trusted digital partner, helping businesses

@@ -15,6 +15,11 @@ const Header = () => {
     router.push("/contactsection")
   }
 
+  const handleServiceClick = () => {
+    router.push("/our-services")
+  }
+
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -105,6 +110,12 @@ const Header = () => {
           >
             HOME
           </Link>
+          {/* <Link
+            href="/landing-page"
+            className="text-white hover:text-[#10d4c4] font-family text-xl transition-colors duration-300 font-medium"
+          >
+            landing-page
+          </Link> */}
           <Link
             href="/about-us"
             className="text-white hover:text-[#10d4c4] !text-xl transition-colors duration-300 font-medium"
@@ -117,7 +128,7 @@ const Header = () => {
               onMouseEnter={() => setIsServicesOpen(true)}
               className="!text-white hover:text-[#10d4c4] cursor-pointer flex !text-xl transition-colors duration-300 font-medium"
             >
-              <span className="hover:text-[#10d4c4]">SERVICES</span>
+              <span  className="hover:text-[#10d4c4]"  onClick={handleServiceClick}>SERVICES</span>
               <ChevronDown
                 className={`w-6 h-6 transition-transform mt-[2px] ml-[4px] duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
               />
@@ -173,7 +184,7 @@ const Header = () => {
                 onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
                 className="!text-white !hover:text-[#10d4c4] transition-colors duration-300 font-medium flex items-center justify-between w-full py-2"
               >
-                <span>SERVICES</span>
+                <span onClick={handleServiceClick}>SERVICES</span>
                 <ChevronDown
                   className={`w-4 h-4 transition-transform duration-200 ${isMobileServicesOpen ? "rotate-180" : ""}`}
                 />

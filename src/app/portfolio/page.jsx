@@ -9,7 +9,7 @@ import Header from "../components/header";
 import ProjectCTASection from "../components/ProjectCTASection";
 import Footer from "../components/footer";
 import PortfolioSlider from "../components/portfolio-slider";
-import { Button } from "antd";
+import { Breadcrumb, Button } from "antd";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,7 +58,7 @@ export default function PortfolioPage() {
     return () => clearInterval(interval);
   }, [images.length]);
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   const handleImageClick = (imageSrc, imageIndex, sectionImages) => {
     setActiveModalImages(sectionImages);
@@ -92,8 +92,25 @@ export default function PortfolioPage() {
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 sm:w-80 h-32 sm:h-80 bg-teal-300/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
           </div>
           <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-20 relative z-10 mt-0 sm:mt-[-70px]">
+
             <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mt-8 sm:mt-[110px]">
               <div className="space-y-6 sm:space-y-8 w-full lg:w-auto">
+                <Breadcrumb
+                items={[
+                  {
+                    title: <a className="!text-white mt-[-50px] mb-[50px] text-[25px]" href="/about-us">Home</a>,
+                  },
+                  {
+                    title: <p className="!text-white  mb-[50px] mt-[-15px]  text-[25px]" >/</p>,
+                  },
+                  
+                  {
+                    title: <a className="!text-white  mt-[-50px]  mb-[50px] text-[25px]" href="">About Us</a>,
+                  },
+
+
+                ]}
+              />
                 <div
                   className={`transform transition-all duration-1000 ${true ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
                 >

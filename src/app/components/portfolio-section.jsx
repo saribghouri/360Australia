@@ -19,6 +19,7 @@ export default function PortfolioSection() {
   const [isVisible, setIsVisible] = useState(false);
   const carouselRef = useRef(null);
   const animationFrameId = useRef(null);
+  
   const router = useRouter();
   const [currentDotIndex, setCurrentDotIndex] = useState(0);
   // Modal state
@@ -239,7 +240,7 @@ export default function PortfolioSection() {
             ))}
             {/* Modal for full screen image */}
             {isModalOpen && (
-              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
+              <div  className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
                 <button
                   className="absolute top-6 right-6 cursor-pointer bg-teal-500 text-white rounded-full p-2 z-50 hover:bg-white  hover:text-black transition-colors"
                   onClick={handleCloseModal}

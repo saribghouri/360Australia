@@ -5,6 +5,7 @@ import { User, CheckSquare, Calendar, Target, Quote } from "lucide-react";
 import ModernTablet from "./modren-tablet";
 import StateCard from "./state-card";
 import ContactForm from "./state-card";
+import { Breadcrumb } from "antd";
 
 export default function AnimatedMarketingSection() {
   const [activeTab, setActiveTab] = useState("hire");
@@ -111,18 +112,31 @@ export default function AnimatedMarketingSection() {
         </div>
 
         <div className="relative z-10 flex flex-col justify-center mt-[80px] px-6 sm:px-8 lg:px-12">
+
           <div className="max-w-[100%] mx-auto w-full">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mt-[110px]">
               <div className="lg:col-span-7 space-y-6 sm:space-y-8">
                 <div className="space-y-4 sm:space-y-6">
+                  <Breadcrumb
+                    items={[
+                      {
+                        title: <a className="!text-white  mt-[-50px] mb-[50px] text-[25px]" href="">Home/</a>,
+                      },
+                      // {
+                      //   title: <a className="!text-white" href="/about-us">About Us</a>,
+                      // },
+
+
+                    ]}
+                  />
                   <div
-                    className={`flex items-center transition-all duration-1000 ${
-                      isVisible
+                    className={`flex items-center transition-all duration-1000 ${isVisible
                         ? "translate-x-0 opacity-100"
                         : "-translate-x-10 opacity-0"
-                    }`}
+                      }`}
                     style={{ transitionDelay: "0.2s" }}
                   >
+
                     <div className="w-6 sm:w-8 h-1.5 sm:h-2 bg-[#10d4c4] rounded-full animate-pulse"></div>
                     <h1 className="text-[#10d4c4] text-sm sm:text-base lg:text-[22px] font-bold tracking-wider  sm:tracking-widest uppercase ml-2 sm:ml-3 leading-tight">
                       Stay ahead with 360° expertise in
@@ -131,11 +145,10 @@ export default function AnimatedMarketingSection() {
                   <div className="flex items-start gap-4 sm:gap-8">
                     <div className="flex-1">
                       <h1
-                        className={`text-white text-3xl sm:text-4xl uppercase md:text-5xl lg:text-7xl font-bold  tracking-tight transition-all duration-1000 ${
-                          isVisible
+                        className={`text-white text-3xl sm:text-4xl uppercase md:text-5xl lg:text-7xl font-bold  tracking-tight transition-all duration-1000 ${isVisible
                             ? "translate-y-0 opacity-100"
                             : "translate-y-10 opacity-0"
-                        }`}
+                          }`}
                         style={{ transitionDelay: "0.4s" }}
                       >
                         <span className="inline-block hover:text-[#10d4c4] transition-colors duration-300">
@@ -174,11 +187,10 @@ export default function AnimatedMarketingSection() {
             >
               <div className="space-y-4 sm:space-y-6 pt-6 sm:pt-8">
                 <div
-                  className={`transition-all duration-1000 ${
-                    isVisible
+                  className={`transition-all duration-1000 ${isVisible
                       ? "translate-y-0 opacity-100"
                       : "translate-y-5 opacity-0"
-                  }`}
+                    }`}
                   style={{ transitionDelay: "1.4s" }}
                 >
                   <h2 className="text-white text-xl  sm:text-3xl uppercase font-bold">
@@ -226,11 +238,10 @@ export default function AnimatedMarketingSection() {
                         <div
                           className={`
                   absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl
-                  ${
-                    isGreenCard
-                      ? `bg-gradient-to-r from-black/5 via-black/10 to-black/5`
-                      : `bg-gradient-to-r from-[#10d4c4]/5 via-[#10d4c4]/10 to-[#10d4c4]/5`
-                  }
+                  ${isGreenCard
+                              ? `bg-gradient-to-r from-black/5 via-black/10 to-black/5`
+                              : `bg-gradient-to-r from-[#10d4c4]/5 via-[#10d4c4]/10 to-[#10d4c4]/5`
+                            }
                 `}
                         />
                         <div className="relative z-10">
@@ -243,11 +254,10 @@ export default function AnimatedMarketingSection() {
                               }}
                               className={`
                       flex-shrink-0 text-[#ffffff] p-2 rounded-lg transition-all duration-300
-                      ${
-                        isGreenCard
-                          ? `group-hover:bg-black/10 group-hover:shadow-lg group-hover:shadow-black/25`
-                          : `group-hover:bg-[#10d4c4]/10 group-hover:shadow-lg group-hover:shadow-[#10d4c4]/25`
-                      }
+                      ${isGreenCard
+                                  ? `group-hover:bg-black/10 group-hover:shadow-lg group-hover:shadow-black/25`
+                                  : `group-hover:bg-[#10d4c4]/10 group-hover:shadow-lg group-hover:shadow-[#10d4c4]/25`
+                                }
                     `}
                             >
                               <div className="flex items-center justify-center">
@@ -337,21 +347,19 @@ export default function AnimatedMarketingSection() {
 
           <div className="lg:col-span-5">
             <div
-              className={`relative overflow-hidden rounded-lg mt-8 transition-all duration-1000 hover:scale-105 ${
-                isVisible
+              className={`relative overflow-hidden rounded-lg mt-8 transition-all duration-1000 hover:scale-105 ${isVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
-              }`}
+                }`}
               style={{ transitionDelay: "1.2s" }}
             >
               {/* Tablet only visible on large screens */}
               <div className="hidden md:block">
                 <div
-                  className={`relative overflow-hidden rounded-lg mt-8 transition-all duration-1000 hover:scale-105 ${
-                    isVisible
+                  className={`relative overflow-hidden rounded-lg mt-8 transition-all duration-1000 hover:scale-105 ${isVisible
                       ? "translate-y-0 opacity-100"
                       : "translate-y-10 opacity-0"
-                  }`}
+                    }`}
                   style={{ transitionDelay: "1.2s" }}
                 >
                   <ModernTablet />

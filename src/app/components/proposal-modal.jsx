@@ -5,10 +5,14 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Modal, Input, Select } from "antd";
 import { X, ArrowRight } from "lucide-react";
+import PhoneInput from "react-phone-input-2"
+import "react-phone-input-2/lib/style.css"
+import "antd/dist/reset.css"
 
 const { Option } = Select;
 
 export function RequestProposalModal({ isOpen, onClose }) {
+    const [phone, setPhone] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -16,6 +20,7 @@ export function RequestProposalModal({ isOpen, onClose }) {
     service: "", // New state for service
     projectDetails: "",
   });
+
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -80,21 +85,21 @@ export function RequestProposalModal({ isOpen, onClose }) {
             required
           />
         </div>
-
-        <div>
-          <label htmlFor="email" className="text-black text-lg mb-2 block">
+   <label htmlFor="email" className="text-black text-lg mb-2 block">
             Phone
           </label>
-          <Input
-            id="phone"
-            type="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            className="bg-gray-900 border border-teal-700 !text-black placeholder:text-[18px]  focus:border-teal-500 focus:ring-teal-500 rounded-lg !p-2"
-            placeholder="enter your number"
-            required
-          />
-        </div>
+          <div className="relative">
+             <PhoneInput
+                    className="border-bottom-contact text-black"
+                    country={"au"}
+                    value={phone}
+                    onChange={setPhone}
+                    containerClass="w-full myFormInputFontSizecolor"
+                    inputClass="w-full myFormInputFontSizecolor"
+                    buttonClass="text-black"
+                    // disabled={isSubmitting}
+                  />
+              </div>
 
         {/* Services Dropdown */}
         <div>

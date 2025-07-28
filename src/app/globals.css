@@ -353,6 +353,14 @@ body {
   font-size: 17px !important;
   letter-spacing: 1px !important;
 }
+.myFormInputFontSizecolor {
+  font-size: 17px !important;
+  letter-spacing: 1px !important;
+  color: #000 !important;
+  border: 1px solid rgb(218, 216, 216) !important;
+  border-radius: 5px;
+  margin-top: 10px !important;
+}
 
 
 .myFormInputFontSize:focus {

@@ -5,6 +5,7 @@ import ChatButton from "./components/chatboot";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import { Breadcrumb } from "antd";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         {/* 2. Pass both your RTL direction and the theme into ConfigProvider */}
         <AntdRegistry>
           <Header />
+
           {children}
            <Footer />
           <ChatButton />

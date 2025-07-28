@@ -156,9 +156,7 @@ export default function ServicesSection({ scrollToRef }) {
         </div>
       </div>
       <div className="wrapper relative w-full max-w-screen-xl">
-        {/* Card 1: Added content for the first card, as it was an empty div */}
         <div className="card-wrapper mb-[30px] flex justify-center"></div>
-        {/* Card 2 */}
         <div className="card-wrapper mb-[30px] flex justify-center">
           <div className="card group w-[min(2000px,90vw)] h-[300px] cursor-pointer relative rounded-3xl overflow-hidden border border-teal-400 bg-gradient-to-br from-black via-black to-black">
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent rounded-3xl"></div>

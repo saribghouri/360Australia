@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { Button } from "antd"; // Assuming Ant Design Button is used as provided
+import { Breadcrumb, Button } from "antd"; // Assuming Ant Design Button is used as provided
 import Header from "../components/header";
 import Footer from "../components/footer";
 import ProjectCTASection from "../components/ProjectCTASection";
@@ -9,6 +9,7 @@ export default function AboutUsSections() {
   const [isVisible, setIsVisible] = useState({});
   const [mainSectionVisible, setMainSectionVisible] = useState(false);
   const [activeStep, setActiveStep] = useState("growth");
+
 
   // Create individual refs for each section
   const headerRef = useRef(null);
@@ -84,12 +85,28 @@ export default function AboutUsSections() {
   return (
     <>
       <section className="bg-black text-white  md:px-6 lg:px-8 overflow-hidden">
+
         <div className="max-w-[90%] mx-auto">
           <section className="bg-transparent text-white py-16 px-6 lg:px-8 relative ">
             {/* Background geometric pattern */}
             <div className="max-w-8xl first-section mx-auto relative z-10 mt-[110px]">
+              <Breadcrumb
+                items={[
+                  {
+                    title: <a className="!text-white mt-[-50px] mb-[50px] text-[25px]" href="/about-us">Home</a>,
+                  },
+                  {
+                    title: <p className="!text-white  mb-[50px] mt-[-15px]  text-[25px]" >/</p>,
+                  },
+                  
+                  {
+                    title: <a className="!text-white  mt-[-50px]  mb-[50px] text-[25px]" href="">About Us</a>,
+                  },
+
+
+                ]}
+              />
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 ">
-                {/* Left Content */}
                 <div className="space-y-6">
                   <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                     ABOUT <span className="text-teal-400">US</span>
@@ -297,11 +314,10 @@ export default function AboutUsSections() {
                       onMouseLeave={() => setActiveStep(null)}
                     >
                       <h3
-                        className={`text-[30px] font-semibold flex items-start text-white transition-all mb-[20px] duration-300 ease-in-out mt-4 ${
-                          activeStep === step.id
+                        className={`text-[30px] font-semibold flex items-start text-white transition-all mb-[20px] duration-300 ease-in-out mt-4 ${activeStep === step.id
                             ? "-translate-y-10 text-blue-800"
                             : ""
-                        }`}
+                          }`}
                       >
                         {step.title}
                       </h3>
@@ -328,11 +344,10 @@ export default function AboutUsSections() {
                       </div>
                       {/* Description - positioned below dot, appears on hover */}
                       <p
-                        className={`text-lg text-white transition-all text-center duration-300 ease-in-out !mt-[30px] overflow-hidden ${
-                          activeStep === step.id
+                        className={`text-lg text-white transition-all text-center duration-300 ease-in-out !mt-[30px] overflow-hidden ${activeStep === step.id
                             ? "opacity-100 max-h-20 !mt-2"
                             : "opacity-0 max-h-0"
-                        }`}
+                          }`}
                       >
                         {step.description}
                       </p>

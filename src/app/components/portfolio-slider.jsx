@@ -56,10 +56,25 @@ export default function PortfolioSlider({
         },
       });
 
-      // Scale & opacity animation
+      // Scale & opacity animation - highlight center slide
       slideItems.forEach((item, index) => {
-        const isActive = index === currentSlide;
-        const isNeighbor = Math.abs(index - currentSlide) <= 1;
+        // Calculate center slide based on responsive breakpoints
+        // Get window width to determine visible slides
+        const windowWidth = window.innerWidth;
+        let visibleSlides = 1; // default for mobile (w-full)
+
+        if (windowWidth >= 1024) {
+          // lg breakpoint
+          visibleSlides = 3; // lg:w-1/3
+        } else if (windowWidth >= 640) {
+          // sm breakpoint
+          visibleSlides = 2; // sm:w-1/2
+        }
+
+        const centerSlideIndex = currentSlide + Math.floor(visibleSlides / 2);
+
+        const isActive = index === centerSlideIndex;
+        const isNeighbor = Math.abs(index - centerSlideIndex) <= 1;
         gsap.to(item, {
           scale: isActive ? 1.1 : 0.9,
           opacity: isActive || isNeighbor ? 1 : 0.5,

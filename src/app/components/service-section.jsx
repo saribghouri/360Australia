@@ -144,7 +144,6 @@ export default function ServicesSection({ scrollToRef }) {
       className="min-h-screen  flex flex-col items-center bg-black"
     >
       <div className="mb-8 sm:mb-10 md:mb-12 relative">
-
         <div className="flex flex-row w-full gap-6 sm:gap-8 lg:flex-row lg:items-center lg:justify-center">
           <div className="transform transition-all duration-1000 w-full text-center ">
             <h2 className="text-3xl sm:text-4xl md:text-5xl text-white lg:text-6xl xl:text-5xl font-bold ">
@@ -213,7 +212,7 @@ export default function ServicesSection({ scrollToRef }) {
                 <h2 className="text-3xl font-bold uppercase text-white mb-4 transition-transform duration-300">
                   Graphics Design Services
                 </h2>
-                <p className="text-white/90 text-xl leading-relaxed mb-6">
+                <p className="text-white/90 text-xl leading-tight sm:leading-relaxed mb-3 sm:mb-6">
                   360 Australia takes fresh ideas and turn them into unique ones
                   that help your business grow.
                 </p>
@@ -254,7 +253,7 @@ export default function ServicesSection({ scrollToRef }) {
                 <h2 className="text-3xl font-bold uppercase text-white mb-4 transition-transform duration-300">
                   Mobile App Development
                 </h2>
-                <p className="text-white/90 text-xl leading-relaxed mb-6">
+                <p className="text-white/90 text-xl leading-tight sm:leading-relaxed mb-3 sm:mb-6">
                   Tap into growth with an app, we build easy-to-use hybrid apps
                   that work smoothly on any device.
                 </p>
@@ -294,10 +293,9 @@ export default function ServicesSection({ scrollToRef }) {
                 <h2 className="text-3xl font-bold uppercase text-white mb-4 transition-transform duration-300">
                   Digital Marketing
                 </h2>
-                <p className="text-white/90 text-xl leading-relaxed mb-6">
-                  360 Australia helps your brand get noticed
-                  people, and make sure your business stands out where it
-                  counts.
+                <p className="text-white/90 text-xl leading-tight sm:leading-relaxed mb-3 sm:mb-6">
+                  360 Australia helps your brand get noticed people, and make
+                  sure your business stands out where it counts.
                 </p>
                 <button
                   className="flex items-center justify-between mt-[50px] cursor-pointer action-bg px-3 py-1 sm:px-6 sm:py-1 rounded-full bg-gradient-to-b from-white to-[#dfe9f3] shadow-inner border border-[#d3d3d3]"

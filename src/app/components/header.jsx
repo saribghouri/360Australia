@@ -111,7 +111,7 @@ const Header = () => {
             HOME
           </Link>
           {/* <Link
-            href="/landing-page"
+            href="/landing"
             className="text-white hover:text-[#10d4c4] font-family text-xl transition-colors duration-300 font-medium"
           >
             landing-page

@@ -89,149 +89,39 @@ export default function AboutUsSections() {
 
         <div className="max-w-[90%] mx-auto">
           <section className="bg-transparent text-white py-16 px-6 lg:px-8 relative ">
-            {/* Background geometric pattern */}
-            <div className="max-w-8xl first-section mx-auto relative z-10 mt-[110px]">
-              <Breadcrumb
-                items={[
-                  {
-                    title: <a className="!text-white  mb-[50px] text-[25px]" href="/about-us">Home</a>,
-                  },
-                  {
-                    title: <p className="!text-white  mb-[50px] mt-[-15px]  text-[25px]" >/</p>,
-                  },
-                  
-                  {
-                    title: <a className="!text-white    mb-[50px] text-[25px]" href="">About Us</a>,
-                  },
-
-
-                ]}
-              />
-              <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 ">
-                <div className="space-y-6">
-                  <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                    ABOUT <span className="text-teal-400">US</span>
-                  </h2>
-                  <p className="text-gray-300 text-xl leading-relaxed ">
-                    360 Australia is your trusted digital partner, helping
-                    businesses grow, succeed, and stand out online. For years,
-                    we’ve worked with startups, small businesses, and
-                    established brands, turning ideas into digital success. We
-                    build strong partnerships, craft tailored strategies, and
-                    help businesses overcome challenges to reach their goals.
-                    From boosting your social presence to driving more
-                    engagement, we cover everything so your products and
-                    services reach the right audience. With a client-first
-                    approach and a proven track record of success, we’re here to
-                    help your business expand in the digital world.
-                  </p>
-                  <Button
-                  onClick={() => setIsModalOpen(true)}
-                    href="#contact"
-                    className="inline-block !bg-teal-500 !text-white project-action !hover:text-cyan-300 !font-bold text-center !px-[20px] !py-[15px] !text-[18px] sm:!px-[40px] sm:!py-[30px] sm:!text-[24px] !border-none !hover:border-white transition-all duration-300 pb-1 cursor-pointer rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2"
-                  >
-                    START YOUR PROJECT NOW
-                  </Button>
-                </div>
-                {/* Right Stats */}
-                <div className="bg-transparent min-h-auto flex items-center justify-center p-8">
-                  <div className="relative w-full max-w-2xl h-auto lg:h-[400px] mx-auto flex flex-col items-center justify-center gap-8 lg:block">
-                    {/* 170+ Worldwide Clients */}
-                    <div className="relative w-48 h-48 sm:w-64 sm:h-64 transform rotate-45 rounded-2xl bg-black border-2 border-teal-400/40 flex items-center justify-center overflow-hidden mx-auto lg:absolute lg:top-[70px] lg:left-[20px]">
-                      {/* Corner diagonal lines */}
-                      <div className="absolute inset-0">
-                        <div className="absolute top-0 left-0 w-16 h-16">
-                          <div className="absolute top-4 left-4 w-8 h-px bg-teal-600 transform -rotate-45"></div>
-                          <div className="absolute top-4 left-4 w-px h-8 bg-teal-600 transform rotate-45"></div>
-                        </div>
-                        <div className="absolute top-0 right-0 w-16 h-16">
-                          <div className="absolute top-4 right-4 w-8 h-px bg-teal-600 transform rotate-45"></div>
-                          <div className="absolute top-4 right-4 w-px h-8 bg-teal-600 transform -rotate-45"></div>
-                        </div>
-                        <div className="absolute bottom-0 left-0 w-16 h-16">
-                          <div className="absolute bottom-4 left-4 w-8 h-px bg-teal-600 transform rotate-45"></div>
-                          <div className="absolute bottom-4 left-4 w-px h-8 bg-teal-600 transform rotate-45"></div>
-                        </div>
-                        <div className="absolute sm:bottom-0 right-0 w-16 h-16">
-                          <div className="absolute bottom-4 right-4 w-8 h-px bg-teal-600 transform -rotate-45"></div>
-                          <div className="absolute bottom-4 right-4 w-px h-8 bg-teal-600 transform -rotate-45"></div>
-                        </div>
-                      </div>
-                      <div className="transform -rotate-45 text-center text-white">
-                        <div className="text-7xl font-bold mb-2">
-                          170<span className="text-5xl">+</span>
-                        </div>
-                        <div className="text-gray-300 text-lg font-medium">
-                          Worldwide Clients
-                        </div>
-                      </div>
-                    </div>
-                    {/* 45+ Team Members */}
-                    <div className="relative w-48 h-48 sm:w-64 sm:h-64 transform rounded-2xl rotate-45 bg-black border-2 border-teal-400/40 flex items-center justify-center overflow-hidden mx-auto lg:absolute lg:top-1/2 lg:right-[20px] lg:-translate-y-1/2">
-                      {/* Corner diagonal lines */}
-                      <div className="absolute inset-0">
-                        <div className="absolute top-0 left-0 w-16 h-16">
-                          <div className="absolute top-4 left-4 w-8 h-px bg-teal-600 transform -rotate-45"></div>
-                          <div className="absolute top-4 left-4 w-px h-8 bg-teal-600 transform rotate-45"></div>
-                        </div>
-                        <div className="absolute top-0 right-0 w-16 h-16">
-                          <div className="absolute top-4 right-4 w-8 h-px bg-teal-600 transform rotate-45"></div>
-                          <div className="absolute top-4 right-4 w-px h-8 bg-teal-600 transform -rotate-45"></div>
-                        </div>
-                        <div className="absolute bottom-0 left-0 w-16 h-16">
-                          <div className="absolute bottom-4 left-4 w-8 h-px bg-teal-600 transform rotate-45"></div>
-                          <div className="absolute bottom-4 left-4 w-px h-8 bg-teal-600 transform rotate-45"></div>
-                        </div>
-                        <div className="absolute bottom-0 right-0 w-16 h-16">
-                          <div className="absolute bottom-4 right-4 w-8 h-px bg-teal-600 transform -rotate-45"></div>
-                          <div className="absolute bottom-4 right-4 w-px h-8 bg-teal-600 transform -rotate-45"></div>
-                        </div>
-                      </div>
-                      <div className="transform -rotate-45 text-center text-white">
-                        <div className="text-7xl font-bold mb-2">
-                          45<span className="text-5xl">+</span>
-                        </div>
-                        <div className="text-gray-300 text-lg font-medium">
-                          Team Members
-                        </div>
-                      </div>
-                    </div>
-                    {/* 990+ Completed Projects */}
-                    <div className="relative w-48 h-48 sm:w-64 sm:h-64 transform rotate-45 rounded-2xl bg-black border-2 border-teal-400/40 flex items-center justify-center overflow-hidden mx-auto lg:absolute lg:bottom-[-150px] lg:left-1/2 lg:-translate-x-1/2">
-                      {/* Corner diagonal lines */}
-                      <div className="absolute inset-0">
-                        <div className="absolute top-0 left-0 w-16 h-16">
-                          <div className="absolute top-4 left-4 w-8 h-px bg-teal-600 transform -rotate-45"></div>
-                          <div className="absolute top-4 left-4 w-px h-8 bg-teal-600 transform rotate-45"></div>
-                        </div>
-                        <div className="absolute top-0 right-0 w-16 h-16">
-                          <div className="absolute top-4 right-4 w-8 h-px bg-teal-600 transform rotate-45"></div>
-                          <div className="absolute top-4 right-4 w-px h-8 bg-teal-600 transform -rotate-45"></div>
-                        </div>
-                        <div className="absolute bottom-0 left-0 w-16 h-16">
-                          <div className="absolute bottom-4 left-4 w-8 h-px bg-teal-600 transform rotate-45"></div>
-                          <div className="absolute bottom-4 left-4 w-px h-8 bg-teal-600 transform rotate-45"></div>
-                        </div>
-                        <div className="absolute bottom-0 right-0 w-16 h-16">
-                          <div className="absolute bottom-4 right-4 w-8 h-px bg-teal-600 transform -rotate-45"></div>
-                          <div className="absolute bottom-4 right-4 w-px h-8 bg-teal-600 transform -rotate-45"></div>
-                        </div>
-                      </div>
-                      <div className="transform -rotate-45 text-center text-white">
-                        <div className="text-7xl font-bold mb-2">
-                          990<span className="text-5xl">+</span>
-                        </div>
-                        <div className="text-gray-300 text-lg font-medium">
-                          Completed Projects
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          
+             <div className="flex w-full sm:w-[80%] md:w-[60%] lg:w-[16%] items-start mr-[40px] mt-18 sm:mt-12 md:mt-16 lg:mt-[140px] justify-center items-center px-4">
+      <Breadcrumb
+        items={[
+          {
+            title: (
+              <a
+                className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                href="/"
+              >
+                Home
+              </a>
+            ),
+          },
+     
+          {
+            title: (
+              <a
+                className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                href=""
+              >
+                About Us
+              </a>
+            ),
+          },
+        
+      
+        ]}
+      />
+    </div>
+       
           </section>
-          <section className="bg-transparent mt-[100px] text-white py-13 px-6 lg:px-8 relative overflow-hidden">
+          <section className="bg-transparent mt-[10px] text-white py-13 px-6 lg:px-8 relative overflow-hidden">
             {/* Background geometric pattern */}
             <div className="space-y-6">
               <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight uppercase">

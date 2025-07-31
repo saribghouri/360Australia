@@ -164,7 +164,7 @@ export default function TestimonialSection() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl font-bold text-white mb-1 sm:mb-2">
             HAPPY CLIENT
           </h2>
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-8xl font-bold text-teal-400">FEEDBACK</h3>
+          <h3 className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-8xl font-bold text-teal-400">FEEDBACK</h3>
         </motion.div>
         <div className="relative max-w-full  max-h-screen mx-auto">
           <button

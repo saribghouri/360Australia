@@ -97,12 +97,40 @@ export default function PortfolioPage() {
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[calc(100vh-140px)]">
           {/* Text Content */}
           <div className="space-y-6 md:space-y-8 text-center lg:text-left">
+                <div className="flex w-full sm:w-[80%] md:w-[60%] lg:w-[56%] items-start justify-items-start ml-[-100px]  mt-8 sm:mt-12 md:mt-16 lg:mt-[-170px] justify-center  px-4">
+              <Breadcrumb
+                items={[
+                  {
+                    title: (
+                      <a
+                        className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                        href="/"
+                      >
+                        Home
+                      </a>
+                    ),
+                  },
+
+                  {
+                    title: (
+                      <a
+                        className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                        href=""
+                      >
+                        Portfolio
+                      </a>
+                    ),
+                  },
+
+                ]}
+              />
+            </div>
             <div
               className={`transform transition-all duration-1000 ${
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
               }`}
             >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-bold leading-tight uppercase">
                 <span className="inline-block delay-100 text-white">Welcome to </span>
                 <br className="sm:hidden" />
                 <span className="inline-block delay-1000 text-gradient bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent">

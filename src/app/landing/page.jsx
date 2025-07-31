@@ -971,3 +971,14 @@ export default function Page() {
     </div>
   )
 }
+// SMTP Server 
+// server.360-australia.com.au
+
+// SMTP Port
+// 587
+
+// Email
+// web@360-australia.com.au
+
+// Password
+// Australia@123

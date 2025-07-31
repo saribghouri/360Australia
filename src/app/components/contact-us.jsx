@@ -276,7 +276,7 @@ export default function ContactUs() {
         <div className="absolute bottom-1/4 left-1/4 w-32 md:w-64 h-32 md:h-64 bg-yellow-500/5 rounded-full blur-2xl"></div>
       </div>
 
-      <div className="max-w-[90%] mx-auto relative">
+      <div className="max-w-[100%] lg:w-[90%] mx-auto relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start mt-[110px]">
           <motion.div
             variants={containerVariants}
@@ -285,28 +285,34 @@ export default function ContactUs() {
             viewport={{ once: true, amount: 0.3 }}
             className="space-y-6 md:space-y-8 order-1 lg:order-1"
           >
-            <Breadcrumb
-              className="!mt-[30px]"
-              items={[
-                {
-                  title: (
-                    <a className="!text-white mb-[50px] text-[25px]" href="/about-us">
-                      Home
-                    </a>
-                  ),
-                },
-                {
-                  title: <p className="!text-white mb-[50px]  text-[25px]">/</p>,
-                },
-                {
-                  title: (
-                    <a className="!text-white  mb-[50px] text-[25px]" href="">
-                      Portfolio
-                    </a>
-                  ),
-                },
-              ]}
-            />
+            <div className="flex w-full sm:w-[80%] md:w-[60%] lg:w-[56%] items-start justify-items-start ml-[-100px] lg:ml-[-120px]  mt-8 sm:mt-12 md:mt-16 lg:mt-[70px] justify-center  px-4">
+              <Breadcrumb
+                items={[
+                  {
+                    title: (
+                      <a
+                        className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                        href="/"
+                      >
+                        Home
+                      </a>
+                    ),
+                  },
+
+                  {
+                    title: (
+                      <a
+                        className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                        href=""
+                      >
+                    Contact Us
+                      </a>
+                    ),
+                  },
+
+                ]}
+              />
+            </div>
             <motion.div variants={itemVariants} className="space-y-4 md:space-y-6 text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start gap-3"></div>
               <motion.h1
@@ -333,7 +339,7 @@ export default function ContactUs() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 lg:p-8 border border-gray-800 order-2 lg:order-2"
+            className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 lg:p-8 border !w-[100%]   mt-[60px] border-gray-800 order-2 lg:order-2"
           >
             {submitStatus === "success" && (
               <motion.div
@@ -355,7 +361,7 @@ export default function ContactUs() {
               </motion.div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6  ">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
                   <label className="block text-sm font-medium mb-2">
@@ -464,8 +470,8 @@ export default function ContactUs() {
               </motion.div>
 
               {/* reCAPTCHA v2 Widget */}
-              <div className="flex flex-col items-center space-y-3">
-                <div className="w-full flex justify-center">
+              {/* <div className="flex flex-col items-center space-y-3">
+                <div className="w-50 flex justify-center">
                   <div
                     ref={recaptchaRef}
                     style={{
@@ -483,18 +489,17 @@ export default function ContactUs() {
                 {recaptchaLoaded && !recaptchaToken && submitStatus === "error" && (
                   <p className="text-red-400 text-sm">Please complete the reCAPTCHA verification</p>
                 )}
-              </div>
+              </div> */}
 
               <motion.button
                 whileHover={{ scale: isSubmitting ? 1 : 1.05, boxShadow: isSubmitting ? "none" : "0 5px 10px #939494" }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
                 type="submit"
                 disabled={isSubmitting || !recaptchaLoaded || !recaptchaToken}
-                className={`w-full font-semibold py-3 md:py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base ${
-                  isSubmitting || !recaptchaLoaded
+                className={`w-full font-semibold py-3 md:py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base ${isSubmitting || !recaptchaLoaded
                     ? "bg-gray-600 cursor-not-allowed"
                     : "bg-[#0fa397] hover:bg-[#0fa397]"
-                } text-white`}
+                  } text-white`}
               >
                 {isSubmitting ? (
                   <>

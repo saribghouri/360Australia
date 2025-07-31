@@ -105,30 +105,44 @@ export default function DigitalSolutionsSection() {
       {/* <div className="mt-[110px]">
         <Header />
       </div> */}
-        <div className=" flex  w-[46%] mt-[50px] justify-center  items-center">
-
-          <Breadcrumb
-                items={[
-                  {
-                    title: <a className="!text-white mb-[50px] text-[25px]" href="/about-us">Home</a>,
-                  },
-                  {
-                    title: <p className="!text-white  mb-[50px]  text-[25px]" >/</p>,
-                  },
-                  
-                  {
-                    title: <a className="!text-white   mb-[50px] text-[25px]" href="">Services</a>,
-                  },
-  {
-                    title: <p className="!text-white  mb-[50px]  text-[25px]" >/</p>,
-                  },
-                   {
-                    title: <a className="!text-white   mb-[50px] text-[25px]" href="">Website-Development</a>,
-                  },
-
-                ]}
-              />
-  </div>
+   <div className="flex w-full sm:w-[80%] md:w-[60%] lg:w-[46%] mt-8 sm:mt-12 md:mt-16 lg:mt-[70px] justify-center items-center px-4">
+      <Breadcrumb
+        items={[
+          {
+            title: (
+              <a
+                className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                href="/"
+              >
+                Home
+              </a>
+            ),
+          },
+     
+          {
+            title: (
+              <a
+                className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                href="/our-services"
+              >
+                Services
+              </a>
+            ),
+          },
+        
+          {
+            title: (
+              <a
+                className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                href=""
+              >
+                Website-Development
+              </a>
+            ),
+          },
+        ]}
+      />
+    </div>
       <section
         ref={sectionRef}
         className="w-full py-6 md:py-18 lg:py-22 bg-[#000] text-white"

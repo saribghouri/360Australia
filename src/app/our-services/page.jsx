@@ -25,7 +25,7 @@ import {
     Package,
     Edit,
 } from "lucide-react"
-import { Card } from "antd"
+import { Breadcrumb, Card } from "antd"
 import { RequestProposalModal } from "../components/proposal-modal"
 
 
@@ -56,9 +56,38 @@ export default function ServicesPage() {
         <div className="min-h-screen bg-black text-white overflow-x-hidden">
             {/* Hero Section */}
             <section className="relative py-20 px-4 text-center overflow-hidden  mt-[100px]">
+                           <div className="flex w-full sm:w-[80%] md:w-[60%] lg:w-[16%] mt-8 sm:mt-12 md:mt-16 lg:mt-[10px] justify-center items-center px-4">
+      <Breadcrumb
+        items={[
+          {
+            title: (
+              <a
+                className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                href="/"
+              >
+                Home
+              </a>
+            ),
+          },
+     
+          {
+            title: (
+              <a
+                className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                href="/our-services"
+              >
+                Services /
+              </a>
+            ),
+          },
+        
+      
+        ]}
+      />
+    </div>
                 <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 via-transparent to-teal-400/5"></div>
                 <div className="relative z-10 max-w-4xl mx-auto ">
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white bg-clip-text animate-fade-in">
+                    <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white uppercase bg-clip-text animate-fade-in">
                         Our  <span className="text-teal-400">Services</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-300 mb-8 animate-slide-up">
@@ -79,7 +108,7 @@ export default function ServicesPage() {
                 <div className="max-w-8xl mx-auto">
                     <div className="text-center mb-16">
                         <h2 className="text-4xl md:text-5xl font-bold mb-4 ">
-                            Website <span className="text-teal-400">Development</span>{" "}
+                            Website <span className="text-teal-400 uppercase">Development</span>{" "}
                         </h2>
                         <p className="text-xl text-gray-300">Building digital experiences that convert</p>
                     </div>
@@ -131,7 +160,7 @@ export default function ServicesPage() {
             >
                 <div className="max-w-[80%] mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4 ">
+                        <h2 className="text-4xl md:text-5xl  uppercase font-bold mb-4 ">
                             Mobile App <span className="text-teal-400">Development</span>
                         </h2>
                         <p className="text-xl text-gray-300">Native and cross-platform mobile solutions</p>
@@ -200,7 +229,7 @@ export default function ServicesPage() {
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-500/5 via-transparent to-teal-400/5"></div>
                 <div className="max-w-7xl mx-auto relative">
                     <div className="text-center mb-16 md:mb-56">
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4 ">
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4 uppercase ">
                             Digital <span className="text-teal-400">Marketing</span>
                         </h2>
                         <p className="text-xl text-gray-300">Amplify your reach and drive growth</p>
@@ -262,18 +291,18 @@ export default function ServicesPage() {
             >
                 <div className="max-w-[95%] mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4 ">
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4 uppercase ">
                             Graphic<span className="text-teal-400"> Design</span>{" "}
                         </h2>
                         <p className="text-xl text-gray-300">Visual storytelling that captivates</p>
                     </div>
                     <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
                         {[
-                            { title: "Logo & Branding", icon: Palette, desc: "Memorable brand identities", height: "h-64" },
-                            { title: "Brochures & Stationery", icon: BookOpen, desc: "Professional print materials", height: "h-58" },
-                            { title: "Social Media Creatives", icon: Share2, desc: "Engaging social content", height: "h-56" },
+                            { title: "Logo & Branding", icon: Palette, desc: "Memorable brand identities", height: "h-70" },
+                            { title: "Brochures & Stationery", icon: BookOpen, desc: "Professional print materials", height: "h-70" },
+                            { title: "Social Media Creatives", icon: Share2, desc: "Engaging social content", height: "h-70" },
                             { title: "Infographics", icon: BarChart2, desc: "Data visualization", height: "h-72" },
-                            { title: "Presentation Design", icon: Presentation, desc: "Compelling presentations", height: "h-60" },
+                            { title: "Presentation Design", icon: Presentation, desc: "Compelling presentations", height: "h-70" },
                         ].map((item, index) => (
                             <div
                                 key={index}
@@ -292,10 +321,10 @@ export default function ServicesPage() {
                                             <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
                                                 {typeof item.icon === "string" ? item.icon : <item.icon size={40} className="text-white" />}
                                             </div>
-                                            <h3 className="text-2xl font-bold text-white group-hover:text-teal-400 transition-colors mb-2">
+                                            <h3 className="text-3xl font-bold text-white group-hover:text-teal-400 transition-colors mb-2">
                                                 {item.title}
                                             </h3>
-                                            <p className="text-gray-400 group-hover:text-gray-300 transition-colors">{item.desc}</p>
+                                            <p className="text-gray-400 text-2xl group-hover:text-gray-300 transition-colors">{item.desc}</p>
                                         </div>
                                     </div>
                                 </Card>
@@ -315,8 +344,8 @@ export default function ServicesPage() {
             >
                 <div className="max-w-8xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4 ">
-                            Video &<span className="text-teal-400"> Animation</span>{" "}
+                        <h2 className="text-4xl md:text-5xl font-bold uppercase mb-4 ">
+                            Video &<span className="text-teal-400 "> Animation</span>{" "}
                         </h2>
                         <p className="text-xl text-gray-300">Bringing your ideas to life through motion</p>
                     </div>
@@ -393,7 +422,7 @@ export default function ServicesPage() {
                         {"Let's discuss how our services can help you achieve your goals"}
                     </p>
                     <button onClick={() => setIsModalOpen(true)} className="group relative px-12 py-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white font-semibold rounded-full overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-teal-500/30 hover:scale-105">
-                        <span className="relative z-10 text-lg">Get Started Today</span>
+                        <span className="relative z-10 text-xl">Get Started Today</span>
                         <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-teal-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                     </button>
                 </div>

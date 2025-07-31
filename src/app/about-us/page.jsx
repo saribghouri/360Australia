@@ -4,12 +4,13 @@ import { Breadcrumb, Button } from "antd"; // Assuming Ant Design Button is used
 import Header from "../components/header";
 import Footer from "../components/footer";
 import ProjectCTASection from "../components/ProjectCTASection";
+import { RequestProposalModal } from "../components/proposal-modal";
 
 export default function AboutUsSections() {
   const [isVisible, setIsVisible] = useState({});
   const [mainSectionVisible, setMainSectionVisible] = useState(false);
   const [activeStep, setActiveStep] = useState("growth");
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Create individual refs for each section
   const headerRef = useRef(null);
@@ -93,14 +94,14 @@ export default function AboutUsSections() {
               <Breadcrumb
                 items={[
                   {
-                    title: <a className="!text-white mt-[-50px] mb-[50px] text-[25px]" href="/about-us">Home</a>,
+                    title: <a className="!text-white  mb-[50px] text-[25px]" href="/about-us">Home</a>,
                   },
                   {
                     title: <p className="!text-white  mb-[50px] mt-[-15px]  text-[25px]" >/</p>,
                   },
                   
                   {
-                    title: <a className="!text-white  mt-[-50px]  mb-[50px] text-[25px]" href="">About Us</a>,
+                    title: <a className="!text-white    mb-[50px] text-[25px]" href="">About Us</a>,
                   },
 
 
@@ -125,7 +126,7 @@ export default function AboutUsSections() {
                     help your business expand in the digital world.
                   </p>
                   <Button
-                    // asChild
+                  onClick={() => setIsModalOpen(true)}
                     href="#contact"
                     className="inline-block !bg-teal-500 !text-white project-action !hover:text-cyan-300 !font-bold text-center !px-[20px] !py-[15px] !text-[18px] sm:!px-[40px] sm:!py-[30px] sm:!text-[24px] !border-none !hover:border-white transition-all duration-300 pb-1 cursor-pointer rounded-lg shadow-md hover:shadow-xl transform hover:scale-105 hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:ring-offset-2"
                   >
@@ -302,7 +303,7 @@ export default function AboutUsSections() {
                 aria-hidden="true"
               ></div>
               <div className="flex flex-col justify-center items-center py-8 px-4 bg-none relative z-10">
-                <h2 className="text-5xl font-bold text-white mb-16 text-center">
+                <h2 className="text-5xl font-bold text-white !mb-16 text-center">
                   Our <span className="text-teal-400">Values</span>
                 </h2>
                 <div className="flex w-full max-w-7xl relative">
@@ -356,6 +357,10 @@ export default function AboutUsSections() {
                 </div>
               </div>
             </div>
+               <RequestProposalModal
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                  />
           </section>
         </div>
         <ProjectCTASection />

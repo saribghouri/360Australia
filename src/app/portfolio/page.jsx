@@ -85,125 +85,131 @@ export default function PortfolioPage() {
     <>
       <div className="">
         {/* <Header /> */}
-        <section className="bg-black relative  overflow-hidden">
-          <div className="absolute inset-0 ">
-            <div className="absolute left-4 sm:left-20 w-32 sm:w-72 h-32 sm:h-72 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-10 sm:bottom-20 right-4 sm:right-20 w-40 sm:w-96 h-40 sm:h-96 bg-teal-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 sm:w-80 h-32 sm:h-80 bg-teal-300/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
-          </div>
-          <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-20 relative z-10 mt-0 sm:mt-[-70px]">
+      <section className="bg-black relative overflow-hidden min-h-screen">
+      {/* Background Effects */}
+      <div className="absolute inset-0">
+        <div className="absolute left-4 md:left-20 w-48 h-48 md:w-72 md:h-72 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-4 md:bottom-20 md:right-20 w-64 h-64 md:w-96 md:h-96 bg-teal-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 md:w-80 md:h-80 bg-teal-300/10 rounded-full blur-3xl animate-pulse delay-2000"></div>
+      </div>
 
-            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-12 items-center mt-8 sm:mt-[110px]">
-              <div className="space-y-6 sm:space-y-8 w-full lg:w-auto">
-                <Breadcrumb
-                items={[
-                  {
-                    title: <a className="!text-white mt-[-50px] mb-[50px] text-[25px]" href="/about-us">Home</a>,
-                  },
-                  {
-                    title: <p className="!text-white  mb-[50px] mt-[-15px]  text-[25px]" >/</p>,
-                  },
-                  
-                  {
-                    title: <a className="!text-white  mt-[-50px]  mb-[50px] text-[25px]" href="">About Us</a>,
-                  },
+      <div className="container mx-auto px-4 md:px-6 py-12 md:py-20 relative z-10 mt-[70px]">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center min-h-[calc(100vh-140px)]">
+          {/* Text Content */}
+          <div className="space-y-6 md:space-y-8 text-center lg:text-left">
+            <div
+              className={`transform transition-all duration-1000 ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              }`}
+            >
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
+                <span className="inline-block delay-100 text-white">Welcome to </span>
+                <br className="sm:hidden" />
+                <span className="inline-block delay-1000 text-gradient bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent">
+                  our Portfolio
+                </span>
+              </h1>
+            </div>
 
+            <div
+              className={`transform transition-all duration-1000 delay-500 ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              }`}
+            >
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-100 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                Discover amazing projects, creative designs, and innovative solutions crafted with passion and
+                expertise.
+              </p>
+            </div>
 
-                ]}
-              />
-                <div
-                  className={`transform transition-all duration-1000 ${true ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
-                >
-                  <h1 className="text-2xl sm:text-5xl lg:text-6xl mt-[60px] xl:text-6xl font-bold uppercase">
-                    <span className="inline-block delay-100 text-white">
-                      Welcome to our
-                    </span>
-                    <span className="block sm:inline-block delay-1300 text-gradient text-5xl sm:text-[80px] lg:text-[130px] bg-gradient-to-r from-teal-400 to-teal-500 bg-clip-text text-transparent">
-                      Portfolio
-                    </span>
-                  </h1>
-                </div>
-                <div
-                  className={`transform transition-all duration-1000 delay-500 ${true ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
-                >
-                  <p className="text-base sm:text-xl lg:text-2xl text-gray-100 leading-relaxed max-w-full sm:max-w-lg">
-                    Discover amazing projects, creative designs, and innovative
-                    solutions crafted with passion and expertise.
-                  </p>
-                </div>
-                <div
-                  className={`transform transition-all duration-1000 delay-1000 ${true ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
-                ></div>
-              </div>
-              <div className="relative h-[300px] sm:h-[400px] lg:h-[600px] xl:h-[700px] w-full lg:w-auto">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {images.map((src, index) => {
-                    // Responsive radius for circular layout
-                    const baseRadius = 100;
-                    const smRadius = 180;
-                    const lgRadius = 200;
-                    const xlRadius = 260;
-                    let radius = baseRadius;
-                    if (typeof window !== "undefined") {
-                      if (window.innerWidth >= 1280) radius = xlRadius;
-                      else if (window.innerWidth >= 1024) radius = lgRadius;
-                      else if (window.innerWidth >= 640) radius = smRadius;
-                    }
-                    const angle = index * 60 - currentImageIndex * 60;
-                    const x = Math.cos((angle * Math.PI) / 180) * radius;
-                    const y = Math.sin((angle * Math.PI) / 180) * radius;
-                    const scale = index === currentImageIndex ? 1.2 : 0.8;
-                    const opacity =
-                      Math.abs(index - currentImageIndex) <= 1 ? 1 : 0.3;
-                    return (
-                      <div
-                        key={index}
-                        className="absolute transition-all duration-1000 ease-in-out"
-                        style={{
-                          transform: `translate(${x}px, ${y}px) scale(${scale})`,
-                          opacity: opacity,
-                          zIndex: index === currentImageIndex ? 10 : 1,
-                        }}
-                      >
-                        <div className="relative group">
-                          <Image
-                            src={src || "/placeholder.svg"}
-                            alt={`Portfolio ${index + 1}`}
-                            width={120}
-                            height={90}
-                            className="rounded-2xl shadow-2xl border-4 border-white/20 group-hover:border-teal-400/50 transition-all duration-300 w-[120px] sm:w-[140px] lg:w-[200px] h-auto"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-teal-900/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div className="absolute top-4 sm:top-10 right-4 sm:right-10 w-10 sm:w-20 h-10 sm:h-20 bg-gradient-to-r from-teal-400 to-teal-300 rounded-full opacity-20 animate-ping"></div>
-                <div className="absolute bottom-4 sm:bottom-20 left-4 sm:left-10 w-8 sm:w-16 h-8 sm:h-16 bg-gradient-to-r from-teal-500 to-teal-400 rounded-full opacity-30 animate-pulse"></div>
-                <div className="absolute top-1/2 right-0 w-6 sm:w-12 h-6 sm:h-12 bg-gradient-to-r from-teal-300 to-teal-400 rounded-full opacity-25 animate-bounce"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 sm:w-32 h-16 sm:h-32 bg-gradient-to-r from-teal-500/20 to-teal-400/20 rounded-full blur-2xl animate-pulse"></div>
-              </div>
+            <div
+              className={`transform transition-all duration-1000 delay-1000 ${
+                isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+              }`}
+            >
+           
             </div>
           </div>
-          <div className="absolute bottom-0 left-0 right-0">
-            <svg
-              viewBox="0 0 1200 120"
-              preserveAspectRatio="none"
-              className="w-full h-10 sm:h-20 fill-gray-900/50"
-            >
-              <path
-                d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
-                opacity=".25"
-              ></path>
-              <path
-                d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-                opacity=".5"
-              ></path>
-              <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
-            </svg>
+
+          {/* Images Section - Responsive */}
+          <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] mt-8 lg:mt-0">
+            <div className="absolute inset-0 flex items-center justify-center">
+              {images.map((src, index) => {
+                // Responsive radius calculation
+                const getRadius = () => {
+                  if (typeof window !== "undefined") {
+                    if (window.innerWidth < 640) return 120 // mobile
+                    if (window.innerWidth < 768) return 150 // sm
+                    if (window.innerWidth < 1024) return 180 // md
+                    return 200 // lg and above
+                  }
+                  return 200
+                }
+
+                const angle = index * 60 - currentImageIndex * 60
+                const radius = getRadius()
+                const x = Math.cos((angle * Math.PI) / 180) * radius
+                const y = Math.sin((angle * Math.PI) / 180) * radius
+
+                // Responsive scale
+                const scale = index === currentImageIndex ? 1.1 : 0.7
+                const mobileScale = index === currentImageIndex ? 1 : 0.6
+                const finalScale = typeof window !== "undefined" && window.innerWidth < 640 ? mobileScale : scale
+
+                const opacity = Math.abs(index - currentImageIndex) <= 1 ? 1 : 0.3
+
+                return (
+                  <div
+                    key={index}
+                    className="absolute transition-all duration-1000 ease-in-out"
+                    style={{
+                      transform: `translate(${x}px, ${y}px) scale(${finalScale})`,
+                      opacity: opacity,
+                      zIndex: index === currentImageIndex ? 10 : 1,
+                    }}
+                  >
+                    <div className="relative group">
+                      <Image
+                        src={src || "/placeholder.svg"}
+                        alt={`Portfolio ${index + 1}`}
+                        width={160}
+                        height={120}
+                        className="w-32 h-24 sm:w-40 sm:h-30 md:w-48 md:h-36 lg:w-52 lg:h-40 rounded-xl md:rounded-2xl shadow-2xl border-2 md:border-4 border-white/20 group-hover:border-teal-400/50 transition-all duration-300 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-teal-900/50 to-transparent rounded-xl md:rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+
+            {/* Decorative Elements - Responsive */}
+            <div className="absolute top-5 right-5 md:top-10 md:right-10 w-12 h-12 md:w-20 md:h-20 bg-gradient-to-r from-teal-400 to-teal-300 rounded-full opacity-20 animate-ping"></div>
+            <div className="absolute bottom-10 left-5 md:bottom-20 md:left-10 w-10 h-10 md:w-16 md:h-16 bg-gradient-to-r from-teal-500 to-teal-400 rounded-full opacity-30 animate-pulse"></div>
+            <div className="absolute top-1/2 right-0 w-8 h-8 md:w-12 md:h-12 bg-gradient-to-r from-teal-300 to-teal-400 rounded-full opacity-25 animate-bounce"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 bg-gradient-to-r from-teal-500/20 to-teal-400/20 rounded-full blur-2xl animate-pulse"></div>
           </div>
-        </section>
+        </div>
+
+        {/* Image Navigation Dots - Mobile Friendly */}
+       
+      </div>
+
+      {/* Wave Bottom */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12 md:h-20 fill-gray-900/50">
+          <path
+            d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+            opacity=".25"
+          ></path>
+          <path
+            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+            opacity=".5"
+          ></path>
+          <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"></path>
+        </svg>
+      </div>
+    </section>
         {/* Website Development Section */}
         <PortfolioSlider
           title={

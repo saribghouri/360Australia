@@ -170,7 +170,7 @@ export default function ServicesSection({ scrollToRef }) {
 
               <div className="w-full lg:w-[50%]">
                 <h2 className="text-3xl font-bold uppercase text-white mb-4 transition-transform duration-300">
-                  Web Design and Developement
+                  Web Design and Development
                 </h2>
                 <p className="text-white/90 text-xl leading-relaxed mb-6">
                   Building a website is not just coding, but it’s a creative
@@ -284,11 +284,10 @@ export default function ServicesSection({ scrollToRef }) {
               <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#ffffff] to-transparent w-0 group-hover:w-full transition-all duration-500 ease-out" />
               <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-[#ffffff] group-hover:h-1/3 transition-all duration-300 ease-out rounded-full" />
               <div className="absolute top-0 right-0 w-0 h-1 bg-gradient-to-l from-[#ffffff] to-transparent group-hover:w-1/4 transition-all duration-700 ease-out delay-200" />
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                 <div className="absolute top-1/4 right-1/4 w-1 h-1 bg-[#ffffff] rounded-full animate-pulse delay-100" />
                 <div className="absolute top-3/4 left-1/4 w-1 h-1 bg-[#ffffff] rounded-full animate-pulse delay-300" />
                 <div className="absolute top-1/2 right-1/3 w-0.5 h-0.5 bg-[#ffffff] rounded-full animate-pulse delay-500" />
-              </div>
+              
               <div className="w-full lg:w-[50%] cursor-pointer">
                 <h2 className="text-3xl font-bold uppercase text-white mb-4 transition-transform duration-300">
                   Digital Marketing

@@ -14,7 +14,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Button } from "antd";
+import { Breadcrumb, Button } from "antd";
 import Header from "../../components/header";
 import ProjectCTASection from "../../components/ProjectCTASection";
 import Footer from "../../components/footer";
@@ -96,9 +96,33 @@ export default function DigitalSolutionsSection() {
       {/* <div className="mt-[110px]">
         <Header />
       </div> */}
+        <div className=" flex w-[46%] mt-[40px] justify-center  items-center">
+
+           <Breadcrumb
+                items={[
+                  {
+                    title: <a className="!text-white mb-[50px] text-[25px]" href="/about-us">Home</a>,
+                  },
+                  {
+                    title: <p className="!text-white  mb-[50px]  text-[25px]" >/</p>,
+                  },
+                  
+                  {
+                    title: <a className="!text-white   mb-[50px] text-[25px]" href="">Services</a>,
+                  },
+  {
+                    title: <p className="!text-white  mb-[50px]  text-[25px]" >/</p>,
+                  },
+                   {
+                    title: <a className="!text-white   mb-[50px] text-[25px]" href="">Graphics-Designing</a>,
+                  },
+
+                ]}
+              />
+  </div>
       <section
         ref={sectionRef}
-        className="w-full py-12 md:py-24 lg:py-32 bg-[#000] text-white"
+        className="w-full py-6 md:py-18 lg:py-22 bg-[#000] text-white"
         style={{
           backgroundRepeat: "repeat",
         }}
@@ -112,7 +136,7 @@ export default function DigitalSolutionsSection() {
             A strong brand identity helps people quickly recognise your products
             and services. We take fresh ideas and turn them into unique ones
             that help your business grow, because it’s never just a logo. It’s
-            your identity. .
+            your identity. 
           </p>
         </div>
         <div className="container px-4 md:px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 max-w-8xl mx-auto">

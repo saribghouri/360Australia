@@ -85,7 +85,7 @@ export default function ContactForm() {
   return (
     <>
         {/* Contact Form Card */}
-          <div className="bg-black/10 !border-none  cta-form rounded-2xl p-8 shadow-lg">
+          <div className="bg-black/10 !border-none  cta-form rounded-2xl p-8 shadow-lg myStateCard">
             {/* Form Title */}
             <h1 className="text-3xl text-white font-bold text-center mb-8 tracking-wider">
               NEED A SERVICE
@@ -108,22 +108,22 @@ export default function ContactForm() {
                   Enter Your Name
                 </label>
                 <input
-                  id="name"
+                  id="name "
                   type="text"
                   name="name" // Add name attribute for formData
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   onFocus={() => setIsNameActive(true)}
                   onBlur={() => setIsNameActive(false)}
-                  placeholder=""
-                  className="w-full px-2 py-4 form-border !text-white focus:outline-none transition-all duration-300"
+                  placeholder=" "
+                  className="w-full px-2 py-4 form-border  !text-white focus:outline-none transition-all myStateCard duration-300"
                   required
                 />
               </div>
               {/* Phone Input with Country Code */}
               <div className="relative">
                 <PhoneInput
-                  className="form-border"
+                  className="form-border myStateCard"
                   inputProps={{
                     id: "phone-input",
                     name: "fullPhoneNumber", // Name for formData
@@ -145,7 +145,7 @@ export default function ContactForm() {
                 <label
                   htmlFor="email"
                   className={`
-                  absolute left-2 text-white transition-all duration-300 z-20
+                  absolute left-2 text-white transition-all myStateCard duration-300 z-20
                   ${
                     shouldShowLabel(email, isEmailActive)
                       ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
@@ -164,7 +164,7 @@ export default function ContactForm() {
                   onFocus={() => setIsEmailActive(true)}
                   onBlur={() => setIsEmailActive(false)}
                   placeholder=""
-                  className="w-full px-2 py-4 form-border !text-white focus:outline-none transition-all duration-300"
+                  className="w-full px-2 py-4  form-border myStateCard !text-white focus:outline-none transition-all duration-300"
                   required
                 />
               </div>

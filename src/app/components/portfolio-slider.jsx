@@ -121,11 +121,7 @@ export default function PortfolioSlider({
                         height={300}
                         className="rounded-2xl shadow-xl border-4 border-white/20 group-hover:border-teal-400/50 transition-all duration-300 object-cover w-full h-auto aspect-[4/3]"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-teal-900/50 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                        <span className="text-white font-semibold text-lg">
-                          Project {originalIndex + 1}
-                        </span>
-                      </div>
+                      
                     </div>
                   </div>
                 );

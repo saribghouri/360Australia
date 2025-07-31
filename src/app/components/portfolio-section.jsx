@@ -1,10 +1,9 @@
 "use client";
-
 import { useState, useEffect, useRef, useCallback } from "react";
-import { X } from "lucide-react";
+import { X } from 'lucide-react';
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Debounce utility function to limit how often a function can run
 const debounce = (func, delay) => {
@@ -19,9 +18,10 @@ export default function PortfolioSection() {
   const [isVisible, setIsVisible] = useState(false);
   const carouselRef = useRef(null);
   const animationFrameId = useRef(null);
-  
+    
   const router = useRouter();
   const [currentDotIndex, setCurrentDotIndex] = useState(0);
+
   // Modal state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState(null);
@@ -73,6 +73,7 @@ export default function PortfolioSection() {
       const carousel = carouselRef.current;
       const originalContentWidth = carousel.scrollWidth / 2; // Half the total width (original items + duplicated items)
       carousel.scrollLeft += scrollSpeed;
+
       // Reset scroll position to the beginning of the original content when it reaches the end of the first set
       if (carousel.scrollLeft >= originalContentWidth) {
         carousel.scrollLeft = 0;
@@ -95,7 +96,6 @@ export default function PortfolioSection() {
         const newIndex = Math.floor(
           normalizedScrollLeft / itemFullWidthAverage
         );
-
         // Only update state if the index actually changed, using the ref for comparison
         if (newIndex !== currentDotIndexRef.current) {
           setCurrentDotIndex(newIndex);
@@ -119,6 +119,7 @@ export default function PortfolioSection() {
           animationFrameId.current = null;
         }
       };
+
       // Resume auto-scroll on mouse leave
       const handleMouseLeave = () => {
         if (!animationFrameId.current) {
@@ -171,6 +172,19 @@ export default function PortfolioSection() {
     }
   };
 
+  // Function to scroll to specific dot index
+  const scrollToDot = (index) => {
+    if (carouselRef.current) {
+      const carousel = carouselRef.current;
+      const originalContentWidth = carousel.scrollWidth / 2;
+      const itemWidth = originalContentWidth / portfolioItems.length;
+      const targetScrollLeft = index * itemWidth;
+
+      carousel.scrollLeft = targetScrollLeft;
+      setCurrentDotIndex(index);
+    }
+  };
+
   // Show modal with image only
   const handleImageClick = (item) => {
     setModalImage(item.image);
@@ -204,6 +218,7 @@ export default function PortfolioSection() {
             </div>
           </div>
         </div>
+
         {/* Carousel Container */}
         <div className="relative">
           {/* Carousel */}
@@ -238,9 +253,10 @@ export default function PortfolioSection() {
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#10d4c4] transition-colors duration-300 rounded-lg"></div>
               </div>
             ))}
+
             {/* Modal for full screen image */}
             {isModalOpen && (
-              <div  className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
                 <button
                   className="absolute top-6 right-6 cursor-pointer bg-teal-500 text-white rounded-full p-2 z-50 hover:bg-white  hover:text-black transition-colors"
                   onClick={handleCloseModal}
@@ -259,16 +275,16 @@ export default function PortfolioSection() {
               </div>
             )}
           </div>
+
           {/* Left Arrow Button */}
           <button
-            // `variant="ghost"` and `size="icon"` are likely props from a UI library
-            // and won't directly apply styles to a native button without a component wrapper.
             className="absolute -left-20 top-1/2 -translate-y-1/2 hidden lg:flex bg-teal-500 cursor-pointer text-center justify-center items-center hover:bg-teal-500 text-white rounded-full w-10 h-10 z-10"
             onClick={scrollLeft}
             aria-label="Scroll left"
           >
             <ChevronLeft className="w-8 h-8" />
           </button>
+
           {/* Right Arrow Button */}
           <button
             className="absolute -right-20 top-1/2 -translate-y-1/2 cursor-pointer bg-teal-500 text-center justify-center hidden lg:flex items-center hover:bg-teal-500 text-white rounded-full w-10 h-10 z-10"
@@ -278,18 +294,21 @@ export default function PortfolioSection() {
             <ChevronRight className="w-8 h-8" />
           </button>
         </div>
+
         {/* Dot indicators for carousel position */}
         <div className="flex justify-center mt-8 gap-2">
           {portfolioItems.map((_, index) => (
-            <span
+            <button
               key={index}
-              className={`block w-3 h-3 rounded-full transition-colors duration-300 ${
-                index === currentDotIndex ? "bg-teal-400" : "bg-gray-600"
+              onClick={() => scrollToDot(index)}
+              className={`block w-3 h-3 rounded-full transition-colors duration-300 cursor-pointer hover:scale-110 ${
+                index === currentDotIndex ? "bg-teal-400" : "bg-gray-600 hover:bg-gray-500"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
+
         {/* View More button */}
         <div className=" w-full flex justify-center mt-[40px]">
           <button
@@ -299,6 +318,7 @@ export default function PortfolioSection() {
             View More
           </button>
         </div>
+
         {/* Decorative divider */}
         <div className="mt-12 sm:mt-16 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
       </div>

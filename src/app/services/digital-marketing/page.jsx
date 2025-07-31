@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Button } from "antd";
+import { Breadcrumb, Button } from "antd";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import ProjectCTASection from "../../components/ProjectCTASection";
@@ -89,13 +89,38 @@ export default function DigitalSolutionsSection() {
       {/* <div className="mt-[110px]">
         <Header />
       </div> */}
+  <div className=" flex  w-[46%] mt-[40px] justify-center  items-center">
+
+            <Breadcrumb
+                items={[
+                  {
+                    title: <a className="!text-white mb-[50px] text-[25px]" href="/about-us">Home</a>,
+                  },
+                  {
+                    title: <p className="!text-white  mb-[50px]  text-[25px]" >/</p>,
+                  },
+                  
+                  {
+                    title: <a className="!text-white   mb-[50px] text-[25px]" href="">Services</a>,
+                  },
+  {
+                    title: <p className="!text-white  mb-[50px]  text-[25px]" >/</p>,
+                  },
+                   {
+                    title: <a className="!text-white   mb-[50px] text-[25px]" href="">Digital-Marketing</a>,
+                  },
+
+                ]}
+              />
+  </div>
       <section
         ref={sectionRef}
-        className="w-full py-12 md:py-24 lg:py-32 bg-[#000] text-white"
+        className="w-full py-6 md:py-18 lg:py-22 bg-[#000] text-white"
         style={{
           backgroundRepeat: "repeat",
         }}
       >
+       
         <div className="container px-4 md:px-6 text-start max-w-9xl mx-auto mb-20">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
             <span className="">DIGITAL </span> <br></br>

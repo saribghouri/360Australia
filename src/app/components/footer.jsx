@@ -18,15 +18,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-12 lg:gap-24 mb-4 lg:mb-6 justify-center items-start ml-4 md:ml-8 lg:ml-12">
           {/* Company Info Section */}
           <div className="flex flex-col items-center justify-center text-center lg:text-center space-y-4 lg:space-y-8">
-            <div className="flex items-center justify-center mr-[100px] md:justify-start">
+            <div className="flex items-center justify-center  md:justify-start">
               <Image
-                src="/IMG-20250710-WA0015-removebg-preview.png"
+                src="/gif/dWQGyW.gif"
                 alt="360 Australia Ventures Logo"
                 width={124}
                 height={86}
-                className="h-16 w-20 ml-[-40px] lg:ml-[0px] lg:h-[86px] lg:w-[124px] "
+                className="h-25 w-70 ml-[-40px] lg:ml-[0px] lg:h-[100px] lg:w-[454px] "
               />
-              <h1 className="text-white text-2xl font-bold  !mt-[27px]">AUSTRALIA</h1>
             </div>
             <p className="text-gray-300 text-sm md:text-base text-start lg:text-lg leading-relaxed max-w-lg">
               360 Australia is your trusted digital partner, helping businesses
@@ -41,65 +40,68 @@ export default function Footer() {
           </div>
 
           {/* Quick Links Section */}
-          <div className="flex flex-col items-center justify-center text-center lg:text-center space-y-4 ">
-            <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">
+          <div className=" flex flex-col items-center justify-center">
+
+          <div className="flex flex-col lg:items-start items-center justify-center lg:mt-[0px]  mt-[20px] text-start lg:text-start space-y-5 ">
+            <h4 className="text-xl md:text-xl lg:text-[24px] font-bold">
               Quick Links
             </h4>
             <nav className="flex flex-col gap-3">
               <a
                 href="/"
-                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
               >
                 Home
               </a>
               <a
                 href="/about-us"
-                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
               >
                 About Us
               </a>
               <a
                 href="/portfolio"
-                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
               >
                 Portfolio
               </a>
               <a
                 href="/contactsection"
-                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
               >
                 Contact
               </a>
             </nav>
           </div>
+          </div>
 
           {/* Legal Section */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
-            <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">
+          <div className="flex flex-col items-center md:items-start  mt-[20px] lg:mt-[0px] text-center md:text-left space-y-4">
+            <h4 className="text-xl md:text-xl lg:text-[24px] font-bold">
               Legal
             </h4>
             <nav className="flex flex-col gap-3">
               <a
                 href="/"
-                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
               >
                 Privacy Policy
               </a>
               <a
                 href="/about-us"
-                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
               >
                 Cookies Policy
               </a>
               <a
                 href="/portfolio"
-                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
               >
                 Terms & Conditions
               </a>
               <a
                 href="/contactsection"
-                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
               >
                 Return Policy
               </a>
@@ -107,8 +109,8 @@ export default function Footer() {
           </div>
 
           {/* Contact Info Section */}
-          <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
-            <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">
+          <div className="flex flex-col items-center md:items-start mt-[20px] lg:mt-[0px] text-center md:text-left space-y-4">
+            <h4 className="text-xl md:text-xl lg:text-[24px] font-bold">
               Contact Info
             </h4>
             <div className="space-y-3">

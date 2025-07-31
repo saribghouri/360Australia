@@ -94,13 +94,12 @@ const Header = () => {
     <>
       <nav className="bg-black py-4 px-6 md:px-12 flex w-full border-bottom z-50 fixed items-center justify-between">
         <div className="flex items-center">
-          <Link href="/" className="flex items-center ">
+          <Link href="/" className="flex items-center mb-[12px] ">
             <img
-              src="/IMG-20250710-WA0015-removebg-preview.png"
+              src="gif/dWQGyW.gif"
               alt="360 Australia Ventures Logo"
-              className="h-20 w-24 lg:h-[86px] lg:w-[124px]"
+              className="h-20 w-54 lg:h-[100px] lg:w-[274px]"
             />
-            <h1 className="text-white text-2xl font-bold !mt-[28px] !mb-[-4px]">AUSTRALIA</h1>
           </Link>
         </div>
         <div className="hidden lg:flex space-x-8 items-center">
@@ -277,7 +276,7 @@ const Header = () => {
               <div key={index} className="group">
                 <Link
                   href={service.href}
-                  className="block mb-4 pb-2 mt-[110px] border-b border-teal-500/20"
+                  className="block mb-4 pb-2 mt-[130px] border-b border-teal-500/20"
                   onClick={() => setIsServicesOpen(false)}
                 >
                   <h3 className="text-white font-bold text-lg group-hover:text-[#10d4c4] transition-colors duration-200 flex items-center">

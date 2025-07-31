@@ -117,18 +117,7 @@ export default function AnimatedMarketingSection() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start mt-[110px]">
               <div className="lg:col-span-7 space-y-6 sm:space-y-8">
                 <div className="space-y-4 sm:space-y-6">
-                  <Breadcrumb
-                    items={[
-                      {
-                        title: <a className="!text-white  mt-[-50px] mb-[50px] text-[25px]" href="">Home/</a>,
-                      },
-                      // {
-                      //   title: <a className="!text-white" href="/about-us">About Us</a>,
-                      // },
-
-
-                    ]}
-                  />
+                 
                   <div
                     className={`flex items-center transition-all duration-1000 ${isVisible
                         ? "translate-x-0 opacity-100"

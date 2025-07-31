@@ -290,17 +290,17 @@ export default function ContactUs() {
               items={[
                 {
                   title: (
-                    <a className="!text-white mt-[-50px] mb-[50px] text-[25px]" href="/about-us">
+                    <a className="!text-white mb-[50px] text-[25px]" href="/about-us">
                       Home
                     </a>
                   ),
                 },
                 {
-                  title: <p className="!text-white mb-[50px] mt-[-50px] text-[25px]">/</p>,
+                  title: <p className="!text-white mb-[50px]  text-[25px]">/</p>,
                 },
                 {
                   title: (
-                    <a className="!text-white mt-[-50px] mb-[50px] text-[25px]" href="">
+                    <a className="!text-white  mb-[50px] text-[25px]" href="">
                       Portfolio
                     </a>
                   ),

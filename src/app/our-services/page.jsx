@@ -55,37 +55,36 @@ export default function ServicesPage() {
     return (
         <div className="min-h-screen bg-black text-white overflow-x-hidden">
             {/* Hero Section */}
-            <section className="relative py-20 px-4 text-center overflow-hidden  mt-[100px]">
-                           <div className="flex w-full sm:w-[80%] md:w-[60%] lg:w-[16%] mt-8 sm:mt-12 md:mt-16 lg:mt-[10px] justify-center items-center px-4">
-      <Breadcrumb
-        items={[
-          {
-            title: (
-              <a
-                className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
-                href="/"
-              >
-                Home
-              </a>
-            ),
-          },
-     
-          {
-            title: (
-              <a
-                className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
-                href="/our-services"
-              >
-                Services /
-              </a>
-            ),
-          },
-        
-      
-        ]}
-      />
-    </div>
-                <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 via-transparent to-teal-400/5"></div>
+                <div className="flex w-full sm:w-[80%] md:w-[60%] lg:w-[16%] mt-38 sm:mt-12 md:mt-16 lg:mt-[190px] ml-[-70px] lg:ml-[100px] justify-center items-center px-4">
+                    <Breadcrumb
+                        items={[
+                            {
+                                title: (
+                                    <a
+                                        className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                                        href="/"
+                                    >
+                                        Home
+                                    </a>
+                                ),
+                            },
+                            {
+                                title: (
+                                    <a
+                                        className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                                        href="/our-services"
+                                    >
+                                        Services /
+                                    </a>
+                                ),
+                            },
+
+
+                        ]}
+                    />
+                </div>
+            <section className="relative py-20 px-4 text-center overflow-hidden  ">
+                <div className="absolute inset-0t to-teal-400/5"></div>
                 <div className="relative z-10 max-w-4xl mx-auto ">
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white uppercase bg-clip-text animate-fade-in">
                         Our  <span className="text-teal-400">Services</span>
@@ -130,8 +129,8 @@ export default function ServicesPage() {
                                 <div
                                     key={index}
                                     className={`group relative transform transition-all duration-700 ${visibleSections.includes(0)
-                                            ? "translate-y-0 opacity-100 rotate-0"
-                                            : "translate-y-20 opacity-0 rotate-12"
+                                        ? "translate-y-0 opacity-100 rotate-0"
+                                        : "translate-y-20 opacity-0 rotate-12"
                                         }`}
                                     style={{ transitionDelay: `${index * 100}ms` }}
                                 >
@@ -190,10 +189,10 @@ export default function ServicesPage() {
                                     <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-teal-400 rounded-full border-4 border-black z-10"></div>
                                     <div
                                         className={`w-full md:w-5/12 transform transition-all duration-700 ${visibleSections.includes(1)
-                                                ? "translate-x-0 opacity-100"
-                                                : item.side === "left"
-                                                    ? "-translate-x-20 opacity-0"
-                                                    : "translate-x-20 opacity-0"
+                                            ? "translate-x-0 opacity-100"
+                                            : item.side === "left"
+                                                ? "-translate-x-20 opacity-0"
+                                                : "translate-x-20 opacity-0"
                                             }`}
                                         style={{ transitionDelay: `${index * 200}ms` }}
                                     >
@@ -307,8 +306,8 @@ export default function ServicesPage() {
                             <div
                                 key={index}
                                 className={`break-inside-avoid mb-6 transform transition-all duration-700 ${visibleSections.includes(3)
-                                        ? "translate-y-0 opacity-100 scale-100"
-                                        : "translate-y-20 opacity-0 scale-95"
+                                    ? "translate-y-0 opacity-100 scale-100"
+                                    : "translate-y-20 opacity-0 scale-95"
                                     }`}
                                 style={{ transitionDelay: `${index * 100}ms` }}
                             >
@@ -386,8 +385,8 @@ export default function ServicesPage() {
                                 <div
                                     key={index}
                                     className={`flex-shrink-0 w-80 transform transition-all duration-700 ${visibleSections.includes(4)
-                                            ? "translate-x-0 opacity-100 scale-100"
-                                            : "translate-x-20 opacity-0 scale-95"
+                                        ? "translate-x-0 opacity-100 scale-100"
+                                        : "translate-x-20 opacity-0 scale-95"
                                         }`}
                                     style={{ transitionDelay: `${index * 150}ms` }}
                                 >

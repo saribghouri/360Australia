@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/lib/style.css"
@@ -38,131 +38,15 @@ export default function ContactUs() {
   const { Option } = Select
   const [phone, setPhone] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false)
-  const [recaptchaToken, setRecaptchaToken] = useState(null)
-  const [recaptchaWidgetId, setRecaptchaWidgetId] = useState(null)
   const [submitStatus, setSubmitStatus] = useState("idle")
-  const recaptchaRef = useRef(null)
-  const isInitialized = useRef(false)
 
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phoneNumber: "",
-    subject: "",
     message: "",
     service: "",
   })
-
-  // Replace with your actual reCAPTCHA site key
-  const RECAPTCHA_SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" // Test key
-
-  useEffect(() => {
-    const loadRecaptcha = () => {
-      // Prevent multiple initializations
-      if (isInitialized.current) return
-
-      if (window.grecaptcha) {
-        initializeRecaptcha()
-        return
-      }
-
-      // Check if script already exists
-      const existingScript = document.querySelector('script[src*="recaptcha"]')
-      if (existingScript) {
-        // Script exists, wait for it to load
-        const checkRecaptcha = setInterval(() => {
-          if (window.grecaptcha) {
-            clearInterval(checkRecaptcha)
-            initializeRecaptcha()
-          }
-        }, 100)
-        return
-      }
-
-      // Load reCAPTCHA v2 script
-      const script = document.createElement("script")
-      script.src = "https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit"
-      script.async = true
-      script.defer = true
-
-      // Make the callback globally available
-      window.onRecaptchaLoad = () => {
-        setRecaptchaLoaded(true)
-        initializeRecaptcha()
-      }
-
-      script.onerror = () => {
-        console.error("Failed to load reCAPTCHA")
-        isInitialized.current = false
-      }
-
-      document.head.appendChild(script)
-    }
-
-    const initializeRecaptcha = () => {
-      if (isInitialized.current) return
-
-      if (window.grecaptcha && window.grecaptcha.render && recaptchaRef.current) {
-        try {
-          // Clear any existing content
-          recaptchaRef.current.innerHTML = ""
-
-          const widgetId = window.grecaptcha.render(recaptchaRef.current, {
-            sitekey: RECAPTCHA_SITE_KEY,
-            callback: onRecaptchaSuccess,
-            "expired-callback": onRecaptchaExpired,
-            "error-callback": onRecaptchaError,
-            size: "normal",
-            theme: "light",
-          })
-
-          setRecaptchaWidgetId(widgetId)
-          setRecaptchaLoaded(true)
-          isInitialized.current = true
-        } catch (error) {
-          console.error("Error initializing reCAPTCHA:", error)
-          isInitialized.current = false
-        }
-      }
-    }
-
-    loadRecaptcha()
-
-    return () => {
-      // Cleanup function
-      if (window.onRecaptchaLoad) {
-        delete window.onRecaptchaLoad
-      }
-    }
-  }, []) // Remove RECAPTCHA_SITE_KEY from dependencies
-
-  const onRecaptchaSuccess = (token) => {
-    setRecaptchaToken(token)
-    setSubmitStatus("idle")
-  }
-
-  const onRecaptchaExpired = () => {
-    setRecaptchaToken(null)
-    setSubmitStatus("idle")
-  }
-
-  const onRecaptchaError = () => {
-    setRecaptchaToken(null)
-    setSubmitStatus("error")
-  }
-
-  const resetRecaptcha = () => {
-    if (window.grecaptcha && recaptchaWidgetId !== null) {
-      try {
-        window.grecaptcha.reset(recaptchaWidgetId)
-        setRecaptchaToken(null)
-      } catch (error) {
-        console.error("Error resetting reCAPTCHA:", error)
-      }
-    }
-  }
-
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormData((prev) => ({
@@ -180,16 +64,10 @@ export default function ContactUs() {
       service: value,
     }))
   }
-
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (isSubmitting) return
-
-    if (!recaptchaToken) {
-      setSubmitStatus("error")
-      return
-    }
 
     setIsSubmitting(true)
     setSubmitStatus("idle")
@@ -198,7 +76,6 @@ export default function ContactUs() {
       const fullFormData = {
         ...formData,
         phoneNumber: phone,
-        recaptchaToken,
       }
 
       const response = await fetch("/api/contact", {
@@ -221,19 +98,16 @@ export default function ContactUs() {
           fullName: "",
           email: "",
           phoneNumber: "",
-          subject: "",
           message: "",
           service: "",
         })
         setPhone("")
-        resetRecaptcha()
       } else {
         throw new Error(result.message || "Submission failed")
       }
     } catch (error) {
       console.error("Form submission error:", error)
       setSubmitStatus("error")
-      resetRecaptcha()
     } finally {
       setIsSubmitting(false)
     }
@@ -466,37 +340,14 @@ export default function ContactUs() {
                   className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-[#10d4c4] focus:border-transparent transition-all duration-300 text-white placeholder-gray-500 resize-none text-sm md:text-base myFormInputFontSize"
                   required
                   disabled={isSubmitting}
-                ></textarea>
-              </motion.div>
-
-              {/* reCAPTCHA v2 Widget */}
-              {/* <div className="flex flex-col items-center space-y-3">
-                <div className="w-50 flex justify-center">
-                  <div
-                    ref={recaptchaRef}
-                    style={{
-                      transform: "scale(1.2)",
-                      transformOrigin: "center",
-                    }}
-                  ></div>
-                </div>
-                {!recaptchaLoaded && (
-                  <div className="flex items-center gap-2 text-gray-400 text-sm">
-                    <div className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin"></div>
-                    Loading reCAPTCHA...
-                  </div>
-                )}
-                {recaptchaLoaded && !recaptchaToken && submitStatus === "error" && (
-                  <p className="text-red-400 text-sm">Please complete the reCAPTCHA verification</p>
-                )}
-              </div> */}
+                ></textarea>              </motion.div>
 
               <motion.button
                 whileHover={{ scale: isSubmitting ? 1 : 1.05, boxShadow: isSubmitting ? "none" : "0 5px 10px #939494" }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
                 type="submit"
-                disabled={isSubmitting || !recaptchaLoaded || !recaptchaToken}
-                className={`w-full font-semibold py-3 md:py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base ${isSubmitting || !recaptchaLoaded
+                disabled={isSubmitting}
+                className={`w-full font-semibold py-3 md:py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base ${isSubmitting
                     ? "bg-gray-600 cursor-not-allowed"
                     : "bg-[#0fa397] hover:bg-[#0fa397]"
                   } text-white`}
@@ -520,23 +371,7 @@ export default function ContactUs() {
                     </motion.span>
                   </>
                 )}
-              </motion.button>
-            </form>
-
-            {/* reCAPTCHA Badge Info */}
-            <div className="mt-4 text-center">
-              <p className="text-xs text-gray-500">
-                This site is protected by reCAPTCHA and the Google{" "}
-                <a href="https://policies.google.com/privacy" className="text-teal-400 hover:underline">
-                  Privacy Policy
-                </a>{" "}
-                and{" "}
-                <a href="https://policies.google.com/terms" className="text-teal-400 hover:underline">
-                  Terms of Service
-                </a>{" "}
-                apply.
-              </p>
-            </div>
+              </motion.button>            </form>
           </motion.div>
         </div>
       </div>

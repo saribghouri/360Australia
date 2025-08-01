@@ -20,10 +20,9 @@ export default function ContactForm() {
 
         if (!name || !fullPhoneNumber || !email || !service) {
           return { success: false, message: "All fields are required." };
-        }
-
-        try {
+        } try {
           await sendEmail({
+            templateId: "template_o7ugyvo",
             from_name: name,
             from_email: email,
             service: service,
@@ -84,171 +83,169 @@ export default function ContactForm() {
 
   return (
     <>
-        {/* Contact Form Card */}
-          <div className="bg-black/10 !border-none  cta-form rounded-2xl p-8 shadow-lg myStateCard">
-            {/* Form Title */}
-            <h1 className="text-3xl text-white font-bold text-center mb-8 tracking-wider">
-              NEED A SERVICE
-            </h1>
-            {/* Contact Form */}
-            <form action={formAction} className="space-y-6 mt-8">
-              {/* Name Input */}
-              <div className="relative">
-                <label
-                  htmlFor="name"
-                  className={`
+      {/* Contact Form Card */}
+      <div className="bg-black/10 !border-none  cta-form rounded-2xl p-8 shadow-lg myStateCard">
+        {/* Form Title */}
+        <h1 className="text-3xl text-white font-bold text-center mb-8 tracking-wider">
+          NEED A SERVICE
+        </h1>
+        {/* Contact Form */}
+        <form action={formAction} className="space-y-6 mt-8">
+          {/* Name Input */}
+          <div className="relative">
+            <label
+              htmlFor="name"
+              className={`
                   absolute left-2 text-white transition-all duration-300 z-20
-                  ${
-                    shouldShowLabel(name, isNameActive)
-                      ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
-                      : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
-                  }
+                  ${shouldShowLabel(name, isNameActive)
+                  ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
+                  : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
+                }
                 `}
-                >
-                  Enter Your Name
-                </label>
-                <input
-                  id="name "
-                  type="text"
-                  name="name" // Add name attribute for formData
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  onFocus={() => setIsNameActive(true)}
-                  onBlur={() => setIsNameActive(false)}
-                  placeholder=" "
-                  className="w-full px-2 py-4 form-border  !text-white focus:outline-none transition-all myStateCard duration-300"
-                  required
-                />
-              </div>
-              {/* Phone Input with Country Code */}
-              <div className="relative">
-                <PhoneInput
-                  className="form-border myStateCard"
-                  inputProps={{
-                    id: "phone-input",
-                    name: "fullPhoneNumber", // Name for formData
-                    required: true,
-                  }}
-                  country={"au"}
-                  value={phone}
-                  onChange={(value, country, e, formattedValue) =>
-                    setPhone(value)
-                  }
-                  containerClass="w-full phone-input-container"
-                  inputClass="w-full phone-input-field"
-                  buttonClass="phone-input-button"
-                  dropdownClass="phone-input-dropdown"
-                />
-              </div>
-              {/* Email Input */}
-              <div className="relative mb-6 mt-8">
-                <label
-                  htmlFor="email"
-                  className={`
-                  absolute left-2 text-white transition-all myStateCard duration-300 z-20
-                  ${
-                    shouldShowLabel(email, isEmailActive)
-                      ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
-                      : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
-                  }
-                `}
-                >
-                  Enter Your Email
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  name="email" // Add name attribute for formData
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  onFocus={() => setIsEmailActive(true)}
-                  onBlur={() => setIsEmailActive(false)}
-                  placeholder=""
-                  className="w-full px-2 py-4  form-border myStateCard !text-white focus:outline-none transition-all duration-300"
-                  required
-                />
-              </div>
-              {/* Service Dropdown */}
-              <div className="relative w-full max-w-lg mt-[10px]">
-              
-                <Flex gap={8}>
-                  <Select
-                    id="service"
-                    className="custom-select form-border"
-                    placeholder={<p className="text-[#838282] font-medium text-[17px]  tracking-[-0.5px] !mb-[-5px]" >Select A Service</p>}
-                    variant="borderless"
-                    style={{
-                      flex: 1,
-                      backgroundColor: "transparent",
-                      color: "#fff",
-                      height: "56px",
-                     
-                    }}
-                    styles={{
-                      dropdown: {
-                        backgroundColor: "white",
-                      },
-                    }}
-                    popupMatchSelectWidth={false}
-                    popupRender={(menu) => (
-                      <div style={{ backgroundColor: "white" }}>{menu}</div>
-                    )}
-                    options={[
-                      {
-                        value: "Website Development",
-                        label: "Website Development",
-                      },
-                      {
-                        value: "Mobile App Development",
-                        label: "Mobile App Development",
-                      },
-                      {
-                        value: "Digital Marketing",
-                        label: "Digital Marketing",
-                      },
-                      { value: "Graphic Design", label: "Graphic Design" },
-                      { value: "Video Animation", label: "Video & Animation" },
-                    ]}
-                    value={service || undefined} // Ensure controlled component works with empty string
-                    onChange={(value) => setService(value)}
-                    onFocus={() => setIsServiceActive(true)}
-                    onBlur={() => setIsServiceActive(false)}
-                  />
-                </Flex>
-                <input type="hidden" name="service" value={service} />{" "}
-                {/* Hidden input to pass service value */}
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
-                  <ChevronDown className="h-4 w-4" />
-                </div>
-              </div>
-              <div className="flex justify-center">
-                <button
-                  type="submit"
-                  disabled={state.pending} // Use state.pending for loading
-                  className="w-[70%] py-2 bg-teal-600 cursor-pointer backdrop-blur-sm border border-cyan-500/30 rounded-2xl !text-white font-semibold text-[22px] tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/25 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {state.pending ? (
-                    <div className="flex items-center justify-center space-x-2">
-                      <div className="w-2 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                      <span>SUBMITTING...</span>
-                    </div>
-                  ) : (
-                    "SUBMIT"
-                  )}
-                </button>
-              </div>
-              {showMessage && state.message && (
-                <p
-                  className={`text-center mt-4 ${state.success ? "text-green-400" : "text-red-400"}`}
-                >
-                  <div className=" bg-teal-500 text-white text-[20px] py-[20px] rounded-[6px]">
-
-                  {state.message}
-                  </div>
-                </p>
-              )}
-            </form>
+            >
+              Enter Your Name
+            </label>
+            <input
+              id="name "
+              type="text"
+              name="name" // Add name attribute for formData
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              onFocus={() => setIsNameActive(true)}
+              onBlur={() => setIsNameActive(false)}
+              placeholder=" "
+              className="w-full px-2 py-4 form-border  !text-white focus:outline-none transition-all myStateCard duration-300"
+              required
+            />
           </div>
+          {/* Phone Input with Country Code */}
+          <div className="relative">
+            <PhoneInput
+              className="form-border myStateCard"
+              inputProps={{
+                id: "phone-input",
+                name: "fullPhoneNumber", // Name for formData
+                required: true,
+              }}
+              country={"au"}
+              value={phone}
+              onChange={(value, country, e, formattedValue) =>
+                setPhone(value)
+              }
+              containerClass="w-full phone-input-container"
+              inputClass="w-full phone-input-field"
+              buttonClass="phone-input-button"
+              dropdownClass="phone-input-dropdown"
+            />
+          </div>
+          {/* Email Input */}
+          <div className="relative mb-6 mt-8">
+            <label
+              htmlFor="email"
+              className={`
+                  absolute left-2 text-white transition-all myStateCard duration-300 z-20
+                  ${shouldShowLabel(email, isEmailActive)
+                  ? "-top-3 text-xs opacity-100 bg-black/10 px-1 rounded-md"
+                  : "top-1/2 -translate-y-1/2 text-base opacity-50 pointer-events-none"
+                }
+                `}
+            >
+              Enter Your Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              name="email" // Add name attribute for formData
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onFocus={() => setIsEmailActive(true)}
+              onBlur={() => setIsEmailActive(false)}
+              placeholder=""
+              className="w-full px-2 py-4  form-border myStateCard !text-white focus:outline-none transition-all duration-300"
+              required
+            />
+          </div>
+          {/* Service Dropdown */}
+          <div className="relative w-full max-w-lg mt-[10px]">
+
+            <Flex gap={8}>
+              <Select
+                id="service"
+                className="custom-select form-border"
+                placeholder={<p className="text-[#838282] font-medium text-[17px]  tracking-[-0.5px] !mb-[-5px]" >Select A Service</p>}
+                variant="borderless"
+                style={{
+                  flex: 1,
+                  backgroundColor: "transparent",
+                  color: "#fff",
+                  height: "56px",
+
+                }}
+                styles={{
+                  dropdown: {
+                    backgroundColor: "white",
+                  },
+                }}
+                popupMatchSelectWidth={false}
+                popupRender={(menu) => (
+                  <div style={{ backgroundColor: "white" }}>{menu}</div>
+                )}
+                options={[
+                  {
+                    value: "Website Development",
+                    label: "Website Development",
+                  },
+                  {
+                    value: "Mobile App Development",
+                    label: "Mobile App Development",
+                  },
+                  {
+                    value: "Digital Marketing",
+                    label: "Digital Marketing",
+                  },
+                  { value: "Graphic Design", label: "Graphic Design" },
+                  { value: "Video Animation", label: "Video & Animation" },
+                ]}
+                value={service || undefined} // Ensure controlled component works with empty string
+                onChange={(value) => setService(value)}
+                onFocus={() => setIsServiceActive(true)}
+                onBlur={() => setIsServiceActive(false)}
+              />
+            </Flex>
+            <input type="hidden" name="service" value={service} />{" "}
+            {/* Hidden input to pass service value */}
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+              <ChevronDown className="h-4 w-4" />
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              disabled={state.pending} // Use state.pending for loading
+              className="w-[70%] py-2 bg-teal-600 cursor-pointer backdrop-blur-sm border border-cyan-500/30 rounded-2xl !text-white font-semibold text-[22px] tracking-wide transition-all duration-300 hover:shadow-lg hover:shadow-gray-500/25 focus:outline-none focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {state.pending ? (
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="w-2 h-3 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                  <span>SUBMITTING...</span>
+                </div>
+              ) : (
+                "SUBMIT"
+              )}
+            </button>
+          </div>
+          {showMessage && state.message && (
+            <p
+              className={`text-center mt-4 ${state.success ? "text-green-400" : "text-red-400"}`}
+            >
+              <div className=" bg-teal-500 text-white text-[20px] py-[20px] rounded-[6px]">
+
+                {state.message}
+              </div>
+            </p>
+          )}
+        </form>
+      </div>
     </>
   );
 }

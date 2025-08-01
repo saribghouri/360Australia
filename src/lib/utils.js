@@ -7,21 +7,19 @@ export function cn(...inputs) {
 }
 
 const SERVICE_ID = "service_wawa4t5";
-const TEMPLATE_ID = "template_o7ugyvo";
 const PUBLIC_KEY = "x-RPY84HGLmUON3Kc";
 
+const to_name = "hello 360-australia"
+const to_email = "hello@360-australia.com.au"
+
 export function sendEmail({
-  from_name,
-  from_email,
-  service,
-  phone,
-  to_name = "hello 360-australia",
-  to_email = "hello@360-australia.com.au",
+  templateId,
+  ...data
 }) {
   return emailjs.send(
     SERVICE_ID,
-    TEMPLATE_ID,
-    { from_name, to_name, from_email, to_email, service, phone },
+    templateId,
+    { ...data, to_name, to_email },
     PUBLIC_KEY
   );
 }

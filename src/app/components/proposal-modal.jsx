@@ -8,11 +8,12 @@ import { X, ArrowRight } from "lucide-react";
 import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/lib/style.css"
 import "antd/dist/reset.css"
+import { sendEmail } from "../../lib/utils";
 
 const { Option } = Select;
 
 export function RequestProposalModal({ isOpen, onClose }) {
-    const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,9 +33,16 @@ export function RequestProposalModal({ isOpen, onClose }) {
     setFormData((prev) => ({ ...prev, service: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    console.log("Form submitted:", formData);    await sendEmail({
+      templateId: "template_yzasn2z",
+      from_name: formData.name,
+      from_email: formData.email,
+      phone: phone,
+      service: formData.service,
+      project_details: formData.projectDetails
+    });
     onClose();
     alert("Proposal request submitted! We'll be in touch soon.");
   };
@@ -85,21 +93,21 @@ export function RequestProposalModal({ isOpen, onClose }) {
             required
           />
         </div>
-   <label htmlFor="email" className="text-black text-lg mb-2 block">
-            Phone
-          </label>
-          <div className="relative">
-             <PhoneInput
-                    className="border-bottom-contact text-black"
-                    country={"au"}
-                    value={phone}
-                    onChange={setPhone}
-                    containerClass="w-full myFormInputFontSizecolor"
-                    inputClass="w-full myFormInputFontSizecolor"
-                    buttonClass="text-black"
-                    // disabled={isSubmitting}
-                  />
-              </div>
+        <label htmlFor="email" className="text-black text-lg mb-2 block">
+          Phone
+        </label>
+        <div className="relative">
+          <PhoneInput
+            className="border-bottom-contact text-black"
+            country={"au"}
+            value={phone}
+            onChange={setPhone}
+            containerClass="w-full myFormInputFontSizecolor"
+            inputClass="w-full myFormInputFontSizecolor"
+            buttonClass="text-black"
+          // disabled={isSubmitting}
+          />
+        </div>
 
         {/* Services Dropdown */}
         <div>

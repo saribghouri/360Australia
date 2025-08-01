@@ -55,34 +55,34 @@ export default function ServicesPage() {
     return (
         <div className="min-h-screen bg-black text-white overflow-x-hidden">
             {/* Hero Section */}
-                <div className="flex w-full sm:w-[80%] md:w-[60%] lg:w-[16%] mt-38 sm:mt-12 md:mt-16 lg:mt-[190px] ml-[-70px] lg:ml-[100px] justify-center items-center px-4">
-                    <Breadcrumb
-                        items={[
-                            {
-                                title: (
-                                    <a
-                                        className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
-                                        href="/"
-                                    >
-                                        Home
-                                    </a>
-                                ),
-                            },
-                            {
-                                title: (
-                                    <a
-                                        className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
-                                        href="/our-services"
-                                    >
-                                        Services /
-                                    </a>
-                                ),
-                            },
+            <div className="flex w-full sm:w-[80%] md:w-[60%] lg:w-[16%] mt-38 sm:mt-12 md:mt-16 lg:mt-[190px] ml-[-70px] lg:ml-[100px] justify-center items-center px-4">
+                <Breadcrumb
+                    items={[
+                        {
+                            title: (
+                                <a
+                                    className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                                    href="/"
+                                >
+                                    Home
+                                </a>
+                            ),
+                        },
+                        {
+                            title: (
+                                <a
+                                    className="!text-white mb-6 sm:mb-8 md:mb-10 lg:mb-[50px] text-lg sm:text-xl md:text-2xl lg:text-[25px]"
+                                    href="/our-services"
+                                >
+                                    Services /
+                                </a>
+                            ),
+                        },
 
 
-                        ]}
-                    />
-                </div>
+                    ]}
+                />
+            </div>
             <section className="relative py-20 px-4 text-center overflow-hidden  ">
                 <div className="absolute inset-0t to-teal-400/5"></div>
                 <div className="relative z-10 max-w-4xl mx-auto ">
@@ -106,10 +106,10 @@ export default function ServicesPage() {
             >
                 <div className="max-w-8xl mx-auto">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold mb-4 ">
-                            Website <span className="text-teal-400 uppercase">Development</span>{" "}
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4 uppercase ">
+                            Website <span className="text-teal-400 ">Development</span>{" "}
                         </h2>
-                        <p className="text-xl text-gray-300">Building digital experiences that convert</p>
+                        <p className="text-xl text-white">Building digital experiences that convert</p>
                     </div>
                     <div className="relative">
                         <div className="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-transparent rounded-3xl"></div>
@@ -162,7 +162,7 @@ export default function ServicesPage() {
                         <h2 className="text-4xl md:text-5xl  uppercase font-bold mb-4 ">
                             Mobile App <span className="text-teal-400">Development</span>
                         </h2>
-                        <p className="text-xl text-gray-300">Native and cross-platform mobile solutions</p>
+                        <p className="text-xl text-white">Native and cross-platform mobile solutions</p>
                     </div>
                     <div className="relative">
                         {/* Timeline line */}
@@ -231,7 +231,7 @@ export default function ServicesPage() {
                         <h2 className="text-4xl md:text-5xl font-bold mb-4 uppercase ">
                             Digital <span className="text-teal-400">Marketing</span>
                         </h2>
-                        <p className="text-xl text-gray-300">Amplify your reach and drive growth</p>
+                        <p className="text-xl text-white">Amplify your reach and drive growth</p>
                     </div>
                     <div className="relative flex flex-col items-center justify-center py-10 md:min-h-screen md:py-0">
                         {/* Center circle */}
@@ -293,7 +293,7 @@ export default function ServicesPage() {
                         <h2 className="text-4xl md:text-5xl font-bold mb-4 uppercase ">
                             Graphic<span className="text-teal-400"> Design</span>{" "}
                         </h2>
-                        <p className="text-xl text-gray-300">Visual storytelling that captivates</p>
+                        <p className="text-xl text-white">Visual storytelling that captivates</p>
                     </div>
                     <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
                         {[
@@ -346,7 +346,7 @@ export default function ServicesPage() {
                         <h2 className="text-4xl md:text-5xl font-bold uppercase mb-4 ">
                             Video &<span className="text-teal-400 "> Animation</span>{" "}
                         </h2>
-                        <p className="text-xl text-gray-300">Bringing your ideas to life through motion</p>
+                        <p className="text-xl text-white">Bringing your ideas to life through motion</p>
                     </div>
                     <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-black to-black p-8">
                         <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide">

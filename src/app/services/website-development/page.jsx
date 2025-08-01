@@ -105,7 +105,7 @@ export default function DigitalSolutionsSection() {
       {/* <div className="mt-[110px]">
         <Header />
       </div> */}
-   <div className="flex w-full sm:w-[80%] md:w-[60%] lg:w-[46%] mt-8 sm:mt-12 md:mt-16 lg:mt-[70px] justify-center items-center px-4">
+   <div className="flex w-full sm:w-[80%] md:w-[60%] lg:w-[46%] mt-8 sm:mt-12 md:mt-16 lg:mt-[70px] ml-[-20px] lg:ml-[0px] justify-center items-center px-4">
       <Breadcrumb
         items={[
           {

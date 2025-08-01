@@ -157,12 +157,12 @@ export default function ClientLogosSection() {
   };
   return (
     <section
-      className="relative w-full h-54 bg-transparent overflow-hidden"
+      className="relative w-full h-34 bg-transparent mt-[40px]   lg:h-full overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <div
-        className="absolute inset-0 logo-section-gradient"
+        className="absolute inset-0 logo-section-gradient "
      
       />
 

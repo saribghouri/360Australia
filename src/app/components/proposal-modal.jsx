@@ -1,51 +1,67 @@
-{
-  ("use client");
-}
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { Modal, Input, Select } from "antd";
-import { X, ArrowRight } from "lucide-react";
+"use client"
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { Modal, Input, Select } from "antd"
+import { X, ArrowRight } from "lucide-react"
 import PhoneInput from "react-phone-input-2"
 import "react-phone-input-2/lib/style.css"
 import "antd/dist/reset.css"
-import { sendEmail } from "../../lib/utils";
+import { sendEmail } from "../../lib/utils"
 
-const { Option } = Select;
+const { Option } = Select
 
 export function RequestProposalModal({ isOpen, onClose }) {
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState("")
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     service: "", // New state for service
     projectDetails: "",
-  });
-
+  })
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
-  };
+    const { id, value } = e.target
+    setFormData((prev) => ({ ...prev, [id]: value }))
+  }
 
   // Handler for Ant Design Select component
   const handleSelectChange = (value) => {
-    setFormData((prev) => ({ ...prev, service: value }));
-  };
+    setFormData((prev) => ({ ...prev, service: value }))
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);    await sendEmail({
+    e.preventDefault()
+    console.log("Form submitted:", formData)
+    await sendEmail({
       templateId: "template_yzasn2z",
       from_name: formData.name,
       from_email: formData.email,
       phone: phone,
       service: formData.service,
-      project_details: formData.projectDetails
-    });
-    onClose();
-    alert("Proposal request submitted! We'll be in touch soon.");
-  };
+      project_details: formData.projectDetails,
+    })
+
+    // Show success message
+    setShowSuccessMessage(true)
+
+    // Reset form fields
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      projectDetails: "",
+    })
+    setPhone("")
+
+    // Hide message and close modal after 5 seconds
+    setTimeout(() => {
+      setShowSuccessMessage(false)
+      onClose()
+    }, 3000)
+  }
 
   return (
     <Modal
@@ -53,9 +69,7 @@ export function RequestProposalModal({ isOpen, onClose }) {
       onCancel={onClose}
       footer={null}
       centered
-      closeIcon={
-        <X className="h-7 w-7 text-black !bg-transparent hover:text-black hover:bg-black rounded-full p-1" />
-      }
+      closeIcon={<X className="h-7 w-7 text-black !bg-transparent hover:text-black hover:bg-black rounded-full p-1" />}
       className="!bg-white !text-white !rounded-2xl !p-0 custom-proposal-modal"
     >
       {/* Header */}
@@ -64,6 +78,7 @@ export function RequestProposalModal({ isOpen, onClose }) {
           Request a Proposal
         </h2>
       </div>
+
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-6 relative z-20">
         <div>
@@ -79,6 +94,7 @@ export function RequestProposalModal({ isOpen, onClose }) {
             required
           />
         </div>
+
         <div>
           <label htmlFor="email" className="text-black text-lg mb-2 block">
             Email
@@ -93,6 +109,7 @@ export function RequestProposalModal({ isOpen, onClose }) {
             required
           />
         </div>
+
         <label htmlFor="email" className="text-black text-lg mb-2 block">
           Phone
         </label>
@@ -105,7 +122,7 @@ export function RequestProposalModal({ isOpen, onClose }) {
             containerClass="w-full myFormInputFontSizecolor"
             inputClass="w-full myFormInputFontSizecolor"
             buttonClass="text-black"
-          // disabled={isSubmitting}
+            // disabled={isSubmitting}
           />
         </div>
 
@@ -147,25 +164,19 @@ export function RequestProposalModal({ isOpen, onClose }) {
               },
             }}
             optionRender={(option) => (
-              <div className="text-black hover:bg-teal-700 hover:text-white px-3  py-2 rounded-md">
-                {option.label}
-              </div>
+              <div className="text-black hover:bg-teal-700 hover:text-white px-3  py-2 rounded-md">{option.label}</div>
             )}
           >
             <Option value="Website Development">Website Development</Option>
-            <Option value="Mobile App Development">
-              Mobile App Development
-            </Option>
+            <Option value="Mobile App Development">Mobile App Development</Option>
             <Option value="Graphic Design">Graphic Design</Option>
             <Option value="Digital Marketing">Digital Marketing</Option>
             <Option value="Video & Animation">Video & Animation</Option>
           </Select>
         </div>
+
         <div>
-          <label
-            htmlFor="projectDetails"
-            className="text-black text-lg mb-2 block"
-          >
+          <label htmlFor="projectDetails" className="text-black text-lg mb-2 block">
             Project Details
           </label>
           <textarea
@@ -177,6 +188,7 @@ export function RequestProposalModal({ isOpen, onClose }) {
             required
           />
         </div>
+
         <motion.button
           type="submit"
           className="group relative border cursor-pointer border-teal-500 bg-teal-500 text-white px-8 py-4 rounded-lg font-bold text-lg flex items-center justify-center gap-2 w-full overflow-hidden shadow-xl"
@@ -188,12 +200,22 @@ export function RequestProposalModal({ isOpen, onClose }) {
             whileHover={{ x: "100%" }}
             transition={{ duration: 0.6 }}
           />
-          <span className="relative z-10 text-[24px] ">
-            Submit Proposal Request
-          </span>
+          <span className="relative z-10 text-[24px] ">Submit Proposal Request</span>
           <ArrowRight className="h-5 w-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
         </motion.button>
+
+        {/* Success Message */}
+        {showSuccessMessage && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="text-center p-4 bg-green-100 border mt-[20px] border-green-400 text-green-700 rounded-lg"
+          >
+            <p className="text-lg font-semibold">Proposal request submitted!</p>
+          </motion.div>
+        )}
       </form>
     </Modal>
-  );
+  )
 }

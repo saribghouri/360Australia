@@ -1,35 +1,33 @@
-"use client";
-
-import { Facebook, Linkedin, MapPin, Mail, Instagram } from "lucide-react";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+"use client"
+import { Facebook, Linkedin, MapPin, Mail, Instagram } from "lucide-react"
+import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 export default function Footer() {
-  const router = useRouter();
+  const router = useRouter()
 
   const handleContactClick = () => {
-    router.push("/about-us");
-  };
+    router.push("/about-us")
+  }
 
   return (
     <footer className="bg-black text-white py-8 md:py-12 relative">
       <div className="bg-[#10d4c4] h-[2px] mb-6 md:mb-[20px]"></div>
       <div className="max-w-8xl mx-auto px-4 md:px-8 lg:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-12 lg:gap-24 mb-4 lg:mb-6 justify-center items-start ml-4 md:ml-8 lg:ml-12">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-12 lg:gap-24 mb-4 lg:mb-6 justify-center items-start ml-4 md:ml-8 lg:ml-12">
           {/* Company Info Section */}
-          <div className="flex flex-col items-center justify-center text-center lg:text-center space-y-4 lg:space-y-8">
-            <div className="flex items-center justify-center  md:justify-start">
+          <div className="col-span-2 md:col-span-1 flex flex-col items-center justify-center text-center lg:text-center space-y-4 lg:space-y-8">
+            <div className="flex items-center justify-center md:justify-start">
               <Image
                 src="/gif/dWQGyW.gif"
                 alt="360 Australia Ventures Logo"
                 width={124}
                 height={86}
-                className="h-25 w-70 ml-[-40px] lg:ml-[0px] lg:h-[100px] lg:w-[454px] "
+                className="h-25 w-70 ml-[-40px] lg:ml-[0px] lg:h-[100px] lg:w-[454px]"
               />
             </div>
             <p className="text-gray-300 text-sm md:text-base text-start lg:text-lg leading-relaxed max-w-lg">
-              360 Australia is your trusted digital partner, helping businesses
-              grow, succeed, and stand out online.{" "}
+              360 Australia is your trusted digital partner, helping businesses grow, succeed, and stand out online.{" "}
               <button
                 onClick={handleContactClick}
                 className="rounded-[10px] cursor-pointer !text-teal-500 py-[1px] text-[15px]"
@@ -40,138 +38,123 @@ export default function Footer() {
           </div>
 
           {/* Quick Links Section */}
-          <div className=" flex flex-col items-center justify-center">
-
-          <div className="flex flex-col lg:items-start items-center justify-center lg:mt-[0px]  mt-[20px] text-start lg:text-start space-y-5 ">
-            <h4 className="text-xl md:text-xl lg:text-[24px] font-bold">
-              Quick Links
-            </h4>
-            <nav className="flex flex-col gap-3">
-              <a
-                href="/"
-                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
-              >
-                Home
-              </a>
-              <a
-                href="/about-us"
-                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
-              >
-                About Us
-              </a>
-              <a
-                href="/portfolio"
-                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
-              >
-                Portfolio
-              </a>
-              <a
-                href="/contactsection"
-                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
-              >
-                Contact
-              </a>
-            </nav>
-          </div>
+          <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col lg:items-start items-center justify-center lg:mt-[0px] mt-[20px] text-start lg:text-start space-y-5">
+              <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">Quick Links</h4>
+              <nav className="flex flex-col gap-3">
+                <a
+                  href="/"
+                  className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                >
+                  Home
+                </a>
+                <a
+                  href="/about-us"
+                  className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                >
+                  About Us
+                </a>
+                <a
+                  href="/portfolio"
+                  className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                >
+                  Portfolio
+                </a>
+                <a
+                  href="/contactsection"
+                  className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                >
+                  Contact
+                </a>
+              </nav>
+            </div>
           </div>
 
           {/* Legal Section */}
-          <div className="flex flex-col items-center md:items-start  mt-[20px] lg:mt-[0px] text-center md:text-left space-y-4">
-            <h4 className="text-xl md:text-xl lg:text-[24px] font-bold">
-              Legal
-            </h4>
+          <div className="flex flex-col items-center md:items-start mt-[20px] lg:mt-[0px] text-center md:text-left space-y-4">
+            <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">Legal</h4>
             <nav className="flex flex-col gap-3">
-              <a
-                href="/"
-                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
-              >
+              <a href="/" className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg">
                 Privacy Policy
               </a>
               <a
                 href="/about-us"
-                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
+                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
               >
                 Cookies Policy
               </a>
               <a
                 href="/portfolio"
-                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
+                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
               >
                 Terms & Conditions
               </a>
               <a
                 href="/contactsection"
-                className="text-gray-300 hover:text-white transition-colors text-lg md:text-base lg:text-lg"
+                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
               >
                 Return Policy
               </a>
             </nav>
           </div>
 
-          {/* Contact Info Section */}
-          <div className="flex flex-col items-center md:items-start mt-[20px] lg:mt-[0px] text-center md:text-left space-y-4">
-            <h4 className="text-xl md:text-xl lg:text-[24px] font-bold">
-              Contact Info
-            </h4>
+          {/* Contact Info Section - Modified for mobile layout */}
+          <div className="col-span-1 md:col-span-1 lg:col-span-1 flex flex-col items-center justify-center md:items-start mt-[20px] lg:mt-[0px] text-center md:text-left space-y-4">
+            <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">Contact Info</h4>
             <div className="space-y-3">
               <div className="flex items-start justify-center md:justify-start space-x-3">
-                <MapPin className="w-5 h-5 md:w-6 md:h-6 text-[#10d4c4] mt-1 flex-shrink-0" />
-                <p className="text-gray-300 text-sm md:text-base lg:text-lg text-left">
-                  Belmore, Sydney, Australia
+                <MapPin className="w-4 h-4 md:w-6 md:h-6 text-[#10d4c4] mt-1 flex-shrink-0" />
+                <p className="text-gray-300 text-sm md:text-base lg:text-lg text-center md:text-left">
+               Sydney, Australia
                 </p>
               </div>
-              <div className="flex items-start justify-center md:justify-start space-x-3">
-                <Mail className="w-5 h-5 md:w-6 md:h-6 text-[#10d4c4] mt-1 flex-shrink-0" />
-                <p className="text-gray-300 text-sm md:text-base lg:text-lg text-left">
-                  hello@360-australia.com.au
+              <div className="flex items-start justify-center ml-[60px] lg:ml-[0px]  md:justify-start space-x-3">
+                <Mail className="w-4 h-4 md:w-6 md:h-6 text-[#10d4c4] mt-1 flex-shrink-0" />
+                <p className="text-gray-300 text-sm  md:text-base lg:text-lg text-center md:text-left">
+                  hello@360australia.com.au
                 </p>
               </div>
             </div>
-            <div className="flex space-x-4 mt-[40px] justify-center md:justify-start">
+
+            {/* Social Media Icons - Centered on mobile */}
+            <div className="flex space-x-2 md:space-x-4 mt-[40px] justify-center">
               <a
                 href="https://www.facebook.com/profile.php?id=61577397939976"
                 className="text-teal-400 hover:text-white transition-colors"
                 aria-label="Facebook link"
               >
-                <Facebook className="w-8 h-8" />
+                <Facebook className="w-6 h-6 md:w-8 md:h-8" />
               </a>
               <a
                 href="#"
-                className="group text-teal-400 flex items-center  hover:text-white transition-colors"
+                className="group text-teal-400 flex items-center hover:text-white transition-colors"
                 aria-label="WhatsApp link"
               >
                 <Image
-                  className="w-10 h-10 transition group-hover:brightness-0 !mt-[-4px] group-hover:invert"
+                  className="w-7 h-7 md:w-10 md:h-10 transition group-hover:brightness-0 !mt-[-4px] group-hover:invert"
                   src="/lCrxIY-removebg-preview.png"
                   alt="WhatsApp icon"
                   width={40}
                   height={40}
                 />
               </a>
-              <a
-                href="#"
-                className="text-teal-400 hover:text-white transition-colors"
-                aria-label="LinkedIn link"
-              >
-                <Linkedin className="w-8 h-8" />
+              <a href="#" className="text-teal-400 hover:text-white transition-colors" aria-label="LinkedIn link">
+                <Linkedin className="w-6 h-6 md:w-8 md:h-8" />
               </a>
-              <a
-                href="#"
-                className="text-teal-400 hover:text-white transition-colors"
-                aria-label="Instagram link"
-              >
-                <Instagram className="w-8 h-8" />
+              <a href="#" className="text-teal-400 hover:text-white transition-colors" aria-label="Instagram link">
+                <Instagram className="w-6 h-6 md:w-8 md:h-8" />
               </a>
             </div>
           </div>
 
-          {/* NDIS Logo Section */}
-          <div className="flex justify-center md:justify-start  items-center md:items-start">
+          {/* NDIS Logo Section - Positioned to right of Contact Info on mobile */}
+          <div className="col-span-1 md:col-span-1 lg:col-span-1 flex justify-center md:justify-start items-start md:items-start mt-[20px] lg:mt-[0px]">
             <Image
               src="/NDIS-Logo-on-pink-removebg-preview.png"
               alt="NDIS Logo"
               width={200}
               height={100}
+              className="w-24 h-12 md:w-[200px] md:h-[100px]"
             />
           </div>
         </div>
@@ -179,11 +162,10 @@ export default function Footer() {
         {/* Copyright Section */}
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-center items-center text-center space-y-4 md:space-y-0">
           <p className="text-gray-100 text-sm md:text-base lg:text-lg">
-            © {new Date().getFullYear()} Creative sol tech. All Rights
-            Reserved.
+            © {new Date().getFullYear()} Creative sol tech. All Rights Reserved.
           </p>
         </div>
       </div>
     </footer>
-  );
+  )
 }

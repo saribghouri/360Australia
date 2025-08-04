@@ -47,15 +47,127 @@ export default function ContactUs() {
     message: "",
     service: "",
   })
+
+  const [errors, setErrors] = useState({})
+  const [touched, setTouched] = useState({})
+
+  // Validation functions
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
+  const validatePhone = (phone) => {
+    // Basic phone validation - at least 10 digits
+    const phoneRegex = /^\+?[\d\s\-\(\)]{10,}$/
+    return phoneRegex.test(phone.replace(/\s/g, ''))
+  }
+
+  const validateForm = () => {
+    const newErrors = {}
+
+    // Full Name validation
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full name is required"
+    } else if (formData.fullName.trim().length < 2) {
+      newErrors.fullName = "Name must be at least 2 characters"
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required"
+    } else if (!validateEmail(formData.email)) {
+      newErrors.email = "Please enter a valid email address"
+    }
+
+    // Phone validation
+    if (!phone.trim()) {
+      newErrors.phone = "Phone number is required"
+    } else if (!validatePhone(phone)) {
+      newErrors.phone = "Please enter a valid phone number"
+    }
+
+    // Service validation
+    if (!formData.service) {
+      newErrors.service = "Please select a service"
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required"
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters"
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
   const handleInputChange = (e) => {
     const { name, value } = e.target
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }))
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ""
+      }))
+    }
+    
     if (submitStatus !== "idle") {
       setSubmitStatus("idle")
     }
+  }
+
+  const handleBlur = (fieldName) => {
+    setTouched(prev => ({
+      ...prev,
+      [fieldName]: true
+    }))
+
+    // Validate individual field on blur
+    const newErrors = { ...errors }
+
+    switch (fieldName) {
+      case 'fullName':
+        if (!formData.fullName.trim()) {
+          newErrors.fullName = "Full name is required"
+        } else if (formData.fullName.trim().length < 2) {
+          newErrors.fullName = "Name must be at least 2 characters"
+        } else {
+          delete newErrors.fullName
+        }
+        break
+
+      case 'email':
+        if (!formData.email.trim()) {
+          newErrors.email = "Email is required"
+        } else if (!validateEmail(formData.email)) {
+          newErrors.email = "Please enter a valid email address"
+        } else {
+          delete newErrors.email
+        }
+        break
+
+      case 'message':
+        if (!formData.message.trim()) {
+          newErrors.message = "Message is required"
+        } else if (formData.message.trim().length < 10) {
+          newErrors.message = "Message must be at least 10 characters"
+        } else {
+          delete newErrors.message
+        }
+        break
+
+      default:
+        break
+    }
+
+    setErrors(newErrors)
   }
 
   const handleSelectChange = (value) => {
@@ -63,11 +175,37 @@ export default function ContactUs() {
       ...prev,
       service: value,
     }))
+    
+    // Clear service error
+    if (errors.service) {
+      setErrors(prev => ({
+        ...prev,
+        service: ""
+      }))
+    }
+  }
+
+  const handlePhoneChange = (value) => {
+    setPhone(value)
+    
+    // Clear phone error
+    if (errors.phone) {
+      setErrors(prev => ({
+        ...prev,
+        phone: ""
+      }))
+    }
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (isSubmitting) return
+
+    // Validate form before submission
+    if (!validateForm()) {
+      setSubmitStatus("error")
+      return
+    }
 
     setIsSubmitting(true)
     setSubmitStatus("idle")
@@ -102,6 +240,8 @@ export default function ContactUs() {
           service: "",
         })
         setPhone("")
+        setErrors({})
+        setTouched({})
       } else {
         throw new Error(result.message || "Submission failed")
       }
@@ -246,11 +386,25 @@ export default function ContactUs() {
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleInputChange}
+                    onBlur={() => handleBlur('fullName')}
                     placeholder="John Smith"
-                    className="w-full px-3 md:px-4 py-2 md:py-3 focus:border-transparent border-b border-gray-700 bg-transparent outline-none transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base myFormInputFontSize"
+                    className={`w-full px-3 md:px-4 py-2 md:py-3 focus:border-transparent border-b bg-transparent outline-none transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base myFormInputFontSize ${
+                      errors.fullName && touched.fullName 
+                        ? 'border-red-500 focus:border-red-500' 
+                        : 'border-gray-700 focus:border-[#10d4c4]'
+                    }`}
                     required
                     disabled={isSubmitting}
                   />
+                  {errors.fullName && touched.fullName && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-400 text-xs mt-1"
+                    >
+                      {errors.fullName}
+                    </motion.p>
+                  )}
                 </motion.div>
 
                 <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
@@ -262,11 +416,25 @@ export default function ContactUs() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
+                    onBlur={() => handleBlur('email')}
                     placeholder="youremail@domain.com"
-                    className="w-full px-3 md:px-4 py-2 md:py-3 border-b border-gray-700 bg-transparent outline-none transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base myFormInputFontSize"
+                    className={`w-full px-3 md:px-4 py-2 md:py-3 border-b bg-transparent outline-none transition-all duration-300 text-white placeholder-gray-500 text-sm md:text-base myFormInputFontSize ${
+                      errors.email && touched.email 
+                        ? 'border-red-500 focus:border-red-500' 
+                        : 'border-gray-700 focus:border-[#10d4c4]'
+                    }`}
                     required
                     disabled={isSubmitting}
                   />
+                  {errors.email && touched.email && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-400 text-xs mt-1"
+                    >
+                      {errors.email}
+                    </motion.p>
+                  )}
                 </motion.div>
               </div>
 
@@ -276,21 +444,32 @@ export default function ContactUs() {
                     Phone Number <span className="text-[#10d4c4]">*</span>
                   </label>
                   <PhoneInput
-                    className="border-bottom-contact text-black"
+                    className={`border-bottom-contact text-black ${
+                      errors.phone ? 'phone-error' : ''
+                    }`}
                     country={"au"}
                     value={phone}
-                    onChange={setPhone}
+                    onChange={handlePhoneChange}
                     containerClass="w-full myFormInputFontSize"
                     inputClass="w-full myFormInputFontSize"
                     buttonClass=""
                     disabled={isSubmitting}
                   />
+                  {errors.phone && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-400 text-xs mt-1"
+                    >
+                      {errors.phone}
+                    </motion.p>
+                  )}
                 </motion.div>
 
                 <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
                   <div>
                     <label htmlFor="service" className="block text-sm font-medium mb-2">
-                      Service Interested In
+                      Service Interested In <span className="text-[#10d4c4]">*</span>
                     </label>
                     <Select
                       id="service"
@@ -299,10 +478,13 @@ export default function ContactUs() {
                       placeholder={
                         <p className="text-gray-500 text-[17px] tracking-[-0.4px] !mb-[-1px]">Select A Service</p>
                       }
-                      className="w-full !placeholder:text-[18px] border-bottom-contact custom-selects"
+                      className={`w-full !placeholder:text-[18px] border-bottom-contact custom-selects ${
+                        errors.service ? 'select-error' : ''
+                      }`}
                       size="large"
                       required
                       disabled={isSubmitting}
+                      status={errors.service ? 'error' : ''}
                       styles={{
                         ...customStyles,
                         dropdown: {
@@ -323,6 +505,15 @@ export default function ContactUs() {
                       <Option value="Digital Marketing">Digital Marketing</Option>
                       <Option value="Video & Animation">Video & Animation</Option>
                     </Select>
+                    {errors.service && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-400 text-xs mt-1"
+                      >
+                        {errors.service}
+                      </motion.p>
+                    )}
                   </div>
                 </motion.div>
               </div>
@@ -335,19 +526,35 @@ export default function ContactUs() {
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
+                  onBlur={() => handleBlur('message')}
                   placeholder="Write message"
                   rows={4}
-                  className="w-full px-3 md:px-4 py-2 md:py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-[#10d4c4] focus:border-transparent transition-all duration-300 text-white placeholder-gray-500 resize-none text-sm md:text-base myFormInputFontSize"
+                  className={`w-full px-3 md:px-4 py-2 md:py-3 border rounded-lg focus:ring-2 focus:border-transparent transition-all duration-300 text-white placeholder-gray-500 resize-none text-sm md:text-base myFormInputFontSize ${
+                    errors.message && touched.message
+                      ? 'border-red-500 focus:ring-red-500/50'
+                      : 'border-gray-700 focus:ring-[#10d4c4]/50 focus:border-[#10d4c4]'
+                  }`}
                   required
                   disabled={isSubmitting}
-                ></textarea>              </motion.div>
+                ></textarea>
+                {errors.message && touched.message && (
+                  <motion.p
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-red-400 text-xs mt-1"
+                  >
+                    {errors.message}
+                  </motion.p>
+                )}
+              </motion.div>
 
               <motion.button
                 whileHover={{ scale: isSubmitting ? 1 : 1.05, boxShadow: isSubmitting ? "none" : "0 5px 10px #939494" }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
                 type="submit"
-                disabled={isSubmitting}
-                className={`w-full font-semibold py-3 md:py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base ${isSubmitting
+                disabled={isSubmitting || Object.keys(errors).length > 0}
+                className={`w-full font-semibold py-3 md:py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base ${
+                  isSubmitting || Object.keys(errors).length > 0
                     ? "bg-gray-600 cursor-not-allowed"
                     : "bg-[#0fa397] hover:bg-[#0fa397]"
                   } text-white`}

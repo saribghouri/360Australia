@@ -226,7 +226,6 @@ export default function ClientLogosSection() {
         </div>
       </button>
 
-      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20 bg-black/50 text-white text-xs px-3 py-1 rounded-full"></div>
 
       {isPaused && (
         <div className="absolute top-4 hidden right-4 z-20 bg-red-500/80 text-white text-xs px-3 py-1 rounded-full flex items-center space-x-1">

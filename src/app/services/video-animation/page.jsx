@@ -145,7 +145,7 @@ export default function DigitalSolutionsSection() {
         }}
       >
         <div className="container px-4 md:px-6 text-start max-w-9xl mx-auto mb-20">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+          <h1 className="text-4xl uppercase md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
             <span className="">Videos & </span> <br></br>
             <span className="text-teal-400"> Animation </span>
           </h1>

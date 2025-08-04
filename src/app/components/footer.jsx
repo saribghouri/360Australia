@@ -162,7 +162,7 @@ export default function Footer() {
         {/* Copyright Section */}
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-center items-center text-center space-y-4 md:space-y-0">
           <p className="text-gray-100 text-sm md:text-base lg:text-lg">
-            © {new Date().getFullYear()} 369 Australia. All Rights Reserved.
+            © {new Date().getFullYear()} 360 Australia. All Rights Reserved.
           </p>
         </div>
       </div>

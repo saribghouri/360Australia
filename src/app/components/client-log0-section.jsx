@@ -38,7 +38,7 @@ export default function ClientLogosSection() {
   const duplicatedLogos = [...allLogos, ...allLogos, ...allLogos];
   const renderLogo = (logo, index) => {
     const baseClasses =
-      "flex-shrink-0 mx-8 transition-transform hover:scale-105";
+      "flex-shrink-0  transition-transform hover:scale-105";
     switch (logo.type) {
       case "australia-ventures":
         return (

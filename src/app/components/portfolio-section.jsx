@@ -224,7 +224,7 @@ export default function PortfolioSection() {
           {/* Carousel */}
           <div
             ref={carouselRef}
-            className="flex gap-4 sm:gap-6 overflow-x-auto py-[30px] scrollbar-hide px-8"
+            className="flex gap-2 sm:gap-4 md:gap-6 overflow-x-auto py-[30px] scrollbar-hide px-4 sm:px-8"
             style={{
               scrollbarWidth: "none", // Hide scrollbar for Firefox
               msOverflowStyle: "none", // Hide scrollbar for IE/Edge
@@ -234,7 +234,7 @@ export default function PortfolioSection() {
               <div
                 key={`${item.id}-${index}`}
                 onClick={() => handleImageClick(item)}
-                className={`group relative overflow-hidden rounded-lg bg-gray-900 flex-shrink-0 w-74 h-58 sm:w-82 sm:h-76 transform transition-all duration-700 hover:scale-105 hover:shadow-2xl cursor-pointer ${
+                className={`group relative overflow-hidden rounded-lg bg-gray-900 flex-shrink-0 w-32 h-40 sm:w-74 sm:h-58 md:w-82 md:h-76 transform transition-all duration-700 hover:scale-105 hover:shadow-2xl cursor-pointer ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-20 opacity-0"
@@ -248,7 +248,7 @@ export default function PortfolioSection() {
                   alt={item.title}
                   fill
                   className="object-cover duration-500 group-hover:scale-110"
-                  sizes="(max-width: 640px) 356px, 388px"
+                  sizes="(max-width: 640px) 128px, (max-width: 768px) 296px, 328px"
                 />
                 <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#10d4c4] transition-colors duration-300 rounded-lg"></div>
               </div>

@@ -2,6 +2,7 @@
 import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import ChatButton from "./components/chatboot";
+import WhatsAppButton from "./components/whatsapp-button";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import Header from "./components/header";
 import Footer from "./components/footer";
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
           {children}
            <Footer />
           <ChatButton />
+          <WhatsAppButton />
         </AntdRegistry>
       </body>
     </html>

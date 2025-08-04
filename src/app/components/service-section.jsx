@@ -172,7 +172,7 @@ export default function ServicesSection({ scrollToRef }) {
                 <h2 className="text-3xl font-bold uppercase text-white mb-4 transition-transform duration-300">
                   Web Design and Development
                 </h2>
-                <p className="text-white/90 text-xl leading-relaxed mb-6">
+                <p className="text-white/90 text-xl  mb-6">
                   Building a website is not just coding, but it’s a creative
                   process to boost your digital presence.
                 </p>

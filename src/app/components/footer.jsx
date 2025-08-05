@@ -39,7 +39,7 @@ export default function Footer() {
 
           {/* Quick Links Section */}
           <div className="flex flex-col items-center justify-center">
-            <div className="flex flex-col lg:items-start items-center justify-center lg:mt-[0px] mt-[20px] text-start lg:text-start space-y-5">
+            <div className="flex flex-col lg:items-start items-start justify-center lg:mt-[0px] mt-[20px] text-start lg:text-start space-y-5">
               <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">Quick Links</h4>
               <nav className="flex flex-col gap-3">
                 <a
@@ -71,32 +71,36 @@ export default function Footer() {
           </div>
 
           {/* Legal Section */}
-          <div className="flex flex-col items-center md:items-start mt-[20px] lg:mt-[0px] text-center md:text-left space-y-4">
-            <h4 className="text-lg md:text-xl lg:text-[24px] font-bold">Legal</h4>
-            <nav className="flex flex-col gap-3">
-              <a href="/" className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg">
-                Privacy Policy
-              </a>
-              <a
-                href="/about-us"
-                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
-              >
-                Cookies Policy
-              </a>
-              <a
-                href="/portfolio"
-                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
-              >
-                Terms & Conditions
-              </a>
-              <a
-                href="/contactsection"
-                className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
-              >
-                Return Policy
-              </a>
-            </nav>
+          <div className="flex flex-col items-center justify-center">
+
+            <div className="flex flex-col lg:items-start items-start justify-center lg:mt-[0px] mt-[20px] text-start lg:text-start space-y-5">
+              <h4 className="text-lg md:text-xl lg:text-[24px] text-start font-bold">Legal</h4>
+              <nav className="flex flex-col gap-3 items-start">
+                <a href="/" className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg">
+                  Privacy Policy
+                </a>
+                <a
+                  href="/about-us"
+                  className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                >
+                  Cookies Policy
+                </a>
+                <a
+                  href="/portfolio"
+                  className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                >
+                  Terms & Conditions
+                </a>
+                <a
+                  href="/contactsection"
+                  className="text-gray-300 hover:text-white transition-colors text-sm md:text-base lg:text-lg"
+                >
+                  Return Policy
+                </a>
+              </nav>
+            </div>
           </div>
+
 
           {/* Contact Info Section - Modified for mobile layout */}
           <div className="col-span-1 md:col-span-1 lg:col-span-1 flex flex-col items-center justify-center md:items-start mt-[20px] lg:mt-[0px] text-center md:text-left space-y-4">
@@ -105,7 +109,7 @@ export default function Footer() {
               <div className="flex items-start justify-center md:justify-start space-x-3">
                 <MapPin className="w-4 h-4 md:w-6 md:h-6 text-[#10d4c4] mt-1 flex-shrink-0" />
                 <p className="text-gray-300 text-sm md:text-base lg:text-lg text-center md:text-left">
-               Sydney, Australia
+                  Sydney, Australia
                 </p>
               </div>
               <div className="flex items-start justify-center ml-[60px] lg:ml-[0px]  md:justify-start space-x-3">
@@ -162,7 +166,8 @@ export default function Footer() {
         {/* Copyright Section */}
         <div className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-center items-center text-center space-y-4 md:space-y-0">
           <p className="text-gray-100 text-sm md:text-base lg:text-lg">
-            © {new Date().getFullYear()} All Rights Reserved. ABN: 37 685 915 708
+            © {new Date().getFullYear()} All Rights Reserved. <br className="block md:hidden" />
+            ABN: 37 685 915 708
           </p>
         </div>
       </div>

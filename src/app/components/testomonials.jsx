@@ -144,7 +144,7 @@ export default function TestimonialSection() {
   }
 
   return (
-    <section className="relative min-h-screen bg-black overflow-hidden pt-8 sm:pt-16 md:pt-20 lg:pt-24">
+    <section className="relative  bg-black mb-[110px] overflow-hidden pt-8 sm:pt-16 md:pt-20 lg:pt-24">
       <div className="absolute inset-0 opacity-5 sm:opacity-10">
         <div
           className="absolute inset-0"

@@ -191,7 +191,7 @@ export function RequestProposalModal({ isOpen, onClose }) {
 
         <motion.button
           type="submit"
-          className="group relative border cursor-pointer border-teal-500 bg-teal-500 text-white px-8 py-4 rounded-lg font-bold text-lg flex items-center justify-center gap-2 w-full overflow-hidden shadow-xl"
+          className="group relative border cursor-pointer border-teal-500 bg-teal-500 text-white px-4 sm:px-8 py-4 rounded-lg font-bold text-base sm:text-lg flex items-center justify-center gap-2 w-full overflow-hidden shadow-xl"
           whileTap={{ scale: 0.98 }}
         >
           <motion.div
@@ -200,8 +200,8 @@ export function RequestProposalModal({ isOpen, onClose }) {
             whileHover={{ x: "100%" }}
             transition={{ duration: 0.6 }}
           />
-          <span className="relative z-10 text-[24px] ">Submit Proposal Request</span>
-          <ArrowRight className="h-5 w-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+          <span className="relative z-10 text-sm sm:text-lg md:text-[24px] whitespace-nowrap">Submit Proposal Request</span>
+          <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
         </motion.button>
 
         {/* Success Message */}

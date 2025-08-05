@@ -279,28 +279,25 @@ export default function PortfolioPage() {
 
       {isModalOpen && activeModalImages.length > 0 && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4">
-          <div className="fixed top-[40px] right-[250px]">
-            <button
-              className="absolute top-6 right-6 bg-teal-500 text-white rounded-full p-2 z-50 hover:bg-white hover:text-black transition-colors"
-              onClick={handleCloseModal}
-              aria-label="Close image"
-            >
-              <X className="w-7 h-7" />
-            </button>
-          </div>
-          <div className="relative max-w-screen-lg max-h-screen-lg  w-full h-full flex items-center justify-center">
-            {/* Close Button - now fixed to the viewport */}
-
+          {/* Close Button - Fixed to top-right for all screens */}
+          <button
+            className="fixed top-4 right-4 sm:top-6 sm:right-6 bg-teal-500 text-white rounded-full p-2 z-50 hover:bg-white hover:text-black transition-colors"
+            onClick={handleCloseModal}
+            aria-label="Close image"
+          >
+            <X className="w-6 h-6 sm:w-7 sm:h-7" />
+          </button>
+          
+          <div className="relative max-w-screen-lg max-h-screen-lg w-full h-full flex items-center justify-center">
             {/* Previous Button for Modal */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute sm:right-13 right-[-40px] !h-11 z-10 !sm:p-2 !p-2 !rounded-[30px] !border-none !bg-teal-500 hover:bg-white/40 transition-colors !text-white"
+            <button
+              className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 h-10 w-10 sm:h-11 sm:w-11 z-10 rounded-full bg-teal-500 hover:bg-white/40 transition-colors text-white flex items-center justify-center"
               onClick={() => navigateModal(-1)}
               aria-label="Previous image"
             >
-              <ChevronLeft className="w-8 h-8" />
-            </Button>
+              <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
+            </button>
+            
             <Image
               src={
                 activeModalImages[currentModalImageIndex] ||
@@ -309,18 +306,17 @@ export default function PortfolioPage() {
               alt={`Full screen image ${currentModalImageIndex + 1}`}
               width={1200}
               height={800}
-              className="object-contain max-w-full max-h-full !sm:ml-[-40px]"
+              className="object-contain max-w-full max-h-full px-12 sm:px-16"
             />
+            
             {/* Next Button for Modal */}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute sm:left-13  left-[-40px] !h-11 z-10 !sm:p-2  !p-2 !rounded-[30px] !border-none !bg-teal-500 hover:bg-white/40 transition-colors !text-white"
+            <button
+              className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 h-10 w-10 sm:h-11 sm:w-11 z-10 rounded-full bg-teal-500 hover:bg-white/40 transition-colors text-white flex items-center justify-center"
               onClick={() => navigateModal(1)}
               aria-label="Next image"
             >
-              <ChevronRight className="w-8 h-8" />
-            </Button>
+              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
+            </button>
           </div>
         </div>
       )}

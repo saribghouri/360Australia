@@ -7,8 +7,8 @@ import { RequestProposalModal } from "../components/proposal-modal";
 const ProjectCTASection = React.forwardRef((props, ref) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
-    <div ref={ref} className="flex w-full justify-center py-24 lg:py-[150px]">
-      <section className="relative max-w-[84%] bg-black overflow-hidden flex items-center justify-center">
+    <div ref={ref} className="flex w-full justify-center py-24  lg:py-[150px]">
+      <section className="relative max-w-[84%]  bg-black overflow-hidden flex items-center justify-center">
         {/* Background Effects */}
         <div className="absolute inset-0">
           {/* Existing blur effects */}

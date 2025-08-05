@@ -183,6 +183,11 @@ export default function ContactUs() {
         service: ""
       }))
     }
+    
+    // Reset submit status when user interacts with form
+    if (submitStatus !== "idle") {
+      setSubmitStatus("idle")
+    }
   }
 
   const handlePhoneChange = (value) => {
@@ -194,6 +199,11 @@ export default function ContactUs() {
         ...prev,
         phone: ""
       }))
+    }
+    
+    // Reset submit status when user interacts with form
+    if (submitStatus !== "idle") {
+      setSubmitStatus("idle")
     }
   }
   const handleSubmit = async (e) => {
@@ -242,6 +252,11 @@ export default function ContactUs() {
         setPhone("")
         setErrors({})
         setTouched({})
+        
+        // Allow multiple submissions by not keeping success state too long
+        setTimeout(() => {
+          setSubmitStatus("idle")
+        }, 3000) // Reset after 3 seconds
       } else {
         throw new Error(result.message || "Submission failed")
       }
@@ -552,9 +567,9 @@ export default function ContactUs() {
                 whileHover={{ scale: isSubmitting ? 1 : 1.05, boxShadow: isSubmitting ? "none" : "0 5px 10px #939494" }}
                 whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
                 type="submit"
-                disabled={isSubmitting || Object.keys(errors).length > 0}
+                disabled={isSubmitting}
                 className={`w-full font-semibold py-3 md:py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base ${
-                  isSubmitting || Object.keys(errors).length > 0
+                  isSubmitting
                     ? "bg-gray-600 cursor-not-allowed"
                     : "bg-[#0fa397] hover:bg-[#0fa397]"
                   } text-white`}

@@ -157,7 +157,7 @@ export default function ClientLogosSection() {
   };
   return (
     <section
-      className="relative w-full h-34 bg-transparent mt-[40px]   lg:h-full overflow-hidden"
+      className="relative w-full h-34 bg-transparent    lg:h-full overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
